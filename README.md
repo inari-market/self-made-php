@@ -5,7 +5,7 @@
 
 ## db.php
 - 認証情報を含むためgithbubにはアップロードしていないが，/var/www/html/wp-content/themes/lightning/db.phpが必要である．ソースコードは以下
-```
+```php
 <?php
     class DbUtil{
         const _DNS = 'mysql:host=127.0.0.1;dbname=test;charset=utf8'; //ホストをAWSのIPアドレスに
