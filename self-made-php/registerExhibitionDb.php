@@ -8,7 +8,7 @@ function register_exhibition_db($content) {
 
 session_start();
 
-if((! empty ($_POST['exhibition_name']) ) &(! empty ($_POST['start']) ) &  (! empty ($_POST['end']) )){
+if((! empty ($_POST['exhibition_name']) ) &(! empty ($_POST['start']) ) &  (! empty ($_POST['end'])  &  (! empty ($_POST['introducation']))){
 
 
     include_once dirname( __FILE__ ).'/../db.php';
@@ -17,16 +17,19 @@ if((! empty ($_POST['exhibition_name']) ) &(! empty ($_POST['start']) ) &  (! em
         $inputStart= $_POST['start'];
         $inputEnd= $_POST['end'];
         $inputOrganizer= $_POST['organizer'];
+        $inputIntroducation= $_POST['introducation'];
 
         $_SESSION['register_exhibition'] = '';
 
     try {
+            /*
             //桁数の確認
             if( strlen($inputName) > 64 || strlen($inputOrganizer) > 32){
             $_SESSION['register_exhibition']=strlen($inputOrganizer)."入力文字数を超えています";
             echo '<script type="text/javascript">window.location.href = window.location.hreg = "http://ec2-44-212-247-129.compute-1.amazonaws.com/register_exhibition";</script>';
                 exit();
             }
+            */
 
             if($inputStart > $inputEnd){
                 $tmp = $inputStart;
@@ -39,7 +42,7 @@ if((! empty ($_POST['exhibition_name']) ) &(! empty ($_POST['start']) ) &  (! em
             // :で始まる部分が後から値がセットされるプレースホルダです。
             // 複数回SQL文を実行する必要がある場合はここからexecute()までを 繰り返します。
             $dbh = DbUtil::Connect();
-            $sql = 'INSERT INTO exhibition_table (exhibition_name, start, end, organizer)
+            $sql = 'INSERT INTO exhibition_table (exhibition_name, start, end, organizer, introducation)
                     VALUES(:name, :start, :end, :organizer)';
             // SQL文を実行する準備をします。
             $stmt = $dbh->prepare( $sql );
@@ -49,6 +52,7 @@ if((! empty ($_POST['exhibition_name']) ) &(! empty ($_POST['start']) ) &  (! em
             $stmt->bindValue( ':start', $inputStart, PDO::PARAM_STR );
             $stmt->bindValue( ':end', $inputEnd, PDO::PARAM_STR );
             $stmt->bindValue( ':organizer', $inputOrganizer, PDO::PARAM_STR );
+            $stmt->bindValue( ':introducation', $inputIntroducation, PDO::PARAM_STR );
             // SQL文を実行します。
             $stmt->execute();
 
@@ -58,10 +62,12 @@ if((! empty ($_POST['exhibition_name']) ) &(! empty ($_POST['start']) ) &  (! em
             unset($inputStart);
             unset($inputEnd);
             unset($inputOrganizer);
+            unset(%$inputIntroducation);
             unset($_POST['exhibition_name']);
             unset($_POST['start']);
             unset($_POST['end']);
             unset($_POST['organizer']);
+            unset($_POST['introducation']);
 
         }catch( PDOException $e ){
             echo( '接続失敗: ' . $e->getMessage() . '<br>' );
@@ -70,7 +76,6 @@ if((! empty ($_POST['exhibition_name']) ) &(! empty ($_POST['start']) ) &  (! em
 }else {
     $_SESSION['register_exhibition']="入力に不備があります";
 }
-//header('location:http://localhost/inari/registerExhibition_sample1.php');
 echo '<script type="text/javascript">window.location.href = window.location.hreg = "http://ec2-44-212-247-129.compute-1.amazonaws.com/register_exhibition";</script>';
 exit();
  //実装時はコメント解除

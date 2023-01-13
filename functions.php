@@ -216,6 +216,11 @@ function lightning_change_generation( $old_value, $value, $option ) {
 }
 add_action( 'update_option_lightning_theme_generation', 'lightning_change_generation', 10, 3 );
 
+function init_session_start(){
+	session_start();
+  }
+  add_action('init', 'init_session_start');
+
 require get_template_directory() . '/self-made-php/regist_exhibition.php';
 require get_template_directory() . '/self-made-php/exhibitions.php';
 require get_template_directory() . '/self-made-php/regist_author.php';
