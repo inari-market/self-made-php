@@ -8,7 +8,7 @@ function register_exhibition_db($content) {
 
 session_start();
 
-if((! empty ($_POST['exhibition_name']) ) &(! empty ($_POST['start']) ) &  (! empty ($_POST['end'])  &  (! empty ($_POST['introducation']))){
+if((! empty ($_POST['exhibition_name']) ) & (! empty ($_POST['start']))  &  (! empty ($_POST['end']))  &  (! empty ($_POST['introducation']))){
 
 
     include_once dirname( __FILE__ ).'/../db.php';
