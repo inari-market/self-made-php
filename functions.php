@@ -216,11 +216,11 @@ function lightning_change_generation( $old_value, $value, $option ) {
 }
 add_action( 'update_option_lightning_theme_generation', 'lightning_change_generation', 10, 3 );
 
-require get_template_directory() . '/regist_exhibition.php';
-require get_template_directory() . '/exhibitions.php';
-require get_template_directory() . '/regist_author.php';
-require get_template_directory() . '/authors.php';
-require get_template_directory() . '/show_author.php';
-require get_template_directory() . '/edit_author.php';
-require get_template_directory() . '/delete_author.php';
-require get_template_directory() . '/showAudio.php';
+require get_template_directory() . '/self-made-php/regist_exhibition.php';
+require get_template_directory() . '/self-made-php/exhibitions.php';
+require get_template_directory() . '/self-made-php/regist_author.php';
+require get_template_directory() . '/self-made-php/authors.php';
+require get_template_directory() . '/self-made-php/show_author.php';
+require get_template_directory() . '/self-made-php/edit_author.php';
+require get_template_directory() . '/self-made-php/delete_author.php';
+require get_template_directory() . '/self-made-php/showAudio.php';
