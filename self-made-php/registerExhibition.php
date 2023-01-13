@@ -39,13 +39,14 @@ function register_exhibition($content) {
             <p>開始日</p>
             <input type="date" name="start" value="<?php echo date('Y-m-d'); ?>">
             <br>
-         <p>終了日</p>
+            <p>終了日</p>
             <input type="date" name="end" value="<?php echo date('Y-m-d'); ?>">
             <br><br>
                 </div>
             <br>
             <input type="text" name="organizer" placeholder="主催者名を入力">
-
+            <br>
+            <textarea  name="introduction" rows="4" cols="40"></textarea>
             <?php
             session_start();
             if(! empty($_SESSION['register_exhibition'])){

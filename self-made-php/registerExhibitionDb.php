@@ -11,7 +11,7 @@ session_start();
 if((! empty ($_POST['exhibition_name']) ) &(! empty ($_POST['start']) ) &  (! empty ($_POST['end']) )){
 
 
-    include_once dirname( __FILE__ ).'/db.php';
+    include_once dirname( __FILE__ ).'/../db.php';
     // 前のページから値を取得します。
         $inputName= $_POST['exhibition_name'];
         $inputStart= $_POST['start'];
@@ -25,7 +25,6 @@ if((! empty ($_POST['exhibition_name']) ) &(! empty ($_POST['start']) ) &  (! em
             if( strlen($inputName) > 64 || strlen($inputOrganizer) > 32){
             $_SESSION['register_exhibition']=strlen($inputOrganizer)."入力文字数を超えています";
             echo '<script type="text/javascript">window.location.href = window.location.hreg = "http://ec2-44-212-247-129.compute-1.amazonaws.com/register_exhibition";</script>';
-                //header('location:http://localhost/inari/registerExhibition_sample1.php');
                 exit();
             }
 
