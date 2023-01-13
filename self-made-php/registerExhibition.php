@@ -28,23 +28,21 @@ function register_exhibition($content) {
     </style>
     </head>
     <body>
-        <div class='c'>
+        <div class='l'>
     <h1>企画展情報の入力</h1>
         <form action="http://ec2-44-212-247-129.compute-1.amazonaws.com/register_exhibition_db/" method="POST">
 
             <br>
             <p>企画展名</p>
                 <input type="text" name="exhibition_name" placeholder="企画展名を入力">
-                <div class='l'>
             <p>開始日</p>
-            <input type="date" name="start" value="<?php echo date('Y-m-d'); ?>">
+                <input type="date" name="start" value="<?php echo date('Y-m-d'); ?>">
             <p>終了日</p>
-            <input type="date" name="end" value="<?php echo date('Y-m-d'); ?>">
-                </div>
+                <input type="date" name="end" value="<?php echo date('Y-m-d'); ?>">
             <p>主催者名</p>
-            <input type="text" name="organizer" placeholder="主催者名を入力">
+                <input type="text" name="organizer" placeholder="主催者名を入力">
             <p>概要</p>
-            <textarea  name="introduction" rows="4" cols="40"></textarea>
+                <textarea  name="introduction" rows="4" cols="40"></textarea>
             <?php
             session_start();
             if(! empty($_SESSION['register_exhibition'])){
