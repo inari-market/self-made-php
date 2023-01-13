@@ -1,0 +1,38 @@
+create table schedule(
+    id          int             not null check(id <> ''),
+    name        varchar(255)    not null check(name <> ''),
+    start      date             not null,
+    end         date            not null check(start < end),
+    auganizer   varchar(255)
+);
+
+create table exhibition (
+    id           int auto_increment,  
+    name         varchar(255) not null,
+    start        date not null,  
+    end          date not null,
+    organizer    varchar(255),
+    introduction varchar(1023),
+    check(name <> ''),
+    check(start < end),
+    check(organizer <> ''),
+    primary key(id)
+);
+
+create table author (
+    id           int           auto_increment,
+    name         varchar(255)  not null check(name <> ''),
+    furigana     varchar(255)  not null check(furigana <> ''),
+    birthday     date,
+    introduction varchar(1024) not null check(introduction <> ''),
+    birthplace   varchar(255),
+    work         varchar(255),
+    image        char(255)     default 'noimage.png',
+    primary key(id)
+);
+
+create table audio1 (
+    id int auto_increment,
+    name char(255),
+    primary key(id)
+);
