@@ -224,5 +224,5 @@ require get_template_directory() . '/self-made-php/show_author.php';
 require get_template_directory() . '/self-made-php/edit_author.php';
 require get_template_directory() . '/self-made-php/delete_author.php';
 require get_template_directory() . '/self-made-php/showAudio.php';
-require get_template_directory() . '/self-made-php/registerExhibition.php';
-require get_template_directory() . '/self-made-php/registerExhibitionDb.php';
+//require get_template_directory() . '/self-made-php/registerExhibition.php';
+//require get_template_directory() . '/self-made-php/registerExhibitionDb.php';
