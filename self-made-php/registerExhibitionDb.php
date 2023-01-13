@@ -43,7 +43,7 @@ if((! empty ($_POST['exhibition_name']) ) &(! empty ($_POST['start']) ) &  (! em
             // 複数回SQL文を実行する必要がある場合はここからexecute()までを 繰り返します。
             $dbh = DbUtil::Connect();
             $sql = 'INSERT INTO exhibition_table (exhibition_name, start, end, organizer, introducation)
-                    VALUES(:name, :start, :end, :organizer)';
+                    VALUES(:name, :start, :end, :organizer, :introducation)';
             // SQL文を実行する準備をします。
             $stmt = $dbh->prepare( $sql );
             // プレースホルダに実際の値をバインドします。
