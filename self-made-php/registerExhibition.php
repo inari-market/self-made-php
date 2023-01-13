@@ -34,13 +34,13 @@ function register_exhibition($content) {
 
             <br>
             <p>企画展名</p>
-                <input type="text" name="exhibition_name" placeholder="企画展名を入力">
+                <input type="text" name="exhibition_name" placeholder="企画展名を入力"> <br>
             <p>開始日</p>
-                <input type="date" name="start" value="<?php echo date('Y-m-d'); ?>">
+                <input type="date" name="start" value="<?php echo date('Y-m-d'); ?>"> <br>
             <p>終了日</p>
-                <input type="date" name="end" value="<?php echo date('Y-m-d'); ?>">
+                <input type="date" name="end" value="<?php echo date('Y-m-d'); ?>"> <br>
             <p>主催者名</p>
-                <input type="text" name="organizer" placeholder="主催者名を入力">
+                <input type="text" name="organizer" placeholder="主催者名を入力"> <br>
             <p>概要</p>
                 <textarea  name="introduction" rows="4" cols="40"></textarea>
             <?php
