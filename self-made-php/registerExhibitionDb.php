@@ -22,14 +22,14 @@ if((! empty ($_POST['exhibition_name']) ) &(! empty ($_POST['start']) ) &  (! em
         $_SESSION['register_exhibition'] = '';
 
     try {
-            /*
+            
             //桁数の確認
             if( strlen($inputName) > 64 || strlen($inputOrganizer) > 32){
             $_SESSION['register_exhibition']=strlen($inputOrganizer)."入力文字数を超えています";
             echo '<script type="text/javascript">window.location.href = window.location.hreg = "http://ec2-44-212-247-129.compute-1.amazonaws.com/register_exhibition";</script>';
                 exit();
             }
-            */
+            
 
             if($inputStart > $inputEnd){
                 $tmp = $inputStart;
