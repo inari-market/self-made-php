@@ -62,7 +62,7 @@ if((! empty ($_POST['exhibition_name']) ) &(! empty ($_POST['start']) ) &  (! em
             unset($inputStart);
             unset($inputEnd);
             unset($inputOrganizer);
-            unset(%$inputIntroducation);
+            unset($inputIntroducation);
             unset($_POST['exhibition_name']);
             unset($_POST['start']);
             unset($_POST['end']);
