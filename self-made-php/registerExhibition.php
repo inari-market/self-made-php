@@ -41,8 +41,8 @@ function register_exhibition($content) {
                 <input type="date" name="end" value="<?php echo date('Y-m-d'); ?>"> <br><br>
             <p>主催者名</p>
                 <input type="text" name="organizer" placeholder="主催者名を入力"> <br>
-            <p>概要</p>
-                <textarea  name="introduction" rows="4" cols="40"></textarea>
+            <p>概要</p> 
+                <textarea  name="introduction" rows="4" cols="40" maxlength="160"></textarea>
             <?php
             session_start();
             if(! empty($_SESSION['register_exhibition'])){
