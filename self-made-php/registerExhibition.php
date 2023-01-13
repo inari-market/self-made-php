@@ -34,15 +34,15 @@ function register_exhibition($content) {
 
             <br>
             <p>企画展名</p>
-                <input type="text" name="exhibition_name" placeholder="企画展名を入力"> <br>
+                <input type="text" name="exhibition_name" placeholder="企画展名を入力" maxlength="64"> <br>
             <p>開始日</p>
                 <input type="date" name="start" value="<?php echo date('Y-m-d'); ?>"> <br><br>
             <p>終了日</p>
                 <input type="date" name="end" value="<?php echo date('Y-m-d'); ?>"> <br><br>
             <p>主催者名</p>
-                <input type="text" name="organizer" placeholder="主催者名を入力"> <br>
+                <input type="text" name="organizer" placeholder="主催者名を入力" maxlength="32"> <br>
             <p>概要</p> 
-                <textarea  name="introduction" rows="4" cols="40"></textarea>
+                <textarea  name="introduction" rows="4" cols="40" maxlength="160"></textarea>
             <?php
             session_start();
             if(! empty($_SESSION['register_exhibition'])){
