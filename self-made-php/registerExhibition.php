@@ -28,24 +28,21 @@ function register_exhibition($content) {
     </style>
     </head>
     <body>
-        <div class='c'>
+        <div class='l'>
     <h1>企画展情報の入力</h1>
         <form action="http://ec2-44-212-247-129.compute-1.amazonaws.com/register_exhibition_db/" method="POST">
 
-            <br><br><br>
-                <input type="text" name="exhibition_name" placeholder="企画 展名を入力">
             <br>
-                <div class='l'>
+            <p>企画展名</p>
+                <input type="text" name="exhibition_name" placeholder="企画展名を入力" maxlength="64"> <br>
             <p>開始日</p>
-            <input type="date" name="start" value="<?php echo date('Y-m-d'); ?>">
-            <br>
-         <p>終了日</p>
-            <input type="date" name="end" value="<?php echo date('Y-m-d'); ?>">
-            <br><br>
-                </div>
-            <br>
-            <input type="text" name="organizer" placeholder="主催者名を入力">
-
+                <input type="date" name="start" value="<?php echo date('Y-m-d'); ?>"> <br><br>
+            <p>終了日</p>
+                <input type="date" name="end" value="<?php echo date('Y-m-d'); ?>"> <br><br>
+            <p>主催者名</p>
+                <input type="text" name="organizer" placeholder="主催者名を入力" maxlength="32"> <br>
+            <p>概要</p> 
+                <textarea  name="introduction" rows="4" cols="40" maxlength="160" placeholder="企画展の概要を入力"></textarea>
             <?php
             session_start();
             if(! empty($_SESSION['register_exhibition'])){
