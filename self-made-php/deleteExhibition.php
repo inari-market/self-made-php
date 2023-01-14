@@ -33,11 +33,12 @@ function delete_exhibition($content) {
                   <th>展示会名</th>
                   <th>開始日</th>
                   <th>終了日</th>
-                  <th>主催者</th>
+                  <th>主催者名</th>
+                  <th>概要</th>
                   </tr>
 
         <?php
-        include_once dirname( __FILE__ ).'/db.php';
+        include_once dirname( __FILE__ ).'/../db.php';
             // データベースに接続します。
             $dbh = DbUtil::Connect();
 
@@ -47,9 +48,6 @@ function delete_exhibition($content) {
             $sql = 'SELECT * FROM exhibition_table';
             // SQL文を実行する準備をします。
             $stmt = $dbh->prepare( $sql );
-            // プレースホルダに実際の値をバインドします。
-            //   ->bindValue( プレースホルダ名, バインドする値, データの型 )
-            //$stmt->bindValue( ':inputId', $inputId, PDO::PARAM_INT );
             // SQL文を実行します。
             $stmt->execute();
             ?>
@@ -61,6 +59,7 @@ function delete_exhibition($content) {
             <td><?php echo $row['start']; ?></td>
             <td><?php echo $row['end']; ?></td>
             <td><?php echo $row['organizer']; ?></td>
+            <td><?php echo htmlspecialchars($row['introducation'], ENT_QUOTES, 'UTF-8'); ?></td>
            <td><a href="http://ec2-44-212-247-129.compute-1.amazonaws.com/wp-admin/delete_exhibition_db?id=<?php echo $row['exhibition_id']; ?>">削除</a></td>
         </tr>
     <?php } ?>

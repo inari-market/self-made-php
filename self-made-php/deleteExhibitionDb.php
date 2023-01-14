@@ -17,7 +17,7 @@ if (empty($id)) {
 }
 
 try {
-    include_once dirname( __FILE__ ).'/db.php';
+    include_once dirname( __FILE__ ).'/../db.php';
     // SQL文を用意します。
     // :で始まる部分が後から値がセットされるプレースホルダです。
     // 複数回SQL文を実行する必要がある場合はここからexecute()までを繰り返し ます。
