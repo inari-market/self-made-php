@@ -25,12 +25,12 @@ function delete_exhibition($content) {
     </head>
     <body>
         <div class='c'>
-    <h1>展示会情報</h1>
+    <h1>企画展情報</h1>
 
                 <table width="90%" class ='c'>
                 <tr>
-                  <th>展示会ID</th>
-                  <th>展示会名</th>
+                  <th>企画展ID</th>
+                  <th>企画展名</th>
                   <th>開始日</th>
                   <th>終了日</th>
                   <th>主催者名</th>
