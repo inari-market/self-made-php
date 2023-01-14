@@ -6,6 +6,7 @@
 ## 環境
 - http:apache
 - DB:mariadb
+- phpのバージョン:hoge
 
 ## db.php
 - 認証情報を含むためgithbubにはアップロードしていないが，/var/www/html/wp-content/themes/lightning/db.phpが必要である．ソースコードは以下
