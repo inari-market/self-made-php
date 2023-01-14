@@ -3,6 +3,9 @@
 - AWSのec2にwordpressをインストールしてください
 - wordpressでテーマとしてlightningを使うことを前提としています．
 - /var/www/html/wp-content/themes/lightningで'git clone git@github.com:inari-market/self-made-php.git .' としてください
+## 環境
+- http:apache
+- DB:mariadb
 
 ## db.php
 - 認証情報を含むためgithbubにはアップロードしていないが，/var/www/html/wp-content/themes/lightning/db.phpが必要である．ソースコードは以下
