@@ -17,14 +17,22 @@ if((! empty ($_POST['workshop_name']) ) & (! empty ($_POST['start']))  &  (! emp
         
         $inputName= $_POST['workshop_name'];
         $inputIntroduction= $_POST['introduction'];
-        $inputCapacity=(int)$_POST['capacity'];
-        $inputCost=(int)$_POST['cost'];
+        $inputCapacity=$_POST['capacity'];
+        $inputCost=$_POST['cost'];
         $inputOrganizer= $_POST['organizer'];
         $inputStart= $_POST['start'];
         $inputEnd= $_POST['end'];
         $inputDeadline= $_POST['deadline'];
         $_SESSION['register_workshop'] = '';
 
+        if(is_int($inputCapacity) & is_int($inputCost)) {
+            $inputCapacity=(int)$inputCapacity;
+            $inputCost=(int)$inputCost;
+        }else{
+            $_SESSION['register_workshop']="参加人数および料金は数値でご入力ください";
+            echo '<script type="text/javascript">window.location.href = window.location.hreg = "http://ec2-44-212-247-129.compute-1.amazonaws.com/register_workshop";</script>';
+            exit();
+        }
     try {            
 
             if($inputStart > $inputEnd){
