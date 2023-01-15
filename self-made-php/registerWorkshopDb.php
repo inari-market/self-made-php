@@ -23,7 +23,6 @@ if((! empty ($_POST['workshop_name']) ) & (! empty ($_POST['start']))  &  (! emp
         $inputStart= $_POST['start'];
         $inputEnd= $_POST['end'];
         $inputDeadline= $_POST['deadline'];
-        echo($inputName. $inputIntroduction.$inputCapacity.$inputCost.$inputOrganizer.$inputStart.$inputEnd.$inputDeadline);
         $_SESSION['register_workshop'] = '';
 
     try {            

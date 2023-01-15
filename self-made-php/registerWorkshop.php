@@ -38,7 +38,7 @@ function register_workshop($content) {
             <p>主催者</p>
                 <input type="text" name="organizer" placeholder="主催者名を入力" maxlength="32"> <br>
             <p>概要</p> 
-                <textarea  name="introduction" rows="16" cols="64" maxlength="1024" placeholder="ワークショップの概要を入力"></textarea> <br>
+                <textarea  name="introduction" cols="40" maxlength="1024" placeholder="ワークショップの概要を入力"></textarea> <br>
             <p>参加可能人数</p>
                 <input type="text" name="capacity" placeholder="参加可能人数を入力" maxlength="11"> <br>
             <p>一人あたりの参加料金</p>
