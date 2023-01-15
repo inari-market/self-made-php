@@ -233,3 +233,4 @@ require get_template_directory() . '/self-made-php/registerExhibition.php';
 require get_template_directory() . '/self-made-php/registerExhibitionDb.php';
 require get_template_directory() . '/self-made-php/deleteExhibition.php';
 require get_template_directory() . '/self-made-php/deleteExhibitionDb.php';
+require get_template_directory() . '/self-made-php/showExhibition.php';
