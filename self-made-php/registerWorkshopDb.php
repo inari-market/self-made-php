@@ -14,6 +14,7 @@ if((! empty ($_POST['workshop_name']) ) & (! empty ($_POST['start']))  &  (! emp
 
     include_once dirname( __FILE__ ).'/../db.php';
     // 前のページから値を取得します。
+        
         $inputName= $_POST['workshop_name'];
         $inputIntroduction= $_POST['introduction'];
         $inputCapacity=(int)$_POST['capacity'];
@@ -22,7 +23,7 @@ if((! empty ($_POST['workshop_name']) ) & (! empty ($_POST['start']))  &  (! emp
         $inputStart= $_POST['start'];
         $inputEnd= $_POST['end'];
         $inputDeadline= $_POST['deadline'];
-
+        echo($inputName. $inputIntroduction.$inputCapacity.$inputCost.$inputOrganizer.$inputStart.$inputEnd.$inputDeadline);
         $_SESSION['register_workshop'] = '';
 
     try {            
