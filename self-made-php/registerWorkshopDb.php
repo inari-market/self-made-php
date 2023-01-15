@@ -51,7 +51,7 @@ if((! empty ($_POST['workshop_name']) ) & (! empty ($_POST['start']))  &  (! emp
             $stmt->bindValue( ':cost', $inputCost, PDO::PARAM_INT );
             $stmt->bindValue( ':start', $inputStart, PDO::PARAM_STR );
             $stmt->bindValue( ':end', $inputEnd, PDO::PARAM_STR );
-            $stmt->bindValue( ':introduction', $inputDeadline, PDO::PARAM_STR );
+            $stmt->bindValue( ':deadline', $inputDeadline, PDO::PARAM_STR );
 
             // SQL文を実行します。
             $stmt->execute();
