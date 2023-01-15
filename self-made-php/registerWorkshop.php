@@ -38,11 +38,11 @@ function register_workshop($content) {
             <p>主催者</p>
                 <input type="text" name="organizer" placeholder="主催者名を入力" maxlength="32"> <br>
             <p>概要</p> 
-                <textarea  name="introduction" rows="4" cols="40" maxlength="160" placeholder="ワークショップの概要を入力"></textarea> <br>
+                <textarea  name="introduction" rows="16" cols="64" maxlength="1024" placeholder="ワークショップの概要を入力"></textarea> <br>
             <p>参加可能人数</p>
-                <input type="number" name="capacity" placeholder="参加可能人数を入力" maxlength="11"> <br>
+                <input type="text" name="capacity" placeholder="参加可能人数を入力" maxlength="11"> <br>
             <p>一人あたりの参加料金</p>
-                <input type="number" name="cost" placeholder="一人あたりの参加料金を入力" maxlength="11"> <br>
+                <input type="text" name="cost" placeholder="一人あたりの参加料金を入力" maxlength="11"> <br>
             <p>開始日</p>
                 <input type="date" name="start" value="<?php echo date('Y-m-d'); ?>"> <br><br>
             <p>終了日</p>

@@ -16,8 +16,8 @@ if((! empty ($_POST['workshop_name']) ) & (! empty ($_POST['start']))  &  (! emp
     // 前のページから値を取得します。
         $inputName= $_POST['workshop_name'];
         $inputIntroduction= $_POST['introduction'];
-        $inputCapacity=$_POST['capacity'];
-        $inputCost=$_POST['cost'];
+        $inputCapacity=(int)$_POST['capacity'];
+        $inputCost=(int)$_POST['cost'];
         $inputOrganizer= $_POST['organizer'];
         $inputStart= $_POST['start'];
         $inputEnd= $_POST['end'];
@@ -37,14 +37,13 @@ if((! empty ($_POST['workshop_name']) ) & (! empty ($_POST['start']))  &  (! emp
             // :で始まる部分が後から値がセットされるプレースホルダです。
             // 複数回SQL文を実行する必要がある場合はここからexecute()までを 繰り返します。
             $dbh = DbUtil::Connect();
-            $sql = 'INSERT INTO workshop (workshop_name)
-                    VALUES(:workshop_name)';
+            $sql = 'INSERT INTO workshop (workshop_name, introduction, capacity, organizer, cost, start, end, deadline)
+                    VALUES(:workshop_name, :introduction, :capacity, :organizer, :cost , :start, :end, :deadline)';
             // SQL文を実行する準備をします。
             $stmt = $dbh->prepare( $sql );
             // プレースホルダに実際の値をバインドします。
             //   ->bindValue( プレースホルダ名, バインドする値, データの型 )
             $stmt->bindValue( ':workshop_name', $inputName, PDO::PARAM_STR );
-            /*
             $stmt->bindValue( ':introduction', $inputIntroduction, PDO::PARAM_STR );
             $stmt->bindValue( ':capacity', $inputCapacity, PDO::PARAM_INT );
             $stmt->bindValue( ':organizer', $inputOrganizer, PDO::PARAM_STR );
@@ -52,7 +51,6 @@ if((! empty ($_POST['workshop_name']) ) & (! empty ($_POST['start']))  &  (! emp
             $stmt->bindValue( ':start', $inputStart, PDO::PARAM_STR );
             $stmt->bindValue( ':end', $inputEnd, PDO::PARAM_STR );
             $stmt->bindValue( ':introduction', $inputDeadline, PDO::PARAM_STR );
-            */
 
             // SQL文を実行します。
             $stmt->execute();
