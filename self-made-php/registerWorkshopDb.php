@@ -45,9 +45,9 @@ if((! empty ($_POST['workshop_name']) ) & (! empty ($_POST['start']))  &  (! emp
             //   ->bindValue( プレースホルダ名, バインドする値, データの型 )
             $stmt->bindValue( ':workshop_name', $inputName, PDO::PARAM_STR );
             $stmt->bindValue( ':introduction', $inputIntroduction, PDO::PARAM_STR );
-            $stmt->bindValue( ':capacity', $inputCapacity, PDO::PARAM_INT );
+            $stmt->bindValue( ':capacity', $inputCapacity, PDO::PARAM_STR );
             $stmt->bindValue( ':organizer', $inputOrganizer, PDO::PARAM_STR );
-            $stmt->bindValue( ':cost', $inputCost, PDO::PARAM_INT );
+            $stmt->bindValue( ':cost', $inputCost, PDO::PARAM_STR );
             $stmt->bindValue( ':start', $inputStart, PDO::PARAM_STR );
             $stmt->bindValue( ':end', $inputEnd, PDO::PARAM_STR );
             $stmt->bindValue( ':introduction', $inputDeadline, PDO::PARAM_STR );
