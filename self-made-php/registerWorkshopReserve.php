@@ -39,8 +39,8 @@ function register_workshop_reserve($content) {
             //ワークショップテーブルを参照に予約できるものをラジオボタンで表示
             include_once dirname( __FILE__ ).'/../db.php';
             $dbh = DbUtil::Connect();
-            $sql = 'SELECT * FROM workshop where deadline >= now() and capacity > count(select workshop_reserve.workshop.name from workshop_reserve, workshop
-            where workshop.workshop_id = workshop_reserve.workshop_id)';
+            $sql = 'SELECT * FROM workshop where deadline >= now() and capacity > (select count(*) from workshop_reserve where
+            workshop.workshop_id = workshop_reserve.workshop_id)';
             // SQL文を実行する準備をします。
             $stmt = $dbh->prepare( $sql );
             // SQL文を実行します。
