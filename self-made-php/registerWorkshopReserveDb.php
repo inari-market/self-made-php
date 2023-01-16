@@ -7,8 +7,10 @@ function register_workshop_reserve_db($content) {
 
 session_start();
 
-if((! empty ($_POST['id']) ) & (! empty ($_POST['name']))  &  (! empty ($_POST['phone_number'])) 
-     &  (! empty ($_POST['mail'])) ){
+//if((! empty ($_POST['id']) ) & (! empty ($_POST['name']))  &  (! empty ($_POST['phone_number'])) 
+//     &  (! empty ($_POST['mail'])) ){
+
+if((! empty ($_POST['name']))) {
 
 
     include_once dirname( __FILE__ ).'/../db.php';
