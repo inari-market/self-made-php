@@ -2,7 +2,7 @@
 //実装時はコメント解除
 
 function show_exhibition($content) {
- if( is_page( 'show_exhibition' ))  //固定ページ「sample_cal」の時だけ処理させる
+ if( is_page( 'exbitions' ))  //固定ページ「sample_cal」の時だけ処理させる
  {
 
 ?>

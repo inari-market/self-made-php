@@ -2,7 +2,7 @@
 //実装時はコメント解除
 
 function register_workshop_db($content) {
- if( is_page( 'register_workshop_db' ))  //固定ページ「sample_cal」の時だ け処理させる
+ if( is_page( 'workshops/new_db' ))  //固定ページ「sample_cal」の時だ け処理させる
  {
 
 
@@ -30,7 +30,7 @@ if((! empty ($_POST['workshop_name']) ) & (! empty ($_POST['start']))  &  (! emp
             $inputCost=(int)$inputCost;
         }else{
             $_SESSION['register_workshop']="参加人数および料金は数値でご入力ください";
-            echo '<script type="text/javascript">window.location.href = window.location.hreg = "http://ec2-44-212-247-129.compute-1.amazonaws.com/register_workshop";</script>';
+            echo '<script type="text/javascript">window.location.href = window.location.hreg = "http://ec2-44-212-247-129.compute-1.amazonaws.com/workshops/new";</script>';
             exit();
         }
     try {            
@@ -89,7 +89,7 @@ if((! empty ($_POST['workshop_name']) ) & (! empty ($_POST['start']))  &  (! emp
 }else {
     $_SESSION['register_workshop']="入力に不備があります";
 }
-echo '<script type="text/javascript">window.location.href = window.location.hreg = "http://ec2-44-212-247-129.compute-1.amazonaws.com/register_workshop";</script>';
+echo '<script type="text/javascript">window.location.href = window.location.hreg = "http://ec2-44-212-247-129.compute-1.amazonaws.com/workshops/new";</script>';
 exit();
  //実装時はコメント解除
 

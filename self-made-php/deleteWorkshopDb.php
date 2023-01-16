@@ -11,7 +11,7 @@ function delete_workshop_db($content) {
 <?php
 $id = $_GET['id'];
 if (empty($id)) {
-    echo '<script type="text/javascript">window.location.href = window.location.hreg = "http://ec2-44-212-247-129.compute-1.amazonaws.com/wp-admin/delete_workshop";</script>';
+    echo '<script type="text/javascript">window.location.href = window.location.hreg = "http://ec2-44-212-247-129.compute-1.amazonaws.com/delete_workshop";</script>';
     exit;
 }
 
@@ -31,7 +31,7 @@ try {
     $stmt->execute();
     session_start();
     $_SESSION['delete_workshop']="削除完了";
-    echo '<script type="text/javascript">window.location.href = window.location.hreg = "http://ec2-44-212-247-129.compute-1.amazonaws.com/wp-admin/delete_workshop";</script>';
+    echo '<script type="text/javascript">window.location.href = window.location.hreg = "http://ec2-44-212-247-129.compute-1.amazonaws.com/delete_workshop";</script>';
     exit();
 
 }catch( PDOException $e ){

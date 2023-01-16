@@ -2,7 +2,7 @@
 //実装時はコメント解除
 //いったん放置
 function register_workshop_reserve($content) {
-  if( is_page( 'register_workshop_reserve' ))  //固定ページ「sample_cal」の時だけ処理させる
+  if( is_page( 'workshopReserves/new' ))  //固定ページ「sample_cal」の時だけ処理させる
   {
 
 
@@ -30,7 +30,7 @@ function register_workshop_reserve($content) {
     <body>
         <div class='l'>
     <h1>ワークショップ予約の入力フォーム</h1>
-        <form action="http://ec2-44-212-247-129.compute-1.amazonaws.com/register_workshop_reserve_db/" method="POST">
+        <form action="http://ec2-44-212-247-129.compute-1.amazonaws.com/workshopReserves/new" method="POST">
 
             <br>
             <p>ワークショップの選択</p>
