@@ -40,9 +40,9 @@ function register_workshop($content) {
             <p>概要</p> 
                 <textarea  name="introduction" cols="40" maxlength="1024" placeholder="ワークショップの概要を入力"></textarea> <br>
             <p>参加可能人数</p>
-                <input type="text" name="capacity" placeholder="参加可能人数を入力" maxlength="11"> <br>
+                <input type="number" name="capacity" placeholder="参加可能人数を入力" maxlength="11"> <br>
             <p>一人あたりの参加料金</p>
-                <input type="text" name="cost" placeholder="一人あたりの参加料金を入力" maxlength="11"> <br>
+                <input type="number" name="cost" placeholder="一人あたりの参加料金を入力" maxlength="11"> <br>
             <p>開始日</p>
                 <input type="date" name="start" value="<?php echo date('Y-m-d'); ?>"> <br><br>
             <p>終了日</p>

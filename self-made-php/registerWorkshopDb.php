@@ -25,7 +25,7 @@ if((! empty ($_POST['workshop_name']) ) & (! empty ($_POST['start']))  &  (! emp
         $inputDeadline= $_POST['deadline'];
         $_SESSION['register_workshop'] = '';
 
-        if(is_int($inputCapacity) & is_int($inputCost)) {
+        if(is_int($inputCapacity) & is_int($inputCost) & $inputCapacity != 0) {
             $inputCapacity=(int)$inputCapacity;
             $inputCost=(int)$inputCost;
         }else{
