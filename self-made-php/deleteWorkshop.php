@@ -33,8 +33,8 @@ function delete_workshop($content) {
                   <th>ワークショップ名</th>
                   <th>主催者名</th>
                   <th>概要</th>
-                  <th>参加可能人数</th>
-                  <th>一人あたりの参加料金</th>
+                  <th>人数</th>
+                  <th>料金</th>
                   <th>開始日</th>
                   <th>終了日</th>
                   <th>締切日</th>
