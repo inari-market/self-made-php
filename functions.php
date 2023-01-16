@@ -233,7 +233,7 @@ require get_template_directory() . '/self-made-php/registerExhibition.php';
 require get_template_directory() . '/self-made-php/registerExhibitionDb.php';
 require get_template_directory() . '/self-made-php/deleteExhibition.php';
 require get_template_directory() . '/self-made-php/deleteExhibitionDb.php';
-require get_template_directory() . '/self-made-php/showExhibition.php';
+require get_template_directory() . '/self-made-php/self-made-php/showExhibition.php';
 require get_template_directory() . '/self-made-php/registerWorkshop.php';
 require get_template_directory() . '/self-made-php/registerWorkshopDb.php';
 require get_template_directory() . '/self-made-php/deleteWorkshop.php';
