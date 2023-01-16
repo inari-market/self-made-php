@@ -1,7 +1,7 @@
 <?php
 //実装時はコメント解除
 
-function exhibitions($content) {
+function show_exhibition($content) {
  if( is_page( 'exhibitions' ))  //固定ページ「sample_cal」の時だけ処理させる
  {
 
@@ -77,6 +77,6 @@ function exhibitions($content) {
   }
 }
 
-add_filter('the_content', 'exhibitions');
+add_filter('the_content', 'show_exhibition');
 
 ?>
