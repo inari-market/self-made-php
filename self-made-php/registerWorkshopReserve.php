@@ -48,7 +48,7 @@ function register_workshop_reserve($content) {
             ?>
 
         <?php while ($row = $stmt->fetch(PDO::FETCH_ASSOC)) { ?>
-            <input type="radio" name="id" value=<?php $row['workshop_id'] ?>> <?php echo($row['workshop_name']); ?> <br>
+            <input type="radio" name="id" value=<?php echo($row['workshop_id']); ?>> <?php echo($row['workshop_name']); ?> <br>
     <?php } ?>
             <br>
             <p>氏名</p>
