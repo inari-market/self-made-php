@@ -240,3 +240,4 @@ require get_template_directory() . '/self-made-php/deleteWorkshop.php';
 require get_template_directory() . '/self-made-php/deleteWorkshopDb.php';
 require get_template_directory() . '/self-made-php/showWorkshop.php';
 require get_template_directory() . '/self-made-php/registerWorkshopReserve.php';
+require get_template_directory() . '/self-made-php/registerWorkshopReserveDb.php';

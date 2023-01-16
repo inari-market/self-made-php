@@ -51,12 +51,12 @@ function register_workshop_reserve($content) {
             <input type="radio" name="id" value=<?php echo($row['workshop_id']);?>> <?php echo($row['workshop_name']); ?> <br>
     <?php } ?>
             <br>
-            <p>お名前</p>
-                <input type="text" name="name" placeholder="主催者名を入力" maxlength="50"> <br>
+            <p>氏名</p>
+                <input type="text" name="name" placeholder="氏名を入力" maxlength="16"> <br>
             <p>携帯電話番号</p>
-                <input type="text" name="phone_number" placeholder="主催者名を入力" maxlength="50"> <br>
+                <input type="text" name="phone_number" placeholder="携帯電話番号を入力" maxlength="16"> <br>
             <p>メールアドレス</p>
-                <input type="text" name="mail" placeholder="主催者名を入力" maxlength="50"> <br>
+                <input type="text" name="mail" placeholder="メールアドレスを入力" maxlength="50"> <br>
             
             <?php
             session_start();
