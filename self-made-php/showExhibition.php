@@ -1,7 +1,7 @@
 <?php
 //実装時はコメント解除
 echo("HELLO");
-function show_exhibition($content) {
+function exhibitions($content) {
     echo("HELLO");
  if( is_page( 'exhibitions' ))  //固定ページ「sample_cal」の時だけ処理させる
  {
@@ -78,6 +78,6 @@ function show_exhibition($content) {
   }
 }
 
-add_filter('the_content', 'show_exhibition');
+add_filter('the_content', 'exhibitions');
 
 ?>
