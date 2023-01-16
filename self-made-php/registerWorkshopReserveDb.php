@@ -21,6 +21,8 @@ if((! empty ($_POST['id']) ) & (! empty ($_POST['name']))  &  (! empty ($_POST['
 
         $_SESSION['register_workshop_reserve'] = '';
 
+
+        /*
         if(is_numeric($inputPhone) & is_numeric($inputId)) {
             $inputPhone=(int)$inputPhone;
             $inputId=(int)$inputId;
@@ -29,6 +31,7 @@ if((! empty ($_POST['id']) ) & (! empty ($_POST['name']))  &  (! empty ($_POST['
             echo '<script type="text/javascript">window.location.href = window.location.hreg = "http://ec2-44-212-247-129.compute-1.amazonaws.com/register_workshop_reserve";</script>';
             exit();
         }
+        */
     try {            
 
 
@@ -68,8 +71,9 @@ if((! empty ($_POST['id']) ) & (! empty ($_POST['name']))  &  (! empty ($_POST['
 }else {
     $_SESSION['register_workshop_reserve']="入力に不備があります";
 }
-echo '<script type="text/javascript">window.location.href = window.location.hreg = "http://ec2-44-212-247-129.compute-1.amazonaws.com/register_workshop_reserve/";</script>';
-exit();
+echo($_SESSION['register_workshop_reserve']);
+//echo '<script type="text/javascript">window.location.href = window.location.hreg = "http://ec2-44-212-247-129.compute-1.amazonaws.com/register_workshop_reserve/";</script>';
+//exit();
  //実装時はコメント解除
 
  }
