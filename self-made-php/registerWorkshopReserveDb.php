@@ -69,7 +69,7 @@ if((! empty ($_POST['id']) ) & (! empty ($_POST['name']))  &  (! empty ($_POST['
 }else {
     $_SESSION['register_workshop_reserve']="入力に不備があります";
 }
-echo '<script type="text/javascript">window.location.href = window.location.hreg = "http://ec2-44-212-247-129.compute-1.amazonaws.com/register_workshop_reserve";</script>';
+echo '<script type="text/javascript">window.location.href = window.location.hreg = "http://ec2-44-212-247-129.compute-1.amazonaws.com/register_workshop_reserve/";</script>';
 exit();
  //実装時はコメント解除
 
