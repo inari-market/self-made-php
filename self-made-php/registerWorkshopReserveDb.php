@@ -5,8 +5,6 @@ function register_workshop_reserve_db($content) {
  if( is_page( 'register_workshop_reserve_db' ))  //固定ページ「sample_cal」の時だ け処理させる
  {
 
-    echo("HELLO");
-
 session_start();
 
 if((! empty ($_POST['id']) ) & (! empty ($_POST['name']))  &  (! empty ($_POST['phone_number'])) 
@@ -38,7 +36,7 @@ if((! empty ($_POST['id']) ) & (! empty ($_POST['name']))  &  (! empty ($_POST['
             // :で始まる部分が後から値がセットされるプレースホルダです。
             // 複数回SQL文を実行する必要がある場合はここからexecute()までを 繰り返します。
             $dbh = DbUtil::Connect();
-            $sql = 'INSERT INTO workshop (workshop_id, name, phone_number, mail)
+            $sql = 'INSERT INTO workshop_reserve (workshop_id, name, phone_number, mail)
                     VALUES(:workshop_id, :name, :phone_number, :mail)';
             // SQL文を実行する準備をします。
             $stmt = $dbh->prepare( $sql );
