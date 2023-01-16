@@ -221,13 +221,6 @@ function init_session_start(){
   }
 add_action('init', 'init_session_start');
 
-function customize_tinymce_settings($mceInit) {
-    $mceInit['table_resize_bars'] = false;
-    $mceInit['object_resizing'] = "img";
-    return $mceInit;
-}
-add_filter( 'tiny_mce_before_init', 'customize_tinymce_settings' ,0);
-
 require get_template_directory() . '/self-made-php/regist_exhibition.php';
 require get_template_directory() . '/self-made-php/exhibitions.php';
 require get_template_directory() . '/self-made-php/regist_author.php';
