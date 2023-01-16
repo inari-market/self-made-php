@@ -2,7 +2,7 @@
 //実装時はコメント解除
 
 function delete_exhibition_db($content) {
- if( is_page( 'delete_exhibition_db' ))  //固定ページ「sample_cal」の時だけ 処理させる
+ if( is_page( 'exibitions/delete_db' ))  //固定ページ「sample_cal」の時だけ 処理させる
  {
 
 
