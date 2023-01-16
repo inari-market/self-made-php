@@ -36,6 +36,7 @@ function register_workshop_reserve($content) {
             <p>ワークショップの選択</p>
             
             <?php
+            /*
             //ワークショップテーブルを参照に予約できるものをラジオボタンで表示
             include_once dirname( __FILE__ ).'/../db.php';
             $dbh = DbUtil::Connect();
@@ -49,7 +50,8 @@ function register_workshop_reserve($content) {
 
         <?php while ($row = $stmt->fetch(PDO::FETCH_ASSOC)) { ?>
             <input type="radio" name="id" value=<?php $row['workshop_id'] ?>> <?php echo($row['workshop_name']); ?> <br>
-    <?php } ?>
+    <?php } 
+        */?>
             <br>
             <p>氏名</p>
                 <input type="text" name="name" placeholder="氏名を入力" maxlength="16"> <br>

@@ -15,7 +15,7 @@ if((! empty ($_POST['name']))) {
 
     include_once dirname( __FILE__ ).'/../db.php';
     // 前のページから値を取得します。
-        
+        $_POST['id'] = 1;
         $inputId= $_POST['id'];
         $inputName= $_POST['name'];
         $inputPhone=$_POST['phone_number'];
