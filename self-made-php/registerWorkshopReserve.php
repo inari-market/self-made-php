@@ -49,7 +49,7 @@ function register_workshop_reserve($content) {
 
         <?php while ($row = $stmt->fetch(PDO::FETCH_ASSOC)) { ?>
             <input type="radio" name="id" value=<?php echo($row['workshop_id']); ?>> 
-            <?php echo($row['workshop_name']."<br>"."現在予約可能人数は".$row['capacity'."です"]); ?> <br>
+            <?php echo($row['workshop_name']."<br>"."現在予約可能人数は".$row['capacity']."です"); ?> <br>
     <?php } ?>
             <br>
             <p>氏名</p>
