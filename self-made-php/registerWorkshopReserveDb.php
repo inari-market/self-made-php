@@ -5,6 +5,7 @@ function register_workshop_reserve_db($content) {
  if( is_page( 'register_workshop_reserve_db' ))  //固定ページ「sample_cal」の時だ け処理させる
  {
 
+    echo("HELLO");
 
 session_start();
 
