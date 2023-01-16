@@ -52,14 +52,14 @@ if((! empty ($_POST['id']) ) & (! empty ($_POST['name1'])) & (! empty ($_POST['p
             $stmt->execute();
             $_SESSION['register_workshop_reserve']="登録完了";
             //メース送信
-            //mb_language("Japanese");
-            //mb_internal_encoding("UTF-8");
+            mb_language("Japanese");
+            mb_internal_encoding("UTF-8");
 
-            /*
+            
             $to = $inputMail;
             $subject = "ワークショップ登録完了メール";
             $message = "This is TEST.How are you?";
-            $headers = "From: inariMarketKut@gmail.com";
+            $headers = "-f"."inariMarketKut@gmail.com";
 
             if(mb_send_mail($to, $title, $message, $headers))
             {
@@ -69,7 +69,6 @@ if((! empty ($_POST['id']) ) & (! empty ($_POST['name1'])) & (! empty ($_POST['p
             {
                 $_SESSION['register_workshop_reserve']="メール送信失敗です";
             }
-            */
             
 
             unset($inputName);
