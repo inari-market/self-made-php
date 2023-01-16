@@ -36,3 +36,54 @@ create table audio1 (
     name char(255),
     primary key(id)
 );
+
+CREATE TABLE `exhibition_table` (
+  `exhibition_id` int(11) NOT NULL,
+  `exhibition_name` varchar(64) DEFAULT NULL,
+  `start` date DEFAULT NULL,
+  `end` date DEFAULT NULL,
+  `organizer` varchar(32) NOT NULL,
+  `introducation` text DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+ALTER TABLE `exhibition_table`
+  ADD PRIMARY KEY (`exhibition_id`);
+
+ALTER TABLE `exhibition_table`
+  MODIFY `exhibition_id` int(11) NOT NULL AUTO_INCREMENT;
+COMMIT;
+
+CREATE TABLE `workshop` (
+  `workshop_id` int(100) NOT NULL,
+  `workshop_name` varchar(64) DEFAULT NULL,
+  `introduction` varchar(1024) NOT NULL,
+  `capacity` int(11) DEFAULT NULL,
+  `organizer` varchar(32) NOT NULL,
+  `cost` int(11) DEFAULT NULL,
+  `start` date DEFAULT NULL,
+  `end` date DEFAULT NULL,
+  `deadline` date DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+ALTER TABLE `workshop`
+  ADD PRIMARY KEY (`workshop_id`);
+
+ALTER TABLE `workshop`
+  MODIFY `workshop_id` int(100) NOT NULL AUTO_INCREMENT;
+COMMIT;
+
+
+CREATE TABLE `workshop_reserve` (
+  `reservation_id` int(11) NOT NULL,
+  `workshop_id` int(100) NOT NULL,
+  `name` varchar(16) DEFAULT NULL,
+  `phone_number` varchar(16) DEFAULT NULL,
+  `mail` varchar(50) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+ALTER TABLE `workshop_reserve`
+  ADD PRIMARY KEY (`reservation_id`,`workshop_id`);
+
+ALTER TABLE `workshop_reserve`
+  MODIFY `reservation_id` int(11) NOT NULL AUTO_INCREMENT;
+COMMIT;

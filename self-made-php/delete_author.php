@@ -9,7 +9,7 @@
             }
 
             try {
-                include_once dirname( __FILE__ ).'/db.php';
+                include_once dirname( __FILE__ ).'/../db.php';
 
                 $dbh = DbUtil::Connect();
                 $sql = 'DELETE FROM authors2 where id = :id';

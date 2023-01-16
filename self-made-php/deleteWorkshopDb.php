@@ -1,8 +1,8 @@
 <?php
 //実装時はコメント解除
 
-function delete_exhibition_db($content) {
- if( is_page( 'exibitions/delete_db' ))  //固定ページ「sample_cal」の時だけ 処理させる
+function delete_workshop_db($content) {
+ if( is_page( 'delete_workshop_db' ))  //固定ページ「sample_cal」の時だけ 処理させる
  {
 
 
@@ -11,8 +11,7 @@ function delete_exhibition_db($content) {
 <?php
 $id = $_GET['id'];
 if (empty($id)) {
-    echo '<script type="text/javascript">window.location.href = window.location.hreg = "http://ec2-44-212-247-129.compute-1.amazonaws.com/delete_exhibition";</script>';
-    //header("http://localhost/inari/deleteExhibition_sample1.php");
+    echo '<script type="text/javascript">window.location.href = window.location.hreg = "http://ec2-44-212-247-129.compute-1.amazonaws.com/delete_workshop";</script>';
     exit;
 }
 
@@ -22,7 +21,7 @@ try {
     // :で始まる部分が後から値がセットされるプレースホルダです。
     // 複数回SQL文を実行する必要がある場合はここからexecute()までを繰り返し ます。
     $dbh = DbUtil::Connect();
-    $sql = 'DELETE FROM exhibition_table where exhibition_id = :id';
+    $sql = 'DELETE FROM workshop where workshop_id = :id';
     // SQL文を実行する準備をします。
     $stmt = $dbh->prepare( $sql );
     // プレースホルダに実際の値をバインドします。
@@ -31,9 +30,8 @@ try {
     // SQL文を実行します。
     $stmt->execute();
     session_start();
-    $_SESSION['delete_exhibition']="削除完了";
-    //header('location:http://localhost/inari/deleteExhibition_sample1.php');
-    echo '<script type="text/javascript">window.location.href = window.location.hreg = "http://ec2-44-212-247-129.compute-1.amazonaws.com/delete_exhibition";</script>';
+    $_SESSION['delete_workshop']="削除完了";
+    echo '<script type="text/javascript">window.location.href = window.location.hreg = "http://ec2-44-212-247-129.compute-1.amazonaws.com/delete_workshop";</script>';
     exit();
 
 }catch( PDOException $e ){
@@ -52,6 +50,6 @@ try {
   }
 }
 
-add_filter('the_content', 'delete_exhibition_db');
+add_filter('the_content', 'delete_workshop_db');
 
 ?>

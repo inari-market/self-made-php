@@ -1,8 +1,8 @@
 <?php
 //実装時はコメント解除
 
-function delete_exhibition($content) {
- if( is_page( 'exibitions/delete' ))  //固定ページ「sample_cal」の時だけ処理させる
+function show_workshop($content) {
+ if( is_page( 'workshops' ))  //固定ページ「sample_cal」の時だけ処理させる
  {
 
 ?>
@@ -11,7 +11,7 @@ function delete_exhibition($content) {
 <html>
     <head>
         <meta charset="UTF-8">
-        <title>展示会情報削除ページ</title>
+        <title>ワークショップ情報削除ページ</title>
         <style type = "text/css">
     <!--
     .c{
@@ -25,16 +25,19 @@ function delete_exhibition($content) {
     </head>
     <body>
         <div class='c'>
-    <h1>企画展情報</h1>
+    <h1>ワークショップ情報</h1>
 
                 <table width="90%" class ='c'>
                 <tr>
-                  <th>企画展ID</th>
-                  <th>企画展名</th>
-                  <th>開始日</th>
-                  <th>終了日</th>
+                  <th>ワークショップID</th>
+                  <th>ワークショップ名</th>
                   <th>主催者名</th>
                   <th>概要</th>
+                  <th>人数</th>
+                  <th>料金</th>
+                  <th>開始日</th>
+                  <th>終了日</th>
+                  <th>締切日</th>
                   </tr>
 
         <?php
@@ -45,7 +48,7 @@ function delete_exhibition($content) {
             // SQL文を用意します。
             // :で始まる部分が後から値がセットされるプレースホルダです。
             // 複数回SQL文を実行する必要がある場合はここからexecute()までを>繰り返します。
-            $sql = 'SELECT * FROM exhibition_table';
+            $sql = 'SELECT * FROM workshop';
             // SQL文を実行する準備をします。
             $stmt = $dbh->prepare( $sql );
             // SQL文を実行します。
@@ -54,26 +57,20 @@ function delete_exhibition($content) {
 
         <?php while ($row = $stmt->fetch(PDO::FETCH_ASSOC)) { ?>
         <tr>
-            <td><?php echo $row['exhibition_id']; ?></td>
-            <td><?php echo $row['exhibition_name']; ?></td>
-            <td><?php echo $row['start']; ?></td>
-            <td><?php echo $row['end']; ?></td>
+            <td><?php echo $row['workshop_id']; ?></td>
+            <td><?php echo $row['workshop_name']; ?></td>
             <td><?php echo $row['organizer']; ?></td>
             <td><?php echo htmlspecialchars($row['introduction'], ENT_QUOTES, 'UTF-8'); ?></td>
-           <td><a href="http://ec2-44-212-247-129.compute-1.amazonaws.com/exibitions/delete_db?id=<?php echo $row['exhibition_id']; ?>">削除</a></td>
+            <td><?php echo $row['capacity']; ?></td>
+            <td><?php echo $row['cost']; ?></td>
+            <td><?php echo $row['start']; ?></td>
+            <td><?php echo $row['end']; ?></td>
+            <td><?php echo $row['deadline']; ?></td>
         </tr>
     <?php } ?>
 
                 </table>
-                <?php
-            session_start();
-            if(! empty($_SESSION['delete_exhibition'])){
-                echo("<br>".$_SESSION['delete_exhibition']."<br>");
-                unset($_SESSION['delete_exhibition']);
-            }else{
-                echo("<br><br>");
-            }
-            ?>
+
 </div>
     </body>
 </html>
@@ -86,6 +83,6 @@ function delete_exhibition($content) {
   }
 }
 
-add_filter('the_content', 'delete_exhibition');
+add_filter('the_content', 'show_workshop');
 
 ?>

@@ -1,9 +1,10 @@
 <?php
 //実装時はコメント解除
-
-function delete_exhibition($content) {
- if( is_page( 'exibitions/delete' ))  //固定ページ「sample_cal」の時だけ処理させる
+echo("HELLO");
+function show_exhibition($content) {
+ if( is_page( 'show_exhibition' ))  //固定ページ「sample_cal」の時だけ処理させる
  {
+    echo("HELLO");
 
 ?>
 
@@ -11,7 +12,7 @@ function delete_exhibition($content) {
 <html>
     <head>
         <meta charset="UTF-8">
-        <title>展示会情報削除ページ</title>
+        <title>展示会情報表示ページ</title>
         <style type = "text/css">
     <!--
     .c{
@@ -25,7 +26,7 @@ function delete_exhibition($content) {
     </head>
     <body>
         <div class='c'>
-    <h1>企画展情報</h1>
+    <h1>企画展情報表示</h1>
 
                 <table width="90%" class ='c'>
                 <tr>
@@ -60,20 +61,11 @@ function delete_exhibition($content) {
             <td><?php echo $row['end']; ?></td>
             <td><?php echo $row['organizer']; ?></td>
             <td><?php echo htmlspecialchars($row['introduction'], ENT_QUOTES, 'UTF-8'); ?></td>
-           <td><a href="http://ec2-44-212-247-129.compute-1.amazonaws.com/exibitions/delete_db?id=<?php echo $row['exhibition_id']; ?>">削除</a></td>
         </tr>
     <?php } ?>
 
                 </table>
-                <?php
-            session_start();
-            if(! empty($_SESSION['delete_exhibition'])){
-                echo("<br>".$_SESSION['delete_exhibition']."<br>");
-                unset($_SESSION['delete_exhibition']);
-            }else{
-                echo("<br><br>");
-            }
-            ?>
+
 </div>
     </body>
 </html>
@@ -86,6 +78,6 @@ function delete_exhibition($content) {
   }
 }
 
-add_filter('the_content', 'delete_exhibition');
+add_filter('the_content', 'show_exhibition');
 
 ?>

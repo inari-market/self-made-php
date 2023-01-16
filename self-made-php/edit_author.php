@@ -3,7 +3,7 @@
         
         if( is_page( 'authors/edit' )) {//特定の固定ページの時だけ処理させる 
 
-            include_once dirname( __FILE__ ).'/db.php';
+            include_once dirname( __FILE__ ).'/../db.php';
 
             if($_POST['button'] == 'update') { // updateの処理
                 try {
