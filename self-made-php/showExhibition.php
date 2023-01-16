@@ -4,6 +4,7 @@
 function show_exhibition($content) {
  if( is_page( 'exhibitions' ))  //固定ページ「sample_cal」の時だけ処理させる
  {
+    echo("HELLO");
 
 ?>
 
