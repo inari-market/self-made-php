@@ -1,8 +1,8 @@
 <?php
 //実装時はコメント解除
 
-function resister_workshop_reserve_db($content) {
- if( is_page( 'resister_workshop_reserve_db' ))  //固定ページ「sample_cal」の時だ け処理させる
+function register_workshop_reserve_db($content) {
+ if( is_page( 'register_workshop_reserve_db' ))  //固定ページ「sample_cal」の時だ け処理させる
  {
 
 
@@ -20,14 +20,14 @@ if((! empty ($_POST['id']) ) & (! empty ($_POST['name']))  &  (! empty ($_POST['
         $inputPhone=$_POST['phone_number'];
         $inputMail=$_POST['mail'];
 
-        $_SESSION['resister_workshop_reserve'] = '';
+        $_SESSION['register_workshop_reserve'] = '';
 
         if(is_numeric($inputPhone) & is_numeric($inputId)) {
             $inputPhone=(int)$inputPhone;
             $inputId=(int)$inputId;
         }else{
-            $_SESSION['resister_workshop_reserve']="電話番号は数値でご入力ください";
-            echo '<script type="text/javascript">window.location.href = window.location.hreg = "http://ec2-44-212-247-129.compute-1.amazonaws.com/resister_workshop_reserve";</script>';
+            $_SESSION['register_workshop_reserve']="電話番号は数値でご入力ください";
+            echo '<script type="text/javascript">window.location.href = window.location.hreg = "http://ec2-44-212-247-129.compute-1.amazonaws.com/register_workshop_reserve";</script>';
             exit();
         }
     try {            
@@ -51,7 +51,7 @@ if((! empty ($_POST['id']) ) & (! empty ($_POST['name']))  &  (! empty ($_POST['
             // SQL文を実行します。
             $stmt->execute();
 
-            $_SESSION['resister_workshop_reserve']="登録完了";
+            $_SESSION['register_workshop_reserve']="登録完了";
 
             unset($inputName);
             unset($inputPhone);
@@ -67,9 +67,9 @@ if((! empty ($_POST['id']) ) & (! empty ($_POST['name']))  &  (! empty ($_POST['
             exit();
             }
 }else {
-    $_SESSION['resister_workshop_reserve']="入力に不備があります";
+    $_SESSION['register_workshop_reserve']="入力に不備があります";
 }
-echo '<script type="text/javascript">window.location.href = window.location.hreg = "http://ec2-44-212-247-129.compute-1.amazonaws.com/resister_workshop_reserve";</script>';
+echo '<script type="text/javascript">window.location.href = window.location.hreg = "http://ec2-44-212-247-129.compute-1.amazonaws.com/register_workshop_reserve";</script>';
 exit();
  //実装時はコメント解除
 
@@ -80,5 +80,5 @@ exit();
  }
  }
 
- add_filter('the_content', 'resister_workshop_reserve_db');
+ add_filter('the_content', 'register_workshop_reserve_db');
  ?>
