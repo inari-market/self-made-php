@@ -7,24 +7,21 @@ function register_workshop_reserve_db($content) {
 
 session_start();
 
-//if((! empty ($_POST['id']) ) & (! empty ($_POST['name']))  &  (! empty ($_POST['phone_number'])) 
-//     &  (! empty ($_POST['mail'])) ){
-
-if((! empty ($_POST['name']))) {
+if((! empty ($_POST['id']) ) & (! empty ($_POST['name1']))  &  (! empty ($_POST['phone_number'])) 
+     &  (! empty ($_POST['mail'])) ){
 
 
     include_once dirname( __FILE__ ).'/../db.php';
     // 前のページから値を取得します。
-        $_POST['id'] = 1;
+        
         $inputId= $_POST['id'];
-        $inputName= $_POST['name'];
+        $inputName= $_POST['name1'];
         $inputPhone=$_POST['phone_number'];
         $inputMail=$_POST['mail'];
 
         $_SESSION['register_workshop_reserve'] = '';
 
 
-        /*
         if(is_numeric($inputPhone) & is_numeric($inputId)) {
             $inputPhone=(int)$inputPhone;
             $inputId=(int)$inputId;
@@ -33,7 +30,6 @@ if((! empty ($_POST['name']))) {
             echo '<script type="text/javascript">window.location.href = window.location.hreg = "http://ec2-44-212-247-129.compute-1.amazonaws.com/register_workshop_reserve";</script>';
             exit();
         }
-        */
     try {            
 
 
@@ -61,7 +57,7 @@ if((! empty ($_POST['name']))) {
             unset($inputPhone);
             unset($inputId);
             unset($inputMail);
-            unset($_POST['name']);
+            unset($_POST['name1']);
             unset($_POST['phone_number']);
             unset($_POST['id']);
             unset($_POST['mail']);
@@ -73,9 +69,9 @@ if((! empty ($_POST['name']))) {
 }else {
     $_SESSION['register_workshop_reserve']="入力に不備があります";
 }
-echo($_SESSION['register_workshop_reserve']);
-//echo '<script type="text/javascript">window.location.href = window.location.hreg = "http://ec2-44-212-247-129.compute-1.amazonaws.com/register_workshop_reserve/";</script>';
-//exit();
+
+echo '<script type="text/javascript">window.location.href = window.location.hreg = "http://ec2-44-212-247-129.compute-1.amazonaws.com/register_workshop_reserve/";</script>';
+exit();
  //実装時はコメント解除
 
  }
