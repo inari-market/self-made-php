@@ -33,7 +33,7 @@ function register_workshop_reserve($content) {
         <form action="http://ec2-44-212-247-129.compute-1.amazonaws.com/register_workshop_reserve_db/" method="POST">
 
             <br>
-            <p>ワークショップ名</p>
+            <p>ワークショップの選択</p>
             
             <?php
             //ワークショップテーブルを参照に予約できるものをラジオボタンで表示
@@ -47,9 +47,9 @@ function register_workshop_reserve($content) {
             ?>
 
         <?php while ($row = $stmt->fetch(PDO::FETCH_ASSOC)) { ?>
-            <input type="radio" name="id" value=<?php echo($row['workshop_id']);?>> <?php echo($row['workshop_name']); ?>
+            <input type="radio" name="id" value=<?php echo($row['workshop_id']);?>> <?php echo($row['workshop_name']); ?> <br>
     <?php } ?>
-
+            <br>
             <p>お名前</p>
                 <input type="text" name="name" placeholder="主催者名を入力" maxlength="50"> <br>
             <p>携帯電話番号</p>
