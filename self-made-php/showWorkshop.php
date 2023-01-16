@@ -2,7 +2,7 @@
 //実装時はコメント解除
 
 function show_workshop($content) {
- if( is_page( 'show_workshop' ))  //固定ページ「sample_cal」の時だけ処理させる
+ if( is_page( 'workshops' ))  //固定ページ「sample_cal」の時だけ処理させる
  {
 
 ?>

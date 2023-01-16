@@ -2,7 +2,7 @@
 //実装時はコメント解除
 
 function delete_exhibition_db($content) {
- if( is_page( 'delete_exhibition_db' ))  //固定ページ「sample_cal」の時だけ 処理させる
+ if( is_page( 'exibitions/delete_db' ))  //固定ページ「sample_cal」の時だけ 処理させる
  {
 
 
@@ -11,7 +11,7 @@ function delete_exhibition_db($content) {
 <?php
 $id = $_GET['id'];
 if (empty($id)) {
-    echo '<script type="text/javascript">window.location.href = window.location.hreg = "http://ec2-44-212-247-129.compute-1.amazonaws.com/wp-admin/delete_exhibition";</script>';
+    echo '<script type="text/javascript">window.location.href = window.location.hreg = "http://ec2-44-212-247-129.compute-1.amazonaws.com/delete_exhibition";</script>';
     //header("http://localhost/inari/deleteExhibition_sample1.php");
     exit;
 }
@@ -33,7 +33,7 @@ try {
     session_start();
     $_SESSION['delete_exhibition']="削除完了";
     //header('location:http://localhost/inari/deleteExhibition_sample1.php');
-    echo '<script type="text/javascript">window.location.href = window.location.hreg = "http://ec2-44-212-247-129.compute-1.amazonaws.com/wp-admin/delete_exhibition";</script>';
+    echo '<script type="text/javascript">window.location.href = window.location.hreg = "http://ec2-44-212-247-129.compute-1.amazonaws.com/delete_exhibition";</script>';
     exit();
 
 }catch( PDOException $e ){

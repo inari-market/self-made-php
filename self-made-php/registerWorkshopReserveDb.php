@@ -2,7 +2,7 @@
 //実装時はコメント解除
 
 function register_workshop_reserve_db($content) {
- if( is_page( 'register_workshop_reserve_db' ))  //固定ページ「sample_cal」の時だ け処理させる
+ if( is_page( 'workshopReserves/new_db' ))  //固定ページ「sample_cal」の時だ け処理させる
  {
 
 session_start();

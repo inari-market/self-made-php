@@ -66,7 +66,7 @@ function delete_workshop($content) {
             <td><?php echo $row['start']; ?></td>
             <td><?php echo $row['end']; ?></td>
             <td><?php echo $row['deadline']; ?></td>
-           <td><a href="http://ec2-44-212-247-129.compute-1.amazonaws.com/wp-admin/workshops/delete_db?id=<?php echo $row['workshop_id']; ?>">削除</a></td>
+           <td><a href="http://ec2-44-212-247-129.compute-1.amazonaws.com/delete_workshop_db?id=<?php echo $row['workshop_id']; ?>">削除</a></td>
         </tr>
     <?php } ?>
 

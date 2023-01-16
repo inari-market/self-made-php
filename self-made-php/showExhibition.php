@@ -1,9 +1,10 @@
 <?php
 //実装時はコメント解除
-
+echo("HELLO");
 function show_exhibition($content) {
  if( is_page( 'show_exhibition' ))  //固定ページ「sample_cal」の時だけ処理させる
  {
+    echo("HELLO");
 
 ?>
 
