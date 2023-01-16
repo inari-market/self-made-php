@@ -52,8 +52,8 @@ if((! empty ($_POST['id']) ) & (! empty ($_POST['name1'])) & (! empty ($_POST['p
             $stmt->execute();
             $_SESSION['register_workshop_reserve']="登録完了";
             //メース送信
-            mb_language("Japanese");
-            mb_internal_encoding("UTF-8");
+            //mb_language("Japanese");
+            //mb_internal_encoding("UTF-8");
 
             /*
             $to = $inputMail;
