@@ -7,7 +7,8 @@ function register_workshop_reserve_db($content) {
 
 session_start();
 
-if((! empty ($_POST['id']) ) ){
+if((! empty ($_POST['id']) ) & (! empty ($_POST['name1'])) & (! empty ($_POST['phone_number'])) 
+     &  (! empty ($_POST['mail'])) ){
 
 
     include_once dirname( __FILE__ ).'/../db.php';
@@ -66,7 +67,7 @@ if((! empty ($_POST['id']) ) ){
             exit();
             }
 }else {
-    $_SESSION['register_workshop_reserve']="入力に不備があります";
+    $_SESSION['register_workshop_reserve']=$inputId.$inputMail.$inputName.$inputPhone."入力に不備があります";
 }
 
 echo '<script type="text/javascript">window.location.href = window.location.hreg = "http://ec2-44-212-247-129.compute-1.amazonaws.com/register_workshop_reserve/";</script>';
