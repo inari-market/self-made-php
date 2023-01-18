@@ -54,7 +54,7 @@ function register_exhibition($content) {
             ?>
 
             <br>
-            <input type="submit" value="登録">
+            <input type="submit" name = "submit" value="登録">
         </form>
         </div>
 
