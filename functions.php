@@ -242,4 +242,4 @@ require get_template_directory() . '/self-made-php/showWorkshop.php';
 require get_template_directory() . '/self-made-php/registerWorkshopReserve.php';
 require get_template_directory() . '/self-made-php/registerWorkshopReserveDb.php';
 */
-//require get_template_directory() . '/self-made-php/showExhibition.php';
+require get_template_directory() . '/self-made-php/showExhibition.php';
