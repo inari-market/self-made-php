@@ -65,7 +65,7 @@ function register_exhibition($content) {
 echo("HELLO");
 if(isset($_POST['submit'])){
     session_start();
-
+    echo("HELLO");
     if((! empty ($_POST['exhibition_name']) ) & (! empty ($_POST['start']))  &  (! empty ($_POST['end']))  &  (! empty ($_POST['introduction']))){
 
 
