@@ -62,10 +62,9 @@ function register_exhibition($content) {
 </html>
 
 <?php
-echo("HELLO");
+
 if(isset($_POST['submit'])){
     session_start();
-    echo("HELLO");
     if((! empty ($_POST['exhibition_name']) ) & (! empty ($_POST['start']))  &  (! empty ($_POST['end']))  &  (! empty ($_POST['introduction']))){
 
 
@@ -94,8 +93,6 @@ if(isset($_POST['submit'])){
                     $inputStart = $inputEnd;
                     $inputEnd = $tmp;
                 }
-                $_SESSION['register_exhibition']="登録完了";
-
                 // SQL文を用意します。
                 // :で始まる部分が後から値がセットされるプレースホルダです。
                 // 複数回SQL文を実行する必要がある場合はここからexecute()までを 繰り返します。
