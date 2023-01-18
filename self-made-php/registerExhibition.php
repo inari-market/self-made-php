@@ -62,7 +62,7 @@ function register_exhibition($content) {
 </html>
 
 <?php
-
+echo("HELLO");
 if(isset($_POST['submit'])){
     session_start();
 
