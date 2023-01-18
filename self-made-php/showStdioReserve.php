@@ -28,9 +28,9 @@ function show_stdio_reserve($content) {
                 <table width="90%" class ='c'>
                 <tr>
                   <th>アトリエ予約ID</th>
-                  <th>使用開始日時</th>
-                  <th>使用中止日時</th>
-                  <th>冷暖房使用の有無</th>
+                  <th>開始</th>
+                  <th>終了</th>
+                  <th>冷暖房</th>
                   <th>目的</th>
                   <th>氏名</th>
                   <th>住所</th>
