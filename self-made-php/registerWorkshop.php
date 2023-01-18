@@ -29,7 +29,7 @@ function register_workshop($content) {
     </head>
     <body>
         <div class='l'>
-    <h1>ワークショップ予約の入力フォーム</h1>
+    <h1>ワークショップ登録の入力フォーム</h1>
         <form action="<?php echo str_replace( '%7E', '~', $_SERVER['REQUEST_URI']); ?>" method="POST">
 
             <br>
