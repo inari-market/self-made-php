@@ -1,7 +1,7 @@
 <?php
 //実装時はコメント解除
-function show_workshop_reserve($content) {
- if( is_page( 'workshop_reserves' ))  //固定ページ「sample_cal」の時だけ処理させる
+function delete_workshop_reserve($content) {
+ if( is_page( 'workshop_reserves/delete' ))  //固定ページ「sample_cal」の時だけ処理させる
  {
 
 ?>
@@ -9,7 +9,7 @@ function show_workshop_reserve($content) {
 <html>
     <head>
         <meta charset="UTF-8">
-        <title>ワークショップ予約表示ページ</title>
+        <title>ワークショップ予約削除ページ</title>
         <style type = "text/css">
     <!--
     .c{
@@ -57,6 +57,7 @@ function show_workshop_reserve($content) {
             <td><?php echo $row['name']; ?></td>
             <td><?php echo $row['phone_number']; ?></td>
             <td><?php echo $row['mail']; ?></td>
+            <td><a href="<?php echo str_replace( '%7E', '~', $_SERVER['REQUEST_URI']); ?>?id=<?php echo $row['workshop_id']; ?>">削除</a></td>
         </tr>
     <?php } 
         }catch( PDOException $e ){
@@ -70,6 +71,35 @@ function show_workshop_reserve($content) {
 </div>
     </body>
 </html>
+
+<?php
+$id = $_GET['id'];
+if (! empty($id)) {
+
+    try {
+        include_once dirname( __FILE__ ).'/../db.php';
+        $dbh = DbUtil::Connect();
+        $sql = 'DELETE FROM workshop_reserve where reservation_id = :id';
+        // SQL文を実行する準備をします。
+        $stmt = $dbh->prepare( $sql );
+        // プレースホルダに実際の値をバインドします。
+        //   ->bindValue( プレースホルダ名, バインドする値, データの型 )
+        $stmt->bindValue( ':id', $id, PDO::PARAM_INT );
+        // SQL文を実行します。
+        $stmt->execute();
+        session_start();
+        $_SESSION['delete_workshop']="削除完了";
+        echo '<script type="text/javascript">window.location.href = window.location.hreg = "http://100.24.172.143/workshop_reserves/delete/";</script>';
+        exit();
+
+    }catch( PDOException $e ){
+        echo( '接続失敗: ' . $e->getMessage() . '<br>' );
+        exit();
+    }
+
+}
+?>
+
 <?php
 
   }
@@ -79,6 +109,6 @@ function show_workshop_reserve($content) {
   }
 }
 
-add_filter('the_content', 'show_workshop_reserve');
+add_filter('the_content', 'delete_workshop_reserve');
 
 ?>
