@@ -87,16 +87,13 @@ if(isset($_POST["submit"])){
 
         include_once dirname( __FILE__ ).'/../db.php';
         // 前のページから値を取得します。
-            
-            $inputId= $_POST['id'];
+
             $inputName= $_POST['name1'];
-            $inputPhone=$_POST['phone_number'];
-            $inputMail=$_POST['mail'];
 
             $_SESSION['register_workshop_reserve'] = '';
 
 
-            if(is_numeric($inputPhone) & is_numeric($inputId)) {
+            if(is_numeric($_POST['id']) & is_numeric($_POST['phone_number'])) {
                 $inputPhone=(int)$inputPhone;
                 $inputId=(int)$inputId;
             }else{
@@ -104,6 +101,15 @@ if(isset($_POST["submit"])){
                 echo '<script type="text/javascript">window.location.href = window.location.hreg = "http://100.24.172.143/workshop_reserves/new/";</script>';
                 exit();
             }
+
+            if (preg_match('/^[a-z0-9._+^~-]+@[a-z0-9.-]+$/i', $_POST['mail'])) {
+                $inputMail=$_POST['mail'];
+            } else{
+                $_SESSION['register_workshop_reserve']="正しいメールアドレスをご入力ください";
+                echo '<script type="text/javascript">window.location.href = window.location.hreg = "http://100.24.172.143/workshop_reserves/new/";</script>';
+                exit();
+            }
+
         try {            
 
 
