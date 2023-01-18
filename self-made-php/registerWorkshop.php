@@ -70,7 +70,7 @@ function register_workshop($content) {
 
 <?php
 session_start();
-if(! isset($_POST['submit'])){
+if(isset($_POST['submit'])){
     if((! empty ($_POST['workshop_name']) ) & (! empty ($_POST['start']))  &  (! empty ($_POST['end'])) 
         &  (! empty ($_POST['capacity'])) &  (! empty ($_POST['cost'])) &  (! empty ($_POST['deadline']))){
 
@@ -157,6 +157,7 @@ if(! isset($_POST['submit'])){
 }
 
 ?>
+
 <?php
 //実装時はコメント解除
 
