@@ -94,10 +94,17 @@ if(isset($_POST["submit"])){
 
 
             if(is_numeric($_POST['id']) & is_numeric($_POST['phone_number'])) {
-                $inputPhone=(int)$inputPhone;
                 $inputId=(int)$inputId;
             }else{
-                $_SESSION['register_workshop_reserve']="電話番号は数値でご入力ください";
+                $_SESSION['register_workshop_reserve']="入力が正しくない場合があります";
+                echo '<script type="text/javascript">window.location.href = window.location.hreg = "http://100.24.172.143/workshop_reserves/new/";</script>';
+                exit();
+            }
+
+            if( preg_match( '/^0[0-9]{9,10}\z/',  $_POST['phone_number']) ) {
+                $inputPhone=(int)$inputPhone;
+            }else{
+                $_SESSION['register_workshop_reserve']="正しい電話番号をご入力ください";
                 echo '<script type="text/javascript">window.location.href = window.location.hreg = "http://100.24.172.143/workshop_reserves/new/";</script>';
                 exit();
             }
