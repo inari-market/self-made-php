@@ -1,4 +1,5 @@
 <?php
+/*
 //実装時はコメント解除
 
 function register_exhibition_db($content) {
@@ -88,4 +89,5 @@ exit();
  }
 
  add_filter('the_content', 'register_exhibition_db');
+ */
  ?>
