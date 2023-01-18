@@ -1,7 +1,7 @@
 <?php
 //実装時はコメント解除
 //いったん放置
-function register_workshop_reserve($content) {
+function register_stdio_reserve($content) {
   if( is_page( 'stdio_reserves/new' ))  //固定ページ「sample_cal」の時だけ処理させる
   {
 
@@ -53,9 +53,9 @@ function register_workshop_reserve($content) {
             
             <?php
             session_start();
-            if(! empty($_SESSION['register_workshop_reserve'])){
-                echo("<br>".$_SESSION['register_workshop_reserve']."<br>");
-                unset($_SESSION['register_workshop_reserve']);
+            if(! empty($_SESSION['register_stdio_reserve'])){
+                echo("<br>".$_SESSION['register_stdio_reserve']."<br>");
+                unset($_SESSION['register_stdio_reserve']);
             }else{
                 echo("<br><br>");
             }
@@ -83,13 +83,13 @@ if(isset($_POST["submit"])){
 
             $inputName= $_POST['name1'];
 
-            $_SESSION['register_workshop_reserve'] = '';
+            $_SESSION['register_stdio_reserve'] = '';
 
 
             if(is_numeric($_POST['id']) & is_numeric($_POST['phone_number'])) {
                 $inputId=(int)$inputId;
             }else{
-                $_SESSION['register_workshop_reserve']="入力が正しくない場合があります";
+                $_SESSION['register_stdio_reserve']="入力が正しくない場合があります";
                 echo '<script type="text/javascript">window.location.href = window.location.hreg = "http://100.24.172.143/workshop_reserves/new/";</script>';
                 exit();
             }
@@ -97,7 +97,7 @@ if(isset($_POST["submit"])){
             if( preg_match( '/^0[0-9]{9,10}\z/',  $_POST['phone_number']) ) {
                 $inputPhone=(int)$inputPhone;
             }else{
-                $_SESSION['register_workshop_reserve']="正しい電話番号をご入力ください";
+                $_SESSION['register_stdio_reserve']="正しい電話番号をご入力ください";
                 echo '<script type="text/javascript">window.location.href = window.location.hreg = "http://100.24.172.143/workshop_reserves/new/";</script>';
                 exit();
             }
@@ -105,7 +105,7 @@ if(isset($_POST["submit"])){
             if (preg_match('/^[a-z0-9._+^~-]+@[a-z0-9.-]+$/i', $_POST['mail'])) {
                 $inputMail=$_POST['mail'];
             } else{
-                $_SESSION['register_workshop_reserve']="正しいメールアドレスをご入力ください";
+                $_SESSION['register_stdio_reserve']="正しいメールアドレスをご入力ください";
                 echo '<script type="text/javascript">window.location.href = window.location.hreg = "http://100.24.172.143/workshop_reserves/new/";</script>';
                 exit();
             }
@@ -130,7 +130,7 @@ if(isset($_POST["submit"])){
 
                 // SQL文を実行します。
                 $stmt->execute();
-                $_SESSION['register_workshop_reserve']="登録完了";                
+                $_SESSION['register_stdio_reserve']="登録完了";                
 
                 unset($inputName);
                 unset($inputPhone);
@@ -146,7 +146,7 @@ if(isset($_POST["submit"])){
                 exit();
                 }
     }else {
-        $_SESSION['register_workshop_reserve']="入力に不備があります";
+        $_SESSION['register_stdio_reserve']="入力に不備があります";
     }
 
     echo '<script type="text/javascript">window.location.href = window.location.hreg = "http://100.24.172.143/workshop_reserves/new/";</script>';
@@ -167,6 +167,6 @@ if(isset($_POST["submit"])){
   }
 }
 
-add_filter('the_content', 'register_workshop_reserve');
+add_filter('the_content', 'register_stdio_reserve');
 
 ?>
