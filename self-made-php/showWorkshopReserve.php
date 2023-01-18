@@ -43,7 +43,7 @@ function show_workshop_reserve($content) {
             // SQL文を用意します。
             // :で始まる部分が後から値がセットされるプレースホルダです。
             // 複数回SQL文を実行する必要がある場合はここからexecute()までを>繰り返します。
-            $sql = 'SELECT * FROM workshop_reserve group by workshop_id';
+            $sql = 'SELECT * FROM workshop_reserve, workshop order by deadline asc where workshop_reserve.workshop_id = workshop.workshop_id';
             // SQL文を実行する準備をします。
             $stmt = $dbh->prepare( $sql );
             // SQL文を実行します。
@@ -52,7 +52,7 @@ function show_workshop_reserve($content) {
 
         <?php while ($row = $stmt->fetch(PDO::FETCH_ASSOC)) { ?>
         <tr>
-            <td><?php echo $row['workshop_id']; ?></td>
+            <td><?php echo $row['workshop_name']; ?></td>
             <td><?php echo $row['reservation_id']; ?></td>
             <td><?php echo $row['name']; ?></td>
             <td><?php echo $row['phone_number']; ?></td>
