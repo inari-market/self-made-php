@@ -35,9 +35,9 @@ function register_stdio_reserve($content) {
             <br>
             <p>使用日時</p>
                 <input type="date" name="start_date" value="<?php echo date('Y-m-d'); ?>">
-                <input type="time" name="start_time" step="3600"> から
+                <input type="time" name="start_time" step="3600" min="09:00" max="12:00"> から
                 <input type="date" name="end_date" value="<?php echo date('Y-m-d'); ?>"> 
-                <input type="time" name="end_time" step="3600"> <br><br>
+                <input type="time" name="end_time" step="3600" min="12:00" max="17:00"> <br><br>
             <p>使用目的</p>
                 <input type="text" name="purpose" placeholder="使用目的を入力" maxlength="50"> <br>
             <p>冷暖房の使用有無</p>
