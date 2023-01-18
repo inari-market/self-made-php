@@ -42,7 +42,7 @@ function show_stdio_reserve($content) {
         try {   
             // データベースに接続します。
             $dbh = DbUtil::Connect();
-            $sql = 'SELECT * FROM stdio_reserve order by start_date asc';
+            $sql = 'SELECT * FROM stdio_reservation order by start_date asc';
             $stmt = $dbh->prepare( $sql );
             $stmt->execute();
             ?>

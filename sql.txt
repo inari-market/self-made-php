@@ -88,7 +88,7 @@ ALTER TABLE `workshop_reserve`
   MODIFY `reservation_id` int(11) NOT NULL AUTO_INCREMENT;
 COMMIT;
 
-CREATE TABLE `studio_reservation` (
+CREATE TABLE `stdio_reservation` (
   `reservation_id` int(11) NOT NULL,
   `name` varchar(32) DEFAULT NULL,
   `address` varchar(50) DEFAULT NULL,
@@ -101,9 +101,9 @@ CREATE TABLE `studio_reservation` (
   `air` int(1) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
-ALTER TABLE `studio_reservation`
+ALTER TABLE `stdio_reservation`
   ADD PRIMARY KEY (`reservation_id`);
 
-ALTER TABLE `studio_reservation`
+ALTER TABLE `stdio_reservation`
   MODIFY `reservation_id` int(11) NOT NULL AUTO_INCREMENT;
 COMMIT;
