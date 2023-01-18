@@ -128,7 +128,7 @@ if(isset($_POST['submit'])){
                 unset($_POST['introduction']);
 
             }catch( PDOException $e ){
-                echo( '接続失敗: ' . $e->getMessage() . '<br>' );
+                $_SESSION['register_exhibition']= '接続失敗: ' . $e->getMessage() . '<br>';
                 exit();
                 }
     }else {
