@@ -33,17 +33,15 @@ function register_stdio_reserve($content) {
         <form action="<?php echo str_replace( '%7E', '~', $_SERVER['REQUEST_URI']); ?>" method="POST">
 
             <br>
-            <p>開始日時</p>
+            <p>使用日時</p>
                 <input type="date" name="start_date" value="<?php echo date('Y-m-d'); ?>">
-                <input type="time" name="start_time" step="3600"> <br><br>
-            <p>終了日時</p>
+                <input type="time" name="start_time" step="3600"> から
                 <input type="date" name="end_date" value="<?php echo date('Y-m-d'); ?>"> 
                 <input type="time" name="end_time" step="3600"> <br><br>
-                <br><br>
             <p>使用目的</p>
                 <input type="text" name="purpose" placeholder="使用目的を入力" maxlength="50"> <br>
             <p>冷暖房の使用有無</p>
-                <input type="radio" name="air" value="1"><input type="radio" name="air" value="2">  <br>
+                <input type="radio" name="air" value="1">使用する<input type="radio" name="air" value="2">使用しない  <br>
             <p>氏名</p>
                 <input type="text" name="name1" placeholder="氏名を入力" maxlength="32"> <br>
             <p>住所</p>
