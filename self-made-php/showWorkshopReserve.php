@@ -1,7 +1,7 @@
 <?php
 //実装時はコメント解除
 function show_workshop_reserve($content) {
- if( is_page( 'workshopReserves' ))  //固定ページ「sample_cal」の時だけ処理させる
+ if( is_page( 'workshop_reserves' ))  //固定ページ「sample_cal」の時だけ処理させる
  {
 
 ?>
