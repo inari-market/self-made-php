@@ -225,8 +225,9 @@ add_action('init', 'init_session_start');
 /*
 require get_template_directory() . '/self-made-php/regist_exhibition.php';
 require get_template_directory() . '/self-made-php/exhibitions.php';
-require get_template_directory() . '/self-made-php/regist_author.php';
 */
+require get_template_directory() . '/self-made-php/regist_author.php';
+
 require get_template_directory() . '/self-made-php/authors.php';
 require get_template_directory() . '/self-made-php/show_author.php';
 
