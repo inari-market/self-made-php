@@ -41,7 +41,7 @@ function register_stdio_reserve($content) {
             <p>使用目的</p>
                 <input type="text" name="purpose" placeholder="使用目的を入力" maxlength="50"> <br>
             <p>冷暖房の使用有無</p>
-                <input type="radio" name="air" value="1">使用する<input type="radio" name="air" value="2">使用しない  <br>
+                <input type="radio" name="air" value="1">使用する  <input type="radio" name="air" value="2">使用しない  <br><br>
             <p>氏名</p>
                 <input type="text" name="name1" placeholder="氏名を入力" maxlength="32"> <br>
             <p>住所</p>
