@@ -2,7 +2,7 @@
 //実装時はコメント解除
 
 function register_exhibition($content) {
-  if( is_page( 'register_exhibition' ))  //固定ページ「sample_cal」の時だけ処理させる
+  if( is_page( 'register_exbition' ))  //固定ページ「sample_cal」の時だけ処理させる
   {
 
 
@@ -30,7 +30,7 @@ function register_exhibition($content) {
     <body>
         <div class='l'>
     <h1>企画展情報の入力</h1>
-        <form action="http://ec2-44-212-247-129.compute-1.amazonaws.com/register_exhibition_db/" method="POST">
+        <form action="http://ec2-44-212-247-129.compute-1.amazonaws.com/register_exbition_db/" method="POST">
 
             <br>
             <p>企画展名</p>

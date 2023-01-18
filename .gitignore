@@ -2,6 +2,8 @@
 #!/functions.php
 _g2
 _g3
+playwright-report
+screenshot.png
 inc
 vendor
 LICENSE
