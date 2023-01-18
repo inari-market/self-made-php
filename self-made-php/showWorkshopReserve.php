@@ -57,7 +57,6 @@ function show_workshop_reserve($content) {
             <td><?php echo $row['name']; ?></td>
             <td><?php echo $row['phone_number']; ?></td>
             <td><?php echo $row['mail']; ?></td>
-            <td><?php echo htmlspecialchars($row['introduction'], ENT_QUOTES, 'UTF-8'); ?></td>
         </tr>
     <?php } 
         }catch( PDOException $e ){
