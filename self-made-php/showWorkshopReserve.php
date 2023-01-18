@@ -36,6 +36,7 @@ function show_workshop_reserve($content) {
 
         <?php
         include_once dirname( __FILE__ ).'/../db.php';
+        try {   
             // データベースに接続します。
             $dbh = DbUtil::Connect();
 
@@ -58,7 +59,12 @@ function show_workshop_reserve($content) {
             <td><?php echo $row['mail']; ?></td>
             <td><?php echo htmlspecialchars($row['introduction'], ENT_QUOTES, 'UTF-8'); ?></td>
         </tr>
-    <?php } ?>
+    <?php } 
+        }catch( PDOException $e ){
+            echo( '接続失敗: ' . $e->getMessage() . '<br>' );
+            exit();
+            }
+            ?>
 
                 </table>
 
