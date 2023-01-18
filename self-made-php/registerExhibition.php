@@ -93,6 +93,7 @@ if(isset($_POST['submit'])){
                     $inputStart = $inputEnd;
                     $inputEnd = $tmp;
                 }
+                echo("HELLO");
                 // SQL文を用意します。
                 // :で始まる部分が後から値がセットされるプレースホルダです。
                 // 複数回SQL文を実行する必要がある場合はここからexecute()までを 繰り返します。
