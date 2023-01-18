@@ -1,8 +1,9 @@
 <?php
+/*
 //実装時はコメント解除
 
 function register_exhibition_db($content) {
- if( is_page( 'exhibitions/new_db' ))  //固定ページ「sample_cal」の時だ け処理させる
+ if( is_page( 'register_exbition_db' ))  //固定ページ「sample_cal」の時だ け処理させる
  {
 
 
@@ -26,7 +27,7 @@ if((! empty ($_POST['exhibition_name']) ) & (! empty ($_POST['start']))  &  (! e
             //桁数の確認
             if( strlen($inputName) > 64 || strlen($inputOrganizer) > 32 || strlen($inputIntroduction) > 160){
             $_SESSION['register_exhibition']=strlen($inputOrganizer)."入力文字数を超えています";
-            echo '<script type="text/javascript">window.location.href = window.location.hreg = "http://ec2-44-212-247-129.compute-1.amazonaws.com/exhibitions/new";</script>';
+            echo '<script type="text/javascript">window.location.href = window.location.hreg = "http://ec2-44-212-247-129.compute-1.amazonaws.com/register_exbition";</script>';
                 exit();
             }
             
@@ -76,7 +77,7 @@ if((! empty ($_POST['exhibition_name']) ) & (! empty ($_POST['start']))  &  (! e
 }else {
     $_SESSION['register_exhibition']="入力に不備があります";
 }
-echo '<script type="text/javascript">window.location.href = window.location.hreg = "http://ec2-44-212-247-129.compute-1.amazonaws.com/exhibitions/new";</script>';
+echo '<script type="text/javascript">window.location.href = window.location.hreg = "http://ec2-44-212-247-129.compute-1.amazonaws.com/register_exbition";</script>';
 exit();
  //実装時はコメント解除
 
@@ -88,4 +89,5 @@ exit();
  }
 
  add_filter('the_content', 'register_exhibition_db');
+ */
  ?>

@@ -1,11 +1,11 @@
 
 <?php
-
+/*
     function exhibitions($content) {
         
         if( is_page( 'exhibitions' )) {//特定の固定ページの時だけ処理させる 
 
-            include_once dirname( __FILE__ ).'/db.php';
+            include_once dirname( __FILE__ ).'/../db.php';
             
             try {
                 // データベースに接続します。
@@ -111,7 +111,7 @@
         }
     }
     add_filter('the_content', 'exhibitions');
-    
+    */
 ?>
 
 

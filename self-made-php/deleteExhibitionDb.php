@@ -1,6 +1,6 @@
 <?php
 //実装時はコメント解除
-
+/*
 function delete_exhibition_db($content) {
  if( is_page( 'exibitions/delete_db' ))  //固定ページ「sample_cal」の時だけ 処理させる
  {
@@ -53,5 +53,5 @@ try {
 }
 
 add_filter('the_content', 'delete_exhibition_db');
-
+*/
 ?>

@@ -221,8 +221,10 @@ function init_session_start(){
   }
 add_action('init', 'init_session_start');
 
+
+
 require get_template_directory() . '/self-made-php/regist_exhibition.php';
-require get_template_directory() . '/self-made-php/exhibitions.php';
+//require get_template_directory() . '/self-made-php/exhibitions.php';
 require get_template_directory() . '/self-made-php/regist_author.php';
 require get_template_directory() . '/self-made-php/authors.php';
 require get_template_directory() . '/self-made-php/show_author.php';
@@ -230,14 +232,14 @@ require get_template_directory() . '/self-made-php/edit_author.php';
 require get_template_directory() . '/self-made-php/delete_author.php';
 require get_template_directory() . '/self-made-php/showAudio.php';
 require get_template_directory() . '/self-made-php/registerExhibition.php';
-require get_template_directory() . '/self-made-php/registerExhibitionDb.php';
+//require get_template_directory() . '/self-made-php/registerExhibitionDb.php';
 require get_template_directory() . '/self-made-php/deleteExhibition.php';
-require get_template_directory() . '/self-made-php/deleteExhibitionDb.php';
-require get_template_directory() . '/self-made-php/showExhibition.php';
+//require get_template_directory() . '/self-made-php/deleteExhibitionDb.php';
 require get_template_directory() . '/self-made-php/registerWorkshop.php';
-require get_template_directory() . '/self-made-php/registerWorkshopDb.php';
+//require get_template_directory() . '/self-made-php/registerWorkshopDb.php';
 require get_template_directory() . '/self-made-php/deleteWorkshop.php';
-require get_template_directory() . '/self-made-php/deleteWorkshopDb.php';
+//require get_template_directory() . '/self-made-php/deleteWorkshopDb.php';
 require get_template_directory() . '/self-made-php/showWorkshop.php';
 require get_template_directory() . '/self-made-php/registerWorkshopReserve.php';
-require get_template_directory() . '/self-made-php/registerWorkshopReserveDb.php';
+//require get_template_directory() . '/self-made-php/registerWorkshopReserveDb.php';
+require get_template_directory() . '/self-made-php/showExhibition.php';
