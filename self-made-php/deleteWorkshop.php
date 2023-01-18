@@ -66,7 +66,7 @@ function delete_workshop($content) {
             <td><?php echo $row['start']; ?></td>
             <td><?php echo $row['end']; ?></td>
             <td><?php echo $row['deadline']; ?></td>
-           <td><a href="http://ec2-44-212-247-129.compute-1.amazonaws.com/delete_workshop_db?id=<?php echo $row['workshop_id']; ?>">削除</a></td>
+           <td><a href="<?php echo str_replace( '%7E', '~', $_SERVER['REQUEST_URI']); ?>?id=<?php echo $row['workshop_id']; ?>">削除</a></td>
         </tr>
     <?php } ?>
 
@@ -83,6 +83,38 @@ function delete_workshop($content) {
 </div>
     </body>
 </html>
+
+<?php
+$id = $_GET['id'];
+if (! empty($id)) {
+
+    try {
+        include_once dirname( __FILE__ ).'/../db.php';
+        // SQL文を用意します。
+        // :で始まる部分が後から値がセットされるプレースホルダです。
+        // 複数回SQL文を実行する必要がある場合はここからexecute()までを繰り返し ます。
+        $dbh = DbUtil::Connect();
+        $sql = 'DELETE FROM workshop where workshop_id = :id';
+        // SQL文を実行する準備をします。
+        $stmt = $dbh->prepare( $sql );
+        // プレースホルダに実際の値をバインドします。
+        //   ->bindValue( プレースホルダ名, バインドする値, データの型 )
+        $stmt->bindValue( ':id', $id, PDO::PARAM_INT );
+        // SQL文を実行します。
+        $stmt->execute();
+        session_start();
+        $_SESSION['delete_workshop']="削除完了";
+        echo '<script type="text/javascript">window.location.href = window.location.hreg = "http://100.24.172.143/workshops/delete/";</script>';
+        exit();
+
+    }catch( PDOException $e ){
+        echo( '接続失敗: ' . $e->getMessage() . '<br>' );
+        exit();
+    }
+
+}
+?>
+
 <?php
 
   }
