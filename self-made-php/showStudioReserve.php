@@ -30,7 +30,7 @@ function show_stdio_reserve($content) {
                   <th>アトリエ予約ID</th>
                   <th>使用開始日時</th>
                   <th>使用中止日時</th>
-                  <th>冷暖房しようの有無</th>
+                  <th>冷暖房使用の有無</th>
                   <th>目的</th>
                   <th>氏名</th>
                   <th>住所</th>
