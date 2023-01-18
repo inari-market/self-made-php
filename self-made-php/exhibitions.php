@@ -1,6 +1,6 @@
 
 <?php
-
+/*
     function exhibitions($content) {
         
         if( is_page( 'exhibitions' )) {//特定の固定ページの時だけ処理させる 
@@ -111,7 +111,7 @@
         }
     }
     add_filter('the_content', 'exhibitions');
-    
+    */
 ?>
 
 
