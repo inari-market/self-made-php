@@ -43,7 +43,7 @@ CREATE TABLE `exhibition_table` (
   `start` date DEFAULT NULL,
   `end` date DEFAULT NULL,
   `organizer` varchar(32) NOT NULL,
-  `introducation` text DEFAULT NULL
+  `introduction` text DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 ALTER TABLE `exhibition_table`
