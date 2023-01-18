@@ -101,7 +101,7 @@ if(isset($_POST["submit"])){
                 $inputId=(int)$inputId;
             }else{
                 $_SESSION['register_workshop_reserve']="電話番号は数値でご入力ください";
-                echo '<script type="text/javascript">window.location.href = window.location.hreg = "http://100.24.172.143/workshopreserves/new/";</script>';
+                echo '<script type="text/javascript">window.location.href = window.location.hreg = "http://100.24.172.143/workshop_reserves/new/";</script>';
                 exit();
             }
         try {            
@@ -164,7 +164,7 @@ if(isset($_POST["submit"])){
         $_SESSION['register_workshop_reserve']="入力に不備があります";
     }
 
-    echo '<script type="text/javascript">window.location.href = window.location.hreg = "http://100.24.172.143/workshopreserves/new/";</script>';
+    echo '<script type="text/javascript">window.location.href = window.location.hreg = "http://100.24.172.143/workshop_reserves/new/";</script>';
     exit();
 
 }
