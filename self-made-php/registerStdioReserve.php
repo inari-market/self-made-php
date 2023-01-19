@@ -32,7 +32,7 @@ function register_stdio_reserve($content) {
     <h1>アトリエ予約の入力フォーム</h1>
 
     <?php // echo $content;?>
-        <form action="<?php echo str_replace( '%7E', '~', $_SERVER['REQUEST_URI']); ?>" method="POST">
+        <form action="http://100.24.172.143/stdio_reserve/new/" method="POST">
 
             <br>
             <p>使用日時</p>
@@ -153,7 +153,6 @@ if(isset($_POST["submit"])){
     }else {
         $_SESSION['register_stdio_reserve']="入力に不備があります";
     }
-    echo("HELLO");
     echo '<script type="text/javascript">window.location.href = window.location.hreg = "http://100.24.172.143/stdio_reserve/new/";</script>';
     exit();
 
