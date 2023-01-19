@@ -42,7 +42,7 @@ function show_stdio_reserve($content) {
         try {   
             // データベースに接続します。
             $dbh = DbUtil::Connect();
-            $sql = 'SELECT * FROM stdio_reservation order by start_date asc';
+            $sql = 'SELECT * FROM stdio_reserve order by start_date asc';
             $stmt = $dbh->prepare( $sql );
             $stmt->execute();
             ?>
@@ -54,7 +54,7 @@ function show_stdio_reserve($content) {
             <td><?php echo $row['end_date'].$row['end_time']; ?></td>
             <td><?php echo $row['purpose']; ?></td>
             <td><?php 
-                    if($row['name'] == 1){
+                    if($row['air'] == 1){
                         echo("〇");
                     }else{
                         echo("×");

@@ -37,9 +37,9 @@ function register_stdio_reserve($content) {
             <br>
             <p>使用日時</p>
                 <input type="date" name="start_date" value="<?php echo date('Y-m-d'); ?>">
-                <input type="time" name="start_time" step="3600" min="09:00" max="12:00"> から
+                <input type="number" name="start_time" min="9" max="12"> から
                 <input type="date" name="end_date" value="<?php echo date('Y-m-d'); ?>"> 
-                <input type="time" name="end_time" step="3600" min="12:00" max="17:00"> <br><br>
+                <input type="number" name="end_time" min="12" max="17"> <br><br>
             <p>使用目的</p>
                 <input type="text" name="purpose" placeholder="使用目的を入力" maxlength="50"> <br>
             <p>冷暖房の使用有無</p>
@@ -108,7 +108,7 @@ if(isset($_POST["submit"])){
                 // :で始まる部分が後から値がセットされるプレースホルダです。
                 // 複数回SQL文を実行する必要がある場合はここからexecute()までを 繰り返します。
                 $dbh = DbUtil::Connect();
-                $sql = 'INSERT INTO stdio_reservation (name, address, phone_number, start_date, start_time, end_date, end_time,
+                $sql = 'INSERT INTO stdio_reserve (name, address, phone_number, start_date, start_time, end_date, end_time,
                 purpose, air) VALUES(:name, :address, :phone_number, :start_date, :start_time, :end_date, :end_time,
                 :purpose, :air)';
                 // SQL文を実行する準備をします。
