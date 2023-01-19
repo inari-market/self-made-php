@@ -153,7 +153,7 @@ if(isset($_POST["submit"])){
     }else {
         $_SESSION['register_stdio_reserve']="入力に不備があります";
     }
-
+    echo("HELLO");
     echo '<script type="text/javascript">window.location.href = window.location.hreg = "http://100.24.172.143/stdio_reserve/new/";</script>';
     exit();
 
