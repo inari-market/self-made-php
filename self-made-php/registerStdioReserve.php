@@ -199,7 +199,7 @@ if(isset($_POST["submit"])){
                 exit();
                 }
     }else {
-        $_SESSION['register_stdio_reserve']="入力に不備があります";
+        $_SESSION['register_stdio_reserve']=$_SESSION['phone_number']."入力に不備があります";
     }
     echo '<script type="text/javascript">window.location.href = window.location.hreg = "http://100.24.172.143/stdio_reserves/new/";</script>';
     exit();
