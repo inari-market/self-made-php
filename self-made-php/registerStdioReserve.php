@@ -26,7 +26,7 @@ function register_stdio_reserve($content) {
      }
     
      input[type=number]{
-        width:100px;
+        width:80px;
         height:30px;
     }
 
