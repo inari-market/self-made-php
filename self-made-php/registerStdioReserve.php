@@ -72,41 +72,32 @@ function register_stdio_reserve($content) {
 if(isset($_POST["submit"])){
     session_start();
 
-    if((! empty ($_POST['id']) ) & (! empty ($_POST['name1'])) & (! empty ($_POST['phone_number'])) 
-        &  (! empty ($_POST['mail'])) ){
+    if((! empty ($_POST['start_date']) ) & (! empty ($_POST['start_time'])) & (! empty ($_POST['end_date']) ) & (! empty ($_POST['end_time'])) 
+    & (! empty ($_POST['name1'])) & (! empty ($_POST['phone_number'])) &  (! empty ($_POST['address'])) & (! empty ($_POST['purpose'])) & (! empty ($_POST['air']))){
 
 
         include_once dirname( __FILE__ ).'/../db.php';
         // 前のページから値を取得します。
 
             $inputName= $_POST['name1'];
+            $inputStartDate=$_POST['start_date'];
+            $inputStartTime=$_POST['start_time'];
+            $inputEndDate=$_POST['end_date'];
+            $inputEndTime=$_POST['end_time'];
+            $inputAddress=$_POST['address'];
+            $inputPurpose=$_POST['purpose'];
+            $inputAir=$_POST['air'];
 
             $_SESSION['register_stdio_reserve'] = '';
-
-
-            if(is_numeric($_POST['id']) & is_numeric($_POST['phone_number'])) {
-                $inputId=(int)$inputId;
-            }else{
-                $_SESSION['register_stdio_reserve']="入力が正しくない場合があります";
-                echo '<script type="text/javascript">window.location.href = window.location.hreg = "http://100.24.172.143/workshop_reserves/new/";</script>';
-                exit();
-            }
 
             if( preg_match( '/^0[0-9]{9,10}\z/',  $_POST['phone_number']) ) {
                 $inputPhone=(int)$inputPhone;
             }else{
-                $_SESSION['register_stdio_reserve']="正しい電話番号をご入力ください";
+                $_SESSION['register_workshop_reserve']="正しい電話番号をご入力ください";
                 echo '<script type="text/javascript">window.location.href = window.location.hreg = "http://100.24.172.143/workshop_reserves/new/";</script>';
                 exit();
             }
 
-            if (preg_match('/^[a-z0-9._+^~-]+@[a-z0-9.-]+$/i', $_POST['mail'])) {
-                $inputMail=$_POST['mail'];
-            } else{
-                $_SESSION['register_stdio_reserve']="正しいメールアドレスをご入力ください";
-                echo '<script type="text/javascript">window.location.href = window.location.hreg = "http://100.24.172.143/workshop_reserves/new/";</script>';
-                exit();
-            }
 
         try {            
 
@@ -115,16 +106,19 @@ if(isset($_POST["submit"])){
                 // :で始まる部分が後から値がセットされるプレースホルダです。
                 // 複数回SQL文を実行する必要がある場合はここからexecute()までを 繰り返します。
                 $dbh = DbUtil::Connect();
-                $sql = 'INSERT INTO workshop_reserve (workshop_id, name, phone_number, mail)
-                        VALUES(:workshop_id, :name, :phone_number, :mail)';
+                $sql = 'INSERT INTO stdio_reservation (name, address, phone_number, start_date, start_time, end_date, end_time,
+                purpose, air) VALUES(:name, :address, :phone_number, :start_date, :start_time, :end_date, :end_time,
+                :purpose, :air)';
                 // SQL文を実行する準備をします。
                 $stmt = $dbh->prepare( $sql );
                 // プレースホルダに実際の値をバインドします。
                 //   ->bindValue( プレースホルダ名, バインドする値, データの型 )
-                $stmt->bindValue( ':workshop_id', $inputId, PDO::PARAM_INT );
                 $stmt->bindValue( ':name', $inputName, PDO::PARAM_STR );
                 $stmt->bindValue( ':phone_number', $inputPhone, PDO::PARAM_INT );
-                $stmt->bindValue( ':mail', $inputMail, PDO::PARAM_STR );
+                $stmt->bindValue( ':start_date', $inputStart, PDO::PARAM_STR );
+                $stmt->bindValue( ':start_time', $inputStart, PDO::PARAM_INT );
+                $stmt->bindValue( ':end_date', $inputEnd, PDO::PARAM_STR );
+                $stmt->bindValue( ':end_time', $inputEnd, PDO::PARAM_INT );
 
                 // SQL文を実行します。
                 $stmt->execute();
@@ -157,7 +151,7 @@ if(isset($_POST["submit"])){
 
 <?php
 //実装時はコメント解除
-
+    return $content;
   }
   else
   {
