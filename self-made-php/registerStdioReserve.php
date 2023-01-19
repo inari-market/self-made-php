@@ -31,12 +31,12 @@ function register_stdio_reserve($content) {
     }
 
     input[name=name1]{
-        width:600px;
+        width:300px;
         height:30px;
     }
 
     input[name=phone_number]{
-        width:600px;
+        width:300px;
         height:30px;
     }
 
