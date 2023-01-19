@@ -61,7 +61,7 @@ function register_stdio_reserve($content) {
             <p>使用目的</p>
                 <input type="text" name="purpose" placeholder="使用目的を入力" value="<?php echo $_SESSION['purpose']; ?>" maxlength="50"> <br>
             <p>冷暖房の使用有無</p>
-                <input type="radio" name="air" value="1">使用する  <input type="radio" name="air" value="2">使用しない  <br><br>
+                <input type="radio" name="air" value="1">使用する  <input type="radio" name="air" value="0">使用しない  <br><br>
             <p>氏名</p>
                 <input type="text" name="name1" placeholder="氏名を入力" maxlength="32" value="<?php echo $_SESSION['name1']; ?>"> <br>
             <p>住所</p>
@@ -102,6 +102,7 @@ if(isset($_POST["submit"])){
             $_SESSION['name1']= $_POST['name1'];
             $_SESSION['address']=$_POST['address'];
             $_SESSION['purpose']=$_POST['purpose'];
+            $_SESSION['phone_number']=$_POST['phone_number'];
 
             $inputName= $_POST['name1'];
             $inputAddress=$_POST['address'];
@@ -191,6 +192,7 @@ if(isset($_POST["submit"])){
                 unset($_SESSION['name1']);
                 unset($_SESSION['address']);
                 unset($_SESSION['purpose']);
+                unset($_SESSION['phone_number']);
 
             }catch( PDOException $e ){
                 echo( '接続失敗: ' . $e->getMessage() . '<br>' );
