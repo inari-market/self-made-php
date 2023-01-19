@@ -55,19 +55,19 @@ function register_stdio_reserve($content) {
             <br>
             <p>使用日時</p>
                 <input type="date" name="start_date" value="<?php echo date('Y-m-d'); ?>" min="<?php echo date('Y-m-d'); ?>" style = "display:inline-block">
-                <input type="number" name="start_time" min="9" max="12"style = "display:inline-block"> 時から
+                <input type="number" name="start_time" min="9" max="12" value="<?php echo $_POST['start_time']; ?>" style = "display:inline-block"> 時から
                 <input type="date" name="end_date" value="<?php echo date('Y-m-d'); ?>" style = "display:inline-block"> 
-                <input type="number" name="end_time" min="12" max="17" style = "display:inline-block">時まで <br><br>
+                <input type="number" name="end_time" min="12" max="17" value="<?php echo $_POST['end_time']; ?>" style = "display:inline-block">時まで <br><br>
             <p>使用目的</p>
-                <input type="text" name="purpose" placeholder="使用目的を入力" maxlength="50"> <br>
+                <input type="text" name="purpose" placeholder="使用目的を入力" maxlength="50" value="<?php echo $_POST['purpose']; ?>"> <br>
             <p>冷暖房の使用有無</p>
                 <input type="radio" name="air" value="1">使用する  <input type="radio" name="air" value="2">使用しない  <br><br>
             <p>氏名</p>
-                <input type="text" name="name1" placeholder="氏名を入力" maxlength="32"> <br>
+                <input type="text" name="name1" placeholder="氏名を入力" maxlength="32" value="<?php echo $_POST['name1']; ?>"> <br>
             <p>住所</p>
-                <input type="text" name="address" placeholder="住所を入力" maxlength="50"> <br>
+                <input type="text" name="address" placeholder="住所を入力" maxlength="50" value="<?php echo $_POST['address']; ?>"> <br>
             <p>携帯電話番号</p>
-                <input type="text" name="phone_number" placeholder="00012341234" maxlength="16"> <br>
+                <input type="text" name="phone_number" placeholder="00012341234" maxlength="16" value="<?php echo $_POST['phone_number']; ?>"> <br>
             
             <?php
             session_start();
