@@ -111,7 +111,7 @@ if(isset($_POST["submit"])){
             $_SESSION['register_stdio_reserve'] = '';
 
             if( preg_match("/^0\d{9,10}$/",  $_POST['phone_number']) ) {
-                $inputPhone=(int)$_POST['phone_number'];
+                $inputPhone=$_POST['phone_number'];
             }else{
                 $_SESSION['register_workshop_reserve']="正しい電話番号をご入力ください";
                 echo '<script type="text/javascript">window.location.href = window.location.hreg = "http://100.24.172.143/stdio_reserves/new/";</script>';
