@@ -67,7 +67,7 @@ function register_stdio_reserve($content) {
             <p>住所</p>
                 <input type="text" name="address" placeholder="住所を入力" maxlength="50" value="<?php echo $_SESSION['address']; ?>"> <br>
             <p>携帯電話番号</p>
-                <input type="text" name="phone_number" placeholder="00012341234" maxlength="16" value="<?php echo $_SESSION['phone_number']; ?>"> <br>
+                <input type="text" name="phone_number" placeholder="12345678901" maxlength="16" value="<?php echo $_SESSION['phone_number']; ?>"> <br>
             
             <?php
             session_start();
