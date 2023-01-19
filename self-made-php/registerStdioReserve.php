@@ -42,10 +42,10 @@ function register_stdio_reserve($content) {
 
             <br>
             <p>使用日時</p>
-                <input type="date" name="start_date" value="<?php echo date('Y-m-d'); ?>">
-                <input type="number" name="start_time" min="9" max="12"> から
-                <input type="date" name="end_date" value="<?php echo date('Y-m-d'); ?>"> 
-                <input type="number" name="end_time" min="12" max="17"> <br><br>
+                <input type="date" name="start_date" value="<?php echo date('Y-m-d'); ?>" style = "display:inline-block">
+                <input type="number" name="start_time" min="9" max="12"style = "display:inline-block"> から
+                <input type="date" name="end_date" value="<?php echo date('Y-m-d'); ?>" style = "display:inline-block"> 
+                <input type="number" name="end_time" min="12" max="17" style = "display:inline-block"> <br><br>
             <p>使用目的</p>
                 <input type="text" name="purpose" placeholder="使用目的を入力" maxlength="50"> <br>
             <p>冷暖房の使用有無</p>
