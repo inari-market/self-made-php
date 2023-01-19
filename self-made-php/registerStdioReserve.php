@@ -100,10 +100,6 @@ if(isset($_POST["submit"])){
         // 前のページから値を取得します。
 
             $inputName= $_POST['name1'];
-            $inputStartDate=$_POST['start_date'];
-            $inputStartTime=$_POST['start_time'];
-            $inputEndDate=$_POST['end_date'];
-            $inputEndTime=$_POST['end_time'];
             $inputAddress=$_POST['address'];
             $inputPurpose=$_POST['purpose'];
             $inputAir=$_POST['air'];
@@ -118,6 +114,39 @@ if(isset($_POST["submit"])){
                 exit();
             }
 
+            //日付判定
+            if($_POST['start_date'] > $_POST['end_date']){
+                $_SESSION['register_workshop_reserve']="使用する日時を正しくご入力ください";
+                echo '<script type="text/javascript">window.location.href = window.location.hreg = "http://100.24.172.143/stdio_reserves/new/";</script>';
+                exit();
+            }else if(($_POST['start_date'] == $_POST['end_date']) && ($_POST['start_time'] >= $_POST['end_time'])){
+                $_SESSION['register_workshop_reserve']="使用する日時を正しくご入力ください";
+                echo '<script type="text/javascript">window.location.href = window.location.hreg = "http://100.24.172.143/stdio_reserves/new/";</script>';
+                exit();
+            }else{
+                if(($_POST['start_time'] != 9) && (($_POST['start_time'] != 12))){
+                    $_SESSION['register_workshop_reserve']="使用を開始する時刻を正しくご入力ください";
+                    echo '<script type="text/javascript">window.location.href = window.location.hreg = "http://100.24.172.143/stdio_reserves/new/";</script>';
+                    exit();
+                }else if(($_POST['end_time'] != 12) && (($_POST['end_time'] != 17))){
+                    $_SESSION['register_workshop_reserve']="使用を終了する時刻を正しくご入力ください";
+                    echo '<script type="text/javascript">window.location.href = window.location.hreg = "http://100.24.172.143/stdio_reserves/new/";</script>';
+                    exit();
+                }else if(($_POST['start_time'] == 9) && (($_POST['end_time'] != 12) || (($_POST['end_time'] != 17)))){
+                    $_SESSION['register_workshop_reserve']="使用する時間帯を正しくご入力ください";
+                    echo '<script type="text/javascript">window.location.href = window.location.hreg = "http://100.24.172.143/stdio_reserves/new/";</script>';
+                    exit();
+                }else if(($_POST['start_time'] == 12) && (($_POST['end_time'] != 17))){
+                    $_SESSION['register_workshop_reserve']="使用する時間帯を正しくご入力ください";
+                    echo '<script type="text/javascript">window.location.href = window.location.hreg = "http://100.24.172.143/stdio_reserves/new/";</script>';
+                    exit();
+                }else{
+                    $inputStartDate=$_POST['start_date'];
+                    $inputStartTime=$_POST['start_time'];
+                    $inputEndDate=$_POST['end_date'];
+                    $inputEndTime=$_POST['end_time'];
+                }
+            }
 
         try {            
 
