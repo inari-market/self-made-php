@@ -30,6 +30,8 @@ function register_stdio_reserve($content) {
     <body>
         <div class='l'>
     <h1>アトリエ予約の入力フォーム</h1>
+
+    <?php  echo $content;?>
         <form action="<?php echo str_replace( '%7E', '~', $_SERVER['REQUEST_URI']); ?>" method="POST">
 
             <br>
