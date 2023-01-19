@@ -50,8 +50,8 @@ function show_stdio_reserve($content) {
         <?php while ($row = $stmt->fetch(PDO::FETCH_ASSOC)) { ?>
         <tr>
             <td><?php echo $row['reservation_id']; ?></td>
-            <td><?php echo $row['start_date'].$row['start_time']; ?></td>
-            <td><?php echo $row['end_date'].$row['end_time']; ?></td>
+            <td><?php echo $row['start_date']."日".$row['start_time']."時"; ?></td>
+            <td><?php echo $row['end_date']."日".$row['end_time']."時"; ?></td>
             <td><?php echo $row['purpose']; ?></td>
             <td><?php 
                     if($row['air'] == 1){
