@@ -54,7 +54,7 @@ function register_stdio_reserve($content) {
 
             <br>
             <p>使用日時</p>
-                <input type="date" name="start_date" value="<?php echo date('Y-m-d'); ?>" style = "display:inline-block">
+                <input type="date" name="start_date" value="<?php echo date('Y-m-d'); ?>" min="<?php echo date('Y-m-d'); ?>" style = "display:inline-block">
                 <input type="number" name="start_time" min="9" max="12"style = "display:inline-block"> 時から
                 <input type="date" name="end_date" value="<?php echo date('Y-m-d'); ?>" style = "display:inline-block"> 
                 <input type="number" name="end_time" min="12" max="17" style = "display:inline-block">時まで <br><br>
