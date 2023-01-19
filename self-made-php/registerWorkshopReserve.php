@@ -102,7 +102,7 @@ if(isset($_POST["submit"])){
             }
 
             if( is_numeric($_POST['phone_number']) ) {
-                $inputPhone=(int)$_POST['phone_number'];
+                $inputPhone=(string)$_POST['phone_number'];
             }else{
                 $_SESSION['register_workshop_reserve']="正しい電話番号をご入力ください";
                 echo '<script type="text/javascript">window.location.href = window.location.hreg = "http://100.24.172.143/workshop_reserves/new/";</script>';
@@ -132,7 +132,7 @@ if(isset($_POST["submit"])){
                 //   ->bindValue( プレースホルダ名, バインドする値, データの型 )
                 $stmt->bindValue( ':workshop_id', $inputId, PDO::PARAM_INT );
                 $stmt->bindValue( ':name', $inputName, PDO::PARAM_STR );
-                $stmt->bindValue( ':phone_number', $inputPhone, PDO::PARAM_INT );
+                $stmt->bindValue( ':phone_number', $inputPhone, PDO::PARAM_STR );
                 $stmt->bindValue( ':mail', $inputMail, PDO::PARAM_STR );
 
                 // SQL文を実行します。

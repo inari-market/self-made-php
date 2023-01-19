@@ -92,7 +92,7 @@ CREATE TABLE `stdio_reserve` (
   `reservation_id` int(11) NOT NULL,
   `name` varchar(32) DEFAULT NULL,
   `address` varchar(50) DEFAULT NULL,
-  `phone_number` int(16) DEFAULT NULL,
+  `phone_number` varchar(16) DEFAULT NULL,
   `start_date` date DEFAULT NULL,
   `start_time` int(2) DEFAULT NULL,
   `end_date` date DEFAULT NULL,
