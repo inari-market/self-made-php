@@ -94,7 +94,7 @@ if(isset($_POST["submit"])){
 
 
             if(is_numeric($_POST['id'])) {
-                $inputId=(int)$inputId;
+                $inputId=(int)$_POST['id'];
             }else{
                 $_SESSION['register_workshop_reserve']="入力が正しくない場合があります";
                 echo '<script type="text/javascript">window.location.href = window.location.hreg = "http://100.24.172.143/workshop_reserves/new/";</script>';
