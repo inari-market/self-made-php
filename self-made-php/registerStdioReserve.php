@@ -145,7 +145,7 @@ if(isset($_POST["submit"])){
 
                 // SQL文を実行します。
                 $stmt->execute();
-                $_SESSION['register_stdio_reserve']=$inputPhone."登録完了";                
+                $_SESSION['register_stdio_reserve']=$_POST['phone_number']."*".$inputPhone."登録完了";                
 
                 unset($inputName);
                 unset($inputStartDate);
