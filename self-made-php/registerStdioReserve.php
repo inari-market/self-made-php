@@ -67,7 +67,7 @@ function register_stdio_reserve($content) {
             <p>住所</p>
                 <input type="text" name="address" placeholder="住所を入力" maxlength="50" value="<?php echo $_SESSION['address']; ?>"> <br>
             <p>携帯電話番号</p>
-                <input type="text" name="phone_number" placeholder="12345678901" maxlength="16" value="<?php echo $_SESSION['phone_number']; ?>"> <br>
+                <input type="text" name="phone_number" placeholder="12345678901" maxlength="16"> <br>
             
             <?php
             session_start();
@@ -102,7 +102,6 @@ if(isset($_POST["submit"])){
             $_SESSION['name1']= $_POST['name1'];
             $_SESSION['address']=$_POST['address'];
             $_SESSION['purpose']=$_POST['purpose'];
-            $_SESSION['phone_number']=$_POST['phone_number'];
 
             $inputName= $_POST['name1'];
             $inputAddress=$_POST['address'];
@@ -171,7 +170,7 @@ if(isset($_POST["submit"])){
 
                 // SQL文を実行します。
                 $stmt->execute();
-                $_SESSION['register_stdio_reserve']=$inputPhone."登録完了";                
+                $_SESSION['register_stdio_reserve']="登録完了";                
 
                 unset($inputName);
                 unset($inputStartDate);
@@ -192,14 +191,13 @@ if(isset($_POST["submit"])){
                 unset($_SESSION['name1']);
                 unset($_SESSION['address']);
                 unset($_SESSION['purpose']);
-                unset($_SESSION['phone_number']);
 
             }catch( PDOException $e ){
                 echo( '接続失敗: ' . $e->getMessage() . '<br>' );
                 exit();
                 }
     }else {
-        $_SESSION['register_stdio_reserve']=$_SESSION['phone_number']."入力に不備があります";
+        $_SESSION['register_stdio_reserve']="入力に不備があります";
     }
     echo '<script type="text/javascript">window.location.href = window.location.hreg = "http://100.24.172.143/stdio_reserves/new/";</script>';
     exit();
