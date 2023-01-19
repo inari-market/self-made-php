@@ -55,7 +55,7 @@ function register_workshop_reserve($content) {
             <p>氏名</p>
                 <input type="text" name="name1" placeholder="氏名を入力" maxlength="16"> <br>
             <p>携帯電話番号</p>
-                <input type="text" name="phone_number" placeholder="携帯電話番号を入力" maxlength="16"> <br>
+                <input type="text" name="phone_number" placeholder="携帯電話番号を入力"> <br>
             <p>メールアドレス</p>
                 <input type="text" name="mail" placeholder="メールアドレスを入力" maxlength="50"> <br>
             
