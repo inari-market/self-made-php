@@ -156,7 +156,7 @@ if(isset($_POST["submit"])){
                 //   ->bindValue( プレースホルダ名, バインドする値, データの型 )
                 $stmt->bindValue( ':name', $inputName, PDO::PARAM_STR );
                 $stmt->bindValue( ':address', $inputAddress, PDO::PARAM_STR );
-                $stmt->bindValue( ':phone_number', $inputPhone, PDO::PARAM_INT );
+                $stmt->bindValue( ':phone_number', $inputPhone, PDO::PARAM_STR );
                 $stmt->bindValue( ':start_date', $inputStartDate, PDO::PARAM_STR );
                 $stmt->bindValue( ':start_time', $inputStartTime, PDO::PARAM_INT );
                 $stmt->bindValue( ':end_date', $inputEndDate, PDO::PARAM_STR );
