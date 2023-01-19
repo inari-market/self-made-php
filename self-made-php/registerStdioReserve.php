@@ -110,7 +110,7 @@ if(isset($_POST["submit"])){
 
             $_SESSION['register_stdio_reserve'] = '';
 
-            if( preg_match( '/^0[0-9]{9,10}\z/',  $_POST['phone_number']) ) {
+            if( preg_match('/^[0-9]{2,4}-[0-9]{2,4}-[0-9]{3,4}$/',  $_POST['phone_number']) ) {
                 $inputPhone=(int)$inputPhone;
             }else{
                 $_SESSION['register_workshop_reserve']="正しい電話番号をご入力ください";
