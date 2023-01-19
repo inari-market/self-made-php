@@ -57,7 +57,7 @@ function delete_workshop_reserve($content) {
             <td><?php echo $row['name']; ?></td>
             <td><?php echo $row['phone_number']; ?></td>
             <td><?php echo $row['mail']; ?></td>
-            <td><a href="<?php echo str_replace( '%7E', '~', $_SERVER['REQUEST_URI']); ?>?id=<?php echo $row['workshop_id']; ?>">削除</a></td>
+            <td><a href="<?php echo str_replace( '%7E', '~', $_SERVER['REQUEST_URI']); ?>?id=<?php echo $row['reservation_id']; ?>">削除</a></td>
         </tr>
     <?php } 
         }catch( PDOException $e ){
