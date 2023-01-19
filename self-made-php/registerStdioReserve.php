@@ -30,6 +30,18 @@ function register_stdio_reserve($content) {
         height:30px;
     }
 
+    input[type=name1]{
+        width:600px;
+        height:30px;
+    }
+
+    input[type=phone_number]{
+        width:600px;
+        height:30px;
+    }
+
+
+
     -->
     </style>
     </head>
@@ -55,7 +67,7 @@ function register_stdio_reserve($content) {
             <p>住所</p>
                 <input type="text" name="address" placeholder="住所を入力" maxlength="50"> <br>
             <p>携帯電話番号</p>
-                <input type="text" name="phone_number" placeholder="携帯電話番号を入力" maxlength="16"> <br>
+                <input type="text" name="phone_number" placeholder="00012341234" maxlength="16"> <br>
             
             <?php
             session_start();
