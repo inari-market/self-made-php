@@ -54,10 +54,10 @@ function register_stdio_reserve($content) {
 
             <br>
             <p>使用日時</p>
-                <input type="date" name="start_date" value="<?php echo date('Y-m-d'); ?>" min="<?php echo date('Y-m-d'); ?>" style = "display:inline-block">
-                <input type="number" name="start_time" min="9" max="12"style = "display:inline-block"> 時から
-                <input type="date" name="end_date" value="<?php echo date('Y-m-d'); ?>" style = "display:inline-block"> 
-                <input type="number" name="end_time" min="12" max="17" style = "display:inline-block">時まで <br><br>
+                <input type="date" name="start_date" value="<?php echo $_SESSION['start_date']; ?>" min="<?php echo date('Y-m-d'); ?>" style = "display:inline-block">
+                <input type="number" name="start_time" min="9" max="12" value="<?php echo $_SESSION['start_time']; ?>" style = "display:inline-block"> 時から
+                <input type="date" name="end_date" value="<?php echo $_SESSION['end_date']; ?>" min="<?php echo date('Y-m-d'); ?>" style = "display:inline-block"> 
+                <input type="number" name="end_time" min="12" max="17" value="<?php echo $_SESSION['end_time']; ?>" style = "display:inline-block">時まで <br><br>
             <p>使用目的</p>
                 <input type="text" name="purpose" placeholder="使用目的を入力" maxlength="50"> <br>
             <p>冷暖房の使用有無</p>
@@ -102,6 +102,10 @@ if(isset($_POST["submit"])){
             $_SESSION['name1']= $_POST['name1'];
             $_SESSION['address']=$_POST['address'];
             $_SESSION['purpose']=$_POST['purpose'];
+            $_SESSION['start_date']= $_POST['start_date'];
+            $_SESSION['start_time']=$_POST['start_time'];
+            $_SESSION['end_date']= $_POST['end_date'];
+            $_SESSION['end_time']=$_POST['end_time'];
 
             $inputName= $_POST['name1'];
             $inputAddress=$_POST['address'];
@@ -188,6 +192,13 @@ if(isset($_POST["submit"])){
                 unset($_POST['address']);
                 unset($_POST['purpose']);
                 unset($_POST['air']);
+                unset($_SESSION['name1']);
+                unset($_SESSION['address']);
+                unset($_SESSION['purpose']);
+                unset($_SESSION['start_date']);
+                unset($_SESSION['start_time']);
+                unset($_SESSION['end_date']);
+                unset($_SESSION['end_time']);
 
             }catch( PDOException $e ){
                 echo( '接続失敗: ' . $e->getMessage() . '<br>' );
