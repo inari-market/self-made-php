@@ -30,8 +30,8 @@ function show_stdio_reserve($content) {
                   <th>アトリエ予約ID</th>
                   <th>開始</th>
                   <th>終了</th>
-                  <th>冷暖房</th>
                   <th>目的</th>
+                  <th>冷暖房</th>
                   <th>氏名</th>
                   <th>住所</th>
                   <th>携帯電話番号</th>
@@ -50,10 +50,16 @@ function show_stdio_reserve($content) {
         <?php while ($row = $stmt->fetch(PDO::FETCH_ASSOC)) { ?>
         <tr>
             <td><?php echo $row['reservation_id']; ?></td>
-            <td><?php echo $row['start_date']; ?></td>
-            <td><?php echo $row['end_date']; ?></td>
+            <td><?php echo $row['start_date'].$row['start_time']; ?></td>
+            <td><?php echo $row['end_date'].$row['end_time']; ?></td>
             <td><?php echo $row['purpose']; ?></td>
-            <td><?php echo $row['air']; ?></td>
+            <td><?php 
+                    if($row['name'] == 1){
+                        echo("〇");
+                    }else{
+                        echo("×");
+                    }
+                ?></td>
             <td><?php echo $row['name']; ?></td>
             <td><?php echo $row['address']; ?></td>
             <td><?php echo $row['phone_number']; ?></td>
