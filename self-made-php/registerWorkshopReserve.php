@@ -24,6 +24,16 @@ function register_workshop_reserve($content) {
     .pos{
         position:absolute; bottom:0%; right:0%;
      }
+    
+     input[name=name1]{
+        width:230px;
+        height:30px;
+    }
+
+    input[name=phone_number]{
+        width:230px;
+        height:30px;
+    }
     -->
     </style>
     </head>
