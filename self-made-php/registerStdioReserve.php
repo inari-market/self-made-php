@@ -63,7 +63,7 @@ function register_stdio_reserve($content) {
             <p>冷暖房の使用有無</p>
                 <input type="radio" name="air" value="1">使用する  <input type="radio" name="air" value="2">使用しない  <br><br>
             <p>氏名</p>
-                <input type="text" name="name1" placeholder="氏名を入力" maxlength="32" value="<?php echo $_SESSION['name']; ?>"> <br>
+                <input type="text" name="name1" placeholder="氏名を入力" maxlength="32" value="<?php echo $_SESSION['name1']; ?>"> <br>
             <p>住所</p>
                 <input type="text" name="address" placeholder="住所を入力" maxlength="50" value="<?php echo $_SESSION['address']; ?>"> <br>
             <p>携帯電話番号</p>
