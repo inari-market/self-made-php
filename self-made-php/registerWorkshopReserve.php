@@ -93,7 +93,7 @@ if(isset($_POST["submit"])){
             $_SESSION['register_workshop_reserve'] = '';
 
 
-            if(is_numeric($_POST['id']) & is_numeric($_POST['phone_number'])) {
+            if(is_numeric($_POST['id'])) {
                 $inputId=(int)$inputId;
             }else{
                 $_SESSION['register_workshop_reserve']="入力が正しくない場合があります";
@@ -102,7 +102,7 @@ if(isset($_POST["submit"])){
             }
 
             if( preg_match("/\A0((\d{1}[-(]?\d{4}|\d{2}[-(]?\d{3}|\d{3}[-(]?\d{2}|\d{4}[-(]?\d{1}|[5789]0[-(]?\d{4}|800[-(]?\d{3})[-)]?\d{4}|(12|99|18|57)0[-(]?\d{3}[-)]?\d{3})\z/",  $_POST['phone_number']) ) {
-                $inputPhone=(int)$inputPhone;
+                $inputPhone=(int)$_POST['phone_number'];
             }else{
                 $_SESSION['register_workshop_reserve']="正しい電話番号をご入力ください";
                 echo '<script type="text/javascript">window.location.href = window.location.hreg = "http://100.24.172.143/workshop_reserves/new/";</script>';
