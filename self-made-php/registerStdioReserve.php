@@ -31,7 +31,7 @@ function register_stdio_reserve($content) {
         <div class='l'>
     <h1>アトリエ予約の入力フォーム</h1>
 
-    <?php  echo $content;?>
+    <?php // echo $content;?>
         <form action="<?php echo str_replace( '%7E', '~', $_SERVER['REQUEST_URI']); ?>" method="POST">
 
             <br>
@@ -70,7 +70,7 @@ function register_stdio_reserve($content) {
 </html>
 
 <?php
-/*
+
 if(isset($_POST["submit"])){
     session_start();
 
@@ -96,7 +96,7 @@ if(isset($_POST["submit"])){
                 $inputPhone=(int)$inputPhone;
             }else{
                 $_SESSION['register_workshop_reserve']="正しい電話番号をご入力ください";
-                echo '<script type="text/javascript">window.location.href = window.location.hreg = "http://100.24.172.143/workshop_reserves/new/";</script>';
+                echo '<script type="text/javascript">window.location.href = window.location.hreg = "http://100.24.172.143/stdio_reserve/new/";</script>';
                 exit();
             }
 
@@ -116,24 +116,35 @@ if(isset($_POST["submit"])){
                 // プレースホルダに実際の値をバインドします。
                 //   ->bindValue( プレースホルダ名, バインドする値, データの型 )
                 $stmt->bindValue( ':name', $inputName, PDO::PARAM_STR );
+                $stmt->bindValue( ':address', $inputAddress, PDO::PARAM_STR );
                 $stmt->bindValue( ':phone_number', $inputPhone, PDO::PARAM_INT );
-                $stmt->bindValue( ':start_date', $inputStart, PDO::PARAM_STR );
-                $stmt->bindValue( ':start_time', $inputStart, PDO::PARAM_INT );
-                $stmt->bindValue( ':end_date', $inputEnd, PDO::PARAM_STR );
-                $stmt->bindValue( ':end_time', $inputEnd, PDO::PARAM_INT );
+                $stmt->bindValue( ':start_date', $inputStartDate, PDO::PARAM_STR );
+                $stmt->bindValue( ':start_time', $inputStartTime, PDO::PARAM_INT );
+                $stmt->bindValue( ':end_date', $inputEndDate, PDO::PARAM_STR );
+                $stmt->bindValue( ':end_time', $inputEndTime, PDO::PARAM_INT );
+                $stmt->bindValue( ':purpose', $inputPurpose, PDO::PARAM_STR );
+                $stmt->bindValue( ':air', $inputAir, PDO::PARAM_INT );
 
                 // SQL文を実行します。
                 $stmt->execute();
                 $_SESSION['register_stdio_reserve']="登録完了";                
 
                 unset($inputName);
-                unset($inputPhone);
-                unset($inputId);
-                unset($inputMail);
+                unset($inputStartDate);
+                unset($inputStartTime);
+                unset($inputEndDate);
+                unset($inputEndTime);
+                unset($inputAddress);
+                unset($inputPurpose);
+                unset($inputAir);
                 unset($_POST['name1']);
-                unset($_POST['phone_number']);
-                unset($_POST['id']);
-                unset($_POST['mail']);
+                unset($_POST['start_date']);
+                unset($_POST['start_time']);
+                unset($_POST['end_date']);
+                unset($_POST['end_time']);
+                unset($_POST['address']);
+                unset($_POST['purpose']);
+                unset($_POST['air']);
 
             }catch( PDOException $e ){
                 echo( '接続失敗: ' . $e->getMessage() . '<br>' );
@@ -143,17 +154,16 @@ if(isset($_POST["submit"])){
         $_SESSION['register_stdio_reserve']="入力に不備があります";
     }
 
-    echo '<script type="text/javascript">window.location.href = window.location.hreg = "http://100.24.172.143/workshop_reserves/new/";</script>';
+    echo '<script type="text/javascript">window.location.href = window.location.hreg = "http://100.24.172.143/stdio_reserve/new/";</script>';
     exit();
 
 }
-*/
+
 ?>
 
 
 <?php
 //実装時はコメント解除
-    return $content;
   }
   else
   {
