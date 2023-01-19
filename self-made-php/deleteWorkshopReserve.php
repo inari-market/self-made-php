@@ -67,6 +67,16 @@ function delete_workshop_reserve($content) {
             ?>
 
                 </table>
+            
+                <?php
+            session_start();
+            if(! empty($_SESSION['delete_workshop_reserve'])){
+                echo("<br>".$_SESSION['delete_workshop_reserve']."<br>");
+                unset($_SESSION['delete_workshop_reserve']);
+            }else{
+                echo("<br><br>");
+            }
+            ?>
 
 </div>
     </body>
@@ -88,14 +98,15 @@ if (! empty($id)) {
         // SQL文を実行します。
         $stmt->execute();
         session_start();
-        $_SESSION['delete_workshop']="削除完了";
-        echo '<script type="text/javascript">window.location.href = window.location.hreg = "http://100.24.172.143/workshop_reserves/delete/";</script>';
-        exit();
+        $_SESSION['delete_workshop_reserve']="削除完了";
 
     }catch( PDOException $e ){
         echo( '接続失敗: ' . $e->getMessage() . '<br>' );
         exit();
     }
+
+    echo '<script type="text/javascript">window.location.href = window.location.hreg = "http://100.24.172.143/workshop_reserves/delete/";</script>';
+        exit();
 
 }
 ?>
