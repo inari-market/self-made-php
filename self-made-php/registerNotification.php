@@ -5,7 +5,6 @@ function register_notification($content) {
   if( is_page( 'notification/new' ))  //固定ページ「sample_cal」の時だけ処理させる
   {
 
-
 ?>
    <!-- 入力フォーム -->
 <!DOCTYPE html>
