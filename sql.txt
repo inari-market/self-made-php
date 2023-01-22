@@ -43,7 +43,7 @@ CREATE TABLE `exhibition_table` (
   `start` date DEFAULT NULL,
   `end` date DEFAULT NULL,
   `organizer` varchar(32) NOT NULL,
-  `introducation` text DEFAULT NULL
+  `introduction` text DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 ALTER TABLE `exhibition_table`
@@ -85,5 +85,25 @@ ALTER TABLE `workshop_reserve`
   ADD PRIMARY KEY (`reservation_id`,`workshop_id`);
 
 ALTER TABLE `workshop_reserve`
+  MODIFY `reservation_id` int(11) NOT NULL AUTO_INCREMENT;
+COMMIT;
+
+CREATE TABLE `stdio_reserve` (
+  `reservation_id` int(11) NOT NULL,
+  `name` varchar(32) DEFAULT NULL,
+  `address` varchar(50) DEFAULT NULL,
+  `phone_number` varchar(16) DEFAULT NULL,
+  `start_date` date DEFAULT NULL,
+  `start_time` int(2) DEFAULT NULL,
+  `end_date` date DEFAULT NULL,
+  `end_time` int(2) DEFAULT NULL,
+  `purpose` varchar(50) DEFAULT NULL,
+  `air` int(1) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+ALTER TABLE `stdio_reserve`
+  ADD PRIMARY KEY (`reservation_id`);
+
+ALTER TABLE `stdio_reserve`
   MODIFY `reservation_id` int(11) NOT NULL AUTO_INCREMENT;
 COMMIT;

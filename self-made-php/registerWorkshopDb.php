@@ -1,6 +1,6 @@
 <?php
 //実装時はコメント解除
-
+/*
 function register_workshop_db($content) {
  if( is_page( 'workshops/new_db' ))  //固定ページ「sample_cal」の時だ け処理させる
  {
@@ -101,4 +101,5 @@ exit();
  }
 
  add_filter('the_content', 'register_workshop_db');
+ */
  ?>

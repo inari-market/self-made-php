@@ -7,6 +7,32 @@ function delete_exhibition($content) {
 
 ?>
 
+<?php
+$id = $_GET['id'];
+if (! empty($id)) {
+
+    try {
+        include_once dirname( __FILE__ ).'/../db.php';
+        $dbh = DbUtil::Connect();
+        $sql = 'DELETE FROM exhibition_table where exhibition_id = :id';
+        $stmt = $dbh->prepare( $sql );
+        $stmt->bindValue( ':id', $id, PDO::PARAM_INT );
+        // SQL文を実行します。
+        $stmt->execute();
+        session_start();
+        $_SESSION['delete_exhibition']="削除完了";
+        echo '<script type="text/javascript">window.location.href = window.location.hreg = "http://100.24.172.143/exhibitions/delete/";</script>';
+        exit();
+
+    }catch( PDOException $e ){
+        echo( '接続失敗: ' . $e->getMessage() . '<br>' );
+        exit();
+    }
+}
+
+
+?>
+
 <!DOCTYPE html>
 <html>
     <head>
@@ -45,7 +71,7 @@ function delete_exhibition($content) {
             // SQL文を用意します。
             // :で始まる部分が後から値がセットされるプレースホルダです。
             // 複数回SQL文を実行する必要がある場合はここからexecute()までを>繰り返します。
-            $sql = 'SELECT * FROM exhibition_table';
+            $sql = 'SELECT * FROM exhibition_table order by start asc';
             // SQL文を実行する準備をします。
             $stmt = $dbh->prepare( $sql );
             // SQL文を実行します。
@@ -77,32 +103,6 @@ function delete_exhibition($content) {
 </div>
     </body>
 </html>
-
-<?php
-$id = $_GET['id'];
-if (! empty($id)) {
-
-    try {
-        include_once dirname( __FILE__ ).'/../db.php';
-        $dbh = DbUtil::Connect();
-        $sql = 'DELETE FROM exhibition_table where exhibition_id = :id';
-        $stmt = $dbh->prepare( $sql );
-        $stmt->bindValue( ':id', $id, PDO::PARAM_INT );
-        // SQL文を実行します。
-        $stmt->execute();
-        session_start();
-        $_SESSION['delete_exhibition']="削除完了";
-        echo '<script type="text/javascript">window.location.href = window.location.hreg = "http://100.24.172.143/exhibitions/delete/";</script>';
-        exit();
-
-    }catch( PDOException $e ){
-        echo( '接続失敗: ' . $e->getMessage() . '<br>' );
-        exit();
-    }
-}
-
-
-?>
 
 <?php
 

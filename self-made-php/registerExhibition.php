@@ -54,7 +54,7 @@ function register_exhibition($content) {
             ?>
 
             <br>
-            <input type="submit" value="登録">
+            <input type="submit" name = "submit" value="登録">
         </form>
         </div>
 
@@ -65,7 +65,6 @@ function register_exhibition($content) {
 
 if(isset($_POST['submit'])){
     session_start();
-
     if((! empty ($_POST['exhibition_name']) ) & (! empty ($_POST['start']))  &  (! empty ($_POST['end']))  &  (! empty ($_POST['introduction']))){
 
 
@@ -94,8 +93,7 @@ if(isset($_POST['submit'])){
                     $inputStart = $inputEnd;
                     $inputEnd = $tmp;
                 }
-                $_SESSION['register_exhibition']="登録完了";
-
+                echo("HELLO");
                 // SQL文を用意します。
                 // :で始まる部分が後から値がセットされるプレースホルダです。
                 // 複数回SQL文を実行する必要がある場合はここからexecute()までを 繰り返します。
@@ -128,7 +126,7 @@ if(isset($_POST['submit'])){
                 unset($_POST['introduction']);
 
             }catch( PDOException $e ){
-                echo( '接続失敗: ' . $e->getMessage() . '<br>' );
+                $_SESSION['register_exhibition']= '接続失敗: ' . $e->getMessage() . '<br>';
                 exit();
                 }
     }else {

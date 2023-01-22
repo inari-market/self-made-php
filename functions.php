@@ -223,7 +223,7 @@ add_action('init', 'init_session_start');
 
 
 
-require get_template_directory() . '/self-made-php/regist_exhibition.php';
+//require get_template_directory() . '/self-made-php/regist_exhibition.php';
 //require get_template_directory() . '/self-made-php/exhibitions.php';
 require get_template_directory() . '/self-made-php/regist_author.php';
 require get_template_directory() . '/self-made-php/authors.php';
@@ -240,6 +240,11 @@ require get_template_directory() . '/self-made-php/registerWorkshop.php';
 require get_template_directory() . '/self-made-php/deleteWorkshop.php';
 //require get_template_directory() . '/self-made-php/deleteWorkshopDb.php';
 require get_template_directory() . '/self-made-php/showWorkshop.php';
+require get_template_directory() . '/self-made-php/showWorkshopReserve.php';
 require get_template_directory() . '/self-made-php/registerWorkshopReserve.php';
+require get_template_directory() . '/self-made-php/deleteWorkshopReserve.php';
+require get_template_directory() . '/self-made-php/showStdioReserve.php';
+require get_template_directory() . '/self-made-php/registerStdioReserve.php';
+require get_template_directory() . '/self-made-php/deleteStdioReserve.php';
 //require get_template_directory() . '/self-made-php/registerWorkshopReserveDb.php';
 require get_template_directory() . '/self-made-php/showExhibition.php';
