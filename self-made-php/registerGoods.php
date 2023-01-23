@@ -104,7 +104,7 @@ if(isset($_POST["submit"])){
             }
 
             
-            $img_url = "http://100.24.172.143/photo/";
+            $img_url = "/var/www/html/photo/";
             move_uploaded_file($_FILES['photo_img']['tmp_name'], $img_url . $inputPhotoName.".png");
             /*
             if(move_uploaded_file($_FILES['photo_img']['tmp_name'], $img_url . $inputPhotoName.".png")){
