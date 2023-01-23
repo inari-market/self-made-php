@@ -27,11 +27,13 @@ function delete_exhibition_reserve($content) {
 
                 <table width="90%" class ='c'>
                 <tr>
-                <th>アトリエ予約ID</th>
+                <th>展示室予約ID</th>
+                  <th>展覧会名</th>
+                  <th>対象者</th>
+                  <th>ジャンル</th>
+                  <th>拝観料</th>
                   <th>開始</th>
                   <th>終了</th>
-                  <th>目的</th>
-                  <th>冷暖房</th>
                   <th>氏名</th>
                   <th>住所</th>
                   <th>携帯電話番号</th>
@@ -42,7 +44,7 @@ function delete_exhibition_reserve($content) {
         try {   
             // データベースに接続します。
             $dbh = DbUtil::Connect();
-            $sql = 'SELECT * FROM stdio_reserve order by start_date asc';
+            $sql = 'SELECT * FROM exhibition_reserve order by start_date asc';
             $stmt = $dbh->prepare( $sql );
             $stmt->execute();
             ?>
@@ -50,16 +52,18 @@ function delete_exhibition_reserve($content) {
         <?php while ($row = $stmt->fetch(PDO::FETCH_ASSOC)) { ?>
         <tr>
             <td><?php echo $row['reservation_id']; ?></td>
-            <td><?php echo $row['start_date']."日".$row['start_time']."時"; ?></td>
-            <td><?php echo $row['end_date']."日".$row['end_time']."時"; ?></td>
-            <td><?php echo $row['purpose']; ?></td>
+            <td><?php echo $row['exhibition_name']; ?></td>
+            <td><?php echo $row['target']; ?></td>
+            <td><?php echo $row['genru']; ?></td>
             <td><?php 
-                    if($row['air'] == 1){
+                    if($row['money'] == 1){
                         echo("〇");
                     }else{
                         echo("×");
                     }
                 ?></td>
+            <td><?php echo $row['start_date']."日".$row['start_time']."時"; ?></td>
+            <td><?php echo $row['end_date']."日".$row['end_time']."時"; ?></td>
             <td><?php echo $row['name']; ?></td>
             <td><?php echo $row['address']; ?></td>
             <td><?php echo $row['phone_number']; ?></td>
