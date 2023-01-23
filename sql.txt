@@ -121,7 +121,7 @@ CREATE TABLE `exhibition_reserve` (
   `target` varchar(50) DEFAULT NULL,
   `genru` varchar(50) DEFAULT NULL,
   `money` int(1) DEFAULT NULL,
-  `content` varchar(50) NOT NULL
+  `content` varchar(50)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 ALTER TABLE `exhibition_reserve`
