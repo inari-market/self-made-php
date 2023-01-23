@@ -54,11 +54,11 @@ function register_exhibition_reserve($content) {
 
             <br>
             <p>展覧会名</p>
-                <input type="text" name="exhibition_name" placeholder="使用目的を入力" value="<?php echo $_SESSION['exhibition_name']; ?>" maxlength="50"> <br>
+                <input type="text" name="exhibition_name" placeholder="展覧会名を入力" value="<?php echo $_SESSION['exhibition_name']; ?>" maxlength="50"> <br>
             <p>出品対象者</p>
-                <input type="text" name="target" placeholder="使用目的を入力" value="<?php echo $_SESSION['target']; ?>" maxlength="50"> <br>
+                <input type="text" name="target" placeholder="出品対象者を入力" value="<?php echo $_SESSION['target']; ?>" maxlength="50"> <br>
             <p>出品ジャンル</p>
-                <input type="text" name="genru" placeholder="使用目的を入力" value="<?php echo $_SESSION['genru']; ?>" maxlength="50"> <br>
+                <input type="text" name="genru" placeholder="出品ジャンルを入力" value="<?php echo $_SESSION['genru']; ?>" maxlength="50"> <br>
             <p>使用日時</p>
                 <input type="date" name="start_date"  min="<?php echo date('Y-m-d'); ?>" style = "display:inline-block">
                 <input type="number" name="start_time" min="9" max="12"  style = "display:inline-block"> 時から
