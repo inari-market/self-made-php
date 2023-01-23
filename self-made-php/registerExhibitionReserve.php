@@ -30,7 +30,7 @@ function register_exhibition_reserve($content) {
         height:30px;
     }
 
-    input[name=text]{
+    input[type=text]{
         width:230px;
         height:30px;
     }
