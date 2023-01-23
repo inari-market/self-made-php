@@ -95,6 +95,10 @@ if(isset($_POST["submit"])){
 
             $_SESSION['register_goods'] = '';
 
+            echo 'image:' . $_FILES['photo_img']['name'] . '<br>';
+                echo 'type:'  . $_FILES['photo_img']['type'] . '<br>';
+                var_dump($_FILES);
+
             if( is_numeric($_POST['price']) ) {
                 $inputPrice=$_POST['price'];
             }else{
