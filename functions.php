@@ -248,6 +248,7 @@ require get_template_directory() . '/self-made-php/registerStdioReserve.php';
 require get_template_directory() . '/self-made-php/registerExhibitionReserve.php';
 require get_template_directory() . '/self-made-php/deleteStdioReserve.php';
 require get_template_directory() . '/self-made-php/showExhibitionReserve.php';
+require get_template_directory() . '/self-made-php/deleteExhibitionReserve.php';
 //require get_template_directory() . '/self-made-php/registerWorkshopReserveDb.php';
 require get_template_directory() . '/self-made-php/showExhibition.php';
 require get_template_directory() . '/self-made-php/showNotification.php';
