@@ -103,6 +103,31 @@ if(isset($_POST["submit"])){
                 exit();
             }
 
+            
+            if (is_uploaded_file($_FILES["photo_img"]["tmp_name"])) {
+                    
+                if(filesize($_FILES["photo_img"]["tmp_name"] > 2000000)){
+                    $_SESSION['register_goods']="ファイルサイズが大きいです";
+                    echo '<script type="text/javascript">window.location.href = window.location.hreg = "http://100.24.172.143/goods/new/";</script>';
+                    exit();
+                }
+                else{
+                    $img_url = "http://100.24.172.143/photo/";
+                    if(move_uploaded_file($_FILES['upimg']['tmp_name'], $img_url . $inputPhotoName.".png")){
+                        $_SESSION['register_goods']="写真登録完了";  
+                    }else{
+                        $_SESSION['register_goods']="写真の登録に失敗しました";
+                        echo '<script type="text/javascript">window.location.href = window.location.hreg = "http://100.24.172.143/goods/new/";</script>';
+                        exit();
+                    }
+                }
+            }else{
+                $_SESSION['register_goods']="写真を選択してください";
+                echo '<script type="text/javascript">window.location.href = window.location.hreg = "http://100.24.172.143/goods/new/";</script>';
+                exit();
+            }
+
+
         try {            
 
 
@@ -123,11 +148,8 @@ if(isset($_POST["submit"])){
 
                 // SQL文を実行します。
                 $stmt->execute();
-                $_SESSION['register_goods']="登録完了";  
 
-                $img_url = "http://100.24.172.143/photo/";
-                move_uploaded_file($_FILES['upimg']['tmp_name'], $img_url . $inputPhotoName.".png");
-                $_SESSION['register_goods']="写真も登録完了";  
+                $_SESSION['register_goods']="登録完了";  
 
                 unset($inputGoodsName);
                 unset($inputPrice);
