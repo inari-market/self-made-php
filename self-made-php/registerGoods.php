@@ -52,6 +52,8 @@ function register_goods($content) {
                 <input type="text" name="description" placeholder="商品概要を入力" maxlength="512" value="<?php echo $_SESSION['description']; ?>"> <br>
             <p>写真の名前</p>
                 <input type="text" name="photo_name" placeholder="写真の名前を入力" maxlength="256" value="<?php echo $_SESSION['photo_name']; ?>"> <br>
+            <p>商品イメージ</p>
+                <input type="file" name="photo_img" accept="image/*">
             
             <?php
             session_start();
