@@ -25,8 +25,14 @@ function register_goods($content) {
         position:absolute; bottom:0%; right:0%;
      }
     
-     input[name=name1]{
+
+    input[type=text]{
         width:230px;
+        height:30px;
+    }
+
+    input[name=description]{
+        width:300px;
         height:30px;
     }
 
