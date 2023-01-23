@@ -42,7 +42,7 @@ function register_goods($content) {
     <body>
         <div class='l'>
     <h1>商品の入力フォーム</h1>
-    
+
         <form action="<?php echo str_replace( '%7E', '~', $_SERVER['REQUEST_URI']); ?>"  enctype="multipart/form-data" method="POST">
 
             <p>商品名</p>
@@ -92,7 +92,6 @@ if(isset($_POST["submit"])){
 
             $inputGoodsName= $_POST['goods_name'];
             $inputDescription=$_POST['description'];
-            $inputPhotoName=$_POST['photo_name'];
 
             $_SESSION['register_goods'] = '';
 
@@ -106,7 +105,38 @@ if(isset($_POST["submit"])){
                 exit();
             }
 
-            
+        try {            
+            include_once dirname( __FILE__ ).'/../db.php';
+            // データベースに接続します。
+            $dbh = DbUtil::Connect();
+
+            // SQL文を用意します。
+            // :で始まる部分が後から値がセットされるプレースホルダです。
+            // 複数回SQL文を実行する必要がある場合はここからexecute()までを>繰り返します。
+            $sql = 'SELECT * FROM goods';
+            // SQL文を実行する準備をします。
+            $stmt = $dbh->prepare( $sql );
+            // SQL文を実行します。
+            $stmt->execute();
+
+            while ($row = $stmt->fetch(PDO::FETCH_ASSOC)){
+                if($_POST['photo_name'] == $row["photo_name"]){
+                    $_SESSION['register_goods']="過去に登録された写真の名前です";
+                    echo '<script type="text/javascript">window.location.href = window.location.hreg = "http://100.24.172.143/goods/new/";</script>';
+                    exit();
+                }
+                else{
+                    $inputPhotoName=$_POST['photo_name'];
+                }
+            }
+
+                
+
+        }catch( PDOException $e ){
+                    echo( '接続失敗: ' . $e->getMessage() . '<br>' );
+                    exit();
+        }
+
             $img_url = "/var/www/html/photo/";
             if(move_uploaded_file($_FILES['photo_img']['tmp_name'], $img_url . $inputPhotoName.".png")){
                 $_SESSION['register_goods']="写真登録完了";  
