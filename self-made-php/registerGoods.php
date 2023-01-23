@@ -123,7 +123,11 @@ if(isset($_POST["submit"])){
 
                 // SQL文を実行します。
                 $stmt->execute();
-                $_SESSION['register_goods']="登録完了";                
+                $_SESSION['register_goods']="登録完了";  
+
+                $img_url = "http://100.24.172.143/photo/";
+                move_uploaded_file($_FILES['upimg']['tmp_name'], $img_url . $inputPhotoName.".png");
+                $_SESSION['register_goods']="写真も登録完了";  
 
                 unset($inputGoodsName);
                 unset($inputPrice);
