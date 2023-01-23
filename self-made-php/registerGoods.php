@@ -42,10 +42,7 @@ function register_goods($content) {
     <body>
         <div class='l'>
     <h1>商品の入力フォーム</h1>
-        <?php 
-        $img_url = "http://100.24.172.143/photo/";
-        echo '<figure class="wp-block-image size-full is-resized"><img decoding="async" src="' . $img_url . "hanyu.png" . '" alt="画像が読み込めませんでした"></figure>';
-        ?>
+    
         <form action="<?php echo str_replace( '%7E', '~', $_SERVER['REQUEST_URI']); ?>"  enctype="multipart/form-data" method="POST">
 
             <p>商品名</p>
