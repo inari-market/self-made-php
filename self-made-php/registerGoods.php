@@ -103,26 +103,12 @@ if(isset($_POST["submit"])){
                 exit();
             }
 
-            
-            if (!empty($_FILES['photo_img']['name'])) {
-                    
-                if(filesize($_FILES["photo_img"]["tmp_name"] > 2000000)){
-                    $_SESSION['register_goods']="ファイルサイズが大きいです";
-                    echo '<script type="text/javascript">window.location.href = window.location.hreg = "http://100.24.172.143/goods/new/";</script>';
-                    exit();
-                }
-                else{
-                    $img_url = "http://100.24.172.143/photo/";
-                    if(move_uploaded_file($_FILES['photo_img']['tmp_name'], $img_url . $inputPhotoName.".png")){
-                        $_SESSION['register_goods']="写真登録完了";  
-                    }else{
-                        $_SESSION['register_goods']="写真の登録に失敗しました";
-                        echo '<script type="text/javascript">window.location.href = window.location.hreg = "http://100.24.172.143/goods/new/";</script>';
-                        exit();
-                    }
-                }
+        
+            $img_url = "http://100.24.172.143/photo/";
+            if(move_uploaded_file($_FILES['photo_img']['tmp_name'], $img_url . $inputPhotoName.".png")){
+                $_SESSION['register_goods']="写真登録完了";  
             }else{
-                $_SESSION['register_goods']=$_FILES['photo_img']['name']."写真を選択してください";
+                $_SESSION['register_goods']="写真の登録に失敗しました";
                 echo '<script type="text/javascript">window.location.href = window.location.hreg = "http://100.24.172.143/goods/new/";</script>';
                 exit();
             }
