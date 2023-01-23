@@ -245,6 +245,7 @@ require get_template_directory() . '/self-made-php/registerWorkshopReserve.php';
 require get_template_directory() . '/self-made-php/deleteWorkshopReserve.php';
 require get_template_directory() . '/self-made-php/showStdioReserve.php';
 require get_template_directory() . '/self-made-php/registerStdioReserve.php';
+require get_template_directory() . '/self-made-php/registerExhibitionReserve.php';
 require get_template_directory() . '/self-made-php/deleteStdioReserve.php';
 //require get_template_directory() . '/self-made-php/registerWorkshopReserveDb.php';
 require get_template_directory() . '/self-made-php/showExhibition.php';
