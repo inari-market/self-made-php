@@ -115,7 +115,6 @@ if(isset($_POST["submit"])){
             $inputGenru=$_POST['genru'];
             $inputName= $_POST['name1'];
             $inputAddress=$_POST['address'];
-            $inputPurpose=$_POST['purpose'];
             $inputMoney=$_POST['money'];
 
             $_SESSION['register_exhibition_reserve'] = '';
@@ -175,7 +174,7 @@ if(isset($_POST["submit"])){
                 $stmt->bindValue( ':start_time', $inputStartTime, PDO::PARAM_INT );
                 $stmt->bindValue( ':end_date', $inputEndDate, PDO::PARAM_STR );
                 $stmt->bindValue( ':end_time', $inputEndTime, PDO::PARAM_INT );
-                $stmt->bindValue( '::exhibition_name', $inputExhibitionName, PDO::PARAM_STR );
+                $stmt->bindValue( ':exhibition_name', $inputExhibitionName, PDO::PARAM_STR );
                 $stmt->bindValue( ':target', $inputTarget, PDO::PARAM_STR );
                 $stmt->bindValue( ':genru', $inputGenru, PDO::PARAM_STR );
                 $stmt->bindValue( ':money', $inputMoney, PDO::PARAM_INT );
