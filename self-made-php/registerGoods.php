@@ -95,9 +95,7 @@ if(isset($_POST["submit"])){
 
             $_SESSION['register_goods'] = '';
 
-            echo 'image:' . $_FILES['photo_img']['name'] . '<br>';
-                echo 'type:'  . $_FILES['photo_img']['type'] . '<br>';
-                var_dump($_FILES);
+            $_SESSION['register_goods']='image:' . $_FILES['photo_img']['name'] . '<br>'.'type:'  . $_FILES['photo_img']['type'] . '<br>'.var_dump($_FILES);
 
             if( is_numeric($_POST['price']) ) {
                 $inputPrice=$_POST['price'];
@@ -142,7 +140,7 @@ if(isset($_POST["submit"])){
                 // SQL文を実行します。
                 $stmt->execute();
 
-                $_SESSION['register_goods']="登録完了";  
+                //$_SESSION['register_goods']="登録完了";  
 
                 unset($inputGoodsName);
                 unset($inputPrice);
