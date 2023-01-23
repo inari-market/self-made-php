@@ -30,15 +30,16 @@ function register_stdio_reserve($content) {
         height:30px;
     }
 
-    input[name=name1]{
+    input[type=text]{
         width:230px;
         height:30px;
     }
 
-    input[name=phone_number]{
-        width:230px;
+    input[name=address]{
+        width:500px;
         height:30px;
     }
+
 
 
 

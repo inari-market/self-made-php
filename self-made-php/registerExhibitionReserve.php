@@ -36,7 +36,7 @@ function register_exhibition_reserve($content) {
     }
 
     input[name=address]{
-        width:300px;
+        width:500px;
         height:30px;
     }
 
