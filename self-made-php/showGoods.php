@@ -56,10 +56,12 @@ function show_goods($content) {
             <td><?php echo $row['goods_name']; ?></td>
             <td><?php echo $row['description']; ?></td>
             <td><?php echo $row['price']; ?></td>
+            <td>
             <?php
         $img_url = "http://100.24.172.143/photo/";
         echo '<figure class="wp-block-image size-full is-resized"><img decoding="async" src="' . $img_url . $row['photo_name'] .".png" . '" alt="画像が読み込めませんでした" width="60" height="60"></figure>';
         ?>
+            </td>
         </tr>
     <?php } ?>
 
