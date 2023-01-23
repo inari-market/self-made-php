@@ -130,3 +130,16 @@ ALTER TABLE `exhibition_reserve`
 ALTER TABLE `exhibition_reserve`
   MODIFY `reservation_id` int(11) NOT NULL AUTO_INCREMENT;
 COMMIT;
+
+CREATE TABLE `goods` (
+  `goods_id` int(11) NOT NULL,
+  `goods_name` varchar(32) DEFAULT NULL,
+  `price` int(12) DEFAULT NULL,
+  `description` varchar(512) DEFAULT NULL,
+  `photo_name` varchar(256) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+ALTER TABLE `goods`
+  ADD PRIMARY KEY (`goods_id`);
+ALTER TABLE `goods`
+  MODIFY `goods_id` int(11) NOT NULL AUTO_INCREMENT;
+COMMIT;
