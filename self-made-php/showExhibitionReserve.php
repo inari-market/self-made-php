@@ -31,7 +31,7 @@ function show_exhibition_reserve($content) {
                   <th>展覧会名</th>
                   <th>対象者</th>
                   <th>ジャンル</th>
-                  <th>拝観料の有無</th>
+                  <th>拝観料</th>
                   <th>開始</th>
                   <th>終了</th>
                   <th>氏名</th>
