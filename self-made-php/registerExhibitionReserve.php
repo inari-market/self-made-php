@@ -96,6 +96,12 @@ function register_exhibition_reserve($content) {
 if(isset($_POST["submit"])){
     session_start();
 
+    $_SESSION['exhibition_name']= $_POST['exhibition_name'];
+    $_SESSION['target']=$_POST['target'];
+    $_SESSION['genru']=$_POST['genru'];
+    $_SESSION['name1']= $_POST['name1'];
+    $_SESSION['address']=$_POST['address'];
+
     if((! empty ($_POST['start_date']) ) & (! empty ($_POST['start_time'])) & (! empty ($_POST['end_date']) ) & (! empty ($_POST['end_time'])) 
     & (! empty ($_POST['name1'])) & (! empty ($_POST['phone_number'])) &  (! empty ($_POST['address'])) & (! empty ($_POST['money']))
     &  (! empty ($_POST['exhibition_name'])) & (! empty ($_POST['target'])) & (! empty ($_POST['genru']))){
@@ -103,12 +109,6 @@ if(isset($_POST["submit"])){
 
         include_once dirname( __FILE__ ).'/../db.php';
         // 前のページから値を取得します。
-            $_SESSION['exhibition_name']= $_POST['exhibition_name'];
-            $_SESSION['target']=$_POST['target'];
-            $_SESSION['genru']=$_POST['genru'];
-            $_SESSION['name1']= $_POST['name1'];
-            $_SESSION['address']=$_POST['address'];
-            $_SESSION['purpose']=$_POST['purpose'];
 
             $inputExhibitionName= $_POST['exhibition_name'];
             $inputTarget=$_POST['target'];
