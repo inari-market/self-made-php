@@ -62,7 +62,7 @@ function delete_goods($content) {
         echo '<figure class="wp-block-image size-full is-resized"><img decoding="async" src="' . $img_url . $row['photo_name'] .".png" . '" alt="画像が読み込めませんでした" width="60" height="60"></figure>';
         ?>
             </td>
-            <td><a href="<?php echo str_replace( '%7E', '~', $_SERVER['REQUEST_URI']); ?>?id=<?php echo $row['reservation_id']; ?>">削除</a></td>
+            <td><a href="<?php echo str_replace( '%7E', '~', $_SERVER['REQUEST_URI']); ?>?id=<?php echo $row['goods_id']; ?>">削除</a></td>
 
         </tr>
     <?php } ?>
