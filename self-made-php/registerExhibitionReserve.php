@@ -30,13 +30,13 @@ function register_exhibition_reserve($content) {
         height:30px;
     }
 
-    input[name=name1]{
+    input[name=text]{
         width:230px;
         height:30px;
     }
 
-    input[name=phone_number]{
-        width:230px;
+    input[name=address]{
+        width:300px;
         height:30px;
     }
 
