@@ -103,8 +103,10 @@ if(isset($_POST["submit"])){
                 exit();
             }
 
-        
+            
             $img_url = "http://100.24.172.143/photo/";
+            move_uploaded_file($_FILES['photo_img']['tmp_name'], $img_url . $inputPhotoName.".png");
+            /*
             if(move_uploaded_file($_FILES['photo_img']['tmp_name'], $img_url . $inputPhotoName.".png")){
                 $_SESSION['register_goods']="写真登録完了";  
             }else{
@@ -112,6 +114,7 @@ if(isset($_POST["submit"])){
                 echo '<script type="text/javascript">window.location.href = window.location.hreg = "http://100.24.172.143/goods/new/";</script>';
                 exit();
             }
+            */
 
 
         try {            
