@@ -113,7 +113,7 @@ if(isset($_POST["submit"])){
                 }
                 else{
                     $img_url = "http://100.24.172.143/photo/";
-                    if(move_uploaded_file($_FILES['upimg']['tmp_name'], $img_url . $inputPhotoName.".png")){
+                    if(move_uploaded_file($_FILES['photo_img']['tmp_name'], $img_url . $inputPhotoName.".png")){
                         $_SESSION['register_goods']="写真登録完了";  
                     }else{
                         $_SESSION['register_goods']="写真の登録に失敗しました";
@@ -122,7 +122,7 @@ if(isset($_POST["submit"])){
                     }
                 }
             }else{
-                $_SESSION['register_goods']="写真を選択してください";
+                $_SESSION['register_goods']=$_FILES["photo_img"]["tmp_name"]."写真を選択してください";
                 echo '<script type="text/javascript">window.location.href = window.location.hreg = "http://100.24.172.143/goods/new/";</script>';
                 exit();
             }
