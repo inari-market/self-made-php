@@ -61,9 +61,9 @@ function register_exhibition_reserve($content) {
                 <input type="text" name="genru" placeholder="出品ジャンルを入力" value="<?php echo $_SESSION['genru']; ?>" maxlength="50"> <br>
             <p>使用日時</p>
                 <input type="date" name="start_date"  min="<?php echo date('Y-m-d'); ?>" style = "display:inline-block">
-                <input type="number" name="start_time" min="9" max="12"  style = "display:inline-block"> 時から
+                <input type="number" name="start_time" min="9" max="16"  style = "display:inline-block"> 時から
                 <input type="date" name="end_date"  min="<?php echo date('Y-m-d'); ?>" style = "display:inline-block"> 
-                <input type="number" name="end_time" min="12" max="17"  style = "display:inline-block">時まで <br><br>
+                <input type="number" name="end_time" min="10" max="17"  style = "display:inline-block">時まで <br><br>
             <p>観覧料の有無</p>
                 <input type="radio" name="money" value="1">無料  <input type="radio" name="money" value="0">有料  <br><br>
             <p>氏名</p>
@@ -137,20 +137,10 @@ if(isset($_POST["submit"])){
                 echo '<script type="text/javascript">window.location.href = window.location.hreg = "http://100.24.172.143/exhibition_reserves/new/";</script>';
                 exit();
             }else{
-                if(($_POST['start_time'] != 9) && (($_POST['start_time'] != 12))){
-                    $_SESSION['register_exhibition_reserve']="使用を開始する時刻を正しくご入力ください";
-                    echo '<script type="text/javascript">window.location.href = window.location.hreg = "http://100.24.172.143/exhibition_reserves/new/";</script>';
-                    exit();
-                }else if(($_POST['end_time'] != 12) && (($_POST['end_time'] != 17))){
-                    $_SESSION['register_exhibition_reserve']="使用を終了する時刻を正しくご入力ください";
-                    echo '<script type="text/javascript">window.location.href = window.location.hreg = "http://100.24.172.143/exhibition_reserves/new/";</script>';
-                    exit();
-                }else{
                     $inputStartDate=$_POST['start_date'];
                     $inputStartTime=$_POST['start_time'];
                     $inputEndDate=$_POST['end_date'];
                     $inputEndTime=$_POST['end_time'];
-                }
             }
 
         try {            
