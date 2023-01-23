@@ -42,7 +42,7 @@ function register_goods($content) {
     <body>
         <div class='l'>
     <h1>商品の入力フォーム</h1>
-        <form action="<?php echo str_replace( '%7E', '~', $_SERVER['REQUEST_URI']); ?>" method="POST">
+        <form action="<?php echo str_replace( '%7E', '~', $_SERVER['REQUEST_URI']); ?>"  enctype="multipart/form-data" method="POST">
 
             <p>商品名</p>
                 <input type="text" name="goods_name" placeholder="商品名を入力" maxlength="32" value="<?php echo $_SESSION['goods_name']; ?>"> <br>
