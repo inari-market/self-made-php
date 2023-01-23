@@ -45,9 +45,8 @@ function register_notification($content) {
                 echo("<br><br>");
             }
             ?>
-
             <br>
-            <input type="submit" value="登録">
+            <input type="submit" name="submit" value="登録">
         </form>
         </div>
 
@@ -60,7 +59,6 @@ if(isset($_POST['submit'])){
     session_start();
 
     if((! empty ($_POST['title']) ) & (! empty ($_POST['body']))){
-
 
         include_once dirname( __FILE__ ).'/../db.php';
         // 前のページから値を取得します。
