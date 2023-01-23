@@ -44,10 +44,9 @@ function register_notification($content) {
             }else{
                 echo("<br><br>");
             }
-            echo $_SESSION['register_notification'], '1';
             ?>
             <br>
-            <input type="submit" value="登録">
+            <input type="submit" name="submit" value="登録">
         </form>
         </div>
 
@@ -58,10 +57,8 @@ function register_notification($content) {
 
 if(isset($_POST['submit'])){
     session_start();
-    echo $_SESSION['register_notification'], '2';
 
     if((! empty ($_POST['title']) ) & (! empty ($_POST['body']))){
-        echo $_SESSION['register_notification'], '3';
 
         include_once dirname( __FILE__ ).'/../db.php';
         // 前のページから値を取得します。
@@ -78,7 +75,6 @@ if(isset($_POST['submit'])){
                 echo '<script type="text/javascript">window.location.href = window.location.hreg = "http://18.209.25.203/notification/new/";</script>';
                     exit();
                 }
-                echo $_SESSION['register_notification'], '4';
                 
                 $_SESSION['register_notification']="登録完了";
 
@@ -95,7 +91,7 @@ if(isset($_POST['submit'])){
                 $stmt->bindValue( ':body', $inputBody, PDO::PARAM_STR );
                 // SQL文を実行します。
                 $stmt->execute();
-                echo $_SESSION['register_notification'], '5';
+
                 $_SESSION['register_notification']="登録完了";
 
                 unset($inputTitle);
