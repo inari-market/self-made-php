@@ -54,8 +54,8 @@ function delete_goods($content) {
         <tr>
             <td><?php echo $row['goods_id']; ?></td>
             <td><?php echo $row['goods_name']; ?></td>
-            <td><?php echo $row['description']; ?></td>
             <td><?php echo $row['price']; ?></td>
+            <td><?php echo $row['description']; ?></td>
             <td>
             <?php
         $img_url = "http://100.24.172.143/photo/";
