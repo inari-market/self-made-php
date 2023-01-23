@@ -104,7 +104,7 @@ if(isset($_POST["submit"])){
             }
 
             
-            if (is_uploaded_file($_FILES["photo_img"]["tmp_name"])) {
+            if (!empty($_FILES['photo_img']['name'])) {
                     
                 if(filesize($_FILES["photo_img"]["tmp_name"] > 2000000)){
                     $_SESSION['register_goods']="ファイルサイズが大きいです";
@@ -122,7 +122,7 @@ if(isset($_POST["submit"])){
                     }
                 }
             }else{
-                $_SESSION['register_goods']=$_FILES["photo_img"]["tmp_name"]."写真を選択してください";
+                $_SESSION['register_goods']=$_FILES['photo_img']['name']."写真を選択してください";
                 echo '<script type="text/javascript">window.location.href = window.location.hreg = "http://100.24.172.143/goods/new/";</script>';
                 exit();
             }
