@@ -2,7 +2,7 @@
 //実装時はコメント解除
 //いったん放置
 function register_exhibition_reserve($content) {
-  if( is_page( 'stdio_reserves/new' ))  //固定ページ「sample_cal」の時だけ処理させる
+  if( is_page( 'exhibition_reserves/new' ))  //固定ページ「sample_cal」の時だけ処理させる
   {
 
 
@@ -30,13 +30,13 @@ function register_exhibition_reserve($content) {
         height:30px;
     }
 
-    input[name=name1]{
+    input[type=text]{
         width:230px;
         height:30px;
     }
 
-    input[name=phone_number]{
-        width:230px;
+    input[name=address]{
+        width:500px;
         height:30px;
     }
 
@@ -54,16 +54,16 @@ function register_exhibition_reserve($content) {
 
             <br>
             <p>展覧会名</p>
-                <input type="text" name="exhibition_name" placeholder="使用目的を入力" value="<?php echo $_SESSION['exhibition_name']; ?>" maxlength="50"> <br>
+                <input type="text" name="exhibition_name" placeholder="展覧会名を入力" value="<?php echo $_SESSION['exhibition_name']; ?>" maxlength="50"> <br>
             <p>出品対象者</p>
-                <input type="text" name="target" placeholder="使用目的を入力" value="<?php echo $_SESSION['target']; ?>" maxlength="50"> <br>
+                <input type="text" name="target" placeholder="出品対象者を入力" value="<?php echo $_SESSION['target']; ?>" maxlength="50"> <br>
             <p>出品ジャンル</p>
-                <input type="text" name="genru" placeholder="使用目的を入力" value="<?php echo $_SESSION['genru']; ?>" maxlength="50"> <br>
+                <input type="text" name="genru" placeholder="出品ジャンルを入力" value="<?php echo $_SESSION['genru']; ?>" maxlength="50"> <br>
             <p>使用日時</p>
                 <input type="date" name="start_date"  min="<?php echo date('Y-m-d'); ?>" style = "display:inline-block">
-                <input type="number" name="start_time" min="9" max="12"  style = "display:inline-block"> 時から
+                <input type="number" name="start_time" min="9" max="16"  style = "display:inline-block"> 時から
                 <input type="date" name="end_date"  min="<?php echo date('Y-m-d'); ?>" style = "display:inline-block"> 
-                <input type="number" name="end_time" min="12" max="17"  style = "display:inline-block">時まで <br><br>
+                <input type="number" name="end_time" min="10" max="17"  style = "display:inline-block">時まで <br><br>
             <p>観覧料の有無</p>
                 <input type="radio" name="money" value="1">無料  <input type="radio" name="money" value="0">有料  <br><br>
             <p>氏名</p>
@@ -96,6 +96,12 @@ function register_exhibition_reserve($content) {
 if(isset($_POST["submit"])){
     session_start();
 
+    $_SESSION['exhibition_name']= $_POST['exhibition_name'];
+    $_SESSION['target']=$_POST['target'];
+    $_SESSION['genru']=$_POST['genru'];
+    $_SESSION['name1']= $_POST['name1'];
+    $_SESSION['address']=$_POST['address'];
+
     if((! empty ($_POST['start_date']) ) & (! empty ($_POST['start_time'])) & (! empty ($_POST['end_date']) ) & (! empty ($_POST['end_time'])) 
     & (! empty ($_POST['name1'])) & (! empty ($_POST['phone_number'])) &  (! empty ($_POST['address'])) & (! empty ($_POST['money']))
     &  (! empty ($_POST['exhibition_name'])) & (! empty ($_POST['target'])) & (! empty ($_POST['genru']))){
@@ -103,19 +109,12 @@ if(isset($_POST["submit"])){
 
         include_once dirname( __FILE__ ).'/../db.php';
         // 前のページから値を取得します。
-            $_SESSION['exhibition_name']= $_POST['exhibition_name'];
-            $_SESSION['target']=$_POST['target'];
-            $_SESSION['genru']=$_POST['genru'];
-            $_SESSION['name1']= $_POST['name1'];
-            $_SESSION['address']=$_POST['address'];
-            $_SESSION['purpose']=$_POST['purpose'];
 
             $inputExhibitionName= $_POST['exhibition_name'];
             $inputTarget=$_POST['target'];
             $inputGenru=$_POST['genru'];
             $inputName= $_POST['name1'];
             $inputAddress=$_POST['address'];
-            $inputPurpose=$_POST['purpose'];
             $inputMoney=$_POST['money'];
 
             $_SESSION['register_exhibition_reserve'] = '';
@@ -138,20 +137,10 @@ if(isset($_POST["submit"])){
                 echo '<script type="text/javascript">window.location.href = window.location.hreg = "http://100.24.172.143/exhibition_reserves/new/";</script>';
                 exit();
             }else{
-                if(($_POST['start_time'] != 9) && (($_POST['start_time'] != 12))){
-                    $_SESSION['register_exhibition_reserve']="使用を開始する時刻を正しくご入力ください";
-                    echo '<script type="text/javascript">window.location.href = window.location.hreg = "http://100.24.172.143/exhibition_reserves/new/";</script>';
-                    exit();
-                }else if(($_POST['end_time'] != 12) && (($_POST['end_time'] != 17))){
-                    $_SESSION['register_exhibition_reserve']="使用を終了する時刻を正しくご入力ください";
-                    echo '<script type="text/javascript">window.location.href = window.location.hreg = "http://100.24.172.143/exhibition_reserves/new/";</script>';
-                    exit();
-                }else{
                     $inputStartDate=$_POST['start_date'];
                     $inputStartTime=$_POST['start_time'];
                     $inputEndDate=$_POST['end_date'];
                     $inputEndTime=$_POST['end_time'];
-                }
             }
 
         try {            
@@ -175,7 +164,7 @@ if(isset($_POST["submit"])){
                 $stmt->bindValue( ':start_time', $inputStartTime, PDO::PARAM_INT );
                 $stmt->bindValue( ':end_date', $inputEndDate, PDO::PARAM_STR );
                 $stmt->bindValue( ':end_time', $inputEndTime, PDO::PARAM_INT );
-                $stmt->bindValue( '::exhibition_name', $inputExhibitionName, PDO::PARAM_STR );
+                $stmt->bindValue( ':exhibition_name', $inputExhibitionName, PDO::PARAM_STR );
                 $stmt->bindValue( ':target', $inputTarget, PDO::PARAM_STR );
                 $stmt->bindValue( ':genru', $inputGenru, PDO::PARAM_STR );
                 $stmt->bindValue( ':money', $inputMoney, PDO::PARAM_INT );

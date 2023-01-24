@@ -30,15 +30,16 @@ function register_stdio_reserve($content) {
         height:30px;
     }
 
-    input[name=name1]{
+    input[type=text]{
         width:230px;
         height:30px;
     }
 
-    input[name=phone_number]{
-        width:230px;
+    input[name=address]{
+        width:500px;
         height:30px;
     }
+
 
 
 
@@ -92,6 +93,10 @@ function register_stdio_reserve($content) {
 if(isset($_POST["submit"])){
     session_start();
 
+    $_SESSION['name1']= $_POST['name1'];
+    $_SESSION['address']=$_POST['address'];
+    $_SESSION['purpose']=$_POST['purpose'];
+
     if((! empty ($_POST['start_date']) ) & (! empty ($_POST['start_time'])) & (! empty ($_POST['end_date']) ) & (! empty ($_POST['end_time'])) 
     & (! empty ($_POST['name1'])) & (! empty ($_POST['phone_number'])) &  (! empty ($_POST['address'])) & (! empty ($_POST['purpose'])) & (! empty ($_POST['air']))){
 
@@ -99,9 +104,6 @@ if(isset($_POST["submit"])){
         include_once dirname( __FILE__ ).'/../db.php';
         // 前のページから値を取得します。
 
-            $_SESSION['name1']= $_POST['name1'];
-            $_SESSION['address']=$_POST['address'];
-            $_SESSION['purpose']=$_POST['purpose'];
 
             $inputName= $_POST['name1'];
             $inputAddress=$_POST['address'];
