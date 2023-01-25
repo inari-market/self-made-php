@@ -256,3 +256,4 @@ require get_template_directory() . '/self-made-php/deleteGoods.php';
 require get_template_directory() . '/self-made-php/showExhibition.php';
 require get_template_directory() . '/self-made-php/showNotification.php';
 require get_template_directory() . '/self-made-php/registerNotification.php';
+require get_template_directory() . '/self-made-php/deleteNotification.php';
