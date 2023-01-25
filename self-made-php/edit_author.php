@@ -8,7 +8,7 @@
             if($_POST['button'] == 'update') { // updateの処理
                 try {
                     $dbh = DbUtil::Connect(); // db.phpのメソッドを使ってDBとのコネクションを確立
-                    $sql = 'update authors2 set name = :name, furigana = :furigana, birthday = :birthday, introduction  = :introduction, birthplace = :birthplace, work = :work where id = :id';
+                    $sql = 'update author set name = :name, furigana = :furigana, birthday = :birthday, introduction  = :introduction, birthplace = :birthplace, work = :work where id = :id';
                     $stmt = $dbh->prepare( $sql ); // SQL文を実行する準備をします。
                     
                     // プレースホルダに実際の値をバインドします。
