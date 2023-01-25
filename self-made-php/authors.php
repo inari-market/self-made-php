@@ -6,7 +6,7 @@
             try {
                 // データベースに接続します。
                 $dbh = DbUtil::Connect(); // db.phpのメソッドを使ってDBとのコネクションを確立
-                $sql = 'select * from authors2 '; //全部抜く
+                $sql = 'select * from author '; //全部抜く
                 $stmt = $dbh->prepare( $sql ); // SQL文を実行する準備をします。
                 $stmt->execute(); // SQL文を実行します。
 
