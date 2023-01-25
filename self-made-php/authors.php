@@ -72,7 +72,7 @@
             }catch( PDOException $e ){
                 //echo( '接続失敗: ' . $e->getMessage() . '<br>' );
                 echo 'エラーが発生しました．以下のリンクから再度読み込んでください<br>';
-                echo '<a href="https://inari-dev.tk/authors" style="color:blue;">再度読み込み</a>';
+                echo '<a href="" style="color:blue;">再度読み込み</a>';
                 exit();
             }       
 ?>
