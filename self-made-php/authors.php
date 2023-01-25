@@ -87,7 +87,8 @@
             }
             ?>
 
-<?php 
+<?php
+            return $content;
         } else {
             return $content;
         }
