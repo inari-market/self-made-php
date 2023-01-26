@@ -34,15 +34,15 @@ function register_workshop($content) {
 
             <br>
             <p>ワークショップ名</p>
-                <input type="text" name="workshop_name" placeholder="ワークショップ名を入力" maxlength="64"> <br>
+                <input type="text" name="workshop_name" placeholder="ワークショップ名を入力" maxlength="64" value="<?php echo $_SESSION['workshop_name']; ?>"> <br>
             <p>主催者</p>
-                <input type="text" name="organizer" placeholder="主催者名を入力" maxlength="32"> <br>
+                <input type="text" name="organizer" placeholder="主催者名を入力" maxlength="32" value="<?php echo $_SESSION['organizer']; ?>"> <br>
             <p>概要</p> 
-                <textarea  name="introduction" cols="40" maxlength="1024" placeholder="ワークショップの概要を入力"></textarea> <br>
+                <textarea  name="introduction" cols="40" maxlength="1024" placeholder="ワークショップの概要を入力" value="<?php echo $_SESSION['introduction']; ?>"></textarea> <br>
             <p>参加可能人数</p>
-                <input type="text" name="capacity" placeholder="参加可能人数を入力" maxlength="11"> <br>
+                <input type="text" name="capacity" placeholder="参加可能人数を入力" maxlength="11" value="<?php echo $_SESSION['capacity']; ?>"> <br>
             <p>一人あたりの参加料金</p>
-                <input type="text" name="cost" placeholder="一人あたりの参加料金を入力" maxlength="11"> <br>
+                <input type="text" name="cost" placeholder="一人あたりの参加料金を入力" maxlength="11" value="<?php echo $_SESSION['cost']; ?>"> <br>
             <p>開始日</p>
                 <input type="date" name="start" value="<?php echo date('Y-m-d'); ?>"> <br><br>
             <p>終了日</p>
@@ -69,8 +69,13 @@ function register_workshop($content) {
 </html>
 
 <?php
-session_start();
 if(isset($_POST['submit'])){
+    session_start();
+    $_SESSION['workshop_name']= $_POST['exhibition_name'];
+    $_SESSION['organizer']=$_POST['organizer'];
+    $_SESSION['introduction']=$_POST['introduction'];
+    $_SESSION['capacity']=$_POST['capacity'];
+    $_SESSION['cost']=$_POST['cost'];
     if((! empty ($_POST['workshop_name']) ) & (! empty ($_POST['start']))  &  (! empty ($_POST['end'])) 
         &  (! empty ($_POST['capacity'])) &  (! empty ($_POST['cost'])) &  (! empty ($_POST['deadline']))){
 
@@ -144,6 +149,11 @@ if(isset($_POST['submit'])){
                 unset($_POST['cost']);
                 unset($_POST['capacity']);
                 unset($_POST['deadline']);
+                unset($_SESSION['exhibition_name']);
+                unset($_SESSION['organizer']);
+                unset($_SESSION['introduction']);
+                unset($_SESSION['cost']);
+                unset($_SESSION['capacity']);
 
             }catch( PDOException $e ){
                 echo( '接続失敗: ' . $e->getMessage() . '<br>' );
