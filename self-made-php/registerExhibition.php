@@ -34,15 +34,15 @@ function register_exhibition($content) {
 
             <br>
             <p>企画展名</p>
-                <input type="text" name="exhibition_name" placeholder="企画展名を入力" maxlength="64"> <br>
+                <input type="text" name="exhibition_name" placeholder="企画展名を入力" maxlength="64" value="<?php echo $_SESSION['exhibition_name']; ?>"> <br>
             <p>開始日</p>
                 <input type="date" name="start" value="<?php echo date('Y-m-d'); ?>"> <br><br>
             <p>終了日</p>
                 <input type="date" name="end" value="<?php echo date('Y-m-d'); ?>"> <br><br>
             <p>主催者名</p>
-                <input type="text" name="organizer" placeholder="主催者名を入力" maxlength="32"> <br>
+                <input type="text" name="organizer" placeholder="主催者名を入力" maxlength="32" value="<?php echo $_SESSION['organizer']; ?>"> <br>
             <p>概要</p> 
-                <textarea  name="introduction" rows="4" cols="40" maxlength="160" placeholder="企画展の概要を入力"></textarea>
+                <textarea  name="introduction" rows="4" cols="40" maxlength="160" placeholder="企画展の概要を入力" value="<?php echo $_SESSION['introduction']; ?>"></textarea>
             <?php
             session_start();
             if(! empty($_SESSION['register_exhibition'])){
@@ -65,6 +65,10 @@ function register_exhibition($content) {
 
 if(isset($_POST['submit'])){
     session_start();
+    $_SESSION['exhibition_name']= $_POST['exhibition_name'];
+    $_SESSION['organizer']=$_POST['organizer'];
+    $_SESSION['introduction']=$_POST['introduction'];
+
     if((! empty ($_POST['exhibition_name']) ) & (! empty ($_POST['start']))  &  (! empty ($_POST['end']))  &  (! empty ($_POST['introduction']))){
 
 
@@ -124,6 +128,9 @@ if(isset($_POST['submit'])){
                 unset($_POST['end']);
                 unset($_POST['organizer']);
                 unset($_POST['introduction']);
+                unset($_SESSION['exhibition_name']);
+                unset($_SESSION['organizer']);
+                unset($_SESSION['introduction']);
 
             }catch( PDOException $e ){
                 $_SESSION['register_exhibition']= '接続失敗: ' . $e->getMessage() . '<br>';
