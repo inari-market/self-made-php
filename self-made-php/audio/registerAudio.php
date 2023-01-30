@@ -119,6 +119,6 @@ if(isset($_POST['submit'])){
   }
 }
 
-add_filter('the_content', 'register_notification');
+add_filter('the_content', 'register_audio');
 
 ?>
