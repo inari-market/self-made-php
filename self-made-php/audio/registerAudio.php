@@ -54,7 +54,6 @@ if(isset($_POST['submit'])){
     if((! empty ($_POST['filename']) )){
 
       include_once dirname( __FILE__ ).'../../db.php';
-
         $audio = $_POST["filename"].".mp3";
         $inputName=$_POST["filename"];
 
@@ -66,6 +65,7 @@ if(isset($_POST['submit'])){
               // :で始まる部分が後から値がセットされるプレースホルダです。
               // 複数回SQL文を実行する必要がある場合はここからexecute()までを 繰り返します。
               try{
+                  $_SESSION['register_audio']="登録完了";
                   $dbh = DbUtil::Connect();
                   $sql = 'INSERT INTO audio1 (filename) VALUES(:filename)';
                   // SQL文を実行する準備をします。
@@ -84,16 +84,16 @@ if(isset($_POST['submit'])){
 
               chmod("/var/www/html/audio " . $audio, 0644);
               $_SESSION["register_audio"]= $audio . "をアップロードしました。";
-              echo '<script type="text/javascript">window.location.href = window.location.hreg = "http://18.209.25.203/audio/new/";</script>';
+              echo '<script type="text/javascript">window.location.href = window.location.hreg = "http://18.209.25.203/audio/";</script>';
               exit();
             } else {
               $_SESSION["register_audio"]= "ファイルをアップロードできません。";
-              echo '<script type="text/javascript">window.location.href = window.location.hreg = "http://18.209.25.203/audio/new/";</script>';
+              echo '<script type="text/javascript">window.location.href = window.location.hreg = "http://18.209.25.203/audio/";</script>';
               exit();
           }
         } else {
             $_SESSION["register_audio"]= "ファイルが選択されていません。";
-            echo '<script type="text/javascript">window.location.href = window.location.hreg = "http://18.209.25.203/audio/new/";</script>';
+            echo '<script type="text/javascript">window.location.href = window.location.hreg = "http://18.209.25.203/audio/";</script>';
             exit();
       }
   }
