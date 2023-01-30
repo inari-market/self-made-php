@@ -55,7 +55,7 @@ if(isset($_POST['submit'])){
 
         include_once dirname( __FILE__ ).'/../../db.php';
         // 前のページから値を取得します。
-          $audio = $_POST["upfile"].".mp3";
+          $audio = $_POST["filename"].".mp3";
           $inputName=$_POST["filename"];
 
           $_SESSION['register_audio'] = '';
