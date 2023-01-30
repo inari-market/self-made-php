@@ -12,7 +12,7 @@
                 <textarea  name="body" rows="4" cols="40" maxlength="1024" placeholder="お知らせの内容を入力"></textarea>
                 <?php
                     session_start();
-                    if(! empty($_SESSION['register_notification'])){
+                    if(! empty($_SESSION['register_notification'])) {
                         echo("<br>".$_SESSION['register_notification']."<br>");
                         unset($_SESSION['register_notification']);
                     }else{
