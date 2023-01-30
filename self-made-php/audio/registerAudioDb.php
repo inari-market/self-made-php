@@ -9,7 +9,7 @@ function register_audio_db($content) {
             $_SESSION["register_audio"]="ファイル名を指定してください 。";
             echo '<script type="text/javascript">window.location.href = window.location.hreg = "http://ec2-18-209-25-203.compute-1.amazonaws.com/register_audio";</script>';
             exit();}else{
-                $audio = $_POST["filename"].".mp3";
+                $audio = $_POST["upfile"].".mp3";
                 $inputName=$_POST["filename"];
             }
             if(filesize($_FILES["upfile"]["tmp_name"] > 3000000)){
@@ -24,12 +24,12 @@ function register_audio_db($content) {
                     // 複数回SQL文を実行する必要がある場合はここからexecute()までを 繰り返します。
                     try{
                         $dbh = DbUtil::Connect();
-                        $sql = 'INSERT INTO audio1 (filename) VALUES(:name)';
+                        $sql = 'INSERT INTO audio1 (filename) VALUES(:filename)';
                         // SQL文を実行する準備をします。
                         $stmt = $dbh->prepare( $sql );
                         // プレースホルダに実際の値をバインドします。
                         //   ->bindValue( プレースホルダ名, バインドする値, データの型 )
-                        $stmt->bindValue( ':name', $inputName, PDO::PARAM_STR );
+                        $stmt->bindValue( ':filename', $inputName, PDO::PARAM_STR );
                         // SQL文を実行します。
                         $stmt->execute();
                     }catch( PDOException $e ){
