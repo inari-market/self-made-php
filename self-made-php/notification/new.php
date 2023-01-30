@@ -39,7 +39,7 @@
                     //桁数の確認
                         if( strlen($inputTitle) > 32 || strlen($inputBody) > 1024){
                             $_SESSION['register_notification']=strlen($inputBody)."入力文字数を超えています";
-                            echo '<script type="text/javascript">window.location.href = window.location.hreg = "http://18.209.25.203/notification/new/";</script>';
+                            echo '<script type="text/javascript">window.location.href = window.location.hreg = "";</script>';
                             exit();
                         }
 
