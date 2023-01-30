@@ -49,23 +49,23 @@ function register_audio($content) {
 <?php
 
 if(isset($_POST['submit'])){
-    session_start();
+  session_start();
 
-    if((! empty ($_POST['filename']) )){
+  if((! empty ($_POST['filename']) )){
 
-      include_once dirname( __FILE__ ).'../../db.php';
+      include_once dirname( __FILE__ ).'/../../db.php';
+      // 前のページから値を取得します。
         $audio = $_POST["filename"].".mp3";
         $inputName=$_POST["filename"];
 
         $_SESSION['register_audio'] = '';
-
+       
         if (is_uploaded_file($_FILES["upfile"]["tmp_name"])) {
           if (move_uploaded_file($_FILES["upfile"]["tmp_name"], "/var/www/html/audio/ ". $audio)) {
               // SQL文を用意します。
               // :で始まる部分が後から値がセットされるプレースホルダです。
               // 複数回SQL文を実行する必要がある場合はここからexecute()までを 繰り返します。
               try{
-                  $_SESSION['register_audio']="登録完了";
                   $dbh = DbUtil::Connect();
                   $sql = 'INSERT INTO audio1 (filename) VALUES(:filename)';
                   // SQL文を実行する準備をします。
@@ -77,37 +77,38 @@ if(isset($_POST['submit'])){
                   $stmt->execute();
               }catch( PDOException $e ){
                   echo( '接続失敗: ' . $e->getMessage() . '<br>' );
-                    exit();
+                  exit();
               }
               unset($inputName);
               unset($_POST['filename']);
 
               chmod("/var/www/html/audio " . $audio, 0644);
               $_SESSION["register_audio"]= $audio . "をアップロードしました。";
-              echo '<script type="text/javascript">window.location.href = window.location.hreg = "http://18.209.25.203/audio/";</script>';
+              echo '<script type="text/javascript">window.location.href = window.location.hreg = "http://ec2-18-209-25-203.compute-1.amazonaws.com/register_audio";</script>';
               exit();
-            } else {
+          } else {
               $_SESSION["register_audio"]= "ファイルをアップロードできません。";
-              echo '<script type="text/javascript">window.location.href = window.location.hreg = "http://18.209.25.203/audio/";</script>';
+              echo '<script type="text/javascript">window.location.href = window.location.hreg = "http://ec2-18-209-25-203.compute-1.amazonaws.com/register_audio";</script>';
               exit();
           }
         } else {
             $_SESSION["register_audio"]= "ファイルが選択されていません。";
-            echo '<script type="text/javascript">window.location.href = window.location.hreg = "http://18.209.25.203/audio/";</script>';
+            echo '<script type="text/javascript">window.location.href = window.location.hreg = "http://ec2-18-209-25-203.compute-1.amazonaws.com/register_audio";</script>';
             exit();
       }
   }
 }
 ?>
 
+
 <?php
 //実装時はコメント解除
 
-  }
-  else
-  {
-    return $content;
-  }
+}
+else
+{
+  return $content;
+}
 }
 
 add_filter('the_content', 'register_audio');
