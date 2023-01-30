@@ -96,6 +96,10 @@ if(isset($_POST['submit'])){
             echo '<script type="text/javascript">window.location.href = window.location.hreg = "http://18.209.25.203/audio/new/";</script>';
             exit();
       }
+  } else {
+      $_SESSION["register_audio"]="ファイル名を指定してください 。";
+      echo '<script type="text/javascript">window.location.href = window.location.hreg = "http://18.209.25.203/audio/new/";</script>';
+      exit()
   }
 }
 ?>
