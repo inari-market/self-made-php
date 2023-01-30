@@ -37,7 +37,7 @@ function register_audio($content) {
                 echo("<br><br>");
             }
             ?><br>
-      <input type="submit" value="送信">
+      <input type="submit" name = "submit" value="送信">
     </div>
   </form>
 </div>
