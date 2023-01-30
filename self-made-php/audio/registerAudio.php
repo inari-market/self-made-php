@@ -8,34 +8,28 @@ function register_audio($content) {
 ?>
    <!-- 入力フォーム -->
 <!DOCTYPE html>
-<html>
-    <head>
-        <meta charset="UTF-8">
-        <title>音声情報登録ページ</title>
-        <style type = "text/css">
-    <!--
-    .c{
-        text-align:center;
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="Content-Type" content="width=device-width, initial-scale=1.0">
+  <title>test</title>
+  <style>
+    div{
+      margin-bottom: 20px;
     }
-    .l{
-        text-align:left;
-}
-    .pos{
-        position:absolute; bottom:0%; right:0%;
-     }
-    -->
-    </style>
-    </head>
-    <body>
-        <div class='l'>
-    <h1>音声情報の入力</h1>
-        <form action="<?php echo str_replace( '%7E', '~', $_SERVER['REQUEST_URI']); ?>" method="POST">
-
-            <br>
-            <p>音声ファイルを入力</p>
-              <input type="text" name="filename" placeholder="ファイル名(.mp3を除く)を入力"> <br>
-              <input type="file" name="upfile">
-            <?php
+  </style>
+</head>
+<body>
+<div>
+<h1>音声ファイル登録ページ</h1>
+<form action="<?php echo str_replace( '%7E', '~', $_SERVER['REQUEST_URI']); ?>" method="POST" enctype="multipart/form-data"  accept = "audio/mp3">
+    <div><br>
+      <input type="text" name="filename" placeholder="ファイル名(.mp3を除く)を入力"> <br>
+      <p>音声ファイルを入力</p>
+      <input type="file" name="upfile">
+    </div>
+    <div>
+        <?php
             session_start();
             if(! empty($_SESSION['register_audio'])){
                 echo("<br>".$_SESSION['register_audio']."<br>");
@@ -43,13 +37,12 @@ function register_audio($content) {
             }else{
                 echo("<br><br>");
             }
-            ?>
-            <br>
-            <input type="submit" name="submit" value="登録">
-        </form>
-        </div>
-
-    </body>
+            ?><br>
+      <input type="submit" name = "submit" value="送信">
+    </div>
+  </form>
+</div>
+</body>
 </html>
 
 <?php
