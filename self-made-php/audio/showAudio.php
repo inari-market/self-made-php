@@ -1,6 +1,6 @@
 <?php
     function show_audio($content) {
-    if( is_page( 'show-audio' ))  {
+    if( is_page( 'audio' ))  {
         include_once dirname( __FILE__ ).'../../db.php';
 ?>
         

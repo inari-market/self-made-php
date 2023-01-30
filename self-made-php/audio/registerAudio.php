@@ -1,7 +1,7 @@
 <?php
 
 function register_audio($content) {
-    if( is_page( 'register_audio' ))  
+    if( is_page( 'audio/new' ))  
     {
 
         ?>
@@ -21,7 +21,7 @@ function register_audio($content) {
 <body>
 <div>
 <h1>音声ファイル登録ページ</h1>
-  <form action="http://ec2-44-212-247-129.compute-1.amazonaws.com/register_audio_db/" method="post" enctype="multipart/form-data"  accept = "audio/mp3">
+  <form action="http://ec2-18-209-25-203.compute-1.amazonaws.com/register_audio_db/" method="post" enctype="multipart/form-data"  accept = "audio/mp3">
     <div><br>
       <input type="text" name="filename" placeholder="ファイル名(.mp3を除く)を入力"> <br>
       <p>音声ファイルを入力</p>
