@@ -254,7 +254,7 @@ require get_template_directory() . '/self-made-php/goods/showGoods.php';
 require get_template_directory() . '/self-made-php/goods/deleteGoods.php';
 //require get_template_directory() . '/self-made-php/registerWorkshopReserveDb.php';
 require get_template_directory() . '/self-made-php/exhibition/showExhibition.php';
-require get_template_directory() . '/self-made-php/notification/showNotification.php';
+require get_template_directory() . '/self-made-php/notification/show.php';
 require get_template_directory() . '/self-made-php/notification/new.php';
 require get_template_directory() . '/self-made-php/notification/deleteNotification.php';
 require get_template_directory() . '/self-made-php/notification/index.php';
