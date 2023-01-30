@@ -6,6 +6,11 @@ function register_audio($content) {
   {
 
 ?>
+
+<?php
+echo "こんいちは";
+?>
+
    <!-- 入力フォーム -->
 <!DOCTYPE html>
 <html lang="ja">
