@@ -10,7 +10,7 @@
 ?>  
             <ul>
                 <?php while ($row = $stmt->fetch(PDO::FETCH_ASSOC)) { ?> 
-                    <li><a href="/var/www/html/wp-content/themes/lightning/show/>?<?php echo $row['notice_id']?>"> <?php echo $row['title']?></a></li>
+                    <li><a href="/var/www/html/wp-content/themes/lightning/show/?id=<?php echo $row['id']?>"> <?php echo $row['title']?></a></li>
                 <?php } ?>
             <ul>
 <?php
