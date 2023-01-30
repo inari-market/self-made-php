@@ -8,6 +8,7 @@
             $stmt = $dbh->prepare( $sql ); 
             $stmt->execute(); // sqlの実行
 ?>  
+            hoge
             <ul>
                 <?php while ($row = $stmt->fetch(PDO::FETCH_ASSOC)) { ?> 
                     <li><a href="/var/www/html/wp-content/themes/lightning/show/>?<?php echo $row['notice_id']?>"> <?php echo $row['titile']?></a></li>
