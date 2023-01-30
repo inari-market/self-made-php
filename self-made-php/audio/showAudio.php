@@ -16,7 +16,7 @@
         echo 'count:' . $count;
         
         while($i < $count) {
-           echo '<p><audio controls src="https://inari-dev.tk/audio/'. $audios[$i][name] .'.mp3" type="audio/mp3"></audio></p>';
+           echo '<p><audio controls src="https://var/www/html/audio/'. $audios[$i][filename] .'.mp3" type="audio/mp3"></audio></p>';
            $i++;
         }
     } else {

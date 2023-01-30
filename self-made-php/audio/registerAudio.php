@@ -7,10 +7,6 @@ function register_audio($content) {
 
 ?>
 
-<?php
-echo "こんいちは";
-?>
-
    <!-- 入力フォーム -->
 <!DOCTYPE html>
 <html lang="ja">
@@ -63,49 +59,45 @@ if(isset($_POST['submit'])){
           $inputName=$_POST["filename"];
 
           $_SESSION['register_audio'] = '';
-
-        try {
-                
-                //桁数の確認
-                if( strlen($inputName) > 32){
-                $_SESSION['register_audio']=strlen($inputName)."入力文字数を超えています";
-                echo '<script type="text/javascript">window.location.href = window.location.hreg = "http://18.209.25.203/audio/new/";</script>';
-                    exit();
-                }
-                
-                $_SESSION['register_audio']="登録完了";
-
+         
+          if (is_uploaded_file($_FILES["upfile"]["tmp_name"])) {
+            if (move_uploaded_file($_FILES["upfile"]["tmp_name"], "/var/www/html/audio/ ". $audio)) {
                 // SQL文を用意します。
                 // :で始まる部分が後から値がセットされるプレースホルダです。
                 // 複数回SQL文を実行する必要がある場合はここからexecute()までを 繰り返します。
-                $dbh = DbUtil::Connect();
-                $sql = 'INSERT INTO audio1 (filename) VALUES(:filename)';
-                // SQL文を実行する準備をします。
-                $stmt = $dbh->prepare( $sql );
-                // プレースホルダに実際の値をバインドします。
-                //   ->bindValue( プレースホルダ名, バインドする値, データの型 )
-                $stmt->bindValue( ':filename', $inputName, PDO::PARAM_STR );
-                // SQL文を実行します。
-                $stmt->execute();
-
-                $_SESSION['register_audio']="登録完了";
-
+                try{
+                    $dbh = DbUtil::Connect();
+                    $sql = 'INSERT INTO audio1 (filename) VALUES(:filename)';
+                    // SQL文を実行する準備をします。
+                    $stmt = $dbh->prepare( $sql );
+                    // プレースホルダに実際の値をバインドします。
+                    //   ->bindValue( プレースホルダ名, バインドする値, データの型 )
+                    $stmt->bindValue( ':filename', $inputName, PDO::PARAM_STR );
+                    // SQL文を実行します。
+                    $stmt->execute();
+                }catch( PDOException $e ){
+                    echo( '接続失敗: ' . $e->getMessage() . '<br>' );
+                    exit();
+                }
                 unset($inputName);
                 unset($_POST['filename']);
 
                 chmod("/var/www/html/audio " . $audio, 0644);
-            
-            }catch( PDOException $e ){
-                echo( '接続失敗: ' . $e->getMessage() . '<br>' );
+                $_SESSION["register_audio"]= $audio . "をアップロードしました。";
+                echo '<script type="text/javascript">window.location.href = window.location.hreg = "http://ec2-18-209-25-203.compute-1.amazonaws.com/register_audio";</script>';
                 exit();
-                }
-    }else {
-        $_SESSION['register_audio']="入力に不備があります";
+            } else {
+                $_SESSION["register_audio"]= "ファイルをアップロードできません。";
+                echo '<script type="text/javascript">window.location.href = window.location.hreg = "http://ec2-18-209-25-203.compute-1.amazonaws.com/register_audio";</script>';
+                exit();
+            }
+          } else {
+              $_SESSION["register_audio"]= "ファイルが選択されていません。";
+              echo '<script type="text/javascript">window.location.href = window.location.hreg = "http://ec2-18-209-25-203.compute-1.amazonaws.com/register_audio";</script>';
+              exit();
+        }
     }
-    echo '<script type="text/javascript">window.location.href = window.location.hreg = "http://18.209.25.203/audio/new/";</script>';
-    exit();
 }
-
 ?>
 
 
