@@ -52,18 +52,22 @@ if(isset($_POST['submit'])){
     session_start();
 
     include_once dirname( __FILE__ ).'../../db.php';
-    if( empty($_POST["filename"])){
-          $_SESSION["register_audio"]="ファイル名を指定してください 。";
-          echo '<script type="text/javascript">window.location.href = window.location.hreg = "http://18.209.25.203/audio/new/";</script>';
-          exit();}else{
-              $audio = $_POST["filename"].".mp3";
-              $inputName=$_POST["filename"];
+        if( empty($_POST["filename"])){
+            $_SESSION["register_audio"]="ファイル名を指定してください 。";
+            echo '<script type="text/javascript">window.location.href = window.location.hreg = "http://18.209.25.203/audio/new/";</script>';
+            exit();
           }
           if(filesize($_FILES["upfile"]["tmp_name"] > 3000000)){
               $_SESSION["register_audio"]="ファイルサイズが大きいです。";
               echo '<script type="text/javascript">window.location.href = window.location.hreg = "http://18.209.25.203/audio/new/";</script>';
               exit();
           }
+
+          $audio = $_POST["filename"].".mp3";
+          $inputName=$_POST["filename"];
+
+          $_SESSION['register_audio'] = '';
+
           if (is_uploaded_file($_FILES["upfile"]["tmp_name"])) {
               if (move_uploaded_file($_FILES["upfile"]["tmp_name"], "/var/www/html/audio/ ". $audio)) {
                   // SQL文を用意します。
