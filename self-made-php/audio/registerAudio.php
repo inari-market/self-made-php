@@ -39,7 +39,7 @@ function register_audio($content) {
                 echo("<br><br>");
             }
             ?><br>
-      <input type="submit" name = "submit" value="送信">
+      <input type="submit" name ="submit" value="送信">
     </div>
   </form>
 </div>
@@ -51,22 +51,25 @@ function register_audio($content) {
 if(isset($_POST['submit'])){
     session_start();
 
-    include_once dirname( __FILE__ ).'../../db.php';
+    if((! empty ($_POST['filename']) )){
+
+      include_once dirname( __FILE__ ).'../../db.php';
+
+        $audio = $_POST["filename"].".mp3";
+        $inputName=$_POST["filename"];
+
+        $_SESSION['register_audio'] = '';
+
         if( empty($_POST["filename"])){
             $_SESSION["register_audio"]="ファイル名を指定してください 。";
             echo '<script type="text/javascript">window.location.href = window.location.hreg = "http://18.209.25.203/audio/new/";</script>';
             exit();
           }
-          if(filesize($_FILES["upfile"]["tmp_name"] > 3000000)){
-              $_SESSION["register_audio"]="ファイルサイズが大きいです。";
-              echo '<script type="text/javascript">window.location.href = window.location.hreg = "http://18.209.25.203/audio/new/";</script>';
-              exit();
+        if(filesize($_FILES["upfile"]["tmp_name"] > 3000000)){
+            $_SESSION["register_audio"]="ファイルサイズが大きいです。";
+            echo '<script type="text/javascript">window.location.href = window.location.hreg = "http://18.209.25.203/audio/new/";</script>';
+            exit();
           }
-
-          $audio = $_POST["filename"].".mp3";
-          $inputName=$_POST["filename"];
-
-          $_SESSION['register_audio'] = '';
 
           if (is_uploaded_file($_FILES["upfile"]["tmp_name"])) {
               if (move_uploaded_file($_FILES["upfile"]["tmp_name"], "/var/www/html/audio/ ". $audio)) {
@@ -74,6 +77,9 @@ if(isset($_POST['submit'])){
                   // :で始まる部分が後から値がセットされるプレースホルダです。
                   // 複数回SQL文を実行する必要がある場合はここからexecute()までを 繰り返します。
                   try{
+
+                      $_SESSION['register_audio']="登録完了";
+
                       $dbh = DbUtil::Connect();
                       $sql = 'INSERT INTO audio1 (filename) VALUES(:filename)';
                       // SQL文を実行する準備をします。
@@ -83,28 +89,25 @@ if(isset($_POST['submit'])){
                       $stmt->bindValue( ':filename', $inputName, PDO::PARAM_STR );
                       // SQL文を実行します。
                       $stmt->execute();
+
+                      $_SESSION['register_audio']="登録完了";
+
+                      unset($inputName);
+                      unset($_POST['filename']);
+
+                      chmod("/var/www/html/audio " . $audio, 0644);
+
                   }catch( PDOException $e ){
                       echo( '接続失敗: ' . $e->getMessage() . '<br>' );
                       exit();
                   }
-                  unset($inputName);
-                  unset($_POST['filename']);
-
-                 chmod("/var/www/html/audio " . $audio, 0644);
-                  $_SESSION["register_audio"]= $audio . "をアップロードしました。";
-                  echo '<script type="text/javascript">window.location.href = window.location.hreg = "http://18.209.25.203/audio/new/";</script>';
-                  exit();
-              } else {
-                  $_SESSION["register_audio"]= "ファイルをアップロードできません。";
-                  echo '<script type="text/javascript">window.location.href = window.location.hreg = "http://18.209.25.203/audio/new/";</script>';
-                  exit();
               }
-          } else
-          {
-              $_SESSION["register_audio"]= "ファイルが選択されていません。";
-              echo '<script type="text/javascript">window.location.href = window.location.hreg = "http://18.209.25.203/audio/new/";</script>';
-              exit();
           }
+    } else {
+        $_SESSION["register_audio"]= "ファイルをアップロードできません。";
+    }
+    echo '<script type="text/javascript">window.location.href = window.location.hreg = "http://18.209.25.203/audio/new/";</script>';
+    exit();
 }
 
 ?>
