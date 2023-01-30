@@ -5,7 +5,7 @@
             include_once dirname( __FILE__ ).'/../../db.php';
             $dbh = DbUtil::Connect(); // データベースに接続します。
             $sql = 'SELECT * FROM notice where id=:id'; 
-            $stmt->bindValue( ':title', $_GET['id'], PDO::PARAM_STR );
+            $stmt->bindValue( ':id', $_GET['id'], PDO::PARAM_STR );
             $stmt = $dbh->prepare( $sql ); 
             $stmt->execute(); // sqlの実行
             $row = $stmt->fetch(PDO::FETCH_ASSOC);
