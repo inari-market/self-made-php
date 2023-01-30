@@ -1,12 +1,11 @@
 <?php
 //実装時はコメント解除
-
+/*
 function register_audio_db($content) {
     if( is_page( 'register_audio_db' ))  //固定ページ「sample_cal」の時だけ処理させる
     {
         include_once dirname( __FILE__ ).'../../db.php';
-        if(isset($_POST["submit"])){
-            session_start();
+        if( empty($_POST["filename"])){
             $_SESSION["register_audio"]="ファイル名を指定してください 。";
             echo '<script type="text/javascript">window.location.href = window.location.hreg = "http://ec2-18-209-25-203.compute-1.amazonaws.com/register_audio";</script>';
             exit();}else{
@@ -65,5 +64,5 @@ function register_audio_db($content) {
 }
 
 add_filter('the_content', 'register_audio_db');
-
+*/
 ?>
