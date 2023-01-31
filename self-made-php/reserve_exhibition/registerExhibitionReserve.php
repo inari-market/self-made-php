@@ -17,28 +17,28 @@ function register_exhibition_reserve($content) {
 
             <br>
             <hr>
-            <p>展覧会名</p>
+            <p>展覧会名:(必須)</p>
                 <input type="text" name="exhibition_name" placeholder="展覧会名を入力" value="<?php echo $_SESSION['exhibition_name']; ?>" maxlength="50"> <br>
-            <p>出品対象者</p>
+            <p>出品対象者:(必須)</p>
                 <input type="text" name="target" placeholder="出品対象者を入力" value="<?php echo $_SESSION['target']; ?>" maxlength="50"> <br>
-            <p>出品ジャンル</p>
+            <p>出品ジャンル:(必須)</p>
                 <input type="text" name="genru" placeholder="出品ジャンルを入力" value="<?php echo $_SESSION['genru']; ?>" maxlength="50"> <br>
             <hr>
             <div class='l'>
-            <p>使用日時</p>
+            <p>使用日時:(必須)</p>
                 <input type="date" name="start_date"  min="<?php echo date('Y-m-d'); ?>" style = "display:inline-block">
                 <input type="number" name="start_time" min="9" max="16"  style = "display:inline-block"> 時から <br><br>
                 <input type="date" name="end_date"  min="<?php echo date('Y-m-d'); ?>" style = "display:inline-block"> 
                 <input type="number" name="end_time" min="10" max="17"  style = "display:inline-block">時まで <br><br>
             </div>
-            <p>観覧料の有無</p>
+            <p>観覧料の有無:(必須)</p>
                 <input type="radio" name="money" value="1">無料  <input type="radio" name="money" value="0">有料  <br><br>
             <hr>
-            <p>氏名</p>
+            <p>氏名:(必須)</p>
                 <input type="text" name="name1" placeholder="氏名を入力" maxlength="32" value="<?php echo $_SESSION['name1']; ?>"> <br>
-            <p>住所</p>
+            <p>住所:(必須)</p>
                 <input type="text" name="address" placeholder="住所を入力" maxlength="50" value="<?php echo $_SESSION['address']; ?>"> <br>
-            <p>携帯電話番号</p>
+            <p>携帯電話番号:(必須)</p>
                 <input type="text" name="phone_number" placeholder="12345678901" maxlength="16"> <br>
             <hr>
             
