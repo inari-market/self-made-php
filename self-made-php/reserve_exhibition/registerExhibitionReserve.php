@@ -37,6 +37,10 @@ function register_exhibition_reserve($content) {
         height:30px;
     }
 
+    .example{
+        background: #EEE;
+    }
+
     </style>
     <body>
 
@@ -46,11 +50,11 @@ function register_exhibition_reserve($content) {
             <br>
             <hr>
             <p>展覧会名:<span style="color:red">(必須)</span></p>
-                <input type="text" name="exhibition_name" placeholder="展覧会名を入力" value="<?php echo $_SESSION['exhibition_name']; ?>" maxlength="50"> <br>
+                <input type="text" name="exhibition_name" placeholder="展覧会名を入力" value="<?php echo $_SESSION['exhibition_name']; ?>" maxlength="50" class="example"> <br>
             <p>出品対象者:<span style="color:red">(必須)</span></p>
-                <input type="text" name="target" placeholder="出品対象者を入力" value="<?php echo $_SESSION['target']; ?>" maxlength="50"> <br>
+                <input type="text" name="target" placeholder="出品対象者を入力" value="<?php echo $_SESSION['target']; ?>" maxlength="50" class="example"> <br>
             <p>出品ジャンル:<span style="color:red">(必須)</span></p>
-                <input type="text" name="genru" placeholder="出品ジャンルを入力" value="<?php echo $_SESSION['genru']; ?>" maxlength="50"> <br>
+                <input type="text" name="genru" placeholder="出品ジャンルを入力" value="<?php echo $_SESSION['genru']; ?>" maxlength="50" class="example"> <br>
             <hr>
             <div class='l'>
             <p>使用日時:<span style="color:red">(必須)</span></p>
@@ -63,11 +67,11 @@ function register_exhibition_reserve($content) {
                 <input type="radio" name="money" value="1">無料  <input type="radio" name="money" value="0">有料  <br><br>
             <hr>
             <p>氏名:<span style="color:red">(必須)</span></p>
-                <input type="text" name="name1" placeholder="氏名を入力" maxlength="32" value="<?php echo $_SESSION['name1']; ?>"> <br>
+                <input type="text" name="name1" placeholder="氏名を入力" maxlength="32" value="<?php echo $_SESSION['name1']; ?>" class="example"> <br>
             <p>住所:<span style="color:red">(必須)</span></p>
-                <input type="text" name="address" placeholder="住所を入力" maxlength="50" value="<?php echo $_SESSION['address']; ?>"> <br>
+                <input type="text" name="address" placeholder="住所を入力" maxlength="50" value="<?php echo $_SESSION['address']; ?>" class="example"> <br>
             <p>携帯電話番号:<span style="color:red">(必須, 11文字)</span></p>
-                <input type="text" name="phone_number" placeholder="12345678901" maxlength="16"> <br>
+                <input type="text" name="phone_number" placeholder="12345678901" maxlength="16" class="example"> <br>
             <hr>
             
             <?php
