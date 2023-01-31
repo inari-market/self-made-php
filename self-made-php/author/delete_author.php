@@ -12,7 +12,7 @@
                 include_once dirname( __FILE__ ).'/../../db.php';
 
                 $dbh = DbUtil::Connect();
-                $sql = 'DELETE FROM authors2 where id = :id';
+                $sql = 'DELETE FROM author where id = :id';
                 $stmt = $dbh->prepare( $sql );
                 $stmt->bindValue( ':id', $id, PDO::PARAM_INT );
                 $stmt->execute(); // SQL文を実行します。
