@@ -3,9 +3,10 @@
         
         // if( is_page( 'regist-author' ) && is_user_logged_in()) {//特定の固定ページの時だけ処理させる 
         if( is_page( 'authors/new' )) {//特定の固定ページの時だけ処理させる 
+            
             if( $_POST['button'] == 'create'){ // このページにPOSTでアクセスしたら   
+                echo '<script type="text/javascript">window.location.href = "https://inari-dev.tk/authors";</script>';    
                 include_once dirname( __FILE__ ).'/../../db.php';
-                
                 try {
                     // データベースに接続します。
                     $dbh = DbUtil::Connect(); // db.phpのメソッドを使ってDBとのコネクションを確立
