@@ -74,7 +74,7 @@ function delete_exhibition($content) {
             $stmt->execute();
             $img = $stmt->fetch(PDO::FETCH_ASSOC);
             
-            unlink('/var/www/html/img/author/' . $img['photo_name'] . '.png');
+            unlink('/var/www/html/exhibition' . $img['photo_name'] . '.png');
 
             $sql = 'DELETE FROM exhibition where exhibition_id = :id';
             $stmt = $dbh->prepare( $sql );
@@ -82,7 +82,7 @@ function delete_exhibition($content) {
             $stmt->execute();
             session_start();
             $_SESSION['delete_exhibition']="削除完了";
-            echo '<script type="text/javascript">window.location.href = window.location.hreg = "http://100.24.172.143/exhibitions/delete/";</script>';
+            echo '<script type="text/javascript">window.location.href = window.location.hreg = "";</script>';
             exit();
 
         }catch( PDOException $e ){
