@@ -121,14 +121,13 @@ if(isset($_POST['submit'])){
                         exit();
             }
 
-                $img_url = "var/www/html/exhibition/";
+                $img_url = "var/www/html/photo/";
                 if(move_uploaded_file($_FILES['photo_img']['tmp_name'], $img_url . $inputPhotoName.".png")){
                     $_SESSION['register_exhibition']="写真登録完了";  
                 }else{
                     $_SESSION['register_exhibition']="エラータイプ:".$_FILES['photo_img']['error'].
                     "ファイルサイズ:".$_FILES['photo_img']['size'].
-                    $img_url . $inputPhotoName.".png=>".'image:' . $_FILES['photo_img']['name'] . '<br>'.'type:'  . $_FILES['photo_img']['type'] . '<br>'.var_dump($_FILES).
-                    "写真の登録に失敗しました";
+                    $img_url . $inputPhotoName.".png=>"."写真の登録に失敗しました";
                     echo '<script type="text/javascript">window.location.href = window.location.hreg = "http://100.24.172.143/exhibitions/new";</script>';
                     exit();
                 }
