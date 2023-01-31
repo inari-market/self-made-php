@@ -36,7 +36,7 @@
                 }
                 // echo 'image:' . $_FILES[image][name] . '<br>';
                 // echo 'type:'  . $_FILES[image][type] . '<br>';
-                var_dump($_FILES);
+                // var_dump($_FILES);
 
                 if($_FILES[image][name] != NULL) {
                     $image = $_POST[id] . '.png'; // 画像の名前をid.pngにする
