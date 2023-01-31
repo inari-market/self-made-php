@@ -69,7 +69,7 @@
 
 <!-- 入力フォーム -->
 <h1>作者情報登録</h1>
-<form name="regist_author" method="post" action="52.54.93.120/works/new" enctype="multipart/form-data">
+<form name="regist_author" method="post" action="" enctype="multipart/form-data">
            
     <h4>作品名</h4>
     <input type="text" name="posted_name"  size="8"  placeholder="必須項目">
