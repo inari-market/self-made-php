@@ -61,6 +61,7 @@ if (! empty($id)) {
                   <th>終了日</th>
                   <th>主催者名</th>
                   <th>概要</th>
+                  <th>写真</th>
                   </tr>
 
         <?php
@@ -86,6 +87,12 @@ if (! empty($id)) {
             <td><?php echo $row['end']; ?></td>
             <td><?php echo $row['organizer']; ?></td>
             <td><?php echo htmlspecialchars($row['introduction'], ENT_QUOTES, 'UTF-8'); ?></td>
+            <td>
+            <?php
+                $img_url = "http://100.24.172.143/exhibition/";
+                echo '<figure class="wp-block-image size-full is-resized"><img decoding="async" src="' . $img_url . $row['photo_name'] .".png" . '" alt="画像が読み込めませんでした" width="60" height="60"></figure>';
+            ?>
+            </td>
            <td><a href="<?php echo str_replace( '%7E', '~', $_SERVER['REQUEST_URI']); ?>?id=<?php echo $row['exhibition_id']; ?>">削除</a></td>
         </tr>
     <?php } ?>
