@@ -57,6 +57,7 @@
                     echo '<p>登録完了しました</p>';
                     
                 }catch( PDOException $e ){
+                    echo 'hoge';
                     echo( '接続失敗: ' . $e->getMessage() . '<br>' );
                     // if($_POST[birthday] == NULL) echo 'NULL';
                     // echo 'birthday:' . $_POST['birthday'];
