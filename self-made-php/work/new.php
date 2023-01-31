@@ -43,7 +43,7 @@
                         $image = $id['id'] . '.png';// 画像の名前をid.pngにする
 
                         //画像を保存
-                        move_uploaded_file($_FILES['image']['tmp_name'], '/var/www/html/img/work/' . $image);
+                        // move_uploaded_file($_FILES['image']['tmp_name'], '/var/www/html/img/work/' . $image);
 
                         // 画像の名前をDBに保存
                         $sql = 'update work set image = :image where id = :id';
