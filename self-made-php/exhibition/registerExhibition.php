@@ -154,7 +154,6 @@ if(isset($_POST['submit'])){
             'name' => $inputName, 
             'start' => $inputStart,
             'end' => $inputEnd,
-            'organizer' => $inpu,
         ];
         $json_data = json_encode($post_data); // jsonに変換
     
@@ -163,7 +162,7 @@ if(isset($_POST['submit'])){
         curl_setopt($ch, CURLOPT_CUSTOMREQUEST, 'POST');
         curl_setopt($ch, CURLOPT_POSTFIELDS, $json_data);
         curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
-        curl_setopt($ch, CURLOPT_URL, 'https://script.google.com/macros/s/AKfycbzcTnP_nTvDzzDMaN6t9SSIdh5iAzFT-R-Xu-e8n8ag1lIEOwzKww3rolWZl-16tjS5/exec');  // APIのURI
+        curl_setopt($ch, CURLOPT_URL, 'https://script.google.com/macros/s/AKfycbwOWdHu9xC9Yv8_KRQFkqeq0FBT3JkEKnOfwP5ktP4VDZn8hBZhBREroBSRHUqYd2UX/exec');  // APIのURI
         $result=curl_exec($ch);
         curl_close($ch);
         // ここまで
