@@ -48,7 +48,7 @@
 
                     <?php
                 echo '</div>';?>
-                <h3>概要<h3>
+                <!-- <h3>概要<h3> -->
                 <p><?php echo $introduction ?></p>
 
             <?php                
