@@ -90,7 +90,7 @@ if(isset($_POST['submit'])){
             $_SESSION['register_exhibition'] = '';
 
             try {            
-                include_once dirname( __FILE__ ).'/../db.php';
+                include_once dirname( __FILE__ ).'../../db.php';
                 // データベースに接続します。
                 $dbh = DbUtil::Connect();
     
@@ -117,7 +117,7 @@ if(isset($_POST['submit'])){
                     
     
             }catch( PDOException $e ){
-                        echo( '接続失敗: ' . $e->getMessage() . '<br>' );
+                $_SESSION['register_exhibition']= '接続失敗: ' . $e->getMessage() . '<br>';
                         exit();
             }
     
