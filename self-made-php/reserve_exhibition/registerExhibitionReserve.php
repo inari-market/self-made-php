@@ -45,7 +45,6 @@ function register_exhibition_reserve($content) {
     </style>
     </head>
     <body>
-        <div class='l'>
 
     <?php // echo $content;?>
         <form action="<?php echo str_replace( '%7E', '~', $_SERVER['REQUEST_URI']); ?>" method="POST">
@@ -81,7 +80,6 @@ function register_exhibition_reserve($content) {
             <input type="submit" name = "submit" value="予約する">
             <input type="submit" name = "submit1" value="キャンセル">           
         </form>
-        </div>
 
     </body>
 </html>
