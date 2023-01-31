@@ -40,7 +40,7 @@ function delete_exhibition($content) {
                     <td><?php echo htmlspecialchars($row['introduction'], ENT_QUOTES, 'UTF-8'); ?></td>
                     <td>
                         <?php
-                        $img_url = "/var/www/html/exhibition/";
+                        $img_url = "http://52.54.93.120/exhibition/";
                         echo '<figure class="wp-block-image size-full is-resized"><img decoding="async" src="' . $img_url . $row['photo_name'] .".png" . '" alt="画像が読み込めませんでした" width="60" height="60"></figure>';
                         ?>
                     </td>
