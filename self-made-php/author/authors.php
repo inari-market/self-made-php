@@ -24,16 +24,15 @@ hoge
                 // 一行に４人表示する．(横並びに４人表示する)
                 for( $i = 0; $i < count($authors); $i++ ) { 
                     ?>
-
                     <div class="is-layout-flow wp-block-column" style="flex-basis:33.33%"><div class="wp-block-image">
-                    <figure class="aligncenter size-full is-resized"><img decoding="async" src="http://ec2-52-54-93-120.compute-1.amazonaws.com/wp-content/uploads/2023/01/1000001162.png" alt="" class="wp-image-1023" width="200" height="240"></figure></div></div>
+                    <figure class="aligncenter size-full is-resized"><img decoding="async" src= "<?php echo $img_url . $authors[$i]['image']?>" .  alt="" class="wp-image-1023" width="200" height="240"></figure></div></div>
 
                     <div class="is-layout-flow wp-block-column" style="flex-basis:66.66%">
-                    <h3><?php echo $authors['name']?> -<?php echo $authors['furigana'] ?>-</h3>
+                    <h3><?php echo $authors[$i]['name']?> -<?php echo $authors[$i]['furigana'] ?>-</h3>
 
-                    <p>生年:<?php echo $authors['birthday']?></p>
-                    <p>出身：<?php echo $authors['birthplace']?></p><br>
-                    <p>代表作：<?php echo $authors['work']?></p>
+                    <p>生年:<?php echo $authors[$i]['birthday']?></p>
+                    <p>出身：<?php echo $authors[$i]['birthplace']?></p><br>
+                    <p>代表作：<?php echo $authors[$i]['work']?></p>
                     <div class="button_line007"><a href="http://52.54.93.120/" data-type="page" data-id="1034">詳しく知る</a></div>
                     </div>
 
