@@ -117,7 +117,7 @@ if(isset($_POST["submit"])){
                     exit();
         }
 
-            $img_url = "/var/www/html/ar/marker";
+            $img_url = "/var/www/html/ar/marker/";
             if(move_uploaded_file($_FILES['marker_img']['tmp_name'], $img_url . $inputMarker.".png")){
                 $_SESSION['register_ar']="マーカー写真登録完了";  
             }else{
@@ -127,7 +127,7 @@ if(isset($_POST["submit"])){
                 exit();
             }
 
-            $img_url = "/var/www/html/ar/object";
+            $img_url = "/var/www/html/ar/object/";
             if(move_uploaded_file($_FILES['object_img']['tmp_name'], $img_url . $inputObject.".png")){
                 $_SESSION['register_ar']="オブジェクト写真登録完了";  
             }else{
@@ -137,7 +137,7 @@ if(isset($_POST["submit"])){
                 exit();
             }
 
-            $sound_url = "/var/www/html/ar/sound";
+            $sound_url = "/var/www/html/ar/sound/";
             if (move_uploaded_file($_FILES["upfile"]["tmp_name"], $sound_url. $inputSound. ".mp3")) {
                 $_SESSION['register_ar']="音声登録完了";  
             }else{
