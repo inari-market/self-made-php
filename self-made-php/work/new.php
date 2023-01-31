@@ -13,11 +13,11 @@
                     $stmt = $dbh->prepare( $sql ); // SQL文を実行する準備をします。
         
                     // ポストのパラメータを変数へと代入．個人的に読みやすいから．
-                    $name         = $_POST['posted_name'];
-                    $author     = $_POST['author'];
-                    $year     = $_POST['posted_year'];    // とりあえずポストされた値を代入
+                    $name         = $_POST['work_name'];
+                    $author     = $_POST['work_author'];
+                    $year     = $_POST['work_year'];    // とりあえずポストされた値を代入
                     // if(empty($birthday)) $birthday = NULL; // 空文字ならNULLにする
-                    $image = $_POST['image'];
+                    $image = $_POST['work_image'];
 
                     // プレースホルダに実際の値をバインドします。
                     $stmt->bindValue( ':name',         $name,         PDO::PARAM_STR );
@@ -73,16 +73,16 @@
 <form name="regist_work" method="post" action="<?php echo str_replace( '%7E', '~', $_SERVER['REQUEST_URI']); ?>" enctype="multipart/form-data">
            
     <h4>作品名</h4>
-    <input type="text" name="posted_name"  size="8"  placeholder="必須項目">
+    <input type="text" name="work_name"  size="8"  placeholder="必須項目">
 
     <h4>作者</h4>
-    <input type="text" name="author"     size="8" placeholder="必須項目">
+    <input type="text" name="work_author"     size="8" placeholder="必須項目">
 
     <h4>制作年</h4>
-    <input type="text" name="posted_year"     size="8" value="">
+    <input type="text" name="work_year"     size="8" value="">
 
     <h4>画像</h4>
-    <input type="file" name="image" accept="image/*"><br>
+    <input type="file" name="work_image" accept="image/*"><br>
     ※ファイルサイズは2M以下        
     <h4>確認後に登録ボタンを押してください</h4>
     <input type="submit" name="button" value="create">
