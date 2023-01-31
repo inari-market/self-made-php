@@ -28,7 +28,7 @@
                     <p>生年:<?php echo $authors[$i]['birthday']?></p>
                     <p>出身：<?php echo $authors[$i]['birthplace']?></p><br>
                     <p>代表作：<?php echo $authors[$i]['work']?></p>
-                    <div class="button_line007"><a href="http://52.54.93.120/authors/show/?id=<?php echo $authors[$i]['id'];>" data-type="page" data-id="1034">詳しく知る</a></div>
+                    <div class="button_line007"><a href="http://52.54.93.120/authors/show/?id=<?php echo $authors[$i]['id'];?>" data-type="page" data-id="1034">詳しく知る</a></div>
                     </div>
 
                     <?php
