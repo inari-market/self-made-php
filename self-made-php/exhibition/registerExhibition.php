@@ -163,7 +163,7 @@ if(isset($_POST['submit'])){
         curl_setopt($ch, CURLOPT_CUSTOMREQUEST, 'POST');
         curl_setopt($ch, CURLOPT_POSTFIELDS, $json_data);
         curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
-        curl_setopt($ch, CURLOPT_URL, 'https://script.google.com/macros/s/AKfycbydBlbDVB9vSvtiSzNyGwwoU1p1OMlUASn_KhYunqqM6uuT-zVBmK4WmI9SkVRcn_PW/exec');  // APIのURI
+        curl_setopt($ch, CURLOPT_URL, 'https://script.google.com/macros/s/AKfycbzzdF1uojeP9pPL21QFlojnZxQopB5_eQngV8BxSzN_QJed_ADNXLJ1hCr0lqfKbACb/exec');  // APIのURI
         $result=curl_exec($ch);
         curl_close($ch);
         // ここまで
