@@ -43,62 +43,108 @@ function register_exhibition_reserve($content) {
 
     </style>
     <body>
+    <?php
+            session_start();
+            if(! empty($_SESSION['register_exhibition_reserve'])){
+                echo("<br>".$_SESSION['register_exhibition_reserve']."<br>");
+                unset($_SESSION['register_exhibition_reserve']);
+            }else{
+                echo("<br><br>");
+            }
+    ?>
 
     <?php // echo $content;?>
         <form action="<?php echo str_replace( '%7E', '~', $_SERVER['REQUEST_URI']); ?>" method="POST">
+
+            <br>
+            <hr>
+            <p>展覧会名:<span style="color:red">(必須)</span></p>
+                <input type="text" name="exhibition_name" placeholder="展覧会名を入力" value="<?php echo $_SESSION['exhibition_name']; ?>" maxlength="50" class="example"> <br>
+            <p>出品対象者:<span style="color:red">(必須)</span></p>
+                <input type="text" name="target" placeholder="出品対象者を入力" value="<?php echo $_SESSION['target']; ?>" maxlength="50" class="example"> <br>
+            <p>出品ジャンル:<span style="color:red">(必須)</span></p>
+                <input type="text" name="genru" placeholder="出品ジャンルを入力" value="<?php echo $_SESSION['genru']; ?>" maxlength="50" class="example"> <br>
+            <hr>
+            <div class='l'>
+            <p>使用日時:<span style="color:red">(必須)</span></p>
+                <input type="date" name="start_date"  min="<?php echo date('Y-m-d'); ?>" style = "display:inline-block">
+                <input type="number" name="start_time" min="9" max="16"  style = "display:inline-block"> 時から <br><br>
+                <input type="date" name="end_date"  min="<?php echo date('Y-m-d'); ?>" style = "display:inline-block"> 
+                <input type="number" name="end_time" min="10" max="17"  style = "display:inline-block">時まで <br><br>
+            </div>
+            <p>観覧料の有無:<span style="color:red">(必須)</span></p>
+                <input type="radio" name="money" value="1">無料  <input type="radio" name="money" value="0">有料  <br><br>
+            <hr>
+            <p>氏名:<span style="color:red">(必須)</span></p>
+                <input type="text" name="name1" placeholder="氏名を入力" maxlength="32" value="<?php echo $_SESSION['name1']; ?>" class="example"> <br>
+            <p>住所:<span style="color:red">(必須)</span></p>
+                <input type="text" name="address" placeholder="住所を入力" maxlength="50" value="<?php echo $_SESSION['address']; ?>" class="example"> <br>
+            <p>携帯電話番号:<span style="color:red">(必須, 11文字)</span></p>
+                <input type="text" name="phone_number" placeholder="12345678901" maxlength="16" class="example"> <br>
+            <hr>
+
+            <br>
+            <input type="submit" name = "submit" value="予約する">
+        </form>
+
+    </body>
+</html>
+
 <?php
 
-    if(isset($_POST["submit"])){
-        session_start();
+if(isset($_POST["submit"])){
+    session_start();
 
-        $_SESSION['exhibition_name']= $_POST['exhibition_name'];
-        $_SESSION['target']=$_POST['target'];
-        $_SESSION['genru']=$_POST['genru'];
-        $_SESSION['name1']= $_POST['name1'];
-        $_SESSION['address']=$_POST['address'];
+    $_SESSION['exhibition_name']= $_POST['exhibition_name'];
+    $_SESSION['target']=$_POST['target'];
+    $_SESSION['genru']=$_POST['genru'];
+    $_SESSION['name1']= $_POST['name1'];
+    $_SESSION['address']=$_POST['address'];
 
-        if((! empty ($_POST['start_date']) ) & (! empty ($_POST['start_time'])) & (! empty ($_POST['end_date']) ) & (! empty ($_POST['end_time'])) 
-        & (! empty ($_POST['name1'])) & (! empty ($_POST['phone_number'])) &  (! empty ($_POST['address'])) & (! empty ($_POST['money']))
-        &  (! empty ($_POST['exhibition_name'])) & (! empty ($_POST['target'])) & (! empty ($_POST['genru']))){
+    if((! empty ($_POST['start_date']) ) & (! empty ($_POST['start_time'])) & (! empty ($_POST['end_date']) ) & (! empty ($_POST['end_time'])) 
+    & (! empty ($_POST['name1'])) & (! empty ($_POST['phone_number'])) &  (! empty ($_POST['address'])) & (! empty ($_POST['money']))
+    &  (! empty ($_POST['exhibition_name'])) & (! empty ($_POST['target'])) & (! empty ($_POST['genru']))){
 
 
-            include_once dirname( __FILE__ ).'/../../db.php';
-            // 前のページから値を取得します。
+        include_once dirname( __FILE__ ).'/../../db.php';
+        // 前のページから値を取得します。
 
-                $inputExhibitionName= $_POST['exhibition_name'];
-                $inputTarget=$_POST['target'];
-                $inputGenru=$_POST['genru'];
-                $inputName= $_POST['name1'];
-                $inputAddress=$_POST['address'];
-                $inputMoney=$_POST['money'];
+            $inputExhibitionName= $_POST['exhibition_name'];
+            $inputTarget=$_POST['target'];
+            $inputGenru=$_POST['genru'];
+            $inputName= $_POST['name1'];
+            $inputAddress=$_POST['address'];
+            $inputMoney=$_POST['money'];
 
-                $_SESSION['register_exhibition_reserve'] = '';
+            $_SESSION['register_exhibition_reserve'] = '';
 
-                if( is_numeric($_POST['phone_number']) ) {
-                    $inputPhone=$_POST['phone_number'];
-                }else{
-                    $_SESSION['register_exhibition_reserve']="正しい電話番号をご入力ください";
-                    echo '<script type="text/javascript">window.location.href = window.location.hreg = "http://18.209.25.203/exhibition_reserves/new/";</script>';
-                    exit();
-                }
+            if( is_numeric($_POST['phone_number']) ) {
+                $inputPhone=$_POST['phone_number'];
+            }else{
+                $_SESSION['register_exhibition_reserve']="正しい電話番号をご入力ください";
+                echo '<script type="text/javascript">window.location.href = window.location.hreg = "http://18.209.25.203/exhibition_reserves/new/";</script>';
+                exit();
+            }
 
-                //日付判定
-                if($_POST['start_date'] > $_POST['end_date']){
-                    $_SESSION['register_exhibition_reserve']="使用する日時を正しくご入力ください";
-                    echo '<script type="text/javascript">window.location.href = window.location.hreg = "http://18.209.25.203/exhibition_reserves/new/";</script>';
-                    exit();
-                }else if(($_POST['start_date'] == $_POST['end_date']) && ($_POST['start_time'] >= $_POST['end_time'])){
-                    $_SESSION['register_exhibition_reserve']="使用する日時を正しくご入力ください";
-                    echo '<script type="text/javascript">window.location.href = window.location.hreg = "http://18.209.25.203/exhibition_reserves/new/";</script>';
-                    exit();
-                }else{
-                        $inputStartDate=$_POST['start_date'];
-                        $inputStartTime=$_POST['start_time'];
-                        $inputEndDate=$_POST['end_date'];
-                        $inputEndTime=$_POST['end_time'];
-                }
+            //日付判定
+            if($_POST['start_date'] > $_POST['end_date']){
+                $_SESSION['register_exhibition_reserve']="使用する日時を正しくご入力ください";
+                echo '<script type="text/javascript">window.location.href = window.location.hreg = "http://18.209.25.203/exhibition_reserves/new/";</script>';
+                exit();
+            }else if(($_POST['start_date'] == $_POST['end_date']) && ($_POST['start_time'] >= $_POST['end_time'])){
+                $_SESSION['register_exhibition_reserve']="使用する日時を正しくご入力ください";
+                echo '<script type="text/javascript">window.location.href = window.location.hreg = "http://18.209.25.203/exhibition_reserves/new/";</script>';
+                exit();
+            }else{
+                    $inputStartDate=$_POST['start_date'];
+                    $inputStartTime=$_POST['start_time'];
+                    $inputEndDate=$_POST['end_date'];
+                    $inputEndTime=$_POST['end_time'];
+            }
 
-            try {            
+        try {            
+
+
                 // SQL文を用意します。
                 // :で始まる部分が後から値がセットされるプレースホルダです。
                 // 複数回SQL文を実行する必要がある場合はここからexecute()までを 繰り返します。
@@ -155,58 +201,16 @@ function register_exhibition_reserve($content) {
                 echo( '接続失敗: ' . $e->getMessage() . '<br>' );
                 exit();
                 }
-        }else {
-            $_SESSION['register_exhibition_reserve']="入力に不備があります";
-        }
-        echo '<script type="text/javascript">window.location.href = window.location.hreg = "http://18.209.25.203/exhibition_reserves/new/";</script>';
-        exit();
-
+    }else {
+        $_SESSION['register_exhibition_reserve']="入力に不備があります";
     }
+    echo '<script type="text/javascript">window.location.href = window.location.hreg = "http://18.209.25.203/exhibition_reserves/new/";</script>';
+    exit();
+
+}
 
 ?>
-            <br>
-            <hr>
-            <p>展覧会名:<span style="color:red">(必須)</span></p>
-                <input type="text" name="exhibition_name" placeholder="展覧会名を入力" value="<?php echo $_SESSION['exhibition_name']; ?>" maxlength="50" class="example"> <br>
-            <p>出品対象者:<span style="color:red">(必須)</span></p>
-                <input type="text" name="target" placeholder="出品対象者を入力" value="<?php echo $_SESSION['target']; ?>" maxlength="50" class="example"> <br>
-            <p>出品ジャンル:<span style="color:red">(必須)</span></p>
-                <input type="text" name="genru" placeholder="出品ジャンルを入力" value="<?php echo $_SESSION['genru']; ?>" maxlength="50" class="example"> <br>
-            <hr>
-            <div class='l'>
-            <p>使用日時:<span style="color:red">(必須)</span></p>
-                <input type="date" name="start_date"  min="<?php echo date('Y-m-d'); ?>" style = "display:inline-block">
-                <input type="number" name="start_time" min="9" max="16"  style = "display:inline-block"> 時から <br><br>
-                <input type="date" name="end_date"  min="<?php echo date('Y-m-d'); ?>" style = "display:inline-block"> 
-                <input type="number" name="end_time" min="10" max="17"  style = "display:inline-block">時まで <br><br>
-            </div>
-            <p>観覧料の有無:<span style="color:red">(必須)</span></p>
-                <input type="radio" name="money" value="1">無料  <input type="radio" name="money" value="0">有料  <br><br>
-            <hr>
-            <p>氏名:<span style="color:red">(必須)</span></p>
-                <input type="text" name="name1" placeholder="氏名を入力" maxlength="32" value="<?php echo $_SESSION['name1']; ?>" class="example"> <br>
-            <p>住所:<span style="color:red">(必須)</span></p>
-                <input type="text" name="address" placeholder="住所を入力" maxlength="50" value="<?php echo $_SESSION['address']; ?>" class="example"> <br>
-            <p>携帯電話番号:<span style="color:red">(必須, 11文字)</span></p>
-                <input type="text" name="phone_number" placeholder="12345678901" maxlength="16" class="example"> <br>
-            <hr>
-            
-            <?php
-            session_start();
-            if(! empty($_SESSION['register_exhibition_reserve'])){
-                echo("<br>".$_SESSION['register_exhibition_reserve']."<br>");
-                unset($_SESSION['register_exhibition_reserve']);
-            }else{
-                echo("<br><br>");
-            }
-            ?>
 
-            <br>
-            <input type="submit" name = "submit" value="予約する">
-        </form>
-
-    </body>
-</html>
 
 <?php
 //実装時はコメント解除
