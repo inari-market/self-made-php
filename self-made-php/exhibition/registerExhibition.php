@@ -171,7 +171,7 @@ if(isset($_POST['submit'])){
     }else {
         $_SESSION['register_exhibition']="入力に不備があります";
     }
-    echo '<script type="text/javascript">window.location.href = window.location.hreg = "";</script>';
+    // echo '<script type="text/javascript">window.location.href = window.location.hreg = "";</script>';
     exit();
 }
 
