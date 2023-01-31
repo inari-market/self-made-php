@@ -90,8 +90,8 @@ if(isset($_POST["submit"])){
                 echo '<script type="text/javascript">window.location.href = window.location.hreg = "";</script>';
                 exit();
             }else{
-                    $inputStartDate=$_POST['start_date'];
-                    $inputEndDate=$_POST['end_data'];
+                $inputStartDate=$_POST['start_date'];
+                $inputEndDate=$_POST['end_data'];
             }
 
         try {            
