@@ -44,7 +44,7 @@ function delete_notification($content) {
         <tr>
             <td><?php echo $row['id']; ?></td>
             <td><?php echo $row['title']; ?></td>
-            <td style="word-break:bread-word"><?php echo $row['body']; ?></td>    
+            <td style="word-break:break-word"><?php echo $row['body']; ?></td>    
             <td><a href="<?php echo str_replace( '%7E', '~', $_SERVER['REQUEST_URI']); ?>?id=<?php echo $row['id']; ?>">削除</a></td>
 
         </tr>
