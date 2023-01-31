@@ -147,7 +147,7 @@ if(isset($_POST["submit"])){
     }else {
         $_SESSION['register_exhibition_reserve']="入力に不備があります";
     }
-    echo '<script type="text/javascript">window.location.href = window.location.hreg = "http://18.209.25.203/exhibition_reserves/new/";</script>';
+    echo '<script type="text/javascript">window.location.href = window.location.hreg = "";</script>';
     exit();
 
 }
