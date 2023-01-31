@@ -53,6 +53,7 @@ function show_exhibition($content) {
                 <p>概要：<?php echo htmlspecialchars($row['introduction'], ENT_QUOTES); ?></p>
             </div>
         </div>
+        <?php } ?>
 
     <h1>今後開催される展示</h1>
         <?php
@@ -86,8 +87,38 @@ function show_exhibition($content) {
                 <p>概要：<?php echo htmlspecialchars($row['introduction'], ENT_QUOTES); ?></p>
             </div>
         </div>
+        <?php } ?>
 
-  
+    <h1>過去に開催された展示</h1>
+        <?php
+        include_once dirname( __FILE__ ).'/../../db.php';
+            // データベースに接続します。
+            $dbh = DbUtil::Connect();
+
+            // SQL文を用意します。
+            // :で始まる部分が後から値がセットされるプレースホルダです。
+            // 複数回SQL文を実行する必要がある場合はここからexecute()までを>繰り返します。
+            $sql = 'SELECT * FROM exhibition where end > now()';
+            // SQL文を実行する準備をします。
+            $stmt = $dbh->prepare( $sql );
+            // SQL文を実行します。
+            $stmt->execute();
+            ?>
+
+        <?php while ($row = $stmt->fetch(PDO::FETCH_ASSOC)) { ?>
+        <div class="is-layout-flex wp-container-9 wp-block-columns">
+            <div class="is-layout-flow wp-block-column">
+                <?php
+                    $img_url = "http://100.24.172.143/exhibition/";
+                    echo '<figure class="wp-block-image size-large is-resized"><img decoding="async"  loading="lazy" src="' . $img_url . $row['photo_name'] .".png" . '" alt="画像が読み込めませんでした" width="60" height="60"></figure>';
+                ?>
+            </div>
+
+            <div class="is-layout-flow wp-block-column">
+                <p><?php echo $row['exhibition_name']; ?></p>
+                <p>主催者：<?php echo $row['organizer']; ?></p>
+            </div>
+        </div>
 
     <?php } ?>
     </body>
