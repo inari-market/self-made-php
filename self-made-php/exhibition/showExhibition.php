@@ -16,9 +16,13 @@ function show_exhibition($content) {
             $sql = 'SELECT * FROM exhibition where start <= now() and end >= now()';
             $stmt = $dbh->prepare( $sql );
             $stmt->execute();
+            $result = $stmt->fetchAll();
+            $count   = count( $result ); 
         ?>
 
-        <?php while ($row = $stmt->fetch(PDO::FETCH_ASSOC)) { ?>
+        <?php 
+            while ($row = $stmt->fetch(PDO::FETCH_ASSOC)) { 
+        ?>
             <div class="is-layout-flex wp-container-9 wp-block-columns">
                 <div class="is-layout-flow wp-block-column">
                     <?php
