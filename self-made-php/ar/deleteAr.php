@@ -55,7 +55,7 @@ function delete_ar($content) {
                 echo '<p><audio controls src="http://100.24.172.143/ar/sound/'. $row['sound'] .'.mp3" type="audio/mp3"></audio></p>';
             ?>
         </td>
-        <td><a href="<?php echo str_replace( '%7E', '~', $_SERVER['REQUEST_URI']); ?>?id=<?php echo $row['exhibition_id']; ?>">削除</a></td>
+        <td><a href="<?php echo str_replace( '%7E', '~', $_SERVER['REQUEST_URI']); ?>?id=<?php echo $row['id']; ?>">削除</a></td>
         </tr>
         <?php } ?>
 
