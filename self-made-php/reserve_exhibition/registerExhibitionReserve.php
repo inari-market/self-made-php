@@ -40,12 +40,12 @@ function register_exhibition_reserve($content) {
                 echo("<br><br>");
             }
             ?>
-
             <br>
-            <input type="submit" name = "submit" value="予約する">
+            <div { text-align : center ; }>
+            <div><input type="submit" name = "submit" value="予約する"></div>
             <br>
             <br>
-            <input type="submit" name = "submit1" value="キャンセル">           
+            <div><input type="submit" name = "submit1" value="キャンセル"></div>        
         </form>
 
 <?php
