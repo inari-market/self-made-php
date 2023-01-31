@@ -8,7 +8,7 @@ function show_exhibition($content) {
 <html>
     <body>
 
-    <h1>現在開催中の展示</h1>
+    <h2>現在開催中の展示</h2>
 
         <?php
             include_once dirname( __FILE__ ).'/../../db.php';
@@ -28,7 +28,7 @@ function show_exhibition($content) {
                 </div>
 
                 <div class="is-layout-flow wp-block-column">
-                    <h2><?php echo $row['exhibition_name']; ?></h2>
+                    <h3><?php echo $row['exhibition_name']; ?></h3>
                     <p>展示開催日：<?php echo $row['start']."日から".$row['end']; ?></p>
                     <p>主催者：<?php echo $row['organizer']; ?></p>
                     <p>概要：<?php echo htmlspecialchars($row['introduction'], ENT_QUOTES); ?></p>
@@ -36,7 +36,7 @@ function show_exhibition($content) {
             </div>
         <?php } ?>
 
-    <h1>今後開催される展示</h1>
+    <h2>今後開催される展示</h2>
         <?php
             include_once dirname( __FILE__ ).'/../../db.php';
             $dbh = DbUtil::Connect();
@@ -55,7 +55,7 @@ function show_exhibition($content) {
                 </div>
 
                 <div class="is-layout-flow wp-block-column">
-                    <h2><?php echo $row['exhibition_name']; ?></h2>
+                    <h3><?php echo $row['exhibition_name']; ?></h3>
                     <p>展示開催日：<?php echo $row['start']."日から".$row['end']; ?></p>
                     <p>主催者：<?php echo $row['organizer']; ?></p>
                     <p>概要：<?php echo htmlspecialchars($row['introduction'], ENT_QUOTES); ?></p>
@@ -64,7 +64,7 @@ function show_exhibition($content) {
 
         <?php } ?>
 
-    <h3>過去に開催された展示</h3>
+    <h4>過去に開催された展示</h4>
         <?php
             include_once dirname( __FILE__ ).'/../../db.php';
             $dbh = DbUtil::Connect();
