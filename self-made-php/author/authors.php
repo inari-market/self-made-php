@@ -17,8 +17,8 @@
                 // イテレータとかの準備
                 $img_url = 'http://52.54.93.120/img/author/'; // 画像の参照先
                 for( $i = 0; $i < count($authors); $i++ ) { 
-                    echo $i;    
                     ?>
+                    <hr class="wp-block-separator has-text-color has-cyan-bluish-gray-color has-alpha-channel-opacity has-cyan-bluish-gray-background-color has-background is-style-wide">
                     <div class="is-layout-flex wp-container-3 wp-block-columns">
                         <div class="is-layout-flow wp-block-column" style="flex-basis:33.33%"><div class="wp-block-image">
                         <figure class="aligncenter size-full is-resized"><img decoding="async" src= "<?php echo $img_url . $authors[$i]['image'];?>" .  alt="" class="wp-image-1023" width="200" height="240"></figure></div></div>
