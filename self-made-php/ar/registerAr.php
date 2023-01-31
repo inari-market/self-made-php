@@ -39,7 +39,7 @@ function register_ar($content) {
 
                         <p>マーカー写真の入力</p>
                             <input type="text" name="marker" placeholder="マーカー名を入力" maxlength="32" value="<?php echo $_SESSION['goods_name']; ?>"> <br>
-                            <input type="file" name="marker_img" accept="image/png, image/jpeg" > <br><br>
+                            <input type="file" name="marker_img" > <br><br>
                         <p>オブジェクト写真の入力</p>
                             <input type="text" name="object" placeholder="オブジェクト名を入力" maxlength="256" value="<?php echo $_SESSION['photo_name']; ?>"> <br>
                             <input type="file" name="object_img" accept="image/png, image/jpeg" > <br><br>
@@ -96,6 +96,11 @@ if(isset($_POST["submit"])){
                     $_SESSION['register_ar']="マーカーのファイル名は過去に登録された写真の名前です";
                     echo '<script type="text/javascript">window.location.href = window.location.hreg = "http://100.24.172.143/ars/new/";</script>';
                     exit();
+                }elseif(false !== strstr($_FILES['object_img']['tmp_name'], '.patt')){
+                    $_SESSION['register_ar']="マーカーのファイルが適切ではありません";
+                    echo '<script type="text/javascript">window.location.href = window.location.hreg = "http://100.24.172.143/ars/new/";</script>';
+                    exit();
+
                 }
                 if($_POST['object'] == $row["object"]){
                     $_SESSION['register_ar']="オブジェクトのファイル名は過去に登録された写真の名前です";
@@ -118,7 +123,7 @@ if(isset($_POST["submit"])){
         }
 
             $img_url = "/var/www/html/ar/marker/";
-            if(move_uploaded_file($_FILES['marker_img']['tmp_name'], $img_url . $inputMarker.".png")){
+            if(move_uploaded_file($_FILES['marker_img']['tmp_name'], $img_url . $inputMarker.".patt")){
                 $_SESSION['register_ar']="マーカー写真登録完了";  
             }else{
                 $_SESSION['register_ar']='image:' . $_FILES['marker_img']['name'] . '<br>'.'type:'  . $_FILES['marker_img']['type'] . '<br>'.var_dump($_FILES).

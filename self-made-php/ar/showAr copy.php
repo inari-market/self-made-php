@@ -31,7 +31,7 @@ function show_ar($content) {
         <td>
             <?php
                 $img_url = "http://100.24.172.143/ar/marker/";
-                echo '<figure class="wp-block-image size-large is-resized"><img decoding="async"  loading="lazy" src="' . $img_url . $row['marker'] .".png" . '" alt="画像が読み込めませんでした" width="100" height="100"></figure>';
+                echo '<figure class="wp-block-image size-large is-resized"><img decoding="async"  loading="lazy" src="' . $img_url . $row['marker'] .".patt" . '" alt="画像が読み込めませんでした" width="100" height="100"></figure>';
             ?>
         </td>
         <td>
