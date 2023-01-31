@@ -1,9 +1,7 @@
 <?php
 
 function register_exhibition($content) {
-  if( is_page( 'exhibitions/new' ))
-  {
-
+  if( is_page( 'exhibitions/new' )) {
 
 ?>
 
