@@ -107,10 +107,10 @@ if(isset($_POST["submit"])){
                 $stmt->bindValue( ':name', $inputName, PDO::PARAM_STR );
                 $stmt->bindValue( ':name1', $inputName1, PDO::PARAM_STR );
                 $stmt->bindValue( ':mail', $inputAddress, PDO::PARAM_STR );
-                $stmt->bindValue( ':phone_number', $inputNumber, PDO::PARAM_STR );
-                $stmt->bindValue( ':exhibition_name', $inputTitle, PDO::PARAM_INT );
+                $stmt->bindValue( ':phone_number', $inputNumber, PDO::PARAM_INT );
+                $stmt->bindValue( ':exhibition_name', $inputTitle, PDO::PARAM_STR );
                 $stmt->bindValue( ':exhibition_body', $inputBody, PDO::PARAM_STR );
-                $stmt->bindValue( ':start_date', $inputStartDate, PDO::PARAM_INT );
+                $stmt->bindValue( ':start_date', $inputStartDate, PDO::PARAM_STR );
                 $stmt->bindValue( ':end_data', $inputEndDate, PDO::PARAM_STR );
 
                 // SQL文を実行します。
