@@ -6,18 +6,6 @@ create table schedule(
     auganizer   varchar(255)
 );
 
-create table exhibition (
-    id           int auto_increment,  
-    name         varchar(255) not null,
-    start        date not null,  
-    end          date not null,
-    organizer    varchar(255),
-    introduction varchar(1023),
-    check(name <> ''),
-    check(start < end),
-    check(organizer <> ''),
-    primary key(id)
-);
 
 create table notice (
     id    int auto_increment,  
@@ -153,3 +141,28 @@ ALTER TABLE `goods`
 ALTER TABLE `goods`
   MODIFY `goods_id` int(11) NOT NULL AUTO_INCREMENT;
 COMMIT;
+
+CREATE TABLE `ar` (
+  `id` int(11) NOT NULL,
+  `marker` varchar(256) DEFAULT NULL,
+  `object` varchar(256) DEFAULT NULL,
+  `sound` varchar(256) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+ALTER TABLE `ar`
+  ADD PRIMARY KEY (`id`);
+ALTER TABLE `ar`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+COMMIT;
+
+create table exhibition (
+    id           int auto_increment,  
+    name         varchar(255) not null,
+    start        date not null,  
+    end          date not null,
+    organizer    varchar(255),
+    introduction varchar(1023),
+    check(name <> ''),
+    check(start < end),
+    check(organizer <> ''),
+    primary key(id)
+);
