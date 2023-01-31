@@ -109,10 +109,9 @@ if(isset($_POST['submit'])){
                         echo '<script type="text/javascript">window.location.href = window.location.hreg = "http://100.24.172.143/exhibitions/new";</script>';
                         exit();
                     }
-                    else{
-                        $inputPhotoName=$_POST['photo_name'];
-                    }
                 }
+
+                $inputPhotoName=$_POST['photo_name'];
     
                     
     
