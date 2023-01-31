@@ -30,7 +30,7 @@ function register_exhibition($content) {
     <body>
         <div class='l'>
     <h1>企画展情報の入力</h1>
-        <form action="<?php echo str_replace( '%7E', '~', $_SERVER['REQUEST_URI']); ?>" method="POST" enctype="multipart/form-data">
+        <form action="<?php echo str_replace( '%7E', '~', $_SERVER['REQUEST_URI']); ?>" enctype="multipart/form-data" method="POST">
 
             <br>
             <p>企画展名</p>
