@@ -74,7 +74,7 @@ function delete_exhibition($content) {
             $stmt->execute();
             $img = $stmt->fetch(PDO::FETCH_ASSOC);
             
-            unlink('/var/www/html/exhibition' . $img['photo_name'] . '.png');
+            unlink('/var/www/html/exhibition/' . $img['photo_name'] . '.png');
 
             $sql = 'DELETE FROM exhibition where exhibition_id = :id';
             $stmt = $dbh->prepare( $sql );
