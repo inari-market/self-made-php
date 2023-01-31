@@ -61,7 +61,7 @@ if(isset($_POST["submit"])){
     $_SESSION['exhibition_body']=$_POST['exhibition_body'];
 
     if((! empty ($_POST['start_date']) ) & (! empty ($_POST['end_date']) ) & (! empty ($_POST['name'])) & (! empty ($_POST['name1'])) &  (! empty ($_POST['mail'])) & (! empty ($_POST['phone_number']))
-    &  (! empty ($_POST['exhibition_name'])) & (! empty ($_POST['exhibition_body'])){
+    &  (! empty ($_POST['exhibition_name'])) & (! empty ($_POST['exhibition_body']))){
 
 
         include_once dirname( __FILE__ ).'/../../db.php';
