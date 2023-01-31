@@ -21,7 +21,7 @@
 
                     ?>
                     <!-- here -->
-                    <div class="is-layout-flow wp-block-column" style="flex-basis:33.33%"><div class="wp-block-image">
+                    <!-- <div class="is-layout-flow wp-block-column" style="flex-basis:33.33%"><div class="wp-block-image">
                     <figure class="aligncenter size-full is-resized"><img decoding="async" src= "<?php echo $img_url . $authors[$i]['image'];?>" .  alt="" class="wp-image-1023" width="200" height="240"></figure></div></div>
 
                     <div class="is-layout-flow wp-block-column" style="flex-basis:66.66%">
@@ -31,15 +31,16 @@
                     <p>出身：<?php echo $authors[$i]['birthplace']?></p><br>
                     <p>代表作：<?php echo $authors[$i]['work']?></p>
                     <div class="button_line007"><a href="http://52.54.93.120/authors/show/?id=<?php echo $authors[$i]['id'];?>" data-type="page" data-id="1034">詳しく知る</a></div>
-                    </div>
+                    </div> -->
                     <!-- to here -->
                     <div class="is-layout-flex wp-container-3 wp-block-columns">
                         <div class="is-layout-flow wp-block-column" style="flex-basis:33.33%"><div class="wp-block-image">
                         <figure class="aligncenter size-full is-resized"><img decoding="async" src= "<?php echo $img_url . $authors[$i]['image'];?>" .  alt="" class="wp-image-1023" width="200" height="240"></figure></div></div>
                         <div class="is-layout-flow wp-block-column" style="flex-basis:66.66%">
-                        <h3>高崎元尚 -Takasaki Motonao-</h3>
-                        <p>生没年：1923-2017<br>出身：高知県香美市<br>代表作：装置，作品</p>
-                        <div class="button_line007"><a href="http://ec2-52-54-93-120.compute-1.amazonaws.com/%e9%ab%98%e5%b4%8e%e5%85%83%e5%b0%9a%e3%82%92%e8%a9%b3%e3%81%97%e3%81%8f%e7%9f%a5%e3%82%8b/" data-type="page" data-id="1034">詳しく知る</a></div>
+                        <p>生年:<?php echo $authors[$i]['birthday']?></p>
+                    <p>出身：<?php echo $authors[$i]['birthplace']?></p><br>
+                    <p>代表作：<?php echo $authors[$i]['work']?></p>
+                    <div class="button_line007"><a href="http://52.54.93.120/authors/show/?id=<?php echo $authors[$i]['id'];?>" data-type="page" data-id="1034">詳しく知る</a></div>
                         </div>
                         </div>
                         <!-- tohere -->
