@@ -45,7 +45,7 @@ function register_exhibition($content) {
                 <textarea  name="introduction" rows="4" cols="40" maxlength="160" placeholder="企画展の概要を入力" value="<?php echo $_SESSION['introduction']; ?>"></textarea><br>
             <p>写真の名前</p>
                 <input type="text" name="photo_name" placeholder="写真の名前を入力" maxlength="256" value="<?php echo $_SESSION['photo_name']; ?>"> <br>
-            <p>商品イメージ</p>
+            <p>企画展イメージ</p>
                 <input type="file" name="photo_img" accept="image/png, image/jpeg" > <br>
 
             <?php
@@ -89,7 +89,7 @@ if(isset($_POST['submit'])){
 
             $_SESSION['register_exhibition'] = '';
 
-            /*
+            
             try {            
                 include_once dirname( __FILE__ ).'/../../db.php';
                 // データベースに接続します。
@@ -111,10 +111,10 @@ if(isset($_POST['submit'])){
                         exit();
                     }
                 }
-*/
+
                 $inputPhotoName=$_POST['photo_name'];
     
-                    /*
+                    
     
             }catch( PDOException $e ){
                 $_SESSION['register_exhibition']= '接続失敗: ' . $e->getMessage() . '<br>';
@@ -127,10 +127,11 @@ if(isset($_POST['submit'])){
                 }else{
                     $_SESSION['register_exhibition']="エラータイプ:".$_FILES['photo_img']['error'].
                     "ファイルサイズ:".$_FILES['photo_img']['size'].
-                    $img_url . $inputPhotoName.".png=>写真の登録に失敗しました";
+                    $img_url . $inputPhotoName.".png=>".'image:' . $_FILES['photo_img']['name'] . '<br>'.'type:'  . $_FILES['photo_img']['type'] . '<br>'.var_dump($_FILES).
+                    "写真の登録に失敗しました";
                     echo '<script type="text/javascript">window.location.href = window.location.hreg = "http://100.24.172.143/exhibitions/new";</script>';
                     exit();
-                }*/
+                }
         
 
         try {
