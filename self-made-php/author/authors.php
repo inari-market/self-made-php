@@ -17,7 +17,7 @@
                 // イテレータとかの準備
                 $img_url = 'http://52.54.93.120/img/author/'; // 画像の参照先
                 for( $i = 0; $i < count($authors); $i++ ) { 
-
+                    echo $i;    
                     ?>
                     <div class="is-layout-flex wp-container-3 wp-block-columns">
                         <div class="is-layout-flow wp-block-column" style="flex-basis:33.33%"><div class="wp-block-image">
@@ -53,7 +53,7 @@
 <?php
             // return $content;
         } else {
-            // return $content;
+            return $content;
         }
     }   
     add_filter('the_content', 'authors');
