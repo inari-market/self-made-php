@@ -21,8 +21,6 @@
                     $stmt->bindValue( ':work',         $_POST[work],         PDO::PARAM_STR );
 
                     $stmt->execute(); // sqlの実行
-                    // echo 'id:' . $_POST['id'];
-                    unlink('/var/www/html/img/author/3.png');
                     
                 } catch( PDOException $e ) {
                     echo 'id:'           . $_POST['id'] . '<br>';
@@ -36,9 +34,9 @@
                     echo '<a href="https://inari-dev.tk/authors" style="color:blue;">再度読み込み</a>';
                     exit();
                 }
-                echo 'image:' . $_FILES[image][name] . '<br>';
-                echo 'type:'  . $_FILES[image][type] . '<br>';
-                var_dump($_FILES);
+                // echo 'image:' . $_FILES[image][name] . '<br>';
+                // echo 'type:'  . $_FILES[image][type] . '<br>';
+                // var_dump($_FILES);
 
                 if($_FILES[image][name] != NULL) {
                     $image = $_POST[id] . '.png'; // 画像の名前をid.pngにする
@@ -51,7 +49,7 @@
                     }
 
                     // 画像の名前をDBに保存
-                    $sql = 'update authors2 set image = :image where id = :id';
+                    $sql = 'update author set image = :image where id = :id';
                     $stmt = $dbh->prepare( $sql ); // SQL文を実行する準備をします。
 
                     $stmt->bindValue( ':image', $image,     PDO::PARAM_STR );
