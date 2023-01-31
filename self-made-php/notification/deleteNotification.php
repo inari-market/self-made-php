@@ -94,7 +94,7 @@ if (! empty($id)) {
         $stmt->execute();
         session_start();
         $_SESSION['delete_notification']="削除完了";
-        echo '<script type="text/javascript">window.location.href = window.location.hreg = "http://18.209.25.203/notification/delete/";</script>';
+        echo '<script type="text/javascript">window.location.href = window.location.hreg = "";</script>';
         exit();
 
     }catch( PDOException $e ){
