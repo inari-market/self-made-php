@@ -44,7 +44,7 @@ function register_ar($content) {
                             <input type="text" name="object" placeholder="オブジェクト名を入力" maxlength="256" value="<?php echo $_SESSION['photo_name']; ?>"> <br>
                             <input type="file" name="object_img" accept="image/png, image/jpeg" > <br><br>
                         <p>音声ファイルを入力</p>
-                            <input type="text" name="sound" placeholder="ファイル名を入力"> <br>
+                            <input type="text" name="sound" placeholder="ファイル名を入力"> <br><br>
                             <input type="file" name="upfile">
                         
                         <?php
