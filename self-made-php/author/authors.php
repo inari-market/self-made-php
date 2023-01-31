@@ -41,29 +41,16 @@ hoge
                 for( $i = 0; $i < $row; $i++ ) { 
                     ?>
 
-                    <div class="is-layout-flex wp-container-3 wp-block-columns">
-                        <?php 
-                            $j = 0;
-                            while($j < 4) {
-                        ?>
-                                <div class="is-layout-flow wp-block-column">
-                                    <?php
-                                        if(($i + 1) == $row && $j >= $col) { // 最終行かつ，最終行に全員分表示していたら
-                                            // なにもしない                                                                         
-                                        } else {
-                                            echo '<h1>' . $authors[$index][name] . '</h1>';
-                                            echo '<figure class="wp-block-image size-full is-resized"><img decoding="async" src="' . $img_url . $authors[$index][image] . '" alt="画像が読み込めませんでした"></figure>';
-                                            echo '   <a href="http://52.54.93.120/authors/show?id='   . $authors[$index][id] . '"style="' . $css . '">詳細</a>';
-                                            echo ' | <a href="http://52.54.93.120/authors/edit?id='   . $authors[$index][id] . '"style="' . $css . '">編集</a>';
-                                            echo ' | <a href="http://52.54.93.120/authors/delete?id=' . $authors[$index][id] . '"style="' . $css . '">削除</a>';
-                                            $index++;
-                                        }
-                                    ?>
-                                </div>
-                        <?php
-                                $j++; // ++jの方がいいのか？ 
-                            }
-                        ?>
+                    <div class="is-layout-flow wp-block-column" style="flex-basis:33.33%"><div class="wp-block-image">
+                    <figure class="aligncenter size-full is-resized"><img decoding="async" src="http://ec2-52-54-93-120.compute-1.amazonaws.com/wp-content/uploads/2023/01/1000001162.png" alt="" class="wp-image-1023" width="200" height="240"></figure></div></div>
+
+                    <div class="is-layout-flow wp-block-column" style="flex-basis:66.66%">
+                    <h3><?php echo $row['name']?> -<?php echo $row['furigana'] ?>-</h3>
+
+                    <p>生年:<?php echo $row['birthday']?></p>
+                    <p>出身：<?php echo $row['birthplace']?></p><br>
+                    <p>代表作：<?php echo $row['work']?></p>
+                    <div class="button_line007"><a href="http://52.54.93.120/" data-type="page" data-id="1034">詳しく知る</a></div>
                     </div>
 
                     <?php
