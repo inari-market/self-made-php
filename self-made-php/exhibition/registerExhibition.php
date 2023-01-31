@@ -89,6 +89,7 @@ if(isset($_POST['submit'])){
 
             $_SESSION['register_exhibition'] = '';
 
+            /*
             try {            
                 include_once dirname( __FILE__ ).'/../../db.php';
                 // データベースに接続します。
@@ -110,10 +111,10 @@ if(isset($_POST['submit'])){
                         exit();
                     }
                 }
-
+*/
                 $inputPhotoName=$_POST['photo_name'];
     
-                    
+                    /*
     
             }catch( PDOException $e ){
                 $_SESSION['register_exhibition']= '接続失敗: ' . $e->getMessage() . '<br>';
@@ -129,7 +130,7 @@ if(isset($_POST['submit'])){
                     $img_url . $inputPhotoName.".png=>写真の登録に失敗しました";
                     echo '<script type="text/javascript">window.location.href = window.location.hreg = "http://100.24.172.143/exhibitions/new";</script>';
                     exit();
-                }
+                }*/
         
 
         try {
