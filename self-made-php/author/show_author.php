@@ -20,7 +20,7 @@
                 echo '<div class="entry-body">';
                 echo '<div class="wp-block-columns">&nbsp;</div>';
 
-                $img_url = 'https://inari-dev.tk/img/author/'; // 画像の参照先
+                $img_url = 'http://52.54.93.120/img/author/'; // 画像の参照先
                 $name         = $author[name];
                 $furigana     = $author[furigana];
                 $birthday     = $author[birthday];
