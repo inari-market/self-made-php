@@ -162,7 +162,7 @@ if(isset($_POST['submit'])){
         curl_setopt($ch, CURLOPT_CUSTOMREQUEST, 'POST');
         curl_setopt($ch, CURLOPT_POSTFIELDS, $json_data);
         curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
-        curl_setopt($ch, CURLOPT_URL, 'https://script.google.com/macros/s/AKfycbwOWdHu9xC9Yv8_KRQFkqeq0FBT3JkEKnOfwP5ktP4VDZn8hBZhBREroBSRHUqYd2UX/exec');  // APIのURI
+        curl_setopt($ch, CURLOPT_URL, 'https://script.google.com/macros/s/AKfycbySZnhCMpADc2jgyfo0iUrJoNDU6ovCpJec3k9Qowh4IROpsrlUbUVEpAfBeUYpmmxV/exec');  // APIのURI
         $result=curl_exec($ch);
         echo $result;
         echo 'here is gas resutlt';
