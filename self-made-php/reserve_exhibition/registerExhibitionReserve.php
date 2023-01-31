@@ -1,8 +1,7 @@
 <?php
-//実装時はコメント解除
-//いったん放置
+
 function register_exhibition_reserve($content) {
-  if( is_page( 'exhibition_reserves/new' ))  //固定ページ「sample_cal」の時だけ処理させる
+  if( is_page( 'exhibition_reserves/new' ))
   {
 
 
@@ -47,31 +46,26 @@ function register_exhibition_reserve($content) {
     </head>
     <body>
         <div class='l'>
-    <h1>アトリエ予約の入力フォーム</h1>
 
     <?php // echo $content;?>
         <form action="<?php echo str_replace( '%7E', '~', $_SERVER['REQUEST_URI']); ?>" method="POST">
 
             <br>
-            <p>展覧会名</p>
-                <input type="text" name="exhibition_name" placeholder="展覧会名を入力" value="<?php echo $_SESSION['exhibition_name']; ?>" maxlength="50"> <br>
-            <p>出品対象者</p>
-                <input type="text" name="target" placeholder="出品対象者を入力" value="<?php echo $_SESSION['target']; ?>" maxlength="50"> <br>
-            <p>出品ジャンル</p>
-                <input type="text" name="genru" placeholder="出品ジャンルを入力" value="<?php echo $_SESSION['genru']; ?>" maxlength="50"> <br>
-            <p>使用日時</p>
-                <input type="date" name="start_date"  min="<?php echo date('Y-m-d'); ?>" style = "display:inline-block">
-                <input type="number" name="start_time" min="9" max="16"  style = "display:inline-block"> 時から
-                <input type="date" name="end_date"  min="<?php echo date('Y-m-d'); ?>" style = "display:inline-block"> 
-                <input type="number" name="end_time" min="10" max="17"  style = "display:inline-block">時まで <br><br>
-            <p>観覧料の有無</p>
-                <input type="radio" name="money" value="1">無料  <input type="radio" name="money" value="0">有料  <br><br>
-            <p>氏名</p>
-                <input type="text" name="name1" placeholder="氏名を入力" maxlength="32" value="<?php echo $_SESSION['name1']; ?>"> <br>
-            <p>住所</p>
-                <input type="text" name="address" placeholder="住所を入力" maxlength="50" value="<?php echo $_SESSION['address']; ?>"> <br>
-            <p>携帯電話番号</p>
-                <input type="text" name="phone_number" placeholder="12345678901" maxlength="16"> <br>
+            <p>氏名:（必須）</p>
+                <input type="text" name="name" placeholder="香美太郎" maxlength="32" value="<?php echo $_SESSION['name']; ?>"> <br>
+            <p>フリガナ:（必須）</p>
+                <input type="text" name="name1" placeholder="カミタロウ" maxlength="32" value="<?php echo $_SESSION['name1']; ?>"> <br>
+            <p>メールアドレス:（必須）</p>
+                <input type="text" name="mail" placeholder="メールアドレスを入力" maxlength="50" value="<?php echo $_SESSION['mail']; ?>"> <br>
+            <p>電話番号:（必須,ハイフンを抜いて入力してください）</p>
+                <input type="text" name="phone_number" placeholder="1234567890" maxlength="16"> <br>
+            <p>展覧会名:（必須）</p>
+                <input type="text" name="exhibition_name" placeholder="愛と勇気展 ~胸の傷が傷んでも~" value="<?php echo $_SESSION['exhibition_name']; ?>" maxlength="50"> <br>
+            <p>展覧内容:（必須,展示物のジャンルや概要の記入をお願いします）</p>
+                <input type="text" name="exhibition_name" placeholder="愛と勇気展 ~胸の傷が傷んでも~" value="<?php echo $_SESSION['exhibition_name']; ?>" maxlength="300"> <br>
+            <p>利用期間:（必須）</p>
+                <input type="date" name="start_date"  min="<?php echo date('Y-m-d'); ?>" style = "display:inline-block">から
+                <input type="date" name="end_date"  min="<?php echo date('Y-m-d'); ?>" style = "display:inline-block"> まで
             
             <?php
             session_start();
@@ -84,7 +78,8 @@ function register_exhibition_reserve($content) {
             ?>
 
             <br>
-            <input type="submit" name = "submit" value="登録">
+            <input type="submit" name = "submit" value="予約する">
+            <input type="submit" name = "submit1" value="キャンセル">           
         </form>
         </div>
 
