@@ -34,17 +34,17 @@ function delete_notification($content) {
 
         <?php
         include_once dirname( __FILE__ ).'/../../db.php';
-            $dbh = DbUtil::Connect();
-            $sql = 'SELECT * FROM notice';
-            $stmt = $dbh->prepare( $sql );
-            $stmt->execute();
+        $dbh = DbUtil::Connect();
+        $sql = 'SELECT * FROM notice';
+        $stmt = $dbh->prepare( $sql );
+        $stmt->execute();
             ?>
 
         <?php while ($row = $stmt->fetch(PDO::FETCH_ASSOC)) { ?>
         <tr>
             <td><?php echo $row['id']; ?></td>
             <td><?php echo $row['title']; ?></td>
-            <td><?php echo $row['body']; ?></td>    
+            <td style="word-break:bread-word"><?php echo $row['body']; ?></td>    
             <td><a href="<?php echo str_replace( '%7E', '~', $_SERVER['REQUEST_URI']); ?>?id=<?php echo $row['id']; ?>">削除</a></td>
 
         </tr>
