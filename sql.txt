@@ -109,19 +109,14 @@ ALTER TABLE `stdio_reserve`
 COMMIT;
 
 CREATE TABLE `exhibition_reserve` (
-  `reservation_id` int(11) NOT NULL,
-  `name` varchar(32) DEFAULT NULL,
-  `address` varchar(50) DEFAULT NULL,
-  `phone_number` varchar(16) DEFAULT NULL,
-  `start_date` date DEFAULT NULL,
-  `start_time` int(2) DEFAULT NULL,
-  `end_date` date DEFAULT NULL,
-  `end_time` int(2) DEFAULT NULL,
+  `name` varchar(32) NOT NULL,
+  `name1` varchar(32) DEFAULT NULL,
+  `mail` varchar(50) DEFAULT NULL,
+  `number` varchar(16) DEFAULT NULL,
   `exhibition_name` varchar(50) DEFAULT NULL,
-  `target` varchar(50) DEFAULT NULL,
-  `genru` varchar(50) DEFAULT NULL,
-  `money` int(1) DEFAULT NULL,
-  `content` varchar(50)
+  `body` varche(300) DEFAULT NULL,
+  `start_date` date DEFAULT NULL,
+  `end_data` data DEFAULT NULL,
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 ALTER TABLE `exhibition_reserve`
