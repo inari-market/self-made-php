@@ -8,7 +8,7 @@
             $stmt->execute(); // sqlの実行
 ?>  
             <?php while ($row = $stmt->fetch(PDO::FETCH_ASSOC)) { ?> 
-                <h6><a href="notifications/show/?id=<?php echo $row['id']?>"> <?php echo $row['title']?></a><h6>
+                <li><a href="notifications/show/?id=<?php echo $row['id']?>"> <?php echo $row['title']?></a></li>
             <?php } ?>
 <?php
         } else {

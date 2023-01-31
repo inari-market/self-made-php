@@ -34,16 +34,9 @@ function delete_notification($content) {
 
         <?php
         include_once dirname( __FILE__ ).'/../../db.php';
-            // データベースに接続します。
             $dbh = DbUtil::Connect();
-
-            // SQL文を用意します。
-            // :で始まる部分が後から値がセットされるプレースホルダです。
-            // 複数回SQL文を実行する必要がある場合はここからexecute()までを>繰り返します。
             $sql = 'SELECT * FROM notice';
-            // SQL文を実行する準備をします。
             $stmt = $dbh->prepare( $sql );
-            // SQL文を実行します。
             $stmt->execute();
             ?>
 
@@ -79,17 +72,10 @@ if (! empty($id)) {
 
     try {
         include_once dirname( __FILE__ ).'/../../db.php';
-        // SQL文を用意します。
-        // :で始まる部分が後から値がセットされるプレースホルダです。
-        // 複数回SQL文を実行する必要がある場合はここからexecute()までを繰り返し ます。
         $dbh = DbUtil::Connect();
         $sql = 'DELETE FROM notice where id = :id';
-        // SQL文を実行する準備をします。
         $stmt = $dbh->prepare( $sql );
-        // プレースホルダに実際の値をバインドします。
-        //   ->bindValue( プレースホルダ名, バインドする値, データの型 )
         $stmt->bindValue( ':id', $id, PDO::PARAM_INT );
-        // SQL文を実行します。
         $stmt->execute();
         session_start();
         $_SESSION['delete_notification']="削除完了";
