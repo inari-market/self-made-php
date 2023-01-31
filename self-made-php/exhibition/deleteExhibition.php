@@ -83,7 +83,7 @@ function delete_exhibition($content) {
             session_start();
             $_SESSION['delete_exhibition']="削除完了";
             unset($_GET['id']);
-            echo '<script type="text/javascript">window.location.href = window.location.hreg = "";</script>';
+            echo '<script type="text/javascript">window.location.href = window.location.hreg = "http://52.54.93.120/exhibitions/delete";</script>';
             exit();
 
         }catch( PDOException $e ){
