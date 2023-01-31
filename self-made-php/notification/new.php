@@ -1,5 +1,4 @@
 <?php
-//実装時はコメント解除
     function register_notification($content) {
         if( is_page( 'notifications/new' )) { //　特定の固定ページの時だけ処理させる
 ?>

@@ -1,5 +1,4 @@
 <?php
-//実装時はコメント解除
 function delete_notification($content) {
  if( is_page( 'notifications/delete' ))  //固定ページ「sample_cal」の時だけ処理させる
  {

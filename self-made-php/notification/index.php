@@ -1,5 +1,4 @@
 <?php
-//実装時はコメント解除
     function notifications($content) {
         if( is_page( 'notifications' )) { // 特定の固定ページで動作
             include_once dirname( __FILE__ ).'/../../db.php';
