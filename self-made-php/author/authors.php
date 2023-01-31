@@ -1,6 +1,6 @@
 <?php
     function authors($content) {
-        if( is_page('authors/hoge')) { //特定の固定ページの時だけ処理させる 
+        if( is_page('authors')) { //特定の固定ページの時だけ処理させる 
             include_once dirname( __FILE__ ).'/../../db.php';
             try {
                 // データベースに接続します。

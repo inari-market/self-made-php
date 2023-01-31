@@ -66,7 +66,7 @@
     
 ?>
 
-
+<!-- 
 
 <div class="is-layout-flow wp-block-column" style="flex-basis:33.33%"><div class="wp-block-image">
 <figure class="aligncenter size-full is-resized"><img decoding="async" src="http://ec2-52-54-93-120.compute-1.amazonaws.com/wp-content/uploads/2023/01/無題76_20221220220358.png" alt="" class="wp-image-1026" width="250" height="290"></figure></div></div>
@@ -99,7 +99,7 @@
 
 <p>生没年：1949-<br>出身：高知県仁淀川町<br>代表作<br>・寺田寅彦像 (オーテピア高知図書館)<br>・廣井勇像 (高知県佐川町)</p>
 </div>
-</div>
+</div> -->
 
 
 
