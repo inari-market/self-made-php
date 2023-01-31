@@ -1,9 +1,7 @@
 <?php
     function regist_author($content) {
-        
         // if( is_page( 'regist-author' ) && is_user_logged_in()) {//特定の固定ページの時だけ処理させる 
         if( is_page( 'authors/new' )) {//特定の固定ページの時だけ処理させる 
-            echo '<script type="text/javascript">window.location.href = "https://inari-dev.tk/authors";</script>';    
             if( $_POST['button'] == 'create'){ // このページにPOSTでアクセスしたら  
                 include_once dirname( __FILE__ ).'/../../db.php';
                 try {
@@ -73,7 +71,7 @@
 
 <!-- 入力フォーム -->
 <h1>作者情報登録</h1>
-<form name="regist_author" method="post" action="<?php echo str_replace( '%7E', '~', $_SERVER['REQUEST_URI']); ?>" enctype="multipart/form-data">
+<form name="regist_author" method="get" action="<?php echo str_replace( '%7E', '~', $_SERVER['REQUEST_URI']); ?>" enctype="multipart/form-data">
            
     <h4>名前</h4>
     <input type="text" name="posted_name"  size="8"  placeholder="必須項目">
