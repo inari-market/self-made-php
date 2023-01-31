@@ -80,14 +80,14 @@ if(isset($_POST["submit"])){
                 $inputNumber=$_POST['phone_number'];
             }else{
                 $_SESSION['register_exhibition_reserve']="正しい電話番号をご入力ください";
-                echo '<script type="text/javascript">window.location.href = window.location.hreg = "http://18.209.25.203/exhibition_reserves/new/";</script>';
+                echo '<script type="text/javascript">window.location.href = window.location.hreg = "";</script>';
                 exit();
             }
 
             //日付判定
             if($_POST['start_date'] > $_POST['end_date']){
                 $_SESSION['register_exhibition_reserve']="使用する日時を正しくご入力ください";
-                echo '<script type="text/javascript">window.location.href = window.location.hreg = "http://18.209.25.203/exhibition_reserves/new/";</script>';
+                echo '<script type="text/javascript">window.location.href = window.location.hreg = "";</script>';
                 exit();
             }else{
                     $inputStartDate=$_POST['start_date'];
