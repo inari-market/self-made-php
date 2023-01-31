@@ -20,19 +20,6 @@
                 for( $i = 0; $i < count($authors); $i++ ) { 
 
                     ?>
-                    <!-- here -->
-                    <!-- <div class="is-layout-flow wp-block-column" style="flex-basis:33.33%"><div class="wp-block-image">
-                    <figure class="aligncenter size-full is-resized"><img decoding="async" src= "<?php echo $img_url . $authors[$i]['image'];?>" .  alt="" class="wp-image-1023" width="200" height="240"></figure></div></div>
-
-                    <div class="is-layout-flow wp-block-column" style="flex-basis:66.66%">
-                    <h3><?php echo $authors[$i]['name']?> -<?php echo $authors[$i]['furigana'] ?>-</h3>
-
-                    <p>生年:<?php echo $authors[$i]['birthday']?></p>
-                    <p>出身：<?php echo $authors[$i]['birthplace']?></p><br>
-                    <p>代表作：<?php echo $authors[$i]['work']?></p>
-                    <div class="button_line007"><a href="http://52.54.93.120/authors/show/?id=<?php echo $authors[$i]['id'];?>" data-type="page" data-id="1034">詳しく知る</a></div>
-                    </div> -->
-                    <!-- to here -->
                     <div class="is-layout-flex wp-container-3 wp-block-columns">
                         <div class="is-layout-flow wp-block-column" style="flex-basis:33.33%"><div class="wp-block-image">
                         <figure class="aligncenter size-full is-resized"><img decoding="async" src= "<?php echo $img_url . $authors[$i]['image'];?>" .  alt="" class="wp-image-1023" width="200" height="240"></figure></div></div>
@@ -43,9 +30,6 @@
                     <div class="button_line007"><a href="http://52.54.93.120/authors/show/?id=<?php echo $authors[$i]['id'];?>" data-type="page" data-id="1034">詳しく知る</a></div>
                         </div>
                         </div>
-                        <!-- tohere -->
-
-
                     <?php
                 }
                 echo '</div>';
@@ -69,7 +53,7 @@
             ?>
 
 <?php
-            return $content;
+            // return $content;
         } else {
             return $content;
         }
