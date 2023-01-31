@@ -9,7 +9,7 @@
             try {
                 // データベースに接続します。
                 $dbh = DbUtil::Connect(); // db.phpのメソッドを使ってDBとのコネクションを確立
-                $sql = 'select * from authors2 where id = :id'; // 該当するカラムを抜く
+                $sql = 'select * from author where id = :id'; // 該当するカラムを抜く
                 $stmt = $dbh->prepare( $sql ); // SQL文を実行する準備をします。
 
                 $stmt->bindValue( ':id', $_GET['id'], PDO::PARAM_STR );
@@ -51,7 +51,7 @@
             }catch( PDOException $e ){
                 //echo( '接続失敗: ' . $e->getMessage() . '<br>' );
                 echo 'エラーが発生しました．以下のリンクから再度読み込んでください<br>';
-                echo '<a href="https://inari-dev.tk/authors" style="color:blue;">再度読み込み</a>';
+                echo '<a href="" style="color:blue;">再度読み込み</a>';
                 exit();
             }       
 ?>
