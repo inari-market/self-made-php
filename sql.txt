@@ -38,7 +38,7 @@ create table author (
     work         varchar(255),
     image        char(255)     default 'noimage.png',
     primary key(id)
-);
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 create table audio1 (
     id int auto_increment,

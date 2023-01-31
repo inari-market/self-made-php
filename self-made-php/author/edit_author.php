@@ -21,8 +21,6 @@
                     $stmt->bindValue( ':work',         $_POST[work],         PDO::PARAM_STR );
 
                     $stmt->execute(); // sqlの実行
-                    // echo 'id:' . $_POST['id'];
-                    unlink('/var/www/html/img/author/3.png');
                     
                 } catch( PDOException $e ) {
                     echo 'id:'           . $_POST['id'] . '<br>';
@@ -51,7 +49,7 @@
                     }
 
                     // 画像の名前をDBに保存
-                    $sql = 'update authors2 set image = :image where id = :id';
+                    $sql = 'update author set image = :image where id = :id';
                     $stmt = $dbh->prepare( $sql ); // SQL文を実行する準備をします。
 
                     $stmt->bindValue( ':image', $image,     PDO::PARAM_STR );

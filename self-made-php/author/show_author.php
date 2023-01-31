@@ -36,7 +36,7 @@
 
 
                         <div class="is-layout-flow wp-block-column" style="flex-basis:66.66%">
-                        <h3>大野良一 – Ono Ryoichi –</h3>
+                        <h3><?php echo $name ?> – <?php echo $furigana?> –</h3>
                         <p>生年：  <?php echo $birthday; ?></p> 
                         <p>出身：    <?php echo $birthplace; ?></p>
                         <p>代表作：  <?php echo $work; ?></p>
