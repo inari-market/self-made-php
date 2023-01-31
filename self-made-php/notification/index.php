@@ -4,7 +4,7 @@
         if( is_page( 'notifications' )) { // 特定の固定ページで動作
             include_once dirname( __FILE__ ).'/../../db.php';
             $dbh = DbUtil::Connect(); // データベースに接続します。
-            $sql = 'SELECT * FROM notice'; 
+            $sql = 'SELECT * FROM notice order by start asc'; 
             $stmt = $dbh->prepare( $sql ); 
             $stmt->execute(); // sqlの実行
 ?>  
