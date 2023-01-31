@@ -20,7 +20,7 @@
                 for( $i = 0; $i < count($authors); $i++ ) { 
                     ?>
                     <div class="is-layout-flow wp-block-column" style="flex-basis:33.33%"><div class="wp-block-image">
-                    <figure class="aligncenter size-full is-resized"><img decoding="async" src= "<?php echo $img_url . $authors[$i]['image']?>" .  alt="" class="wp-image-1023" width="200" height="240"></figure></div></div>
+                    <figure class="aligncenter size-full is-resized"><img decoding="async" src= "<?php echo $img_url . $authors[$i]['image'];?>" .  alt="" class="wp-image-1023" width="200" height="240"></figure></div></div>
 
                     <div class="is-layout-flow wp-block-column" style="flex-basis:66.66%">
                     <h3><?php echo $authors[$i]['name']?> -<?php echo $authors[$i]['furigana'] ?>-</h3>
