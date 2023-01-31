@@ -49,7 +49,7 @@ function show_exhibition($content) {
             <div class="is-layout-flex wp-container-9 wp-block-columns">
                 <div class="is-layout-flow wp-block-column">
                     <?php
-                        $img_url = "/var/www/html/exhibition/";
+                        $img_url = "http://localhost/exhibition/";
                         echo '<figure class="wp-block-image size-large is-resized"><img decoding="async"  loading="lazy" src="' . $img_url . $row['photo_name'] .".png" . '" alt="画像が読み込めませんでした" width="600" height="600"></figure>';
                     ?>
                 </div>
