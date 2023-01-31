@@ -39,10 +39,10 @@ function register_ar($content) {
 
                         <p>マーカー写真の入力</p>
                             <input type="text" name="marker" placeholder="マーカー名を入力" maxlength="32" value="<?php echo $_SESSION['goods_name']; ?>"> <br>
-                            <input type="file" name="marker_img" accept="image/png, image/jpeg" > <br>
+                            <input type="file" name="marker_img" accept="image/png, image/jpeg" > <br><br>
                         <p>オブジェクト写真の入力</p>
                             <input type="text" name="object" placeholder="オブジェクト名を入力" maxlength="256" value="<?php echo $_SESSION['photo_name']; ?>"> <br>
-                            <input type="file" name="object_img" accept="image/png, image/jpeg" > <br>
+                            <input type="file" name="object_img" accept="image/png, image/jpeg" > <br><br>
                         <p>音声ファイルを入力</p>
                             <input type="text" name="sound" placeholder="ファイル名を入力"> <br>
                             <input type="file" name="upfile">
