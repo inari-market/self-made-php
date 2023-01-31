@@ -254,3 +254,4 @@ require get_template_directory() . '/self-made-php/notification/deleteNotificati
 require get_template_directory() . '/self-made-php/notification/index.php';
 require get_template_directory() . '/self-made-php/ar/showAr.php';
 require get_template_directory() . '/self-made-php/ar/registerAr.php';
+require get_template_directory() . '/self-made-php/ar/deleteAr.php';
