@@ -31,7 +31,7 @@
                     <!-- hear -->
                     <div class="is-layout-flex wp-container-3 wp-block-columns">
                         <div class="is-layout-flow wp-block-column" style="flex-basis:33.33%"><div class="wp-block-image">
-                        <figure class="aligncenter size-full is-resized"><img decoding="async" src="http://ec2-52-54-93-120.compute-1.amazonaws.com/wp-content/uploads/2023/01/無題76_20221220220358.png" alt="" class="wp-image-1026" width="250" height="290"></figure></div></div>
+                        <figure class="aligncenter size-full is-resized"><img decoding="async" src="<?php echo $img_url . $_GET['id'] . ".png"?>" alt="" class="wp-image-1026" width="250" height="290"></figure></div></div>
 
 
 
