@@ -1,3 +1,4 @@
+hoge
 <?php
     function authors($content) {
         if( is_page('authors')) { //特定の固定ページの時だけ処理させる 
