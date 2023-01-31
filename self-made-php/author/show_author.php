@@ -46,8 +46,18 @@
 
                     <?php
                 echo '</div>';?>
-                <h3>概要</h3>
+                <h3>概要</h3>                   
                 <p><?php echo $introduction; ?></p>
+
+                <h3>代表作</h3>
+                <div class="button_line007">
+                    <a href="#">装置</a>
+                </div>
+                <br>
+                <div class="button_line007">
+                    <a href="#">作品</a>
+                </div>
+                
 
             <?php                
             }catch( PDOException $e ){
@@ -59,7 +69,7 @@
 ?>
 
 <?php 
-            return $content;
+            // return $content;
         } else {
             return $content;
         }
