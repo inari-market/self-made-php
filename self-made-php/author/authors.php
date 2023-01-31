@@ -1,7 +1,7 @@
 <?php
     function authors($content) {
         if( is_page('authors')) { //特定の固定ページの時だけ処理させる 
-            include_once dirname( __FILE__ ).'../../db.php';
+            include_once dirname( __FILE__ ).'/../../db.php';
             
             try {
                 // データベースに接続します。
@@ -19,7 +19,7 @@
                 $count   = count( $authors ); // 作者の総数
                 $row     = floor($count / 4 ) + 1; // 1行に4人ずつ表示したときに何行必要か
                 $col     = $count % 4; // 最終行には何人表示されるか
-                $img_url = 'https://inari-dev.tk/img/author/'; // 画像の参照先
+                $img_url = 'http://52.54.93.120/img/author/'; // 画像の参照先
                 $index   = 0; // 配列のインデックス
 
                 // 詳細・修正・削除ボタンのCSS
