@@ -125,6 +125,30 @@ if(isset($_POST['submit'])){
             $stmt->bindValue( ':introduction', $inputIntroduction, PDO::PARAM_STR );
             $stmt->bindValue( ':photo_name', $inputPhotoName, PDO::PARAM_STR );
             $stmt->execute();
+
+             // googleカレンダーに登録
+            $post_data = [ // ポストされたデータを変数に代入
+                'name' => $inputName, 
+                'start' => $inputStart,
+                'end' => $inputEnd,
+            ];
+            $json_data = json_encode($post_data); // jsonに変換
+        
+            $ch = curl_init(); // 以下はcurlのフォーマットに従う
+            curl_setopt($ch, CURLOPT_HTTPHEADER, array('Content-Type: application/json'));
+            curl_setopt($ch, CURLOPT_CUSTOMREQUEST, 'POST');
+            curl_setopt($ch, CURLOPT_POSTFIELDS, $json_data);
+            curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+            curl_setopt($ch, CURLOPT_URL, 'https://script.google.com/macros/s/AKfycbxm6yBrSs-QGrK011Y_MvizjcuSC0ZgGkZbUwfM1L8i8ubecIzM_nPMFw58s0un6ZUC/exec');  // APIのURI
+            $result=curl_exec($ch);
+            echo $result;
+            echo $inputName . '<br>';
+            echo $json_data;
+
+            echo 'here is gas resutlt';
+            curl_close($ch);
+            
+            // sessionの片づけ    
             $_SESSION['register_exhibition']="登録完了";
 
             unset($inputName);
@@ -148,29 +172,6 @@ if(isset($_POST['submit'])){
             $_SESSION['register_exhibition']= '接続失敗: ' . $e->getMessage() . '<br>';
             exit();
         }
-
-        // googleカレンダーに登録
-        $post_data = [ // ポストされたデータを変数に代入
-            'name' => $inputName, 
-            'start' => $inputStart,
-            'end' => $inputEnd,
-        ];
-        $json_data = json_encode($post_data); // jsonに変換
-    
-        $ch = curl_init(); // 以下はcurlのフォーマットに従う
-        curl_setopt($ch, CURLOPT_HTTPHEADER, array('Content-Type: application/json'));
-        curl_setopt($ch, CURLOPT_CUSTOMREQUEST, 'POST');
-        curl_setopt($ch, CURLOPT_POSTFIELDS, $json_data);
-        curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
-        curl_setopt($ch, CURLOPT_URL, 'https://script.google.com/macros/s/AKfycbxm6yBrSs-QGrK011Y_MvizjcuSC0ZgGkZbUwfM1L8i8ubecIzM_nPMFw58s0un6ZUC/exec');  // APIのURI
-        $result=curl_exec($ch);
-        echo $result;
-        echo $inputName . '<br>';
-        echo $json_data;
-
-        echo 'here is gas resutlt';
-        curl_close($ch);
-        // ここまで
     }else {
         $_SESSION['register_exhibition']="入力に不備があります";
     }
