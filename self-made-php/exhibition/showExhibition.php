@@ -74,6 +74,7 @@ function show_exhibition($content) {
             ?>
 
         <?php while ($row = $stmt->fetch(PDO::FETCH_ASSOC)) { ?>
+                <hr>
                 <p><?php echo "展示会名：".$row['exhibition_name']."，主催者：".$row['organizer']; ?></p>
         <?php } ?>
     </body>
