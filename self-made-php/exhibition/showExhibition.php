@@ -48,9 +48,9 @@ function show_exhibition($content) {
 
             <div class="is-layout-flow wp-block-column">
                 <h2><?php echo $row['exhibition_name']; ?></h2>
-                <p>展示開催日:<?php echo $row['start']."日から".$row['end']."日まで"; ?></p>
-                <p>主催者:<?php echo $row['organizer']; ?></p>
-                <p>概要:<?php echo $row['introduction']; ?></p>
+                <p>展示開催日：<?php echo $row['start']."日から".$row['end']; ?></p>
+                <p>主催者：<?php echo $row['organizer']; ?></p>
+                <p>概要：<?php echo $row['introduction']; ?></p>
             </div>
         </div>
 
