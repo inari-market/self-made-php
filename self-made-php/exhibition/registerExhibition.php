@@ -125,6 +125,7 @@ if(isset($_POST['submit'])){
                     $_SESSION['register_exhibition']="写真登録完了";  
                 }else{
                     $_SESSION['register_exhibition']="エラータイプ:".$_FILES['photo_img']['error'].
+                    "ファイルサイズ:".$_FILES['photo_img']['size'].
                     $img_url . $inputPhotoName.".png=>写真の登録に失敗しました";
                     echo '<script type="text/javascript">window.location.href = window.location.hreg = "http://100.24.172.143/exhibitions/new";</script>';
                     exit();
