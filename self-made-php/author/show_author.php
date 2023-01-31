@@ -29,21 +29,21 @@
                 $work         = $author[work];
                     ?>
 
-                    <div class="is-layout-flex wp-container-3 wp-block-columns">
+                    <!-- <div class="is-layout-flex wp-container-3 wp-block-columns">
                         
                         <div class="is-layout-flow wp-block-column" style="flex-basis:33.33%">
                             <figure class="wp-block-image size-medium is-resized"><img decoding="async" src="<?php echo $img_url . $author[image]?>" alt="画像が読み込めませんでした" width="1000" height="1"></figure>
                         </div>
                         <div class="is-layout-flow wp-block-column" style="flex-basis:66.66%">
-                            <h1>        <?php echo $name; ?></h1>
-                            <p>id:<?php echo $_GET['id']; ?><p>
-                            <p>ふりがな：<?php echo $furigana; ?></p> 
-                            <p>誕生日：  <?php echo $birthday; ?></p> 
-                            <p>紹介：    <?php echo $introduction; ?></p>
-                            <p>出身：    <?php echo $birthplace; ?></p>
-                            <p>代表作：  <?php echo $work; ?></p>
+                            <h1>        <?php //echo $name; ?></h1>
+                            <p>id:<?php // echo $_GET['id']; ?><p>
+                            <p>ふりがな：<?php //echo $furigana; ?></p> 
+                            <p>誕生日：  <?php //echo $birthday; ?></p> 
+                            <p>紹介：    <?php // echo $introduction; ?></p>
+                            <p>出身：    <?php //echo $birthplace; ?></p>
+                            <p>代表作：  <?php // echo $work; ?></p>
                         </div>
-                    </div>
+                    </div> -->
 
                     <!-- hear -->
                     <div class="is-layout-flex wp-container-3 wp-block-columns">
