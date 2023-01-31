@@ -1,7 +1,7 @@
 <?php
 //実装時はコメント解除
     function register_notification($content) {
-        if( is_page( 'notification/new' )) { //　特定の固定ページの時だけ処理させる
+        if( is_page( 'notifications/new' )) { //　特定の固定ページの時だけ処理させる
 ?>
             <h1>お知らせ情報の入力</h1>
             <form action="<?php echo str_replace( '%7E', '~', $_SERVER['REQUEST_URI']); ?>" method="POST">

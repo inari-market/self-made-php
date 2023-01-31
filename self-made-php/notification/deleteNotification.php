@@ -1,7 +1,7 @@
 <?php
 //実装時はコメント解除
 function delete_notification($content) {
- if( is_page( 'notification/delete' ))  //固定ページ「sample_cal」の時だけ処理させる
+ if( is_page( 'notifications/delete' ))  //固定ページ「sample_cal」の時だけ処理させる
  {
 
 ?>
@@ -50,14 +50,10 @@ function delete_notification($content) {
 
         <?php while ($row = $stmt->fetch(PDO::FETCH_ASSOC)) { ?>
         <tr>
-            <td><?php echo $row['notice_id']; ?></td>
+            <td><?php echo $row['id']; ?></td>
             <td><?php echo $row['title']; ?></td>
-            <td><?php echo $row['body']; ?></td>
-            <td>
-            <?php
-        ?>
-            </td>
-            <td><a href="<?php echo str_replace( '%7E', '~', $_SERVER['REQUEST_URI']); ?>?id=<?php echo $row['notice_id']; ?>">削除</a></td>
+            <td><?php echo $row['body']; ?></td>    
+            <td><a href="<?php echo str_replace( '%7E', '~', $_SERVER['REQUEST_URI']); ?>?id=<?php echo $row['id']; ?>">削除</a></td>
 
         </tr>
     <?php } ?>
