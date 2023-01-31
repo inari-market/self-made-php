@@ -7,44 +7,6 @@ function register_exhibition_reserve($content) {
 
 ?>
    <!-- 入力フォーム -->
-<!DOCTYPE html>
-<html>
-    <head>
-        <meta charset="UTF-8">
-        <title>展示室予約登録ページ</title>
-        <style type = "text/css">
-    <!--
-    .c{
-        text-align:center;
-    }
-    .l{
-        text-align:left;
-}
-    .pos{
-        position:absolute; bottom:0%; right:0%;
-     }
-    
-     input[type=number]{
-        width:80px;
-        height:30px;
-    }
-
-    input[type=text]{
-        width:230px;
-        height:30px;
-    }
-
-    input[name=address]{
-        width:500px;
-        height:30px;
-    }
-
-
-
-    -->
-    </style>
-    </head>
-    <body>
 
     <?php // echo $content;?>
         <form action="<?php echo str_replace( '%7E', '~', $_SERVER['REQUEST_URI']); ?>" method="POST">
@@ -80,9 +42,6 @@ function register_exhibition_reserve($content) {
             <input type="submit" name = "submit" value="予約する">
             <input type="submit" name = "submit1" value="キャンセル">           
         </form>
-
-    </body>
-</html>
 
 <?php
 
