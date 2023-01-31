@@ -22,7 +22,7 @@ function show_exhibition($content) {
 
         <?php 
             if(count($resutl) == 0) {
-                echo '<h6>現在開催中の展示はありません．次回の展示開催までお待ちください<h6>'
+                echo '<h6>現在開催中の展示はありません．次回の展示開催までお待ちください<h6>';
             } else {
                 while ($row = $stmt->fetch(PDO::FETCH_ASSOC)) { 
             ?>
