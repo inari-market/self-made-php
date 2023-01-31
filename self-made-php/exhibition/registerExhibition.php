@@ -66,7 +66,6 @@ if(isset($_POST['submit'])){
         $inputIntroduction= $_POST['introduction'];
         $_SESSION['register_exhibition'] = '';
 
-            
         try {            
             include_once dirname( __FILE__ ).'/../../db.php';
             $dbh = DbUtil::Connect();
@@ -83,9 +82,6 @@ if(isset($_POST['submit'])){
             }
 
             $inputPhotoName=$_POST['photo_name'];
-    
-                    
-    
         }catch( PDOException $e ){
             $_SESSION['register_exhibition']= '接続失敗: ' . $e->getMessage() . '<br>';
             exit();
@@ -152,6 +148,25 @@ if(isset($_POST['submit'])){
             $_SESSION['register_exhibition']= '接続失敗: ' . $e->getMessage() . '<br>';
             exit();
         }
+
+        // googleカレンダーに登録
+        $post_data = [ // ポストされたデータを変数に代入
+            'name' => $inputName, 
+            'start' => $inputStart,
+            'end' => $inputEnd,
+            'organizer' => $inpu,
+        ];
+        $json_data = json_encode($post_data); // jsonに変換
+    
+        $ch = curl_init(); // 以下はcurlのフォーマットに従う
+        curl_setopt($ch, CURLOPT_HTTPHEADER, array('Content-Type: application/json'));
+        curl_setopt($ch, CURLOPT_CUSTOMREQUEST, 'POST');
+        curl_setopt($ch, CURLOPT_POSTFIELDS, $json_data);
+        curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+        curl_setopt($ch, CURLOPT_URL, 'https://script.google.com/macros/s/AKfycbydBlbDVB9vSvtiSzNyGwwoU1p1OMlUASn_KhYunqqM6uuT-zVBmK4WmI9SkVRcn_PW/exec');  // APIのURI
+        $result=curl_exec($ch);
+        curl_close($ch);
+        // ここまで
     }else {
         $_SESSION['register_exhibition']="入力に不備があります";
     }
