@@ -170,7 +170,7 @@ if(isset($_POST["submit"])){
 
                 // SQL文を実行します。
                 $stmt->execute();
-                $_SESSION['register_exhibition_reserve']="登録完了";            
+                $_SESSION['register_exhibition_reserve']="<center>登録完了</center>";            
 
                 unset($inputName);
                 unset($inputStartDate);
