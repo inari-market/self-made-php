@@ -12,9 +12,6 @@ function show_exhibition($content) {
         <title>展示会情報表示ページ</title>
         <style type = "text/css">
     <!--
-    .c{
-        text-align:center;
-    }
     .pos{
         position:absolute; bottom:0%; right:0%;
      }
@@ -22,7 +19,7 @@ function show_exhibition($content) {
     </style>
     </head>
     <body>
-        <div class='c'>
+
     <h1>展示会情報表示</h1>
 
         <?php
@@ -45,21 +42,19 @@ function show_exhibition($content) {
             <div class="is-layout-flow wp-block-column">
                 <?php
                     $img_url = "http://100.24.172.143/exhibition/";
-                    echo '<figure class="wp-block-image size-large is-resized"><img decoding="async"  loading="lazy" src="' . $img_url . $row['photo_name'] .".png" . '" alt="画像が読み込めませんでした" width="60" height="60"></figure>';
+                    echo '<figure class="wp-block-image size-large is-resized"><img decoding="async"  loading="lazy" src="' . $img_url . $row['photo_name'] .".png" . '" alt="画像が読み込めませんでした" width="600" height="600"></figure>';
                 ?>
             </div>
 
             <div class="is-layout-flow wp-block-column">
                 <h2><?php echo $row['exhibition_name']; ?></h2>
-                <p>展示開催日:<?php echo $row['start']."～".$row['end']; ?></p>
+                <p>展示開催日:<?php echo $row['start']."日から".$row['end']."日まで"; ?></p>
                 <p>主催者:<?php echo $row['organizer']; ?></p>
                 <p>概要:<?php echo $row['introduction']; ?></p>
             </div>
         </div>
 
     <?php } ?>
-
-</div>
     </body>
 </html>
 <?php
