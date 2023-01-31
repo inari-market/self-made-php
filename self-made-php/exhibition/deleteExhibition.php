@@ -14,7 +14,7 @@ if (! empty($id)) {
     try {
         include_once dirname( __FILE__ ).'/../../db.php';
         $dbh = DbUtil::Connect();
-        $sql = 'DELETE FROM exhibition_table where exhibition_id = :id';
+        $sql = 'DELETE FROM exhibition where exhibition_id = :id';
         $stmt = $dbh->prepare( $sql );
         $stmt->bindValue( ':id', $id, PDO::PARAM_INT );
         // SQL文を実行します。
@@ -61,17 +61,18 @@ if (! empty($id)) {
                   <th>終了日</th>
                   <th>主催者名</th>
                   <th>概要</th>
+                  <th>写真</th>
                   </tr>
 
         <?php
-        include_once dirname( __FILE__ ).'/../db.php';
+        include_once dirname( __FILE__ ).'/../../db.php';
             // データベースに接続します。
             $dbh = DbUtil::Connect();
 
             // SQL文を用意します。
             // :で始まる部分が後から値がセットされるプレースホルダです。
             // 複数回SQL文を実行する必要がある場合はここからexecute()までを>繰り返します。
-            $sql = 'SELECT * FROM exhibition_table order by start asc';
+            $sql = 'SELECT * FROM exhibition order by start asc';
             // SQL文を実行する準備をします。
             $stmt = $dbh->prepare( $sql );
             // SQL文を実行します。
@@ -86,6 +87,12 @@ if (! empty($id)) {
             <td><?php echo $row['end']; ?></td>
             <td><?php echo $row['organizer']; ?></td>
             <td><?php echo htmlspecialchars($row['introduction'], ENT_QUOTES, 'UTF-8'); ?></td>
+            <td>
+            <?php
+                $img_url = "http://100.24.172.143/exhibition/";
+                echo '<figure class="wp-block-image size-full is-resized"><img decoding="async" src="' . $img_url . $row['photo_name'] .".png" . '" alt="画像が読み込めませんでした" width="60" height="60"></figure>';
+            ?>
+            </td>
            <td><a href="<?php echo str_replace( '%7E', '~', $_SERVER['REQUEST_URI']); ?>?id=<?php echo $row['exhibition_id']; ?>">削除</a></td>
         </tr>
     <?php } ?>

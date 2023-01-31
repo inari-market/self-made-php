@@ -12,9 +12,6 @@ function show_exhibition($content) {
         <title>展示会情報表示ページ</title>
         <style type = "text/css">
     <!--
-    .c{
-        text-align:center;
-    }
     .pos{
         position:absolute; bottom:0%; right:0%;
      }
@@ -22,18 +19,8 @@ function show_exhibition($content) {
     </style>
     </head>
     <body>
-        <div class='c'>
-    <h1>企画展情報表示</h1>
 
-                <table width="90%" class ='c'>
-                <tr>
-                  <th>企画展ID</th>
-                  <th>企画展名</th>
-                  <th>開始日</th>
-                  <th>終了日</th>
-                  <th>主催者名</th>
-                  <th>概要</th>
-                  </tr>
+    <h1>現在開催中の展示</h1>
 
         <?php
         include_once dirname( __FILE__ ).'/../../db.php';
@@ -43,7 +30,7 @@ function show_exhibition($content) {
             // SQL文を用意します。
             // :で始まる部分が後から値がセットされるプレースホルダです。
             // 複数回SQL文を実行する必要がある場合はここからexecute()までを>繰り返します。
-            $sql = 'SELECT * FROM exhibition_table order by start asc';
+            $sql = 'SELECT * FROM exhibition where start <= now() and end >= now()';
             // SQL文を実行する準備をします。
             $stmt = $dbh->prepare( $sql );
             // SQL文を実行します。
@@ -51,19 +38,77 @@ function show_exhibition($content) {
             ?>
 
         <?php while ($row = $stmt->fetch(PDO::FETCH_ASSOC)) { ?>
-        <tr>
-            <td><?php echo $row['exhibition_id']; ?></td>
-            <td><?php echo $row['exhibition_name']; ?></td>
-            <td><?php echo $row['start']; ?></td>
-            <td><?php echo $row['end']; ?></td>
-            <td><?php echo $row['organizer']; ?></td>
-            <td><?php echo htmlspecialchars($row['introduction'], ENT_QUOTES, 'UTF-8'); ?></td>
-        </tr>
+        <div class="is-layout-flex wp-container-9 wp-block-columns">
+            <div class="is-layout-flow wp-block-column">
+                <?php
+                    $img_url = "http://100.24.172.143/exhibition/";
+                    echo '<figure class="wp-block-image size-large is-resized"><img decoding="async"  loading="lazy" src="' . $img_url . $row['photo_name'] .".png" . '" alt="画像が読み込めませんでした" width="600" height="600"></figure>';
+                ?>
+            </div>
+
+            <div class="is-layout-flow wp-block-column">
+                <h2><?php echo $row['exhibition_name']; ?></h2>
+                <p>展示開催日：<?php echo $row['start']."日から".$row['end']; ?></p>
+                <p>主催者：<?php echo $row['organizer']; ?></p>
+                <p>概要：<?php echo htmlspecialchars($row['introduction'], ENT_QUOTES); ?></p>
+            </div>
+        </div>
+        <?php } ?>
+
+    <h1>今後開催される展示</h1>
+        <?php
+        include_once dirname( __FILE__ ).'/../../db.php';
+            // データベースに接続します。
+            $dbh = DbUtil::Connect();
+
+            // SQL文を用意します。
+            // :で始まる部分が後から値がセットされるプレースホルダです。
+            // 複数回SQL文を実行する必要がある場合はここからexecute()までを>繰り返します。
+            $sql = 'SELECT * FROM exhibition where end < now()';
+            // SQL文を実行する準備をします。
+            $stmt = $dbh->prepare( $sql );
+            // SQL文を実行します。
+            $stmt->execute();
+            ?>
+
+        <?php while ($row = $stmt->fetch(PDO::FETCH_ASSOC)) { ?>
+        <div class="is-layout-flex wp-container-9 wp-block-columns">
+            <div class="is-layout-flow wp-block-column">
+                <?php
+                    $img_url = "http://100.24.172.143/exhibition/";
+                    echo '<figure class="wp-block-image size-large is-resized"><img decoding="async"  loading="lazy" src="' . $img_url . $row['photo_name'] .".png" . '" alt="画像が読み込めませんでした" width="600" height="600"></figure>';
+                ?>
+            </div>
+
+            <div class="is-layout-flow wp-block-column">
+                <h2><?php echo $row['exhibition_name']; ?></h2>
+                <p>展示開催日：<?php echo $row['start']."日から".$row['end']; ?></p>
+                <p>主催者：<?php echo $row['organizer']; ?></p>
+                <p>概要：<?php echo htmlspecialchars($row['introduction'], ENT_QUOTES); ?></p>
+            </div>
+        </div>
+        <?php } ?>
+
+    <h3>過去に開催された展示</h3>
+        <?php
+        include_once dirname( __FILE__ ).'/../../db.php';
+            // データベースに接続します。
+            $dbh = DbUtil::Connect();
+
+            // SQL文を用意します。
+            // :で始まる部分が後から値がセットされるプレースホルダです。
+            // 複数回SQL文を実行する必要がある場合はここからexecute()までを>繰り返します。
+            $sql = 'SELECT * FROM exhibition where end > now()';
+            // SQL文を実行する準備をします。
+            $stmt = $dbh->prepare( $sql );
+            // SQL文を実行します。
+            $stmt->execute();
+            ?>
+
+        <?php while ($row = $stmt->fetch(PDO::FETCH_ASSOC)) { ?>
+                <p><?php echo "展示会名：".$row['exhibition_name']."，主催者：".$row['organizer']; ?></p>
+
     <?php } ?>
-
-                </table>
-
-</div>
     </body>
 </html>
 <?php
