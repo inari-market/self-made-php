@@ -26,7 +26,7 @@ function register_exhibition_reserve($content) {
             <p>展覧会名:(必須)</p>
                 <input type="text" name="exhibition_name" class="inrow form-control" placeholder="愛と勇気展 ~胸の傷が傷んでも~" value="<?php echo $_SESSION['exhibition_name']; ?>" maxlength="50"> <br>
             <p>展覧内容:(必須,展示物のジャンルや概要の記入をお願いします)</p>
-                <input type="textarea" name="exhibition_name" class="inrow form-control" value="<?php echo $_SESSION['exhibition_name']; ?>" maxlength="300"> <br>
+                <input type="textarea" name="exhibition_body" class="inrow form-control" value="<?php echo $_SESSION['exhibition_name']; ?>" maxlength="300"> <br>
             <p>利用期間:(必須)</p>
                 <input type="date" name="start_date"  min="<?php echo date('Y-m-d'); ?>" style = "display:inline-block">から
                 <input type="date" name="end_date"  min="<?php echo date('Y-m-d'); ?>" style = "display:inline-block"> まで
@@ -53,107 +53,92 @@ function register_exhibition_reserve($content) {
 if(isset($_POST["submit"])){
     session_start();
 
-    $_SESSION['exhibition_name']= $_POST['exhibition_name'];
-    $_SESSION['target']=$_POST['target'];
-    $_SESSION['genru']=$_POST['genru'];
+    $_SESSION['name']= $_POST['name'];
     $_SESSION['name1']= $_POST['name1'];
-    $_SESSION['address']=$_POST['address'];
+    $_SESSION['mail']= $_POST['mail'];
+    $_SESSION['phone_number']= $_POST['phone_number'];
+    $_SESSION['exhibition_name']=$_POST['exhibition_name'];
+    $_SESSION['exhibition_body']=$_POST['exhibition_body'];
 
-    if((! empty ($_POST['start_date']) ) & (! empty ($_POST['start_time'])) & (! empty ($_POST['end_date']) ) & (! empty ($_POST['end_time'])) 
-    & (! empty ($_POST['name1'])) & (! empty ($_POST['phone_number'])) &  (! empty ($_POST['address'])) & (! empty ($_POST['money']))
-    &  (! empty ($_POST['exhibition_name'])) & (! empty ($_POST['target'])) & (! empty ($_POST['genru']))){
+    if((! empty ($_POST['start_date']) ) & (! empty ($_POST['end_date']) ) & (! empty ($_POST['name'])) & (! empty ($_POST['name1'])) &  (! empty ($_POST['mail'])) & (! empty ($_POST['phone_number']))
+    &  (! empty ($_POST['exhibition_name'])) & (! empty ($_POST['exhibition_body'])){
 
 
         include_once dirname( __FILE__ ).'/../../db.php';
         // 前のページから値を取得します。
 
-            $inputExhibitionName= $_POST['exhibition_name'];
-            $inputTarget=$_POST['target'];
-            $inputGenru=$_POST['genru'];
-            $inputName= $_POST['name1'];
-            $inputAddress=$_POST['address'];
-            $inputMoney=$_POST['money'];
+            $inputName= $_POST['name'];
+            $inputName1['name1']= $_POST['name1'];
+            $inputAddress['mail']= $_POST['mail'];
+            $inputNumber['phone_number']= $_POST['phone_number'];
+            $inputTitle['exhibition_name']=$_POST['exhibition_name'];
+            $inputBody['exhibition_body']=$_POST['exhibition_body'];
 
             $_SESSION['register_exhibition_reserve'] = '';
 
             if( is_numeric($_POST['phone_number']) ) {
-                $inputPhone=$_POST['phone_number'];
+                $inputNumber=$_POST['phone_number'];
             }else{
                 $_SESSION['register_exhibition_reserve']="正しい電話番号をご入力ください";
-                echo '<script type="text/javascript">window.location.href = window.location.hreg = "http://100.24.172.143/exhibition_reserves/new/";</script>';
+                echo '<script type="text/javascript">window.location.href = window.location.hreg = "http://18.209.25.203/exhibition_reserves/new/";</script>';
                 exit();
             }
 
             //日付判定
             if($_POST['start_date'] > $_POST['end_date']){
                 $_SESSION['register_exhibition_reserve']="使用する日時を正しくご入力ください";
-                echo '<script type="text/javascript">window.location.href = window.location.hreg = "http://100.24.172.143/exhibition_reserves/new/";</script>';
-                exit();
-            }else if(($_POST['start_date'] == $_POST['end_date']) && ($_POST['start_time'] >= $_POST['end_time'])){
-                $_SESSION['register_exhibition_reserve']="使用する日時を正しくご入力ください";
-                echo '<script type="text/javascript">window.location.href = window.location.hreg = "http://100.24.172.143/exhibition_reserves/new/";</script>';
+                echo '<script type="text/javascript">window.location.href = window.location.hreg = "http://18.209.25.203/exhibition_reserves/new/";</script>';
                 exit();
             }else{
                     $inputStartDate=$_POST['start_date'];
-                    $inputStartTime=$_POST['start_time'];
-                    $inputEndDate=$_POST['end_date'];
-                    $inputEndTime=$_POST['end_time'];
+                    $inputEndDate=$_POST['end_data'];
             }
 
         try {            
-
-
                 // SQL文を用意します。
                 // :で始まる部分が後から値がセットされるプレースホルダです。
                 // 複数回SQL文を実行する必要がある場合はここからexecute()までを 繰り返します。
                 $dbh = DbUtil::Connect();
-                $sql = 'INSERT INTO exhibition_reserve (name, address, phone_number, start_date, start_time, end_date, end_time,
-                exhibition_name, target, genru, money) VALUES(:name, :address, :phone_number, :start_date, :start_time, :end_date, :end_time,
-                :exhibition_name, :target, :genru, :money)';
+                $sql = 'INSERT INTO exhibition_reserve (name, name1, mail, number, exhibition_name, body, start_date, end_date) VALUES(:name, :name1, :mail, :phone_number, :exhibition_name, exhibition_body, :start_date, :end_date)';
                 // SQL文を実行する準備をします。
                 $stmt = $dbh->prepare( $sql );
                 // プレースホルダに実際の値をバインドします。
                 //   ->bindValue( プレースホルダ名, バインドする値, データの型 )
                 $stmt->bindValue( ':name', $inputName, PDO::PARAM_STR );
-                $stmt->bindValue( ':address', $inputAddress, PDO::PARAM_STR );
-                $stmt->bindValue( ':phone_number', $inputPhone, PDO::PARAM_STR );
-                $stmt->bindValue( ':start_date', $inputStartDate, PDO::PARAM_STR );
-                $stmt->bindValue( ':start_time', $inputStartTime, PDO::PARAM_INT );
-                $stmt->bindValue( ':end_date', $inputEndDate, PDO::PARAM_STR );
-                $stmt->bindValue( ':end_time', $inputEndTime, PDO::PARAM_INT );
-                $stmt->bindValue( ':exhibition_name', $inputExhibitionName, PDO::PARAM_STR );
-                $stmt->bindValue( ':target', $inputTarget, PDO::PARAM_STR );
-                $stmt->bindValue( ':genru', $inputGenru, PDO::PARAM_STR );
-                $stmt->bindValue( ':money', $inputMoney, PDO::PARAM_INT );
+                $stmt->bindValue( ':name1', $inputName1, PDO::PARAM_STR );
+                $stmt->bindValue( ':mail', $inputAddress, PDO::PARAM_STR );
+                $stmt->bindValue( ':phone_number', $inputNumber, PDO::PARAM_STR );
+                $stmt->bindValue( ':exhibition_name', $inputTitle, PDO::PARAM_INT );
+                $stmt->bindValue( ':exhibition_body', $inputBody, PDO::PARAM_STR );
+                $stmt->bindValue( ':start_date', $inputStartDate, PDO::PARAM_INT );
+                $stmt->bindValue( ':end_data', $inputEndDate, PDO::PARAM_STR );
 
                 // SQL文を実行します。
                 $stmt->execute();
                 $_SESSION['register_exhibition_reserve']="登録完了";                
 
                 unset($inputName);
-                unset($inputStartDate);
-                unset($inputStartTime);
-                unset($inputEndDate);
-                unset($inputEndTime);
+                unset($inputName1);
                 unset($inputAddress);
-                unset($inputPurpose);
-                unset($inputExhibitionName);
-                unset($inputGenru);
-                unset($inputTarget);
-                unset($inputMoney);
+                unset($inputNumber);
+                unset($inputTitle);
+                unset($inputBody);
+                unset($inputStartDate);
+                unset($inputEndDate);
+                unset($_POST['name']);
                 unset($_POST['name1']);
-                unset($_POST['start_date']);
-                unset($_POST['start_time']);
-                unset($_POST['end_date']);
-                unset($_POST['end_time']);
-                unset($_POST['address']);
-                unset($_POST['purpose']);
-                unset($_POST['money']);
+                unset($_POST['mail']);
+                unset($_POST['phone_number']);
+                unset($_POST['exhibition_name']);
+                unset($_POST['exhibition_body']);
+                unset($_POST['start_data']);
+                unset($_POST['end_data']);
+                unset($_SESSION['name']);
                 unset($_SESSION['name1']);
-                unset($_SESSION['address']);
+                unset($_SESSION['mail']);
+                unset($_SESSION['phone_number']);
                 unset($_SESSION['exhibition_name']);
-                unset($_SESSION['target']);
-                unset($_SESSION['genru']);
+                unset($_SESSION['exhibition_body']);               
 
             }catch( PDOException $e ){
                 echo( '接続失敗: ' . $e->getMessage() . '<br>' );
@@ -162,7 +147,7 @@ if(isset($_POST["submit"])){
     }else {
         $_SESSION['register_exhibition_reserve']="入力に不備があります";
     }
-    echo '<script type="text/javascript">window.location.href = window.location.hreg = "http://100.24.172.143/exhibition_reserves/new/";</script>';
+    echo '<script type="text/javascript">window.location.href = window.location.hreg = "http://18.209.25.203/exhibition_reserves/new/";</script>';
     exit();
 
 }
@@ -171,7 +156,7 @@ if(isset($_POST["submit"])){
 
 
 <?php
-//実装時はコメント解除
+
   }
   else
   {
