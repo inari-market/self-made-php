@@ -2,7 +2,7 @@
     function regist_author($content) {
         
         // if( is_page( 'regist-author' ) && is_user_logged_in()) {//特定の固定ページの時だけ処理させる 
-        if( is_page( 'regist-author' )) {//特定の固定ページの時だけ処理させる 
+        if( is_page( 'authors/new' )) {//特定の固定ページの時だけ処理させる 
             if( $_POST['button'] == 'create'){ // このページにPOSTでアクセスしたら   
                 include_once dirname( __FILE__ ).'/../../db.php';
                 
