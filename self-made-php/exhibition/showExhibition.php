@@ -89,7 +89,7 @@ function show_exhibition($content) {
         </div>
         <?php } ?>
 
-    <h1>過去に開催された展示</h1>
+    <h3>過去に開催された展示</h3>
         <?php
         include_once dirname( __FILE__ ).'/../../db.php';
             // データベースに接続します。
@@ -106,19 +106,7 @@ function show_exhibition($content) {
             ?>
 
         <?php while ($row = $stmt->fetch(PDO::FETCH_ASSOC)) { ?>
-        <div class="is-layout-flex wp-container-9 wp-block-columns">
-            <div class="is-layout-flow wp-block-column">
-                <?php
-                    $img_url = "http://100.24.172.143/exhibition/";
-                    echo '<figure class="wp-block-image size-large is-resized"><img decoding="async"  loading="lazy" src="' . $img_url . $row['photo_name'] .".png" . '" alt="画像が読み込めませんでした" width="60" height="60"></figure>';
-                ?>
-            </div>
-
-            <div class="is-layout-flow wp-block-column">
-                <p><?php echo $row['exhibition_name']; ?></p>
-                <p>主催者：<?php echo $row['organizer']; ?></p>
-            </div>
-        </div>
+                <p><?php echo $row['exhibition_name']."主催者：".$row['organizer']; ?></p>
 
     <?php } ?>
     </body>
