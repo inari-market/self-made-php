@@ -68,7 +68,7 @@
                     $_SESSION['register_notification']="入力に不備があります";
                 }
 
-                echo '<script type="text/javascript">window.location.href = window.location.hreg = "http://18.209.25.203/notification/new/";</script>';
+                echo '<script type="text/javascript">window.location.href = window.location.hreg = "";</script>';
                 exit();
             }
             } else {
