@@ -8,11 +8,9 @@
             $stmt = $dbh->prepare( $sql ); 
             $stmt->execute(); // sqlの実行
 ?>  
-            <ul>
-                <?php while ($row = $stmt->fetch(PDO::FETCH_ASSOC)) { ?> 
-                    <li><a href="notifications/show/?id=<?php echo $row['id']?>"> <?php echo $row['title']?></a></li>
-                <?php } ?>
-            <ul>
+            <?php while ($row = $stmt->fetch(PDO::FETCH_ASSOC)) { ?> 
+                <h6><a href="notifications/show/?id=<?php echo $row['id']?>"> <?php echo $row['title']?></a><h6>
+            <?php } ?>
 <?php
         } else {
             return $content;
