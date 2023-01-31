@@ -70,7 +70,7 @@
 
 <!-- 入力フォーム -->
 <h1>作品情報登録</h1>
-<form name="regist_work" method="post" action="<?php echo str_replace( '%7E', '~', $_SERVER['REQUEST_URI']); ?>" enctype="multipart/form-data">
+<form name="regist_work" method="get" action="<?php echo str_replace( '%7E', '~', $_SERVER['REQUEST_URI']); ?>" enctype="multipart/form-data">
            
     <h4>作品名</h4>
     <input type="text" name="posted_name"  size="8"  placeholder="必須項目">
