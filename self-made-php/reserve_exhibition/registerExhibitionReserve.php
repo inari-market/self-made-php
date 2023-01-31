@@ -10,6 +10,34 @@ function register_exhibition_reserve($content) {
 <!-- 入力フォーム -->
 
 <html>
+<style type = "text/css">
+    <!--
+    .c{
+        text-align:center;
+    }
+    .l{
+        text-align:left;
+}
+    .pos{
+        position:absolute; bottom:0%; right:0%;
+     }
+    
+     input[type=number]{
+        width:80px;
+        height:30px;
+    }
+
+    input[type=text]{
+        width:230px;
+        height:30px;
+    }
+
+    input[name=address]{
+        width:500px;
+        height:30px;
+    }
+
+    </style>
     <body>
 
     <?php // echo $content;?>
@@ -38,7 +66,7 @@ function register_exhibition_reserve($content) {
                 <input type="text" name="name1" placeholder="氏名を入力" maxlength="32" value="<?php echo $_SESSION['name1']; ?>"> <br>
             <p>住所:<span style="color:red">(必須)</span></p>
                 <input type="text" name="address" placeholder="住所を入力" maxlength="50" value="<?php echo $_SESSION['address']; ?>"> <br>
-            <p>携帯電話番号:<span style="color:red">(必須)</span></p>
+            <p>携帯電話番号:<span style="color:red">(必須, 11文字)</span></p>
                 <input type="text" name="phone_number" placeholder="12345678901" maxlength="16"> <br>
             <hr>
             
