@@ -223,8 +223,6 @@ add_action('init', 'init_session_start');
 
 
 
-//require get_template_directory() . '/self-made-php/regist_exhibition.php';
-//require get_template_directory() . '/self-made-php/exhibitions.php';
 require get_template_directory() . '/self-made-php/author/regist_author.php';
 require get_template_directory() . '/self-made-php/author/authors.php';
 require get_template_directory() . '/self-made-php/author/show_author.php';
@@ -232,15 +230,10 @@ require get_template_directory() . '/self-made-php/author/edit_author.php';
 require get_template_directory() . '/self-made-php/author/delete_author.php';
 require get_template_directory() . '/self-made-php/audio/showAudio.php';
 require get_template_directory() . '/self-made-php/audio/registerAudio.php';
-//require get_template_directory() . '/self-made-php/audio/registerAudioDb.php';
 require get_template_directory() . '/self-made-php/exhibition/registerExhibition.php';
-//require get_template_directory() . '/self-made-php/registerExhibitionDb.php';
 require get_template_directory() . '/self-made-php/exhibition/deleteExhibition.php';
-//require get_template_directory() . '/self-made-php/deleteExhibitionDb.php';
 require get_template_directory() . '/self-made-php/workshop/registerWorkshop.php';
-//require get_template_directory() . '/self-made-php/registerWorkshopDb.php';
 require get_template_directory() . '/self-made-php/workshop/deleteWorkshop.php';
-//require get_template_directory() . '/self-made-php/deleteWorkshopDb.php';
 require get_template_directory() . '/self-made-php/workshop/showWorkshop.php';
 require get_template_directory() . '/self-made-php/reserve_workshop/showWorkshopReserve.php';
 require get_template_directory() . '/self-made-php/reserve_workshop/registerWorkshopReserve.php';
@@ -254,7 +247,6 @@ require get_template_directory() . '/self-made-php/reserve_exhibition/deleteExhi
 require get_template_directory() . '/self-made-php/goods/registerGoods.php';
 require get_template_directory() . '/self-made-php/goods/showGoods.php';
 require get_template_directory() . '/self-made-php/goods/deleteGoods.php';
-//require get_template_directory() . '/self-made-php/registerWorkshopReserveDb.php';
 require get_template_directory() . '/self-made-php/exhibition/showExhibition.php';
 require get_template_directory() . '/self-made-php/notification/showNotification.php';
 require get_template_directory() . '/self-made-php/notification/registerNotification.php';
