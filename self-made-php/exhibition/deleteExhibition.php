@@ -14,7 +14,7 @@ if (! empty($id)) {
     try {
         include_once dirname( __FILE__ ).'/../../db.php';
         $dbh = DbUtil::Connect();
-        $sql = 'DELETE FROM exhibition_table where exhibition_id = :id';
+        $sql = 'DELETE FROM exhibition where exhibition_id = :id';
         $stmt = $dbh->prepare( $sql );
         $stmt->bindValue( ':id', $id, PDO::PARAM_INT );
         // SQL文を実行します。
@@ -71,7 +71,7 @@ if (! empty($id)) {
             // SQL文を用意します。
             // :で始まる部分が後から値がセットされるプレースホルダです。
             // 複数回SQL文を実行する必要がある場合はここからexecute()までを>繰り返します。
-            $sql = 'SELECT * FROM exhibition_table order by start asc';
+            $sql = 'SELECT * FROM exhibition order by start asc';
             // SQL文を実行する準備をします。
             $stmt = $dbh->prepare( $sql );
             // SQL文を実行します。

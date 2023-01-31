@@ -37,19 +37,20 @@ create table audio1 (
     primary key(id)
 );
 
-CREATE TABLE `exhibition_table` (
+CREATE TABLE `exhibition` (
   `exhibition_id` int(11) NOT NULL,
   `exhibition_name` varchar(64) DEFAULT NULL,
   `start` date DEFAULT NULL,
   `end` date DEFAULT NULL,
+  `photo_name` varchar(256) NOT NULL,
   `organizer` varchar(32) NOT NULL,
   `introduction` text DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
-ALTER TABLE `exhibition_table`
+ALTER TABLE `exhibition`
   ADD PRIMARY KEY (`exhibition_id`);
 
-ALTER TABLE `exhibition_table`
+ALTER TABLE `exhibition`
   MODIFY `exhibition_id` int(11) NOT NULL AUTO_INCREMENT;
 COMMIT;
 

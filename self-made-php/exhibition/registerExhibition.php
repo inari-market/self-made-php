@@ -43,6 +43,11 @@ function register_exhibition($content) {
                 <input type="text" name="organizer" placeholder="主催者名を入力" maxlength="32" value="<?php echo $_SESSION['organizer']; ?>"> <br>
             <p>概要</p> 
                 <textarea  name="introduction" rows="4" cols="40" maxlength="160" placeholder="企画展の概要を入力" value="<?php echo $_SESSION['introduction']; ?>"></textarea>
+            <p>写真の名前</p>
+                <input type="text" name="photo_name" placeholder="写真の名前を入力" maxlength="256" value="<?php echo $_SESSION['photo_name']; ?>"> <br>
+            <p>商品イメージ</p>
+                <input type="file" name="photo_img" accept="image/png, image/jpeg" > <br>
+
             <?php
             session_start();
             if(! empty($_SESSION['register_exhibition'])){
@@ -68,8 +73,10 @@ if(isset($_POST['submit'])){
     $_SESSION['exhibition_name']= $_POST['exhibition_name'];
     $_SESSION['organizer']=$_POST['organizer'];
     $_SESSION['introduction']=$_POST['introduction'];
+    $_SESSION['photo_name']=$_POST['photo_name'];
 
-    if((! empty ($_POST['exhibition_name']) ) & (! empty ($_POST['start']))  &  (! empty ($_POST['end']))  &  (! empty ($_POST['introduction']))){
+    if((! empty ($_POST['exhibition_name']) ) & (! empty ($_POST['start']))  &  (! empty ($_POST['end']))  &  (! empty ($_POST['introduction']))
+    &  (! empty ($_POST['photo_name']))){
 
 
         include_once dirname( __FILE__ ).'/../../db.php';
@@ -81,6 +88,48 @@ if(isset($_POST['submit'])){
             $inputIntroduction= $_POST['introduction'];
 
             $_SESSION['register_exhibition'] = '';
+
+            try {            
+                include_once dirname( __FILE__ ).'/../db.php';
+                // データベースに接続します。
+                $dbh = DbUtil::Connect();
+    
+                // SQL文を用意します。
+                // :で始まる部分が後から値がセットされるプレースホルダです。
+                // 複数回SQL文を実行する必要がある場合はここからexecute()までを>繰り返します。
+                $sql = 'SELECT * FROM exhibition';
+                // SQL文を実行する準備をします。
+                $stmt = $dbh->prepare( $sql );
+                // SQL文を実行します。
+                $stmt->execute();
+    
+                while ($row = $stmt->fetch(PDO::FETCH_ASSOC)){
+                    if($_POST['photo_name'] == $row["photo_name"]){
+                        $_SESSION['register_exhibition']="過去に登録された写真の名前です";
+                        echo '<script type="text/javascript">window.location.href = window.location.hreg = "http://100.24.172.143/exhibitions/new";</script>';
+                        exit();
+                    }
+                    else{
+                        $inputPhotoName=$_POST['photo_name'];
+                    }
+                }
+    
+                    
+    
+            }catch( PDOException $e ){
+                        echo( '接続失敗: ' . $e->getMessage() . '<br>' );
+                        exit();
+            }
+    
+                $img_url = "/var/www/html/exihibitionPhoto/";
+                if(move_uploaded_file($_FILES['photo_img']['tmp_name'], $img_url . $inputPhotoName.".png")){
+                    $_SESSION['register_exhibition']="写真登録完了";  
+                }else{
+                    $_SESSION['register_exhibition']="写真の登録に失敗しました";
+                    echo '<script type="text/javascript">window.location.href = window.location.hreg = "http://100.24.172.143/exhibitions/new";</script>';
+                    exit();
+                }
+        
 
         try {
                 
@@ -102,8 +151,8 @@ if(isset($_POST['submit'])){
                 // :で始まる部分が後から値がセットされるプレースホルダです。
                 // 複数回SQL文を実行する必要がある場合はここからexecute()までを 繰り返します。
                 $dbh = DbUtil::Connect();
-                $sql = 'INSERT INTO exhibition_table (exhibition_name, start, end, organizer, introduction)
-                        VALUES(:name, :start, :end, :organizer, :introduction)';
+                $sql = 'INSERT INTO exhibition (exhibition_name, start, end, organizer, introduction, photo_name)
+                        VALUES(:name, :start, :end, :organizer, :introduction, :photo_name)';
                 // SQL文を実行する準備をします。
                 $stmt = $dbh->prepare( $sql );
                 // プレースホルダに実際の値をバインドします。
@@ -113,6 +162,7 @@ if(isset($_POST['submit'])){
                 $stmt->bindValue( ':end', $inputEnd, PDO::PARAM_STR );
                 $stmt->bindValue( ':organizer', $inputOrganizer, PDO::PARAM_STR );
                 $stmt->bindValue( ':introduction', $inputIntroduction, PDO::PARAM_STR );
+                $stmt->bindValue( ':photo_name', $inputPhotoName, PDO::PARAM_STR );
                 // SQL文を実行します。
                 $stmt->execute();
 
@@ -123,14 +173,17 @@ if(isset($_POST['submit'])){
                 unset($inputEnd);
                 unset($inputOrganizer);
                 unset($inputIntroduction);
+                unset($inputPhotoName);
                 unset($_POST['exhibition_name']);
                 unset($_POST['start']);
                 unset($_POST['end']);
                 unset($_POST['organizer']);
                 unset($_POST['introduction']);
+                unset($_POST['photo_name']);
                 unset($_SESSION['exhibition_name']);
                 unset($_SESSION['organizer']);
                 unset($_SESSION['introduction']);
+                unset($_SESSION['photo_name']);
 
             }catch( PDOException $e ){
                 $_SESSION['register_exhibition']= '接続失敗: ' . $e->getMessage() . '<br>';
