@@ -1,15 +1,9 @@
 <?php
 function show_exhibition($content) {
- if( is_page( 'exhibitions' ))  
- {
+ if( is_page( 'exhibitions' )) {
 
 ?>
-
-<html>
-    <body>
-
     <h2>現在開催中の展示</h2>
-
         <?php
             include_once dirname( __FILE__ ).'/../../db.php';
             $dbh = DbUtil::Connect();
@@ -70,7 +64,6 @@ function show_exhibition($content) {
                     <p>概要：<?php echo htmlspecialchars($row['introduction'], ENT_QUOTES); ?></p>
                 </div>
             </div>
-
         <?php } ?>
 
     <h4>過去に開催された展示</h4>
@@ -80,22 +73,16 @@ function show_exhibition($content) {
             $sql = 'SELECT * FROM exhibition where end < now()';
             $stmt = $dbh->prepare( $sql );
             $stmt->execute();
-            ?>
+        ?>
 
         <?php while ($row = $stmt->fetch(PDO::FETCH_ASSOC)) { ?>
                 <hr>
                 <p><?php echo "展示会名：".$row['exhibition_name']."，主催者：".$row['organizer']; ?></p>
-        <?php } ?>
-    </body>
-<?php
-
-  }
-  else
-  {
+        <?php } 
+  } else {
     return $content;
   }
 }
-
 add_filter('the_content', 'show_exhibition');
 
 ?>
