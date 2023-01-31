@@ -19,6 +19,15 @@ create table exhibition (
     primary key(id)
 );
 
+create table notice (
+    id    int auto_increment,  
+    title varchar(255) not null,
+    body  varchar(1023),
+    check(title <> ''),
+    check(body <> ''),
+    primary key(id)
+);
+
 create table author (
     id           int           auto_increment,
     name         varchar(255)  not null check(name <> ''),
