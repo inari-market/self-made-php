@@ -24,11 +24,13 @@ function register_exhibition_reserve($content) {
             <p>出品ジャンル</p>
                 <input type="text" name="genru" placeholder="出品ジャンルを入力" value="<?php echo $_SESSION['genru']; ?>" maxlength="50"> <br>
             <hr>
+            <div class='l'>
             <p>使用日時</p>
                 <input type="date" name="start_date"  min="<?php echo date('Y-m-d'); ?>" style = "display:inline-block">
                 <input type="number" name="start_time" min="9" max="16"  style = "display:inline-block"> 時から
                 <input type="date" name="end_date"  min="<?php echo date('Y-m-d'); ?>" style = "display:inline-block"> 
                 <input type="number" name="end_time" min="10" max="17"  style = "display:inline-block">時まで <br><br>
+            </div>
             <p>観覧料の有無</p>
                 <input type="radio" name="money" value="1">無料  <input type="radio" name="money" value="0">有料  <br><br>
             <hr>
