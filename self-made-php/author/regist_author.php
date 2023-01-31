@@ -81,7 +81,7 @@
     <h4>ふりがな</h4>
     <input type="text" name="furigana"     size="8" placeholder="必須項目">
 
-    <h4>生年月日</h4>
+    <h4>生年</h4>
     <input type="text" name="birthday"     size="8" value="">
 
     <h4>紹介文</h4>
