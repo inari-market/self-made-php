@@ -27,7 +27,7 @@ function register_exhibition_reserve($content) {
             <div class='l'>
             <p>使用日時</p>
                 <input type="date" name="start_date"  min="<?php echo date('Y-m-d'); ?>" style = "display:inline-block">
-                <input type="number" name="start_time" min="9" max="16"  style = "display:inline-block"> 時から
+                <input type="number" name="start_time" min="9" max="16"  style = "display:inline-block"> 時から <br><br>
                 <input type="date" name="end_date"  min="<?php echo date('Y-m-d'); ?>" style = "display:inline-block"> 
                 <input type="number" name="end_time" min="10" max="17"  style = "display:inline-block">時まで <br><br>
             </div>
