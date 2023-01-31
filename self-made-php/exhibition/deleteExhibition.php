@@ -68,6 +68,14 @@ function delete_exhibition($content) {
         try {
             include_once dirname( __FILE__ ).'/../../db.php';
             $dbh = DbUtil::Connect();
+            $sql = 'select * FROM exhibition where exhibition_id = :id';
+            $stmt = $dbh->prepare( $sql );
+            $stmt->bindValue( ':id', $id, PDO::PARAM_INT );
+            $stmt->execute();
+            $img = $stmt->fetch(PDO::FETCH_ASSOC);
+            
+            unlink('/var/www/html/img/author/' . $img['photo_name'] . '.png');
+
             $sql = 'DELETE FROM exhibition where exhibition_id = :id';
             $stmt = $dbh->prepare( $sql );
             $stmt->bindValue( ':id', $id, PDO::PARAM_INT );
