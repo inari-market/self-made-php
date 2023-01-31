@@ -48,8 +48,8 @@
 
                     <?php
                 echo '</div>';?>
-                <!-- <h3>概要<h3> -->
-                <p><?php echo $introduction ?></p>
+                <h3>概要<h3>
+                <p><?php echo $introduction; ?></p>
 
             <?php                
             }catch( PDOException $e ){
