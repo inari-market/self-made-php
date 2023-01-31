@@ -21,24 +21,29 @@ function show_exhibition($content) {
         ?>
 
         <?php 
-            while ($row = $stmt->fetch(PDO::FETCH_ASSOC)) { 
-        ?>
-            <div class="is-layout-flex wp-container-9 wp-block-columns">
-                <div class="is-layout-flow wp-block-column">
-                    <?php
-                        $img_url = "/var/www/html/exhibition/";
-                        echo '<figure class="wp-block-image size-large is-resized"><img decoding="async"  loading="lazy" src="' . $img_url . $row['photo_name'] .".png" . '" alt="画像が読み込めませんでした" width="600" height="600"></figure>';
-                    ?>
-                </div>
+            if(count($resutl) == 0) {
+                echo '<h6>現在開催中の展示はありません．次回の展示開催までお待ちください<h6>'
+            } else {
+                while ($row = $stmt->fetch(PDO::FETCH_ASSOC)) { 
+            ?>
+                    <div class="is-layout-flex wp-container-9 wp-block-columns">
+                        <div class="is-layout-flow wp-block-column">
+                            <?php
+                                $img_url = "/var/www/html/exhibition/";
+                                echo '<figure class="wp-block-image size-large is-resized"><img decoding="async"  loading="lazy" src="' . $img_url . $row['photo_name'] .".png" . '" alt="画像が読み込めませんでした" width="600" height="600"></figure>';
+                            ?>
+                        </div>
 
-                <div class="is-layout-flow wp-block-column">
-                    <h3><?php echo $row['exhibition_name']; ?></h3>
-                    <p>展示開催日：<?php echo $row['start']."日から".$row['end']; ?></p>
-                    <p>主催者：<?php echo $row['organizer']; ?></p>
-                    <p>概要：<?php echo htmlspecialchars($row['introduction'], ENT_QUOTES); ?></p>
-                </div>
-            </div>
-        <?php } ?>
+                        <div class="is-layout-flow wp-block-column">
+                            <h3><?php echo $row['exhibition_name']; ?></h3>
+                            <p>展示開催日：<?php echo $row['start']."日から".$row['end']; ?></p>
+                            <p>主催者：<?php echo $row['organizer']; ?></p>
+                            <p>概要：<?php echo htmlspecialchars($row['introduction'], ENT_QUOTES); ?></p>
+                        </div>
+                    </div>
+        <?php   }
+            } 
+        ?>
 
     <h2>今後開催される展示</h2>
         <?php
