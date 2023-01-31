@@ -15,7 +15,7 @@
                     // ポストのパラメータを変数へと代入．個人的に読みやすいから．
                     $name         = $_POST['posted_name'];
                     $author     = $_POST['author'];
-                    $year     = $_POST['year'];    // とりあえずポストされた値を代入
+                    $year     = $_POST['posted_year'];    // とりあえずポストされた値を代入
                     // if(empty($birthday)) $birthday = NULL; // 空文字ならNULLにする
                     $image = $_POST['image'];
 
@@ -79,7 +79,7 @@
     <input type="text" name="author"     size="8" placeholder="必須項目">
 
     <h4>制作年</h4>
-    <input type="text" name="year"     size="8" value="">
+    <input type="text" name="posted_year"     size="8" value="">
 
     <h4>画像</h4>
     <input type="file" name="image" accept="image/*"><br>
