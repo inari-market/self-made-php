@@ -120,7 +120,7 @@ if(isset($_POST['submit'])){
                         exit();
             }
 
-                $img_url = "var/www/html/exhibitionPhoto/";
+                $img_url = "var/www/html/exhibition/";
                 if(move_uploaded_file($_FILES['photo_img']['tmp_name'], $img_url . $inputPhotoName.".png")){
                     $_SESSION['register_exhibition']="写真登録完了";  
                 }else{
