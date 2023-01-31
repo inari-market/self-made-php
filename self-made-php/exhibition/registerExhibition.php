@@ -165,6 +165,9 @@ if(isset($_POST['submit'])){
         curl_setopt($ch, CURLOPT_URL, 'https://script.google.com/macros/s/AKfycbxm6yBrSs-QGrK011Y_MvizjcuSC0ZgGkZbUwfM1L8i8ubecIzM_nPMFw58s0un6ZUC/exec');  // APIのURI
         $result=curl_exec($ch);
         echo $result;
+        echo $inputName . <br>;
+        echo $json_data;
+
         echo 'here is gas resutlt';
         curl_close($ch);
         // ここまで
