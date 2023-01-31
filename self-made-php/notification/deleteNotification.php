@@ -84,7 +84,7 @@ if (! empty($id)) {
         // :で始まる部分が後から値がセットされるプレースホルダです。
         // 複数回SQL文を実行する必要がある場合はここからexecute()までを繰り返し ます。
         $dbh = DbUtil::Connect();
-        $sql = 'DELETE FROM notice where notice_id = :id';
+        $sql = 'DELETE FROM notice where id = :id';
         // SQL文を実行する準備をします。
         $stmt = $dbh->prepare( $sql );
         // プレースホルダに実際の値をバインドします。
