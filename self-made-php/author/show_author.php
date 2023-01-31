@@ -40,15 +40,13 @@
                         <p>生年：  <?php echo $birthday; ?></p> 
                         <p>出身：    <?php echo $birthplace; ?></p>
                         <p>代表作：  <?php echo $work; ?></p>
-                        <p>紹介：    <?php // echo $introduction; ?></p>
-
                         </div>
                         </div>
                     <!-- to here -->
 
                     <?php
                 echo '</div>';?>
-                <h3>概要<h3>
+                <h3>概要</h3>
                 <p><?php echo $introduction; ?></p>
 
             <?php                
