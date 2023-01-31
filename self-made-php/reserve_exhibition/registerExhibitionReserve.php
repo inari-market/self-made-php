@@ -14,19 +14,19 @@ function register_exhibition_reserve($content) {
             <br>
             <hr>
             <p>氏名:(必須)</p>
-                <input type="text" name="name" placeholder="香美太郎" maxlength="32" value="<?php echo $_SESSION['name']; ?>"> <br>
+                <input type="text" name="name" class="inrow form-control" placeholder="香美太郎" maxlength="32" value="<?php echo $_SESSION['name']; ?>"> <br>
             <p>フリガナ:(必須)</p>
-                <input type="text" name="name1" placeholder="カミタロウ" maxlength="32" value="<?php echo $_SESSION['name1']; ?>"> <br>
+                <input type="text" name="name1" class="inrow form-control" placeholder="カミタロウ" maxlength="32" value="<?php echo $_SESSION['name1']; ?>"> <br>
             <hr>
             <p>メールアドレス:(必須)</p>
-                <input type="text" name="mail" placeholder="メールアドレスを入力" maxlength="50" value="<?php echo $_SESSION['mail']; ?>"> <br>
+                <input type="text" name="mail" class="inrow form-control" placeholder="test@kami.museum.jp" maxlength="50" value="<?php echo $_SESSION['mail']; ?>"> <br>
             <p>電話番号:(必須,ハイフンを抜いて入力してください)</p>
-                <input type="text" name="phone_number" placeholder="1234567890" maxlength="16"> <br>
+                <input type="text" name="phone_number" class="inrow form-control" placeholder="1234567890" maxlength="16"> <br>
             <hr>
             <p>展覧会名:(必須)</p>
-                <input type="text" name="exhibition_name" placeholder="愛と勇気展 ~胸の傷が傷んでも~" value="<?php echo $_SESSION['exhibition_name']; ?>" maxlength="50"> <br>
+                <input type="text" name="exhibition_name" class="inrow form-control" placeholder="愛と勇気展 ~胸の傷が傷んでも~" value="<?php echo $_SESSION['exhibition_name']; ?>" maxlength="50"> <br>
             <p>展覧内容:(必須,展示物のジャンルや概要の記入をお願いします)</p>
-                <input type="text" name="exhibition_name" value="<?php echo $_SESSION['exhibition_name']; ?>" maxlength="300"> <br>
+                <input type="textarea" name="exhibition_name" class="inrow form-control" value="<?php echo $_SESSION['exhibition_name']; ?>" maxlength="300"> <br>
             <p>利用期間:(必須)</p>
                 <input type="date" name="start_date"  min="<?php echo date('Y-m-d'); ?>" style = "display:inline-block">から
                 <input type="date" name="end_date"  min="<?php echo date('Y-m-d'); ?>" style = "display:inline-block"> まで
@@ -40,12 +40,12 @@ function register_exhibition_reserve($content) {
                 echo("<br><br>");
             }
             ?>
+
             <br>
-            <div { text-align : center ; }>
-            <div><input type="submit" name = "submit" value="予約する"></div>
+            <input type="submit" name = "submit" value="予約する">
             <br>
             <br>
-            <div><input type="submit" name = "submit1" value="キャンセル"></div>        
+            <input type="submit" name = "submit1" value="キャンセル">        
         </form>
 
 <?php
