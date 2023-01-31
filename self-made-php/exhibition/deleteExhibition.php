@@ -82,6 +82,7 @@ function delete_exhibition($content) {
             $stmt->execute();
             session_start();
             $_SESSION['delete_exhibition']="削除完了";
+            unset($_GET['id']);
             echo '<script type="text/javascript">window.location.href = window.location.hreg = "";</script>';
             exit();
 
