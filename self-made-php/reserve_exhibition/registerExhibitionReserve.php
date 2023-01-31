@@ -17,7 +17,7 @@ function register_exhibition_reserve($content) {
 
             <br>
             <hr>
-            <p>展覧会名:<span style="red">(必須)</span></p>
+            <p>展覧会名:<span style="color:red">(必須)</span></p>
                 <input type="text" name="exhibition_name" placeholder="展覧会名を入力" value="<?php echo $_SESSION['exhibition_name']; ?>" maxlength="50"> <br>
             <p>出品対象者:(必須)</p>
                 <input type="text" name="target" placeholder="出品対象者を入力" value="<?php echo $_SESSION['target']; ?>" maxlength="50"> <br>
