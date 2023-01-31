@@ -68,7 +68,7 @@ function show_exhibition($content) {
         <?php
             include_once dirname( __FILE__ ).'/../../db.php';
             $dbh = DbUtil::Connect();
-            $sql = 'SELECT * FROM exhibition where end > now()';
+            $sql = 'SELECT * FROM exhibition where end < now()';
             $stmt = $dbh->prepare( $sql );
             $stmt->execute();
             ?>
