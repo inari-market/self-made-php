@@ -221,23 +221,34 @@ function init_session_start(){
   }
 add_action('init', 'init_session_start');
 
-require get_template_directory() . '/self-made-php/regist_exhibition.php';
-require get_template_directory() . '/self-made-php/exhibitions.php';
-require get_template_directory() . '/self-made-php/regist_author.php';
-require get_template_directory() . '/self-made-php/authors.php';
-require get_template_directory() . '/self-made-php/show_author.php';
-require get_template_directory() . '/self-made-php/edit_author.php';
-require get_template_directory() . '/self-made-php/delete_author.php';
-require get_template_directory() . '/self-made-php/showAudio.php';
-require get_template_directory() . '/self-made-php/registerExhibition.php';
-require get_template_directory() . '/self-made-php/registerExhibitionDb.php';
-require get_template_directory() . '/self-made-php/deleteExhibition.php';
-require get_template_directory() . '/self-made-php/deleteExhibitionDb.php';
-require get_template_directory() . '/self-made-php/showExhibition.php';
-require get_template_directory() . '/self-made-php/registerWorkshop.php';
-require get_template_directory() . '/self-made-php/registerWorkshopDb.php';
-require get_template_directory() . '/self-made-php/deleteWorkshop.php';
-require get_template_directory() . '/self-made-php/deleteWorkshopDb.php';
-require get_template_directory() . '/self-made-php/showWorkshop.php';
-require get_template_directory() . '/self-made-php/registerWorkshopReserve.php';
-require get_template_directory() . '/self-made-php/registerWorkshopReserveDb.php';
+
+
+require get_template_directory() . '/self-made-php/author/regist_author.php';
+require get_template_directory() . '/self-made-php/author/authors.php';
+require get_template_directory() . '/self-made-php/author/show_author.php';
+require get_template_directory() . '/self-made-php/author/edit_author.php';
+require get_template_directory() . '/self-made-php/author/delete_author.php';
+require get_template_directory() . '/self-made-php/audio/showAudio.php';
+require get_template_directory() . '/self-made-php/audio/registerAudio.php';
+require get_template_directory() . '/self-made-php/exhibition/registerExhibition.php';
+require get_template_directory() . '/self-made-php/exhibition/deleteExhibition.php';
+require get_template_directory() . '/self-made-php/workshop/registerWorkshop.php';
+require get_template_directory() . '/self-made-php/workshop/deleteWorkshop.php';
+require get_template_directory() . '/self-made-php/workshop/showWorkshop.php';
+require get_template_directory() . '/self-made-php/reserve_workshop/showWorkshopReserve.php';
+require get_template_directory() . '/self-made-php/reserve_workshop/registerWorkshopReserve.php';
+require get_template_directory() . '/self-made-php/reserve_workshop/deleteWorkshopReserve.php';
+require get_template_directory() . '/self-made-php/reserve_studio/showStdioReserve.php';
+require get_template_directory() . '/self-made-php/reserve_studio/registerStdioReserve.php';
+require get_template_directory() . '/self-made-php/reserve_exhibition/registerExhibitionReserve.php';
+require get_template_directory() . '/self-made-php/reserve_studio/deleteStdioReserve.php';
+require get_template_directory() . '/self-made-php/reserve_exhibition/showExhibitionReserve.php';
+require get_template_directory() . '/self-made-php/reserve_exhibition/deleteExhibitionReserve.php';
+require get_template_directory() . '/self-made-php/goods/registerGoods.php';
+require get_template_directory() . '/self-made-php/goods/showGoods.php';
+require get_template_directory() . '/self-made-php/goods/deleteGoods.php';
+require get_template_directory() . '/self-made-php/exhibition/showExhibition.php';
+require get_template_directory() . '/self-made-php/notification/show.php';
+require get_template_directory() . '/self-made-php/notification/new.php';
+require get_template_directory() . '/self-made-php/notification/deleteNotification.php';
+require get_template_directory() . '/self-made-php/notification/index.php';

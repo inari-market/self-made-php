@@ -19,6 +19,15 @@ create table exhibition (
     primary key(id)
 );
 
+create table notice (
+    id    int auto_increment,  
+    title varchar(255) not null,
+    body  varchar(1023),
+    check(title <> ''),
+    check(body <> ''),
+    primary key(id)
+);
+
 create table author (
     id           int           auto_increment,
     name         varchar(255)  not null check(name <> ''),
@@ -37,19 +46,20 @@ create table audio1 (
     primary key(id)
 );
 
-CREATE TABLE `exhibition_table` (
+CREATE TABLE `exhibition` (
   `exhibition_id` int(11) NOT NULL,
   `exhibition_name` varchar(64) DEFAULT NULL,
   `start` date DEFAULT NULL,
   `end` date DEFAULT NULL,
+  `photo_name` varchar(256) NOT NULL,
   `organizer` varchar(32) NOT NULL,
-  `introducation` text DEFAULT NULL
+  `introduction` text DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
-ALTER TABLE `exhibition_table`
+ALTER TABLE `exhibition`
   ADD PRIMARY KEY (`exhibition_id`);
 
-ALTER TABLE `exhibition_table`
+ALTER TABLE `exhibition`
   MODIFY `exhibition_id` int(11) NOT NULL AUTO_INCREMENT;
 COMMIT;
 
@@ -86,4 +96,60 @@ ALTER TABLE `workshop_reserve`
 
 ALTER TABLE `workshop_reserve`
   MODIFY `reservation_id` int(11) NOT NULL AUTO_INCREMENT;
+COMMIT;
+
+CREATE TABLE `stdio_reserve` (
+  `reservation_id` int(11) NOT NULL,
+  `name` varchar(32) DEFAULT NULL,
+  `address` varchar(50) DEFAULT NULL,
+  `phone_number` varchar(16) DEFAULT NULL,
+  `start_date` date DEFAULT NULL,
+  `start_time` int(2) DEFAULT NULL,
+  `end_date` date DEFAULT NULL,
+  `end_time` int(2) DEFAULT NULL,
+  `purpose` varchar(50) DEFAULT NULL,
+  `air` int(1) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+ALTER TABLE `stdio_reserve`
+  ADD PRIMARY KEY (`reservation_id`);
+
+ALTER TABLE `stdio_reserve`
+  MODIFY `reservation_id` int(11) NOT NULL AUTO_INCREMENT;
+COMMIT;
+
+CREATE TABLE `exhibition_reserve` (
+  `reservation_id` int(11) NOT NULL,
+  `name` varchar(32) DEFAULT NULL,
+  `address` varchar(50) DEFAULT NULL,
+  `phone_number` varchar(16) DEFAULT NULL,
+  `start_date` date DEFAULT NULL,
+  `start_time` int(2) DEFAULT NULL,
+  `end_date` date DEFAULT NULL,
+  `end_time` int(2) DEFAULT NULL,
+  `exhibition_name` varchar(50) DEFAULT NULL,
+  `target` varchar(50) DEFAULT NULL,
+  `genru` varchar(50) DEFAULT NULL,
+  `money` int(1) DEFAULT NULL,
+  `content` varchar(50)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+ALTER TABLE `exhibition_reserve`
+  ADD PRIMARY KEY (`reservation_id`);
+
+ALTER TABLE `exhibition_reserve`
+  MODIFY `reservation_id` int(11) NOT NULL AUTO_INCREMENT;
+COMMIT;
+
+CREATE TABLE `goods` (
+  `goods_id` int(11) NOT NULL,
+  `goods_name` varchar(32) DEFAULT NULL,
+  `price` int(12) DEFAULT NULL,
+  `description` varchar(512) DEFAULT NULL,
+  `photo_name` varchar(256) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+ALTER TABLE `goods`
+  ADD PRIMARY KEY (`goods_id`);
+ALTER TABLE `goods`
+  MODIFY `goods_id` int(11) NOT NULL AUTO_INCREMENT;
 COMMIT;

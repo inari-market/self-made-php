@@ -1,7 +1,7 @@
 #lightning/*
 #!/functions.php
-_g2
-_g3
+playwright-report
+screenshot.png
 inc
 vendor
 LICENSE
@@ -9,4 +9,13 @@ style.css
 theme.json
 *.php
 !functions.php
-!/self-made-php/*
+!/self-made-php/
+!/self-made-php/audio/*
+!/self-made-php/author/*
+!/self-made-php/exhibition/*
+!/self-made-php/goods/*
+!/self-made-php/notification/*
+!/self-made-php/reserve_exhibition/*
+!/self-made-php/reserve_studio/*
+!/self-made-php/reserve_workshop/*
+!/self-made-php/workshop/*
