@@ -1,4 +1,3 @@
-hoge
 <?php
     function authors($content) {
         if( is_page('authors')) { //特定の固定ページの時だけ処理させる 
@@ -18,10 +17,6 @@ hoge
 
                 // イテレータとかの準備
                 $img_url = 'http://52.54.93.120/img/author/'; // 画像の参照先
-                $index   = 0; // 配列のインデックス
-
-        
-                // 一行に４人表示する．(横並びに４人表示する)
                 for( $i = 0; $i < count($authors); $i++ ) { 
                     ?>
                     <div class="is-layout-flow wp-block-column" style="flex-basis:33.33%"><div class="wp-block-image">
@@ -33,7 +28,7 @@ hoge
                     <p>生年:<?php echo $authors[$i]['birthday']?></p>
                     <p>出身：<?php echo $authors[$i]['birthplace']?></p><br>
                     <p>代表作：<?php echo $authors[$i]['work']?></p>
-                    <div class="button_line007"><a href="http://52.54.93.120/" data-type="page" data-id="1034">詳しく知る</a></div>
+                    <div class="button_line007"><a href="http://52.54.93.120/authors/show/?id=<?php echo $authors[$i]['id']>" data-type="page" data-id="1034">詳しく知る</a></div>
                     </div>
 
                     <?php
