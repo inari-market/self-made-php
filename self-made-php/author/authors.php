@@ -53,9 +53,9 @@ hoge
                                         } else {
                                             echo '<h1>' . $authors[$index][name] . '</h1>';
                                             echo '<figure class="wp-block-image size-full is-resized"><img decoding="async" src="' . $img_url . $authors[$index][image] . '" alt="画像が読み込めませんでした"></figure>';
-                                            echo '   <a href="https://inari-dev.tk/authors/show?id='   . $authors[$index][id] . '"style="' . $css . '">詳細</a>';
-                                            echo ' | <a href="https://inari-dev.tk/authors/edit?id='   . $authors[$index][id] . '"style="' . $css . '">編集</a>';
-                                            echo ' | <a href="https://inari-dev.tk/authors/delete?id=' . $authors[$index][id] . '"style="' . $css . '">削除</a>';
+                                            echo '   <a href="http://52.54.93.120/authors/show?id='   . $authors[$index][id] . '"style="' . $css . '">詳細</a>';
+                                            echo ' | <a href="http://52.54.93.120/authors/edit?id='   . $authors[$index][id] . '"style="' . $css . '">編集</a>';
+                                            echo ' | <a href="http://52.54.93.120/authors/delete?id=' . $authors[$index][id] . '"style="' . $css . '">削除</a>';
                                             $index++;
                                         }
                                     ?>
