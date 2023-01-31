@@ -120,7 +120,8 @@ if(isset($_POST['submit'])){
                 $_SESSION['register_exhibition']= '接続失敗: ' . $e->getMessage() . '<br>';
                         exit();
             }
-    
+
+                $_SESSION['register_exhibition']= 'before url';
                 $img_url = "/var/www/html/exhibition/";
                 if(move_uploaded_file($_FILES['photo_img']['tmp_name'], $img_url . $inputPhotoName.".png")){
                     $_SESSION['register_exhibition']="写真登録完了";  
