@@ -40,6 +40,18 @@ create table author (
     primary key(id)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
+
+create table work (
+    id           int           auto_increment,
+    name         varchar(255)  not null check(name <> ''),
+    author     varchar(255)  not null check(author <> ''),
+    year     year,
+    image        char(255)     default 'noimage.png',
+    primary key(id)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+
+
 create table audio1 (
     id int auto_increment,
     name char(255),

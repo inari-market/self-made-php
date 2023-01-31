@@ -9,7 +9,7 @@
                 try {
                     // データベースに接続します。
                     $dbh = DbUtil::Connect(); // db.phpのメソッドを使ってDBとのコネクションを確立
-                    $sql = 'insert into author(name, author, year, image) values(:name, :author, :year, :image)';
+                    $sql = 'insert into work(name, author, year, image) values(:name, :author, :year, :image)';
                     $stmt = $dbh->prepare( $sql ); // SQL文を実行する準備をします。
         
                     // ポストのパラメータを変数へと代入．個人的に読みやすいから．
@@ -46,7 +46,7 @@
                         move_uploaded_file($_FILES['image']['tmp_name'], '/var/www/html/img/work/' . $image);
 
                         // 画像の名前をDBに保存
-                        $sql = 'update author set image = :image where id = :id';
+                        $sql = 'update work set image = :image where id = :id';
                         $stmt = $dbh->prepare( $sql ); // SQL文を実行する準備をします。
 
                         $stmt->bindValue( ':image', $image,     PDO::PARAM_STR );
