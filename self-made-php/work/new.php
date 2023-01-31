@@ -52,7 +52,7 @@
                     //     $stmt->bindValue( ':image', $image,     PDO::PARAM_STR );
                     //     $stmt->bindValue( ':id',    $id['id'],  PDO::PARAM_STR );
                     //     $stmt->execute();
-                    // }
+                    }
                     
                     echo '<p>登録完了しました</p>';
                     
