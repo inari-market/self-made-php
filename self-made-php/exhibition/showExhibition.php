@@ -20,7 +20,7 @@ function show_exhibition($content) {
     </head>
     <body>
 
-    <h1>展示会情報表示</h1>
+    <h1>現在開催中の展示</h1>
 
         <?php
         include_once dirname( __FILE__ ).'/../../db.php';
@@ -30,7 +30,7 @@ function show_exhibition($content) {
             // SQL文を用意します。
             // :で始まる部分が後から値がセットされるプレースホルダです。
             // 複数回SQL文を実行する必要がある場合はここからexecute()までを>繰り返します。
-            $sql = 'SELECT * FROM exhibition order by start asc';
+            $sql = 'SELECT * FROM exhibition where stard <= now() and  now <= end order by start asc';
             // SQL文を実行する準備をします。
             $stmt = $dbh->prepare( $sql );
             // SQL文を実行します。
