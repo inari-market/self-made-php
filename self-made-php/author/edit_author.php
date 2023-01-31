@@ -34,8 +34,8 @@
                     echo '<a href="https://inari-dev.tk/authors" style="color:blue;">再度読み込み</a>';
                     exit();
                 }
-                echo 'image:' . $_FILES[image][name] . '<br>';
-                echo 'type:'  . $_FILES[image][type] . '<br>';
+                // echo 'image:' . $_FILES[image][name] . '<br>';
+                // echo 'type:'  . $_FILES[image][type] . '<br>';
                 var_dump($_FILES);
 
                 if($_FILES[image][name] != NULL) {
