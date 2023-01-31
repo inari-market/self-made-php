@@ -44,6 +44,7 @@ function register_exhibition_reserve($content) {
             <br>
             <input type="submit" name = "submit" value="予約する">
             <br>
+            <br>
             <input type="submit" name = "submit1" value="キャンセル">           
         </form>
 
