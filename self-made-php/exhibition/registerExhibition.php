@@ -77,7 +77,7 @@ if(isset($_POST['submit'])){
             while ($row = $stmt->fetch(PDO::FETCH_ASSOC)){
                 if($_POST['photo_name'] == $row["photo_name"]){
                     $_SESSION['register_exhibition']="過去に登録された写真の名前です";
-                    echo '<script type="text/javascript">window.location.href = window.location.hreg = "http://100.24.172.143/exhibitions/new";</script>';
+                    echo '<script type="text/javascript">window.location.href = window.location.hreg = "";</script>';
                     exit();
                 }
             }
@@ -98,7 +98,7 @@ if(isset($_POST['submit'])){
             $_SESSION['register_exhibition']="エラータイプ:".$_FILES['photo_img']['error'].
             "ファイルサイズ:".$_FILES['photo_img']['size'].
             $img_url . $inputPhotoName.".png=>"."写真の登録に失敗しました";
-            echo '<script type="text/javascript">window.location.href = window.location.hreg = "http://100.24.172.143/exhibitions/new";</script>';
+            echo '<script type="text/javascript">window.location.href = window.location.hreg = "";</script>';
             exit();
         }
         
@@ -107,7 +107,7 @@ if(isset($_POST['submit'])){
             //桁数の確認
             if( strlen($inputName) > 64 || strlen($inputOrganizer) > 32 || strlen($inputIntroduction) > 160){
                 $_SESSION['register_exhibition']=strlen($inputOrganizer)."入力文字数を超えています";
-                echo '<script type="text/javascript">window.location.href = window.location.hreg = "http://100.24.172.143/exhibitions/new/";</script>';
+                echo '<script type="text/javascript">window.location.href = window.location.hreg = "";</script>';
                 exit();
             }
                 
@@ -155,7 +155,7 @@ if(isset($_POST['submit'])){
     }else {
         $_SESSION['register_exhibition']="入力に不備があります";
     }
-    echo '<script type="text/javascript">window.location.href = window.location.hreg = "http://100.24.172.143/exhibitions/new/";</script>';
+    echo '<script type="text/javascript">window.location.href = window.location.hreg = "";</script>';
     exit();
 }
 
