@@ -9,7 +9,7 @@
                 try {
                     // データベースに接続します。
                     $dbh = DbUtil::Connect(); // db.phpのメソッドを使ってDBとのコネクションを確立
-                    $sql = 'insert into authors2(name, furigana, birthday, introduction, birthplace, work) values(:name, :furigana, :birthday, :introduction, :birthplace, :work)';
+                    $sql = 'insert into author(name, furigana, birthday, introduction, birthplace, work) values(:name, :furigana, :birthday, :introduction, :birthplace, :work)';
                     $stmt = $dbh->prepare( $sql ); // SQL文を実行する準備をします。
         
                     // ポストのパラメータを変数へと代入．個人的に読みやすいから．
