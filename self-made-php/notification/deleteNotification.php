@@ -48,7 +48,7 @@
                     $stmt->execute();
                     session_start();
                     $_SESSION['delete_notification']="削除完了";
-                    echo '<script type="text/javascript">window.location.href = window.location.hreg = "";</script>';
+                    echo '<script type="text/javascript">window.location.href = window.location.hreg = "/notifications/delete";</script>';
                     exit();
 
                 }catch( PDOException $e ){
