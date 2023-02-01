@@ -89,7 +89,7 @@
     <p>主催者名</p>
     <input type="text" name="organizer"    size="8" value="<?php echo $_POST["organizer"]?>">
     <p>概要</p>
-    <textarea          name="introduction" rows="4" cols="40"></textarea>
+    <textarea          name="introduction" rows="4" cols="40" maxlength="1023"></textarea>
     <p>確認後に登録ボタンを押してください</p>
     <input type="submit" name="button" value="登録">
 </form>

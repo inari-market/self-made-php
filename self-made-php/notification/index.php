@@ -8,12 +8,16 @@
             $stmt->execute(); // sqlの実行
 ?>  
             <?php while ($row = $stmt->fetch(PDO::FETCH_ASSOC)) { ?> 
-                <li><a href="notifications/show/?id=<?php echo $row['id']?>"> <?php echo $row['title']?></a></li>
-            <?php } ?>
-<?php
+                <li><a href="/notifications/show/?id=<?php echo $row['id']?>"> <?php echo $row['title']?></a></li>
+            <?php }
         } else {
             return $content;
         }
     }   
     add_filter('the_content', 'notifications');
 ?>
+
+
+
+
+
