@@ -45,11 +45,11 @@
                 ?>
 
                 <form name="regist_author" method="post" action="<?php echo str_replace( '%7E', '~', $_SERVER['REQUEST_URI']); ?>" enctype="multipart/form-data">
-                    <input type="hidden" name = 'id' value="<?php echo $work[id];?>">
+                    <input type="hidden" name = 'id' value="<?php echo $notice[id];?>">
                     <h4>タイトル</h4>
-                    <input type="text" name="notice_title"  size="8" value="<?php echo $name;?>">
+                    <input type="text" name="notice_title"  size="8" value="<?php echo $title;?>">
                     <h4>内容</h4>
-                    <input type="text" name="notice_body"     size="8" value="<?php echo $author;?>">
+                    <input type="text" name="notice_body"     size="8" value="<?php echo $body;?>">
                     <h4>確認後に登録ボタンを押してください</h4>
                     <input type="submit" name="button" value="update">
                 </form>  
