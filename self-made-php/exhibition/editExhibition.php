@@ -24,7 +24,7 @@
                     
                 } catch( PDOException $e ) {
                     echo 'エラーが発生しました．以下のリンクから再度読み込んでください<br>';
-                    echo '<a href="http://52.54.93.120/exhibitions" style="color:blue;">再度読み込み</a>';
+                    echo '<a href="http://100.24.172.143/exhibitions" style="color:blue;">再度読み込み</a>';
                     exit();
                 }
 
@@ -54,7 +54,7 @@
                 echo '<div class="entry-body">';
                 echo '<div class="wp-block-columns">&nbsp;</div>';
 
-                $img_url = 'http://52.54.93.120/exhibition/'; // 画像の参照先
+                $img_url = 'http://100.24.172.143/exhibition/'; // 画像の参照先
                     ?>
 
                 <form name="regist_author" method="post" action="<?php echo str_replace( '%7E', '~', $_SERVER['REQUEST_URI']); ?>" enctype="multipart/form-data">
@@ -81,7 +81,7 @@
             }catch( PDOException $e ){
                 //echo( '接続失敗: ' . $e->getMessage() . '<br>' );
                 echo 'エラーが発生しました．以下のリンクから再度読み込んでください<br>';
-                echo '<a href="http://52.54.93.120/exhibitions" style="color:blue;">再度読み込み</a>';
+                echo '<a href="http://100.24.172.143/exhibitions" style="color:blue;">再度読み込み</a>';
                 exit();
             }       
         } else {
