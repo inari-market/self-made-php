@@ -73,7 +73,7 @@
                             if(move_uploaded_file($_FILES['image']['tmp_name'], '/var/www/html/img/keyword/' . $image)) {
 
                             } else {
-                                $_SESSION['register_keyword_image'] = $image;
+                                $_SESSION['register_keyword_image'] = $image . "hoge";
                             } 
                             // 画像の名前をDBに保存
                             $sql = 'update keyword set image = :image where id = :id';
