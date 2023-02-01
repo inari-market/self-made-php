@@ -262,4 +262,4 @@ require get_template_directory() . '/self-made-php/work/delete.php';
 require get_template_directory() . '/self-made-php/ar/showAr.php';
 require get_template_directory() . '/self-made-php/ar/registerAr.php';
 require get_template_directory() . '/self-made-php/ar/deleteAr.php';
-// require get_template_directory() . '/self-made-php/line/keyword/new.php';
+require get_template_directory() . '/self-made-php/line/keyword/new.php';

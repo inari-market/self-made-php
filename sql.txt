@@ -28,6 +28,15 @@ create table notice (
     primary key(id)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
+create table keyword (
+    id    int auto_increment,  
+    keyword varchar(255) not null,
+    msg  varchar(1023) not null,
+    check(keyword <> ''),
+    check(msg <> ''),
+    primary key(id)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
 create table author (
     id           int           auto_increment,
     name         varchar(255)  not null check(name <> ''),
