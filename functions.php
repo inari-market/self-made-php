@@ -236,7 +236,7 @@ require get_template_directory() . '/self-made-php/exhibition/editExhibition.php
 require get_template_directory() . '/self-made-php/workshop/registerWorkshop.php';
 require get_template_directory() . '/self-made-php/workshop/deleteWorkshop.php';
 require get_template_directory() . '/self-made-php/workshop/showWorkshop.php';
-require get_template_directory() . '/self-made-php/workshop/editWorkshop.php';
+//require get_template_directory() . '/self-made-php/workshop/editWorkshop.php';
 require get_template_directory() . '/self-made-php/workshop/edit.php';
 require get_template_directory() . '/self-made-php/reserve_workshop/showWorkshopReserve.php';
 require get_template_directory() . '/self-made-php/reserve_workshop/registerWorkshopReserve.php';
