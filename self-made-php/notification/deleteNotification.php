@@ -24,6 +24,7 @@
                     <td><?php echo $row['title']; ?></td>
                     <td style="word-break:break-word"><?php echo $row['body']; ?></td>    
                     <td><a href="<?php echo str_replace( '%7E', '~', $_SERVER['REQUEST_URI']); ?>?id=<?php echo $row['id']; ?>">削除</a></td>
+                    <td><a href="/notifications/edit/?id=<?php echo $row['id']; ?>">編集</a></td>
                 </tr>
             <?php } ?>
             </table>
