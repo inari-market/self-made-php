@@ -124,7 +124,7 @@ if(isset($_POST["submit"])){
 
             $img_url = "/var/www/html/ar/marker/";
             if(move_uploaded_file($_FILES['marker_img']['tmp_name'], $img_url . $inputMarker.".patt")){
-                $_SESSION['register_ar']="マーカー写真登録完了";  
+                $_SESSION['register_ar']="マーカー写真の登録完了";  
             }else{
                 $_SESSION['register_ar']='image:' . $_FILES['marker_img']['name'] . '<br>'.'type:'  . $_FILES['marker_img']['type'] . '<br>'.var_dump($_FILES).
                 "マーカー写真の登録に失敗しました";

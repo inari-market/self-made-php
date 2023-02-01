@@ -236,11 +236,8 @@ require get_template_directory() . '/self-made-php/exhibition/editExhibition.php
 require get_template_directory() . '/self-made-php/workshop/registerWorkshop.php';
 require get_template_directory() . '/self-made-php/workshop/deleteWorkshop.php';
 require get_template_directory() . '/self-made-php/workshop/showWorkshop.php';
-<<<<<<< HEAD
 require get_template_directory() . '/self-made-php/workshop/editWorkshop.php';
-=======
 require get_template_directory() . '/self-made-php/workshop/edit.php';
->>>>>>> bb87bade9baa7c52ee09c07739673c8cc40a2cf9
 require get_template_directory() . '/self-made-php/reserve_workshop/showWorkshopReserve.php';
 require get_template_directory() . '/self-made-php/reserve_workshop/registerWorkshopReserve.php';
 require get_template_directory() . '/self-made-php/reserve_workshop/deleteWorkshopReserve.php';
@@ -266,7 +263,4 @@ require get_template_directory() . '/self-made-php/work/delete.php';
 require get_template_directory() . '/self-made-php/ar/showAr.php';
 require get_template_directory() . '/self-made-php/ar/registerAr.php';
 require get_template_directory() . '/self-made-php/ar/deleteAr.php';
-<<<<<<< HEAD
 */
-=======
->>>>>>> bb87bade9baa7c52ee09c07739673c8cc40a2cf9
