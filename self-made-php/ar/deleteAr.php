@@ -1,6 +1,6 @@
 <?php
 function delete_ar($content) {
- if( is_page( 'ars/delete' ))  
+ if( is_page('ars/delete'))  
  {
 
 ?>
