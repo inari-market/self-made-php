@@ -99,7 +99,7 @@ if(isset($_POST['submit'])){
         try {
                 
             //桁数の確認
-            if( strlen($inputName) > 64 || strlen($inputOrganizer) > 32 || strlen($inputIntroduction) > 160){
+            if( strlen($inputName) > 64 || strlen($inputOrganizer) > 32 || strlen($inputIntroduction) > 1023){
                 $_SESSION['register_exhibition']=strlen($inputOrganizer)."入力文字数を超えています";
                 echo '<script type="text/javascript">window.location.href = window.location.hreg = "";</script>';
                 exit();
