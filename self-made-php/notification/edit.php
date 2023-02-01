@@ -8,7 +8,7 @@
             if($_POST['button'] == 'update') { // updateの処理
                 try {
                     $dbh = DbUtil::Connect(); // db.phpのメソッドを使ってDBとのコネクションを確立
-                    $sql = 'update notitce set title = :title, body = :body where id = :id';
+                    $sql = 'update notice set title = :title, body = :body where id = :id';
                     $stmt = $dbh->prepare( $sql ); // SQL文を実行する準備をします。
                     
                     // プレースホルダに実際の値をバインドします。
@@ -18,9 +18,6 @@
                     $stmt->execute(); // sqlの実行
                     
                 } catch( PDOException $e ) {
-                    echo'id:'. $_POST[id];
-                    echo'title:'. $_POST[notice_title];
-                    echo'body:'. $_POST[notice_body];
                     echo 'エラーが発生しました．以下のリンクから再度読み込んでください<br>';
                     echo '<a href="" style="color:blue;">再度読み込み</a>';
                     exit();
