@@ -32,7 +32,7 @@
                     $image = $_POST[id] . '.png'; // 画像の名前をid.pngにする
                     //画像を保存
                     // move_uploaded_file($_FILES['image']['tmp_name'], '/var/www/html/img/author/' . $image);
-                    if(move_uploaded_file($_FILES['image']['tmp_name'], '/var/www/html/img/author/' . $image)) {
+                    if(move_uploaded_file($_FILES['image']['tmp_name'], '/var/www/html/img/work/' . $image)) {
                         echo 'success';
                     } else {
                         echo '画像の保存に失敗しました．編集ページから再度登録してください';
