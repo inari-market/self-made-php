@@ -105,7 +105,7 @@ if (! empty($id)) {
         $stmt->execute();
         session_start();
         $_SESSION['delete_workshop']="削除完了";
-        echo '<script type="text/javascript">window.location.href = window.location.hreg = "http://100.24.172.143/workshops/delete/";</script>';
+        echo '<script type="text/javascript">window.location.href = window.location.hreg = "http://52.54.93.120/workshops/delete/";</script>';
         exit();
 
     }catch( PDOException $e ){
