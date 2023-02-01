@@ -60,7 +60,7 @@
             }
             ?>
 <?php
-            return $content;
+            // return $content;
         } else {
             return $content;
         }
