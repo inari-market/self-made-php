@@ -46,7 +46,7 @@ function delete_exhibition($content) {
                         ?>
                     </td>
                     <td><a href="<?php echo str_replace( '%7E', '~', $_SERVER['REQUEST_URI']); ?>?id=<?php echo $row['exhibition_id']; ?>">削除</a></td>
-                    <td><a href="<?php echo "http://52.54.93.120/exhibitions/edit/"; ?>?id=<?php echo $row['exhibition_id']; ?>">削除</a></td>
+                    <td><a href="<?php echo "http://52.54.93.120/exhibitions/edit/"; ?>?id=<?php echo $row['exhibition_id']; ?>">編集</a></td>
                 
                 </tr>
             <?php } ?>
