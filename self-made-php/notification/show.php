@@ -11,7 +11,6 @@
             $row = $stmt->fetch(PDO::FETCH_ASSOC);
 ?>  				
             <h3><?php echo $row['title']?></h3>
-            <p><?php // echo $row['body'] ?></p>
             <p><?php echo nl2br(htmlspecialchars($row['body'], ENT_QUOTES, 'UTF-8')) ?></p>
 <?php
         } else {
