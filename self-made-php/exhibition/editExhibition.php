@@ -22,7 +22,7 @@
                     
                 } catch( PDOException $e ) {
                     $_SESSION['edit_exhibition'] = '接続失敗: ' . $e->getMessage() . '<br>';
-                    echo '<script type="text/javascript">window.location.href = window.location.hreg = "http://100.24.172.143/exhibitions/edit;</script>';
+                    echo '<script type="text/javascript">window.location.href = window.location.hreg = "";</script>';
                     exit();
                 }
 
@@ -38,11 +38,11 @@
                         $stmt->execute(); // sqlの実行
 
                         $_SESSION['edit_exhibition'] = 'success';
-                        echo '<script type="text/javascript">window.location.href = window.location.hreg = "http://100.24.172.143/exhibitions/edit";</script>';
+                        echo '<script type="text/javascript">window.location.href = window.location.hreg = "";</script>';
                         exit();
                     } else {
                         $_SESSION['edit_exhibition'] = '画像の保存に失敗しました．編集ページから再度登録してください';
-                        echo '<script type="text/javascript">window.location.href = window.location.hreg = "http://100.24.172.143/exhibitions/edit";</script>';
+                        echo '<script type="text/javascript">window.location.href = window.location.hreg = "";</script>';
                         exit();
                     }
 
@@ -111,7 +111,7 @@
                 
             }catch( PDOException $e ){
                 $_SESSION['edit_exhibition'] =  '接続失敗: ' . $e->getMessage() . '<br>' ;
-                echo '<script type="text/javascript">window.location.href = window.location.hreg = "http://100.24.172.143/exhibitions/edit";</script>';
+                echo '<script type="text/javascript">window.location.href = window.location.hreg = "";</script>';
                 exit();
             }       
         } else {
