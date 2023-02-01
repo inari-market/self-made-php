@@ -1,7 +1,7 @@
 <?php
     function edit_exhibition($content) {
-        
-        if( is_page( 'exhibitons/edit' )) {//特定の固定ページの時だけ処理させる 
+
+        if( is_page( 'exhibitions/edit' )) {//特定の固定ページの時だけ処理させる 
             echo "hello";
             include_once dirname( __FILE__ ).'/../../db.php';
 
