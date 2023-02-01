@@ -12,7 +12,7 @@
                     $stmt = $dbh->prepare( $sql ); // SQL文を実行する準備をします。
                     
                     // プレースホルダに実際の値をバインドします。
-                    $stmt->bindValue( ':id',       $_POST[id],           PDO::PARAM_STR );
+                    $stmt->bindValue( ':id',       $_POST[id],           PDO::PARAM_INT );
                     $stmt->bindValue( ':title',    $_POST[notice_title], PDO::PARAM_STR );
                     $stmt->bindValue( ':body',     $_POST[notice_body],  PDO::PARAM_STR );
                     $stmt->execute(); // sqlの実行
