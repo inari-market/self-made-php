@@ -8,7 +8,7 @@
             $stmt->execute(); // sqlの実行
 ?>  
             <?php while ($row = $stmt->fetch(PDO::FETCH_ASSOC)) { ?> 
-                <li><a href="notifications/show/?id=<?php echo $row['id']?>"> <?php echo $row['title']?></a></li>
+                <li><a href="/notifications/show/?id=<?php echo $row['id']?>"> <?php echo $row['title']?></a></li>
             <?php } ?>
 <?php
         } else {
@@ -17,3 +17,8 @@
     }   
     add_filter('the_content', 'notifications');
 ?>
+
+
+
+
+
