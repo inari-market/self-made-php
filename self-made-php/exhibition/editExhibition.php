@@ -2,7 +2,7 @@
     function edit_exhibition($content) {
         
         if( is_page( 'exhibitons/edit' )) {//特定の固定ページの時だけ処理させる 
-
+            echo "hello";
             include_once dirname( __FILE__ ).'/../../db.php';
 
             if($_POST['button'] == 'update') { // updateの処理
@@ -79,7 +79,7 @@
                 echo '</div>';
                 
             }catch( PDOException $e ){
-                //echo( '接続失敗: ' . $e->getMessage() . '<br>' );
+                echo( '接続失敗: ' . $e->getMessage() . '<br>' );
                 echo 'エラーが発生しました．以下のリンクから再度読み込んでください<br>';
                 echo '<a href="http://100.24.172.143/exhibitions" style="color:blue;">再度読み込み</a>';
                 exit();
