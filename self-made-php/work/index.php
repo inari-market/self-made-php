@@ -20,7 +20,7 @@
                 $img_url = 'http://52.54.93.120/img/work/'; // 画像の参照先
                 for( $i = 0; $i < $row; $i++ ) {
                     echo '<div class="is-layout-flex wp-container-4 wp-block-columns">'; 
-                    echo '<hr>';
+                    echo '<hr style="margin-bottom: 10px;">';
                     $j = 0;
                     while($j < 3) {
                         echo '<div class="is-layout-flow wp-block-column">';
