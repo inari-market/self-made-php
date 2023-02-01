@@ -19,11 +19,9 @@
                 echo '<div class="entry-body">';
                 $img_url = 'http://52.54.93.120/img/work/'; // 画像の参照先
                 for( $i = 0; $i < $row; $i++ ) {
-                    echo 'i:' . $i;
                     echo '<div class="is-layout-flex wp-container-4 wp-block-columns">'; 
                     $j = 0;
                     while($j < 3) {
-                        echo 'j:' . $j;
                         echo '<div class="is-layout-flow wp-block-column">';
                         if (($i+1) == $row && $j >= $col) {
                             // なにもしない
