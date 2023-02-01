@@ -43,7 +43,7 @@
             try { // editページの生成
                 // データベースに接続します。
                 $dbh = DbUtil::Connect(); // db.phpのメソッドを使ってDBとのコネクションを確立
-                $sql = 'select * from exhibition where id = :id'; // 該当するカラムを抜く
+                $sql = 'select * from exhibition where exhibition_id = :id'; // 該当するカラムを抜く
                 $stmt = $dbh->prepare( $sql ); // SQL文を実行する準備をします。
 
                 $stmt->bindValue( ':id', $_GET['id'], PDO::PARAM_STR );
