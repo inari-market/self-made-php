@@ -101,6 +101,6 @@ function delete_author($content) {
   }
 }
 
-add_filter('the_content', 'delete_exhibition');
+add_filter('the_content', 'delete_author');
 
 ?>
