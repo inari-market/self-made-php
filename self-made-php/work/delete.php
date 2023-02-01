@@ -15,7 +15,7 @@ function delete_work($content) {
             <th>作品ID</th>
             <th>作品名</th>
             <th>作者名</th>
-            <th>背昨年</th>
+            <th>制作年</th>
             <th>写真</th>
             </tr>
 
