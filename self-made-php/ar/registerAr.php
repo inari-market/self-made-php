@@ -2,7 +2,7 @@
 //実装時はコメント解除
 //いったん放置
 function register_ar($content) {
-  if( is_page( 'ars/new' ))  //固定ページ「sample_cal」の時だけ処理させる
+  if( is_page( 'ars/new' ))
   {
 
 
