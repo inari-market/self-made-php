@@ -13,7 +13,7 @@
                 $works = $stmt->fetchAll(); // 結果をすべて読み出します。
                 $count = count($works);
                 $row   = ceil($count / 3);
-                $col   = $count % 3;
+                $col   = 3 - ($count % 3);
                 $index = 0;
 
                 echo '<div class="entry-body">';
