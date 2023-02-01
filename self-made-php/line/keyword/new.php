@@ -57,7 +57,7 @@
                         unset($_POST['message']);
 
                         $img = $_FILES['image']['name'];
-                        // echo 'ファイルサイズ:' . $_FILES['image']['size'];
+                        echo 'ファイルサイズ:' . $_FILES['image']['size'];
     
                         if ($img == NULL) {
                             echo 'image_name is NULL'; // Nullなら何もしない
@@ -66,7 +66,7 @@
                             $stmt = $dbh->prepare( $sql ); // 
                             $stmt->execute();
                             $id = $stmt->fetch( PDO::FETCH_ASSOC ); // SQLの実行結果
-    
+                            
                             $image = $id['id'] . '.png'; // 画像の名前をid.pngにする
     
                             //画像を保存
