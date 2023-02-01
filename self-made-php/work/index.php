@@ -19,6 +19,7 @@
                 echo '<div class="entry-body">';
                 $img_url = 'http://52.54.93.120/img/work/'; // 画像の参照先
                 for( $i = 0; $i < $row; $i++ ) {
+                    echo '<hr>';
                     echo '<div class="is-layout-flex wp-container-4 wp-block-columns">'; 
                     $j = 0;
                     while($j < 3) {
