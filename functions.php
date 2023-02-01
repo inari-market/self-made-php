@@ -253,3 +253,4 @@ require get_template_directory() . '/self-made-php/notification/new.php';
 require get_template_directory() . '/self-made-php/notification/deleteNotification.php';
 require get_template_directory() . '/self-made-php/notification/index.php';
 require get_template_directory() . '/self-made-php/work/new.php';
+require get_template_directory() . '/self-made-php/work/index.php';
