@@ -3,7 +3,7 @@
 
         if( is_page( 'exhibitions/edit' )) {//特定の固定ページの時だけ処理させる 
             include_once dirname( __FILE__ ).'/../../db.php';
-
+            session_start();
             if(isset($_POST['update'])) { // updateの処理
                 try {
                     $dbh = DbUtil::Connect(); // db.phpのメソッドを使ってDBとのコネクションを確立
@@ -22,8 +22,7 @@
                     $stmt->execute(); // sqlの実行
                     
                 } catch( PDOException $e ) {
-                    echo 'エラーが発生しました．以下のリンクから再度読み込んでください<br>';
-                    echo '<a href="http://100.24.172.143/exhibitions/" style="color:blue;">再度読み込み</a>';
+                    $_SESSION['edit_exhibition'] = 'エラーが発生しました．以下のリンクから再度読み込んでください';
                     exit();
                 }
 
