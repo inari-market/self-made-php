@@ -11,7 +11,7 @@
                     
                     // プレースホルダに実際の値をバインドします。
                     $stmt->bindValue( ':id', $_POST['id'], PDO::PARAM_STR );
-                    $stmt->bindValue( ':workshop_name', $_POST[name], PDO::PARAM_STR );
+                    $stmt->bindValue( ':workshop_name', $_POST[workshop_name], PDO::PARAM_STR );
                     $stmt->bindValue( ':introduction', $_POST[introduction], PDO::PARAM_STR );
                     $stmt->bindValue( ':capacity', $_POST[capacity], PDO::PARAM_INT );
                     $stmt->bindValue( ':organizer', $_POST[organizer], PDO::PARAM_STR );
