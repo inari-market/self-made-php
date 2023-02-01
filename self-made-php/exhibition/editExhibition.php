@@ -23,7 +23,7 @@
                     
                 } catch( PDOException $e ) {
                     $_SESSION['edit_exhibition'] = 'エラーが発生しました．以下のリンクから再度読み込んでください';
-                    echo '<script type="text/javascript">window.location.href = window.location.hreg = "";</script>';
+                    echo '<script type="text/javascript">window.location.href = window.location.hreg = "http://100.24.172.143/exhibitions/edit/?id=6";</script>';
                     exit();
                 }
 
@@ -32,11 +32,11 @@
 
                     if(move_uploaded_file($_FILES['image']['tmp_name'], '/var/www/html/exhibition/' . $image)) {
                         $_SESSION['edit_exhibition'] = 'success';
-                        echo '<script type="text/javascript">window.location.href = window.location.hreg = "";</script>';
+                        echo '<script type="text/javascript">window.location.href = window.location.hreg = "http://100.24.172.143/exhibitions/edit/?id=6";</script>';
                         exit();
                     } else {
                         $_SESSION['edit_exhibition'] = '画像の保存に失敗しました．編集ページから再度登録してください';
-                        echo '<script type="text/javascript">window.location.href = window.location.hreg = "";</script>';
+                        echo '<script type="text/javascript">window.location.href = window.location.hreg = "http://100.24.172.143/exhibitions/edit/?id=6";</script>';
                         exit();
                     }
 
@@ -85,14 +85,14 @@
                         <input type="submit" name = "update" value="更新"> <br>
 
                         <?php
-                    session_start();
-                    if(! empty($_SESSION['edit_exhibition'])){
-                        echo("<br>".$_SESSION['edit_exhibition']."<br>");
-                        unset($_SESSION['edit_exhibition']);
-                    }else{
-                        echo("<br><br>");
-                    }
-                ?>
+                            session_start();
+                            if(! empty($_SESSION['edit_exhibition'])){
+                                echo("<br>".$_SESSION['edit_exhibition']."<br>");
+                                unset($_SESSION['edit_exhibition']);
+                            }else{
+                                echo("<br><br>");
+                            }
+                        ?>
 
                 </form>  
                 </html>
@@ -101,7 +101,7 @@
                 
             }catch( PDOException $e ){
                 $_SESSION['edit_exhibition'] =  '接続失敗: ' . $e->getMessage() . '<br>' ;
-                echo '<script type="text/javascript">window.location.href = window.location.hreg = "";</script>';
+                echo '<script type="text/javascript">window.location.href = window.location.hreg = "http://100.24.172.143/exhibitions/edit/?id=6";</script>';
                 exit();
             }       
         } else {
