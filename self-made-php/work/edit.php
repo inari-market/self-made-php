@@ -80,7 +80,7 @@
                     <h4>生年月日</h4>
                     <input type="text" name="birthday"     size="8" value="<?php echo $birthday;?>">
                     <h4>紹介文</h4>
-                    <textarea          name="introduction" rows="4" cols="40"><?php echo $introduction?></textarea>
+                    <textarea          name="introduction" rows="4" cols="40"><?php echo $introduction;?></textarea>
                     <h4>出身地</h4>
                     <input type="text" name="birthplace"   size="8" value="<?php echo $birthplace;?>">
                     <h4>代表作</h4>
