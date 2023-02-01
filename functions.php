@@ -254,4 +254,4 @@ require get_template_directory() . '/self-made-php/notification/deleteNotificati
 require get_template_directory() . '/self-made-php/notification/index.php';
 require get_template_directory() . '/self-made-php/work/new.php';
 require get_template_directory() . '/self-made-php/work/index.php';
-require get_template_directory() . '/self-made-php/work/edit.php';
+// require get_template_directory() . '/self-made-php/work/edit.php';
