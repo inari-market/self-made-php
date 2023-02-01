@@ -11,14 +11,14 @@
                     
                     // プレースホルダに実際の値をバインドします。
                     $stmt->bindValue( ':id', $_POST['id'], PDO::PARAM_STR );
-                    $stmt->bindValue( ':workshop_name', $inputName, PDO::PARAM_STR );
-                    $stmt->bindValue( ':introduction', $inputIntroduction, PDO::PARAM_STR );
-                    $stmt->bindValue( ':capacity', $inputCapacity, PDO::PARAM_INT );
-                    $stmt->bindValue( ':organizer', $inputOrganizer, PDO::PARAM_STR );
-                    $stmt->bindValue( ':cost', $inputCost, PDO::PARAM_INT );
-                    $stmt->bindValue( ':start', $inputStart, PDO::PARAM_STR );
-                    $stmt->bindValue( ':end', $inputEnd, PDO::PARAM_STR );
-                    $stmt->bindValue( ':deadline', $inputDeadline, PDO::PARAM_STR );
+                    $stmt->bindValue( ':workshop_name', $_POST[name], PDO::PARAM_STR );
+                    $stmt->bindValue( ':introduction', $_POST[introduction], PDO::PARAM_STR );
+                    $stmt->bindValue( ':capacity', $_POST[capacity], PDO::PARAM_INT );
+                    $stmt->bindValue( ':organizer', $_POST[organizer], PDO::PARAM_STR );
+                    $stmt->bindValue( ':cost', $_POST[cost], PDO::PARAM_INT );
+                    $stmt->bindValue( ':start', $_POST[start], PDO::PARAM_STR );
+                    $stmt->bindValue( ':end', $_POST[end], PDO::PARAM_STR );
+                    $stmt->bindValue( ':deadline', $_POST[deadline], PDO::PARAM_STR );
 
                     $stmt->execute(); // sqlの実行
                     
