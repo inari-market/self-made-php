@@ -49,7 +49,7 @@
                     <h4>タイトル</h4>
                     <input type="text" name="notice_title"  size="8" value="<?php echo $title;?>">
                     <h4>内容</h4>
-                    <input type="text" name="notice_body"     size="8" value="<?php echo $body;?>">
+                    <textarea  name="body" rows="4" cols="40" maxlength="1024" placeholder="お知らせの内容を入力"><?php echo $body;?></textarea>
                     <h4>確認後に登録ボタンを押してください</h4>
                     <input type="submit" name="button" value="update">
                 </form>  

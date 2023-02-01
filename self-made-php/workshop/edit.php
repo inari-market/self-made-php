@@ -28,8 +28,8 @@
 
 
                 $_SESSION['edit_workshop'] = '更新成功';
-                // echo '<script type="text/javascript">window.location.href = window.location.hreg = "";</script>';
-                // exit();
+                echo '<script type="text/javascript">window.location.href = window.location.hreg = "";</script>';
+                exit();
             }
             
             try { // editページの生成
