@@ -69,7 +69,7 @@
                     ?>
                 <html>
                 <form action="<?php echo str_replace( '%7E', '~', $_SERVER['REQUEST_URI']); ?>" method="POST">
-
+                    <input type="hidden" name = 'id' value="<?php echo $result[id];?>">
                     <br>
                     <p>ワークショップ名</p>
                         <input type="text" name="workshop_name" placeholder="ワークショップ名を入力" maxlength="64" value="<?php echo $result['workshop_name']; ?>"> <br>
