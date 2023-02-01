@@ -74,11 +74,13 @@
                         <input type="text" name="photo_name" placeholder="写真の名前を入力" maxlength="256" value="<?php echo $result['photo_name']; ?>"> <br>
                     <p>写真</p>
                         <?php
-                            $img_url = "http://52.54.93.120/exhibition/";
+                            $img_url = "http://100.24.172.143/exhibition/";
                             echo '<figure class="wp-block-image size-full is-resized"><img decoding="async" src="' . $img_url . $result['photo_name'] .".png" . '" alt="画像が読み込めませんでした" width="60" height="60"></figure>';
                         ?>
                     <p>写真の変更</p>
                         <input type="file" name="photo_img" accept="image/png, image/jpeg" > <br>
+                    
+                        <input type="submit" name = "update" value="更新">
                 </form>  
                 </html>
                 <?php
