@@ -3,8 +3,8 @@
 
         if( is_page( 'exhibitions/edit' )) {//特定の固定ページの時だけ処理させる 
             include_once dirname( __FILE__ ).'/../../db.php';
-            session_start();
-            if(isset($_POST['update'])) { // updateの処理
+            if(isset($_POST['submit'])) { // updateの処理
+                session_start();
                 try {
                     $dbh = DbUtil::Connect(); // db.phpのメソッドを使ってDBとのコネクションを確立
                     $sql = 'update exhibition set exhibition_name = :exhibition_name, start = :start, end = :end, organizer = :organizer, introduction = :introduction where exhibition_id = :id';
@@ -98,7 +98,7 @@
                             }
                         ?>
 
-                        <input type="submit" name = "update" value="更新"> <br>
+                        <input type="submit" name = "submit" value="更新"> <br>
 
                 </form>  
                 </html>
