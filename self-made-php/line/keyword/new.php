@@ -44,7 +44,7 @@
                         $sql = 'INSERT INTO keyword (keyword, msg) VALUES(:keyword, :msg)';
                         $stmt = $dbh->prepare( $sql );
                         // プレースホルダに実際の値をバインドします。
-                        $stmt->bindValue( ':keyword', $inputTitle,   PDO::PARAM_STR );
+                        $stmt->bindValue( ':keyword', $inputKeyword,   PDO::PARAM_STR );
                         $stmt->bindValue( ':msg',     $inputMessage, PDO::PARAM_STR );
                         $stmt->execute(); // SQL文を実行します。
 
