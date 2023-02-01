@@ -9,7 +9,6 @@
                     <th>タイトル</th>
                     <th>内容</th>
                 </tr>
-
             <?php
                 include_once dirname( __FILE__ ).'/../../db.php';
                 $dbh = DbUtil::Connect();
@@ -23,6 +22,7 @@
                     <td><?php echo $row['id']; ?></td>
                     <td><?php echo $row['title']; ?></td>
                     <td style="word-break:break-word"><?php echo $row['body']; ?></td>    
+                    <td><a href="/notifications/edit/?id=<?php echo $row['id']; ?>">編集</a></td>
                     <td><a href="<?php echo str_replace( '%7E', '~', $_SERVER['REQUEST_URI']); ?>?id=<?php echo $row['id']; ?>">削除</a></td>
                 </tr>
             <?php } ?>
@@ -48,7 +48,7 @@
                     $stmt->execute();
                     session_start();
                     $_SESSION['delete_notification']="削除完了";
-                    echo '<script type="text/javascript">window.location.href = window.location.hreg = "";</script>';
+                    echo '<script type="text/javascript">window.location.href = window.location.hreg = "/notifications/delete";</script>';
                     exit();
 
                 }catch( PDOException $e ){

@@ -1,37 +1,27 @@
 <?php
-    function edit_author($content) {
+    function edit_work($content) {
         
-        if( is_page( 'authors/edit' )) {//特定の固定ページの時だけ処理させる 
+        if( is_page( 'works/edit' )) {//特定の固定ページの時だけ処理させる 
 
             include_once dirname( __FILE__ ).'/../../db.php';
 
             if($_POST['button'] == 'update') { // updateの処理
                 try {
                     $dbh = DbUtil::Connect(); // db.phpのメソッドを使ってDBとのコネクションを確立
-                    $sql = 'update author set name = :name, furigana = :furigana, birthday = :birthday, introduction  = :introduction, birthplace = :birthplace, work = :work where id = :id';
+                    $sql = 'update work set name = :name, author = :author, year = :year where id = :id';
                     $stmt = $dbh->prepare( $sql ); // SQL文を実行する準備をします。
                     
                     // プレースホルダに実際の値をバインドします。
-                    $stmt->bindValue( ':id',           $_POST[id],           PDO::PARAM_STR );
-                    $stmt->bindValue( ':name',         $_POST[posted_name],  PDO::PARAM_STR );
-                    $stmt->bindValue( ':furigana',     $_POST[furigana],     PDO::PARAM_STR );
-                    $stmt->bindValue( ':birthday',     $_POST[birthday],     PDO::PARAM_STR );
-                    $stmt->bindValue( ':introduction', $_POST[introduction], PDO::PARAM_STR );
-                    $stmt->bindValue( ':birthplace',   $_POST[birthplace],   PDO::PARAM_STR );
-                    $stmt->bindValue( ':work',         $_POST[work],         PDO::PARAM_STR );
+                    $stmt->bindValue( ':id',     $_POST[id],          PDO::PARAM_STR );
+                    $stmt->bindValue( ':name',   $_POST[posted_name], PDO::PARAM_STR );
+                    $stmt->bindValue( ':author', $_POST[work_author], PDO::PARAM_STR );
+                    $stmt->bindValue( ':year',   $_POST[work_year],   PDO::PARAM_STR );
 
                     $stmt->execute(); // sqlの実行
                     
                 } catch( PDOException $e ) {
-                    echo 'id:'           . $_POST['id'] . '<br>';
-                    echo 'name:'         . $_POST['posted_name'] . '<br>';
-                    echo 'furigana:'     . $_POST['furigana'] . '<br>';
-                    echo 'birthday:'     . $_POST['birthday'] . '<br>';
-                    echo 'introduction:' . $_POST['introduction'] . '<br>';
-                    echo 'birthplace:'   . $_POST['birthplace'] . '<br>';
-                    echo 'work:'         . $_POST['work'] . '<br>';
                     echo 'エラーが発生しました．以下のリンクから再度読み込んでください<br>';
-                    echo '<a href="https://inari-dev.tk/authors" style="color:blue;">再度読み込み</a>';
+                    echo '<a href="" style="color:blue;">再度読み込み</a>';
                     exit();
                 }
                 // echo 'image:' . $_FILES[image][name] . '<br>';
@@ -42,14 +32,14 @@
                     $image = $_POST[id] . '.png'; // 画像の名前をid.pngにする
                     //画像を保存
                     // move_uploaded_file($_FILES['image']['tmp_name'], '/var/www/html/img/author/' . $image);
-                    if(move_uploaded_file($_FILES['image']['tmp_name'], '/var/www/html/img/author/' . $image)) {
+                    if(move_uploaded_file($_FILES['image']['tmp_name'], '/var/www/html/img/work/' . $image)) {
                         echo 'success';
                     } else {
                         echo '画像の保存に失敗しました．編集ページから再度登録してください';
                     }
 
                     // 画像の名前をDBに保存
-                    $sql = 'update author set image = :image where id = :id';
+                    $sql = 'update work set image = :image where id = :id';
                     $stmt = $dbh->prepare( $sql ); // SQL文を実行する準備をします。
 
                     $stmt->bindValue( ':image', $image,     PDO::PARAM_STR );
@@ -63,40 +53,32 @@
             try { // editページの生成
                 // データベースに接続します。
                 $dbh = DbUtil::Connect(); // db.phpのメソッドを使ってDBとのコネクションを確立
-                $sql = 'select * from author where id = :id'; // 該当するカラムを抜く
+                $sql = 'select * from work where id = :id'; // 該当するカラムを抜く
                 $stmt = $dbh->prepare( $sql ); // SQL文を実行する準備をします。
 
                 $stmt->bindValue( ':id', $_GET['id'], PDO::PARAM_STR );
                 $stmt->execute(); // SQL文を実行します。
 
-                $author = $stmt->fetch(); // 結果を読み出します。             
+                $work = $stmt->fetch(); // 結果を読み出します。             
 
                 echo '<div class="entry-body">';
                 echo '<div class="wp-block-columns">&nbsp;</div>';
 
                 $img_url = 'https://inari-dev.tk/img/author/'; // 画像の参照先
-                $name         = $author[name];
-                $furigana     = $author[furigana];
-                $birthday     = $author[birthday];
-                $introduction = $author[introduction];
-                $birthplace   = $author[birthplace];
-                $work         = $author[work];
-                    ?>
+                $name         = $work[name];
+                $author     = $work[author];
+                $year     = $work[year];
+
+                ?>
 
                 <form name="regist_author" method="post" action="<?php echo str_replace( '%7E', '~', $_SERVER['REQUEST_URI']); ?>" enctype="multipart/form-data">
-                    <input type="hidden" name = 'id' value="<?php echo $author[id]?>">
-                    <h4>名前</h4>
+                    <input type="hidden" name = 'id' value="<?php echo $work[id];?>">
+                    <h4>作品名</h4>
                     <input type="text" name="posted_name"  size="8" value="<?php echo $name;?>">
-                    <h4>ふりがな</h4>
-                    <input type="text" name="furigana"     size="8" value="<?php echo $furigana;?>">
-                    <h4>生年月日</h4>
-                    <input type="text" name="birthday"     size="8" value="<?php echo $birthday;?>">
-                    <h4>紹介文</h4>
-                    <textarea          name="introduction" rows="4" cols="40"><?php echo $introduction?></textarea>
-                    <h4>出身地</h4>
-                    <input type="text" name="birthplace"   size="8" value="<?php echo $birthplace;?>">
-                    <h4>代表作</h4>
-                    <input type="text" name="work"         size="8" value="<?php echo $work;?>">
+                    <h4>作者</h4>
+                    <input type="text" name="work_author"     size="8" value="<?php echo $author;?>">
+                    <h4>制作年</h4>
+                    <input type="text" name="work_year"     size="8" value="<?php echo $year;?>">
                     <h4>画像</h4>
                     <input type="file" name="image" accept="image/*"><br>
                     ※ファイルサイズは2M以下
@@ -117,7 +99,7 @@
             return $content;
         }
     }
-    add_filter('the_content', 'edit_author');
+    add_filter('the_content', 'edit_work');
     
 ?>
 

@@ -162,7 +162,7 @@ if(isset($_POST['submit'])){
     }else {
         $_SESSION['register_workshop']="入力に不備があります";
     }
-    echo '<script type="text/javascript">window.location.href = window.location.hreg = "http://100.24.172.143/workshops/new/";</script>';
+    echo '<script type="text/javascript">window.location.href = window.location.hreg = "http://52.54.93.120/workshops/new/";</script>';
     exit();
 }
 
