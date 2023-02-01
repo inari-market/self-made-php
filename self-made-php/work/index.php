@@ -22,13 +22,17 @@
                     echo '<div class="is-layout-flex wp-container-4 wp-block-columns">'; 
                     $j = 0;
                     while($j < 3) {
-                        echo '<div class="is-layout-flow wp-block-column">';
+                        echo '<div class="is-layout-flow wp-block-column">';\
+                        if (($i+1) == $row && $j >= $col) {
+                            // なにもしない
+                        } else {
                     ?>
                         <figure class="wp-block-image size-large" id="sakuhin"><img decoding="async" src="<?php echo $img_url . $works[$index]['image']; ?>" alt="" class="wp-image-1108" sizes="(max-width: 1783px) 100vw, 1783px" width="1783" height="1782"></figure>
                         <h3 class="headline-002"><?php echo $works[$index]['name']?></h3>
                         <p>作者：<?php echo $works[$index]['author'];?></p>
                         <p>制作：<?php echo $works[$index]['year']?></p>
                     <?php
+                        }
                         $j++;
                         $index++;
                         echo '</div>';
