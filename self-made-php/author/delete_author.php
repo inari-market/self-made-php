@@ -12,7 +12,7 @@
                 include_once dirname( __FILE__ ).'/../../db.php';
 
                 $dbh = DbUtil::Connect();
-                $sql = 'DELETE FROM authors2 where id = :id';
+                $sql = 'DELETE FROM author where id = :id';
                 $stmt = $dbh->prepare( $sql );
                 $stmt->bindValue( ':id', $id, PDO::PARAM_INT );
                 $stmt->execute(); // SQL文を実行します。
@@ -22,7 +22,7 @@
                 // wp_redirect('https://inari-dev.tk/authors');
                 // header('location:https://inari-dev.tk/authors/');
                 // exit();
-                echo '<script type="text/javascript">window.location.href = "https://inari-dev.tk/authors";</script>';
+                echo '<script type="text/javascript">window.location.href = "http://52.54.93.120/authors";</script>';
 
             }catch( PDOException $e ){
                 echo( '接続失敗: ' . $e->getMessage() . '<br>' );

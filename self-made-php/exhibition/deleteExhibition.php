@@ -39,7 +39,7 @@ function delete_exhibition($content) {
                     <td><?php echo htmlspecialchars($row['introduction'], ENT_QUOTES, 'UTF-8'); ?></td>
                     <td>
                         <?php
-                        $img_url = "http://100.24.172.143/exhibition/";
+                        $img_url = "http://52.54.93.120/exhibition/";
                         echo '<figure class="wp-block-image size-full is-resized"><img decoding="async" src="' . $img_url . $row['photo_name'] .".png" . '" alt="画像が読み込めませんでした" width="60" height="60"></figure>';
                         ?>
                     </td>
@@ -67,13 +67,22 @@ function delete_exhibition($content) {
         try {
             include_once dirname( __FILE__ ).'/../../db.php';
             $dbh = DbUtil::Connect();
+            $sql = 'select * FROM exhibition where exhibition_id = :id';
+            $stmt = $dbh->prepare( $sql );
+            $stmt->bindValue( ':id', $id, PDO::PARAM_INT );
+            $stmt->execute();
+            $img = $stmt->fetch(PDO::FETCH_ASSOC);
+            
+            unlink('/var/www/html/exhibition/' . $img['photo_name'] . '.png');
+
             $sql = 'DELETE FROM exhibition where exhibition_id = :id';
             $stmt = $dbh->prepare( $sql );
             $stmt->bindValue( ':id', $id, PDO::PARAM_INT );
             $stmt->execute();
             session_start();
             $_SESSION['delete_exhibition']="削除完了";
-            echo '<script type="text/javascript">window.location.href = window.location.hreg = "http://100.24.172.143/exhibitions/delete/";</script>';
+            unset($_GET['id']);
+            echo '<script type="text/javascript">window.location.href = window.location.hreg = "http://52.54.93.120/exhibitions/delete";</script>';
             exit();
 
         }catch( PDOException $e ){

@@ -20,13 +20,13 @@ create table author (
     id           int           auto_increment,
     name         varchar(255)  not null check(name <> ''),
     furigana     varchar(255)  not null check(furigana <> ''),
-    birthday     date,
+    birthday     year,
     introduction varchar(1024) not null check(introduction <> ''),
     birthplace   varchar(255),
     work         varchar(255),
     image        char(255)     default 'noimage.png',
     primary key(id)
-);
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 create table audio1 (
     id int auto_increment,

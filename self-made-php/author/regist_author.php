@@ -9,7 +9,7 @@
                 try {
                     // データベースに接続します。
                     $dbh = DbUtil::Connect(); // db.phpのメソッドを使ってDBとのコネクションを確立
-                    $sql = 'insert into authors2(name, furigana, birthday, introduction, birthplace, work) values(:name, :furigana, :birthday, :introduction, :birthplace, :work)';
+                    $sql = 'insert into author(name, furigana, birthday, introduction, birthplace, work) values(:name, :furigana, :birthday, :introduction, :birthplace, :work)';
                     $stmt = $dbh->prepare( $sql ); // SQL文を実行する準備をします。
         
                     // ポストのパラメータを変数へと代入．個人的に読みやすいから．
@@ -39,7 +39,7 @@
                     if ($img == NULL) {
                         echo 'image_name is NULL'; // Nullなら何もしない
                     } else { // 画像が添付されていれば保存する
-                        $sql  = 'select max(id) as id from authors2'; // テーブルのidの最大値を
+                        $sql  = 'select max(id) as id from author'; // テーブルのidの最大値を
                         $stmt = $dbh->prepare( $sql ); // 
                         $stmt->execute();
                         $id = $stmt->fetch( PDO::FETCH_ASSOC ); // SQLの実行結果
@@ -50,7 +50,7 @@
                         move_uploaded_file($_FILES['image']['tmp_name'], '/var/www/html/img/author/' . $image);
 
                         // 画像の名前をDBに保存
-                        $sql = 'update authors2 set image = :image where id = :id';
+                        $sql = 'update author set image = :image where id = :id';
                         $stmt = $dbh->prepare( $sql ); // SQL文を実行する準備をします。
 
                         $stmt->bindValue( ':image', $image,     PDO::PARAM_STR );
@@ -81,7 +81,7 @@
     <h4>ふりがな</h4>
     <input type="text" name="furigana"     size="8" placeholder="必須項目">
 
-    <h4>生年月日</h4>
+    <h4>生年</h4>
     <input type="text" name="birthday"     size="8" value="">
 
     <h4>紹介文</h4>
