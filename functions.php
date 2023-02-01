@@ -222,7 +222,7 @@ function init_session_start(){
 add_action('init', 'init_session_start');
 
 
-
+/*
 require get_template_directory() . '/self-made-php/author/regist_author.php';
 require get_template_directory() . '/self-made-php/author/authors.php';
 require get_template_directory() . '/self-made-php/author/show_author.php';
@@ -257,3 +257,4 @@ require get_template_directory() . '/self-made-php/notification/index.php';
 require get_template_directory() . '/self-made-php/ar/showAr.php';
 require get_template_directory() . '/self-made-php/ar/registerAr.php';
 require get_template_directory() . '/self-made-php/ar/deleteAr.php';
+*/
