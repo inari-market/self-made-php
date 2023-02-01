@@ -7,7 +7,7 @@
             if(isset($_POST['update'])) { // updateの処理
                 try {
                     $dbh = DbUtil::Connect(); // db.phpのメソッドを使ってDBとのコネクションを確立
-                    $sql = 'update exhibition set exhibition_name = :exhibition_name, start = :start, end = :end, organizer = :organizer, introduction = :introduction, photo_name = :photo_name where exhibition_id = :id';
+                    $sql = 'update exhibition set exhibition_name = :exhibition_name, start = :start, end = :end, organizer = :organizer, introduction = :introduction where exhibition_id = :id';
                     $stmt = $dbh->prepare( $sql ); // SQL文を実行する準備をします。
                     
                     // プレースホルダに実際の値をバインドします。
@@ -31,6 +31,13 @@
                     $image = $_POST['photo_name'] . '.png'; // 画像の名前をid.pngにする
 
                     if(move_uploaded_file($_FILES['image']['tmp_name'], '/var/www/html/exhibition/' . $image)) {
+                        $dbh = DbUtil::Connect(); // db.phpのメソッドを使ってDBとのコネクションを確立
+                        $sql = 'update exhibition set photo_name = :photo_name where exhibition_id = :id';
+                        $stmt = $dbh->prepare( $sql ); // SQL文を実行する準備をします。                     
+                        // プレースホルダに実際の値をバインドします。
+                        $stmt->bindValue( ':photo_name', $_POST['photo_name'], PDO::PARAM_STR );
+                        $stmt->execute(); // sqlの実行
+
                         $_SESSION['edit_exhibition'] = 'success';
                         echo '<script type="text/javascript">window.location.href = window.location.hreg = "http://100.24.172.143/exhibitions/edit/?id=6";</script>';
                         exit();
@@ -81,8 +88,6 @@
                         ?><br>
                     <p>写真の変更</p>
                         <input type="file" name="photo_img" accept="image/png, image/jpeg" > <br><br>
-                    
-                        <input type="submit" name = "update" value="更新"> <br>
 
                         <?php
                             session_start();
@@ -93,6 +98,8 @@
                                 echo("<br><br>");
                             }
                         ?>
+
+                        <input type="submit" name = "update" value="更新"> <br>
 
                 </form>  
                 </html>
