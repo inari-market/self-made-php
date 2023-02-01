@@ -6,7 +6,7 @@
                 session_start();
                 try {
                     $dbh = DbUtil::Connect(); // db.phpのメソッドを使ってDBとのコネクションを確立
-                    $sql = 'update workshop set workshop_name = :workshop, introduction=:introduction, capacity=:capacity, organizer=:organizer, cost=:cost, start=:start, end=:end, deadline=:deadline where workshop_id = :id';
+                    $sql = 'update workshop set workshop_name = :workshop_name, introduction=:introduction, capacity=:capacity, organizer=:organizer, cost=:cost, start=:start, end=:end, deadline=:deadline where workshop_id = :id';
                     $stmt = $dbh->prepare( $sql ); // SQL文を実行する準備をします。
                     
                     // プレースホルダに実際の値をバインドします。
@@ -47,29 +47,27 @@
 
                 echo '<div class="entry-body">';
                 echo '<div class="wp-block-columns">&nbsp;</div>';
-
-                $img_url = 'http://100.24.172.143/exhibition/'; // 画像の参照先
                     ?>
                 <html>
                 <form action="<?php echo str_replace( '%7E', '~', $_SERVER['REQUEST_URI']); ?>" method="POST">
 
                     <br>
                     <p>ワークショップ名</p>
-                        <input type="text" name="workshop_name" placeholder="ワークショップ名を入力" maxlength="64" value="<?php echo $_SESSION['workshop_name']; ?>"> <br>
+                        <input type="text" name="workshop_name" placeholder="ワークショップ名を入力" maxlength="64" value="<?php echo $result['workshop_name']; ?>"> <br>
                     <p>主催者</p>
-                        <input type="text" name="organizer" placeholder="主催者名を入力" maxlength="32" value="<?php echo $_SESSION['organizer']; ?>"> <br>
+                        <input type="text" name="organizer" placeholder="主催者名を入力" maxlength="32" value="<?php echo $result['organizer']; ?>"> <br>
                     <p>概要</p> 
-                        <textarea  name="introduction" cols="40" maxlength="1024" placeholder="ワークショップの概要を入力" value="<?php echo $_SESSION['introduction']; ?>"></textarea> <br>
+                        <textarea  name="introduction" cols="40" maxlength="1024" placeholder="ワークショップの概要を入力" value="<?php echo $result['introduction']; ?>"></textarea> <br>
                     <p>参加可能人数</p>
-                        <input type="text" name="capacity" placeholder="参加可能人数を入力" maxlength="11" value="<?php echo $_SESSION['capacity']; ?>"> <br>
+                        <input type="text" name="capacity" placeholder="参加可能人数を入力" maxlength="11" value="<?php echo $result['capacity']; ?>"> <br>
                     <p>一人あたりの参加料金</p>
-                        <input type="text" name="cost" placeholder="一人あたりの参加料金を入力" maxlength="11" value="<?php echo $_SESSION['cost']; ?>"> <br>
+                        <input type="text" name="cost" placeholder="一人あたりの参加料金を入力" maxlength="11" value="<?php echo $result['cost']; ?>"> <br>
                     <p>開始日</p>
-                        <input type="date" name="start" value="<?php echo date('Y-m-d'); ?>"> <br><br>
+                        <input type="date" name="start" value="<?php echo $result['start']; ?>"> <br><br>
                     <p>終了日</p>
-                        <input type="date" name="end" value="<?php echo date('Y-m-d'); ?>"> <br><br>  
+                        <input type="date" name="end" value="<?php echo $result['end']; ?>"> <br><br>  
                     <p>予約締切日</p>
-                        <input type="date" name="deadline" value="<?php echo date('Y-m-d'); ?>"> <br><br> 
+                        <input type="date" name="deadline" value="<?php echo $result['deadline']; ?>"> <br><br> 
 
                         <?php
                             session_start();
