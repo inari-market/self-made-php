@@ -66,7 +66,8 @@ function delete_workshop($content) {
             <td><?php echo $row['start']; ?></td>
             <td><?php echo $row['end']; ?></td>
             <td><?php echo $row['deadline']; ?></td>
-           <td><a href="<?php echo str_replace( '%7E', '~', $_SERVER['REQUEST_URI']); ?>?id=<?php echo $row['workshop_id']; ?>">削除</a></td>
+            <td><a href="/workshops/edit/?id=<?php echo $row['workshop_id']; ?>">編集</a></td>
+            <td><a href="<?php echo str_replace( '%7E', '~', $_SERVER['REQUEST_URI']); ?>?id=<?php echo $row['workshop_id']; ?>">削除</a></td>
         </tr>
     <?php } ?>
 
@@ -104,7 +105,7 @@ if (! empty($id)) {
         $stmt->execute();
         session_start();
         $_SESSION['delete_workshop']="削除完了";
-        echo '<script type="text/javascript">window.location.href = window.location.hreg = "http://100.24.172.143/workshops/delete/";</script>';
+        echo '<script type="text/javascript">window.location.href = window.location.hreg = "http://52.54.93.120/workshops/delete/";</script>';
         exit();
 
     }catch( PDOException $e ){
