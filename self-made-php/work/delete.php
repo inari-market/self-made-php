@@ -41,6 +41,7 @@ function delete_work($content) {
                         ?>
                     </td>
                     <td><a href="<?php echo str_replace( '%7E', '~', $_SERVER['REQUEST_URI']); ?>?id=<?php echo $row['id']; ?>">削除</a></td>
+                    <td><a href="<?php echo str_replace( '%7E', '~', $_SERVER['REQUEST_URI']); ?>?id=<?php echo $row['id']; ?>">削除</a></td>
                 </tr>
             <?php } ?>
 
