@@ -1,5 +1,5 @@
 <?php
-    function edit_workshop($content) {
+    function edit_workshop2($content) {
         if( is_page( 'workshops/edit' )) {//特定の固定ページの時だけ処理させる 
             include_once dirname( __FILE__ ).'/../../db.php';
             if(isset($_POST['submit'])) { // updateの処理
@@ -95,6 +95,6 @@
             return $content;
         }
     }
-    add_filter('the_content', 'edit_workshop');
+    add_filter('the_content', 'edit_workshop2');
     
 ?>
