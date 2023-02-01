@@ -1,6 +1,6 @@
 <?php
     function edit_workshop($content) {
-
+        echo"H";
         if( is_page( 'workshops/edit' )) {//特定の固定ページの時だけ処理させる 
             include_once dirname( __FILE__ ).'/../../db.php';
             if(isset($_POST['submit'])) { // updateの処理
