@@ -28,6 +28,8 @@
                     $stmt->bindValue( ':end',           $_POST[end],           PDO::PARAM_STR );
                     $stmt->bindValue( ':deadline',      $_POST[deadline],      PDO::PARAM_STR );
                     
+                    $sql = "update workshop set workshop_name = 'test' where worksho_id = 1";
+                    $stmt = $dbh->prepare( $sql ); // SQL文を実行する準備をします。
                     $stmt->execute(); // sqlの実行 
                 } catch( PDOException $e ) {
                     $_SESSION['edit_workshop'] = '接続失敗: ' . $e->getMessage() . '<br>';
