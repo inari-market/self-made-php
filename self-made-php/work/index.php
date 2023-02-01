@@ -14,6 +14,7 @@
                 $count = count($works);
                 echo 'count:'.$count;
                 $row   = ceil($count / 3);
+                echo 'row:' . $row;
                 $col   = $count % 3;
                 $index = 0;
 
