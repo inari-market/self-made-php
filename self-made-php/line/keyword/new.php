@@ -55,6 +55,31 @@
                         unset($_POST['keyword']);
                         unset($_POST['message']);
 
+                        $img = $_FILES['image']['name'];
+                        // echo 'ファイルサイズ:' . $_FILES['image']['size'];
+    
+                        if ($img == NULL) {
+                            echo 'image_name is NULL'; // Nullなら何もしない
+                        } else { // 画像が添付されていれば保存する
+                            $sql  = 'select max(id) as id from keyword'; // テーブルのidの最大値を
+                            $stmt = $dbh->prepare( $sql ); // 
+                            $stmt->execute();
+                            $id = $stmt->fetch( PDO::FETCH_ASSOC ); // SQLの実行結果
+    
+                            $image = $id['id'] . '.png'; // 画像の名前をid.pngにする
+    
+                            //画像を保存
+                            move_uploaded_file($_FILES['image']['tmp_name'], '/var/www/html/img/keyword/' . $image);
+    
+                            // 画像の名前をDBに保存
+                            $sql = 'update keyword set image = :image where id = :id';
+                            $stmt = $dbh->prepare( $sql ); // SQL文を実行する準備をします。
+    
+                            $stmt->bindValue( ':image', $image,     PDO::PARAM_STR );
+                            $stmt->bindValue( ':id',    $id['id'],  PDO::PARAM_STR );
+                            $stmt->execute();
+                        }
+
                     } catch( PDOException $e ){
                         echo( '接続失敗: ' . $e->getMessage() . '<br>' );
                         exit();

@@ -32,6 +32,7 @@ create table keyword (
     id    int auto_increment,  
     keyword varchar(255) not null,
     msg  varchar(1023) not null,
+    img  char(256),
     check(keyword <> ''),
     check(msg <> ''),
     primary key(id)
