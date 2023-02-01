@@ -39,8 +39,9 @@ function delete_author($content) {
                         echo '<figure class="wp-block-image size-full is-resized"><img decoding="async" src="' . $img_url . $row['image'] . '" alt="画像が読み込めませんでした" width="60" height="60"></figure>';
                         ?>
                     </td>
+                    <td><a href="http://52.54.93.120/authors/edit/?id=' <?php echo $row['id'] ?> ">編集</a></td>
                     <td><a href="<?php echo str_replace( '%7E', '~', $_SERVER['REQUEST_URI']); ?>?id=<?php echo $row['id']; ?>">削除</a></td>
-                    <td><a href="http://52.54.93.120/authors/edit/?id=' <?php $row['exhibition_id'] ?> ">編集</a></td>
+                    
                 
                 </tr>
             <?php } ?>
