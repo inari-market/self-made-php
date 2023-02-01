@@ -13,7 +13,7 @@
                     
                     // プレースホルダに実際の値をバインドします。
                     $stmt->bindValue( ':id',           $_POST[id],           PDO::PARAM_STR );
-                    $stmt->bindValue( ':name',         $_POST[posted_name],         PDO::PARAM_STR );
+                    $stmt->bindValue( ':name',         $_POST[posted_name],  PDO::PARAM_STR );
                     $stmt->bindValue( ':furigana',     $_POST[furigana],     PDO::PARAM_STR );
                     $stmt->bindValue( ':birthday',     $_POST[birthday],     PDO::PARAM_STR );
                     $stmt->bindValue( ':introduction', $_POST[introduction], PDO::PARAM_STR );

@@ -6,7 +6,15 @@
                 session_start();
                 try {
                     $dbh = DbUtil::Connect(); // db.phpのメソッドを使ってDBとのコネクションを確立
-                    $sql = 'update workshop set workshop_name = :workshop_name, introduction=:introduction, capacity=:capacity, organizer=:organizer, cost=:cost, start=:start, end=:end, deadline=:deadline where workshop_id = :id';
+                    $sql = 'update workshop set workshop_name = :workshop_name, 
+                                                introduction=:introduction, 
+                                                capacity=:capacity, 
+                                                organizer=:organizer, 
+                                                cost=:cost, 
+                                                start=:start, 
+                                                end=:end, 
+                                                deadline=:deadline 
+                                                where workshop_id = :id';
                     $stmt = $dbh->prepare( $sql ); // SQL文を実行する準備をします。
                     
                     // プレースホルダに実際の値をバインドします。
@@ -19,14 +27,13 @@
                     $stmt->bindValue( ':start',         $_POST[start],         PDO::PARAM_STR );
                     $stmt->bindValue( ':end',           $_POST[end],           PDO::PARAM_STR );
                     $stmt->bindValue( ':deadline',      $_POST[deadline],      PDO::PARAM_STR );
+                    
                     $stmt->execute(); // sqlの実行 
                 } catch( PDOException $e ) {
                     $_SESSION['edit_workshop'] = '接続失敗: ' . $e->getMessage() . '<br>';
                     echo '<script type="text/javascript">window.location.href = window.location.hreg = "";</script>';
                     exit();
                 }
-
-
                 $_SESSION['edit_workshop'] = '更新成功';
                 echo '<script type="text/javascript">window.location.href = window.location.hreg = "";</script>';
                 exit();
