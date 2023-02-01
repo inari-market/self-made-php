@@ -17,7 +17,6 @@
                     $stmt->bindValue( ':end', $_POST['end'], PDO::PARAM_STR );
                     $stmt->bindValue( ':organizer', $_POST['organizer'], PDO::PARAM_STR );
                     $stmt->bindValue( ':introduction', $_POST['introduction'], PDO::PARAM_STR );
-                    $stmt->bindValue( ':photo_name', $_POST['photo_name'], PDO::PARAM_STR );
 
                     $stmt->execute(); // sqlの実行
                     
