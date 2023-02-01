@@ -232,6 +232,7 @@ require get_template_directory() . '/self-made-php/audio/showAudio.php';
 require get_template_directory() . '/self-made-php/audio/registerAudio.php';
 require get_template_directory() . '/self-made-php/exhibition/registerExhibition.php';
 require get_template_directory() . '/self-made-php/exhibition/deleteExhibition.php';
+require get_template_directory() . '/self-made-php/exhibition/editExhibition.php';
 require get_template_directory() . '/self-made-php/workshop/registerWorkshop.php';
 require get_template_directory() . '/self-made-php/workshop/deleteWorkshop.php';
 require get_template_directory() . '/self-made-php/workshop/showWorkshop.php';
