@@ -14,7 +14,7 @@
                 <?php
                     session_start();
                     if(! empty($_SESSION['register_keyword'])) {
-                        echo("<br>".$_SESSION['register_keyword']."<br>");
+                        echo("<br>".$_SESSION['register_keyword']."<br>image:");
                         echo $_SESSION['register_keyword_image'];
                         unset($_SESSION['register_keyword']);
                     }else{
