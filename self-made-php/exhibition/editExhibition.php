@@ -31,10 +31,9 @@
                     $image = $_POST['photo_name'] . '.png'; // 画像の名前をid.pngにする
 
                     if(move_uploaded_file($_FILES['image']['tmp_name'], '/var/www/html/exhibition/' . $image)) {
-                        unlink('/var/www/html/exhibition/' . $_POST['photo_name'] . '.png');
-                        echo 'success';
+                        $_SESSION['edit_exhibition'] = 'success';
                     } else {
-                        echo '画像の保存に失敗しました．編集ページから再度登録してください';
+                        $_SESSION['edit_exhibition'] = '画像の保存に失敗しました．編集ページから再度登録してください';
                     }
 
                 }
@@ -75,20 +74,29 @@
                         <?php
                             $img_url = "http://100.24.172.143/exhibition/";
                             echo '<figure class="wp-block-image size-full is-resized"><img decoding="async" src="' . $img_url . $result['photo_name'] .".png" . '" alt="画像が読み込めませんでした" width="60" height="60"></figure>';
-                        ?>
+                        ?><br>
                     <p>写真の変更</p>
                         <input type="file" name="photo_img" accept="image/png, image/jpeg" > <br>
                     
                         <input type="submit" name = "update" value="更新">
+
+                        <?php
+                    session_start();
+                    if(! empty($_SESSION['edit_exhibition'])){
+                        echo("<br>".$_SESSION['edit_exhibition']."<br>");
+                        unset($_SESSION['edit_exhibition']);
+                    }else{
+                        echo("<br><br>");
+                    }
+                ?>
+
                 </form>  
                 </html>
                 <?php
                 echo '</div>';
                 
             }catch( PDOException $e ){
-                echo( '接続失敗: ' . $e->getMessage() . '<br>' );
-                echo 'エラーが発生しました．以下のリンクから再度読み込んでください<br>';
-                echo '<a href="http://100.24.172.143/exhibitions" style="color:blue;">再度読み込み</a>';
+                $_SESSION['edit_exhibition'] =  '接続失敗: ' . $e->getMessage() . '<br>' ;
                 exit();
             }       
         } else {
