@@ -47,6 +47,10 @@
                     }
 
                 }
+
+                $_SESSION['edit_exhibition'] = '更新成功';
+                echo '<script type="text/javascript">window.location.href = window.location.hreg = "http://100.24.172.143/exhibitions/edit/;</script>';
+                exit();
             }
             
             try { // editページの生成
