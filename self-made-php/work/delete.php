@@ -20,9 +20,11 @@ function delete_work($content) {
             </tr>
 
             <?php
-            echo 'hoge';
+            
                 include_once dirname( __FILE__ ).'/../../db.php';
+                echo 'hoge1';
                 $dbh = DbUtil::Connect();
+                echo 'hoge2';
                 $sql = 'SELECT * FROM work order by start asc';
                 $stmt = $dbh->prepare( $sql );
                 $stmt->execute();
