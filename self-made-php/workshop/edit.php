@@ -27,6 +27,15 @@
                     $stmt->bindValue( ':start',         $_POST[start],         PDO::PARAM_STR );
                     $stmt->bindValue( ':end',           $_POST[end],           PDO::PARAM_STR );
                     $stmt->bindValue( ':deadline',      $_POST[deadline],      PDO::PARAM_STR );
+                    echo 'id:' . $_POST[id];
+                    echo 'id:' . $_POST[workshop_name];
+                    echo 'id:' . $_POST[introduction];
+                    echo 'id:' . $_POST[capacity];
+                    echo 'id:' . $_POST[organizer];
+                    echo 'id:' . $_POST[cost];
+                    echo 'id:' . $_POST[start];
+                    echo 'id:' . $_POST[end];
+                    echo 'id:' . $_POST[deadline];
                     
                     $sql = "update workshop set workshop_name = 'hohgoehafojfdla' where workshop_id = 1";
                     $stmt = $dbh->prepare( $sql ); // SQL文を実行する準備をします。
