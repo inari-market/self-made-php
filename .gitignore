@@ -10,6 +10,7 @@ theme.json
 *.php
 !functions.php
 !/self-made-php/
+!/self-made-php/ar/*
 !/self-made-php/audio/*
 !/self-made-php/author/*
 !/self-made-php/exhibition/*
