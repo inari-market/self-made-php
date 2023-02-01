@@ -4,7 +4,7 @@
         if( is_page( 'exhibitions/edit' )) {//特定の固定ページの時だけ処理させる 
             include_once dirname( __FILE__ ).'/../../db.php';
 
-            if($_POST['button'] == 'update') { // updateの処理
+            if(isset($_POST['update'])) { // updateの処理
                 try {
                     $dbh = DbUtil::Connect(); // db.phpのメソッドを使ってDBとのコネクションを確立
                     $sql = 'update exhibition set exhibition_name = :exhibition_name, start = :start, end = :end, organizer = :organizer, introduction = :introduction, photo_name = :photo_name where exhibition_id = :id';
@@ -76,9 +76,9 @@
                             echo '<figure class="wp-block-image size-full is-resized"><img decoding="async" src="' . $img_url . $result['photo_name'] .".png" . '" alt="画像が読み込めませんでした" width="60" height="60"></figure>';
                         ?><br>
                     <p>写真の変更</p>
-                        <input type="file" name="photo_img" accept="image/png, image/jpeg" > <br>
+                        <input type="file" name="photo_img" accept="image/png, image/jpeg" > <br><br>
                     
-                        <input type="submit" name = "update" value="更新">
+                        <input type="submit" name = "update" value="更新"> <br>
 
                         <?php
                     session_start();
