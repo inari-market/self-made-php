@@ -21,7 +21,7 @@ function register_exhibition($content) {
                 <p>主催者名</p>
                     <input type="text" name="organizer" placeholder="主催者名を入力" maxlength="32" value="<?php echo $_SESSION['organizer']; ?>"> <br>
                 <p>概要</p> 
-                    <textarea  name="introduction" rows="4" cols="40" maxlength="160" placeholder="企画展の概要を入力" value="<?php echo $_SESSION['introduction']; ?>"></textarea><br>
+                    <textarea  name="introduction" rows="4" cols="40" maxlength="1023" placeholder="企画展の概要を入力" value="<?php echo $_SESSION['introduction']; ?>"></textarea><br>
                 <p>写真の名前</p>
                     <input type="text" name="photo_name" placeholder="写真の名前を入力" maxlength="256" value="<?php echo $_SESSION['photo_name']; ?>"> <br>
                 <p>企画展イメージ</p>
