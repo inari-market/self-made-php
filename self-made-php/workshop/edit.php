@@ -1,7 +1,6 @@
 <?php
     function edit_workshop($content) {
         if( is_page( 'workshops/edit' )) {//特定の固定ページの時だけ処理させる 
-            echo 'hoge';
             include_once dirname( __FILE__ ).'/../../db.php';
             if(isset($_POST['submit'])) { // updateの処理
                 session_start();
@@ -58,7 +57,7 @@
                     <p>主催者</p>
                         <input type="text" name="organizer" placeholder="主催者名を入力" maxlength="32" value="<?php echo $result['organizer']; ?>"> <br>
                     <p>概要</p> 
-                        <textarea  name="introduction" cols="40" maxlength="1024" placeholder="ワークショップの概要を入力" value="<?php echo $result['introduction']; ?>"></textarea> <br>
+                        <textarea  name="introduction" cols="40" maxlength="1024" placeholder="ワークショップの概要を入力"><?php echo $result['introduction']?></textarea> <br>
                     <p>参加可能人数</p>
                         <input type="text" name="capacity" placeholder="参加可能人数を入力" maxlength="11" value="<?php echo $result['capacity']; ?>"> <br>
                     <p>一人あたりの参加料金</p>
