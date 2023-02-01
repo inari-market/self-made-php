@@ -12,6 +12,7 @@
                 // イテレータとかの準備
                 $works = $stmt->fetchAll(); // 結果をすべて読み出します。
                 $count = count($works);
+                echo 'count:'.$count;
                 $row   = ceil($count / 3);
                 $col   = $count % 3;
                 $index = 0;
