@@ -15,6 +15,7 @@
                     session_start();
                     if(! empty($_SESSION['register_keyword'])) {
                         echo("<br>".$_SESSION['register_keyword']."<br>");
+                        echo $_SESSION['register_keyword_image'];
                         unset($_SESSION['register_keyword']);
                     }else{
                         echo("<br><br>");
@@ -69,8 +70,11 @@
                             $image = $id['id'] . '.png'; // 画像の名前をid.pngにする
     
                             //画像を保存
-                            move_uploaded_file($_FILES['image']['tmp_name'], '/var/www/html/img/keyword/' . $image);
-    
+                            if(move_uploaded_file($_FILES['image']['tmp_name'], '/var/www/html/img/keyword/' . $image)) {
+
+                            } else {
+                                $_SESSION['register_keyword_image'] = $image;
+                            } 
                             // 画像の名前をDBに保存
                             $sql = 'update keyword set image = :image where id = :id';
                             $stmt = $dbh->prepare( $sql ); // SQL文を実行する準備をします。
