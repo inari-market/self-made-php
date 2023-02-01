@@ -19,7 +19,7 @@
 
                     $stmt->execute(); // sqlの実行
                     
-                } catch( PDOException where     echo 'id:'           . $_POST['id'] . '<br>';) {
+                } catch( PDOException $e ) {
                     echo 'エラーが発生しました．以下のリンクから再度読み込んでください<br>';
                     echo '<a href="" style="color:blue;">再度読み込み</a>';
                     exit();
