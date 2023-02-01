@@ -10,19 +10,17 @@
                     $stmt = $dbh->prepare( $sql ); // SQL文を実行する準備をします。
                     
                     // プレースホルダに実際の値をバインドします。
-                    $stmt->bindValue( ':id', $_POST['id'], PDO::PARAM_STR );
+                    $stmt->bindValue( ':id',            $_POST['id'],          PDO::PARAM_STR );
                     $stmt->bindValue( ':workshop_name', $_POST[workshop_name], PDO::PARAM_STR );
-                    $stmt->bindValue( ':introduction', $_POST[introduction], PDO::PARAM_STR );
-                    $stmt->bindValue( ':capacity', $_POST[capacity], PDO::PARAM_INT );
-                    $stmt->bindValue( ':organizer', $_POST[organizer], PDO::PARAM_STR );
-                    $stmt->bindValue( ':cost', $_POST[cost], PDO::PARAM_INT );
-                    $stmt->bindValue( ':start', $_POST[start], PDO::PARAM_STR );
-                    $stmt->bindValue( ':end', $_POST[end], PDO::PARAM_STR );
-                    $stmt->bindValue( ':deadline', $_POST[deadline], PDO::PARAM_STR );
-                    $stmt->execute(); // sqlの実行
-                    echo 'hoge1';
+                    $stmt->bindValue( ':introduction',  $_POST[introduction],  PDO::PARAM_STR );
+                    $stmt->bindValue( ':capacity',      $_POST[capacity],      PDO::PARAM_INT );
+                    $stmt->bindValue( ':organizer',     $_POST[organizer],     PDO::PARAM_STR );
+                    $stmt->bindValue( ':cost',          $_POST[cost],          PDO::PARAM_INT );
+                    $stmt->bindValue( ':start',         $_POST[start],         PDO::PARAM_STR );
+                    $stmt->bindValue( ':end',           $_POST[end],           PDO::PARAM_STR );
+                    $stmt->bindValue( ':deadline',      $_POST[deadline],      PDO::PARAM_STR );
+                    $stmt->execute(); // sqlの実行 
                 } catch( PDOException $e ) {
-                    echo 'hogeerror';
                     $_SESSION['edit_workshop'] = '接続失敗: ' . $e->getMessage() . '<br>';
                     echo '<script type="text/javascript">window.location.href = window.location.hreg = "";</script>';
                     exit();
