@@ -78,7 +78,7 @@
                     <h4>作者</h4>
                     <input type="text" name="work_author"     size="8" value="<?php echo $author;?>">
                     <h4>制作年</h4>
-                    <input type="text" name="work_year"     size="8" value="<?php echo $birthday;?>">
+                    <input type="text" name="work_year"     size="8" value="<?php echo $year;?>">
                     <h4>画像</h4>
                     <input type="file" name="image" accept="image/*"><br>
                     ※ファイルサイズは2M以下
