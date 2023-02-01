@@ -21,3 +21,4 @@ theme.json
 !/self-made-php/reserve_workshop/*
 !/self-made-php/workshop/*
 !/self-made-php/work/*
+!/self-made-php/line/*
