@@ -10,7 +10,7 @@
                     $stmt = $dbh->prepare( $sql ); // SQL文を実行する準備をします。
                     
                     // プレースホルダに実際の値をバインドします。
-                    $stmt->bindValue( ':id', $_POST['id'], PDO::PARAM_STR );
+                    $stmt->bindValue( ':id', $_GET['id'], PDO::PARAM_STR );
                     $stmt->bindValue( ':workshop_name', $inputName, PDO::PARAM_STR );
                     $stmt->bindValue( ':introduction', $inputIntroduction, PDO::PARAM_STR );
                     $stmt->bindValue( ':capacity', $inputCapacity, PDO::PARAM_INT );
