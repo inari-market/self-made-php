@@ -22,7 +22,7 @@
                     $stmt->execute(); // sqlの実行
                     
                 } catch( PDOException $e ) {
-                    $_SESSION['edit_exhibition'] = 'エラーが発生しました．以下のリンクから再度読み込んでください';
+                    $_SESSION['edit_exhibition'] = '接続失敗: ' . $e->getMessage() . '<br>';
                     echo '<script type="text/javascript">window.location.href = window.location.hreg = "http://100.24.172.143/exhibitions/edit/";</script>';
                     exit();
                 }
