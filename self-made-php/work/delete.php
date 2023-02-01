@@ -8,7 +8,7 @@ function delete_work($content) {
 
 <html>
     <body>
-        <h1>企画展情報</h1>
+        <h1>作品情報</h1>
 
             <table width="90%">
             <tr>
@@ -25,7 +25,8 @@ function delete_work($content) {
                 $sql = 'SELECT * FROM work order by start asc';
                 $stmt = $dbh->prepare( $sql );
                 $stmt->execute();
-                ?>
+                echo 'hoge';
+            ?>
 
             <?php while ($row = $stmt->fetch(PDO::FETCH_ASSOC)) { ?>
                 <tr>
