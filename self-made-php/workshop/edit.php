@@ -27,7 +27,7 @@
                     $stmt->bindValue( ':start',         $_POST[start],         PDO::PARAM_STR );
                     $stmt->bindValue( ':end',           $_POST[end],           PDO::PARAM_STR );
                     $stmt->bindValue( ':deadline',      $_POST[deadline],      PDO::PARAM_STR );
-                    
+
                     $stmt->execute(); // sqlの実行 
                 } catch( PDOException $e ) {
                     $_SESSION['edit_workshop'] = '接続失敗: ' . $e->getMessage() . '<br>';
@@ -57,7 +57,7 @@
                     ?>
                 <html>
                 <form action="<?php echo str_replace( '%7E', '~', $_SERVER['REQUEST_URI']); ?>" method="POST">
-                    <input type="hidden" name = 'id' value="<?php echo $result[id];?>">
+                    <input type="hidden" name = 'id' value="<?php echo $_GET[id];?>">
                     <br>
                     <p>ワークショップ名</p>
                         <input type="text" name="workshop_name" placeholder="ワークショップ名を入力" maxlength="64" value="<?php echo $result['workshop_name']; ?>"> <br>
