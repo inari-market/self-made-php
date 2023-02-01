@@ -12,19 +12,19 @@
                     $stmt = $dbh->prepare( $sql ); // SQL文を実行する準備をします。
                     
                     // プレースホルダに実際の値をバインドします。
-                    $stmt->bindValue( ':id',           $_POST['id'],           PDO::PARAM_STR );
-                    $stmt->bindValue( ':exhibition_name',         $_POST['exhibition_name'],         PDO::PARAM_STR );
-                    $stmt->bindValue( ':start',     $_POST['start'],     PDO::PARAM_STR );
-                    $stmt->bindValue( ':end',     $_POST['end'],     PDO::PARAM_STR );
+                    $stmt->bindValue( ':id', $_POST['id'], PDO::PARAM_STR );
+                    $stmt->bindValue( ':exhibition_name', $_POST['exhibition_name'], PDO::PARAM_STR );
+                    $stmt->bindValue( ':start', $_POST['start'], PDO::PARAM_STR );
+                    $stmt->bindValue( ':end', $_POST['end'], PDO::PARAM_STR );
                     $stmt->bindValue( ':organizer', $_POST['organizer'], PDO::PARAM_STR );
-                    $stmt->bindValue( ':introduction',   $_POST['introduction'],   PDO::PARAM_STR );
-                    $stmt->bindValue( ':photo_name',         $_POST['photo_name'],         PDO::PARAM_STR );
+                    $stmt->bindValue( ':introduction', $_POST['introduction'], PDO::PARAM_STR );
+                    $stmt->bindValue( ':photo_name', $_POST['photo_name'], PDO::PARAM_STR );
 
                     $stmt->execute(); // sqlの実行
                     
                 } catch( PDOException $e ) {
                     echo 'エラーが発生しました．以下のリンクから再度読み込んでください<br>';
-                    echo '<a href="http://100.24.172.143/exhibitions" style="color:blue;">再度読み込み</a>';
+                    echo '<a href="http://100.24.172.143/exhibitions/" style="color:blue;">再度読み込み</a>';
                     exit();
                 }
 
@@ -56,7 +56,7 @@
 
                 $img_url = 'http://100.24.172.143/exhibition/'; // 画像の参照先
                     ?>
-
+                <html>
                 <form name="regist_author" method="post" action="<?php echo str_replace( '%7E', '~', $_SERVER['REQUEST_URI']); ?>" enctype="multipart/form-data">
                     <input type="hidden" name = 'id' value="<?php echo $result['exhibition_id']?>">
                     <p>企画展名</p>
@@ -74,7 +74,7 @@
                     <p>企画展イメージ</p>
                         <input type="file" name="photo_img" accept="image/png, image/jpeg" > <br>
                 </form>  
-
+                </html>
                 <?php
                 echo '</div>';
                 
