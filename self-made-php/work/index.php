@@ -28,6 +28,8 @@
                         <p>作者：<?php echo $works[$index]['author'];?></p>
                         <p>制作：<?php echo $works[$index]['year']?></p>
                     <?php
+                        $j++;
+                        $index++;
                         echo '</div>';
                     }
                     echo '</div>';
