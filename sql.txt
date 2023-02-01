@@ -6,7 +6,6 @@ create table schedule(
     auganizer   varchar(255)
 );
 
-
 create table exhibition (
     id           int auto_increment,  
     name         varchar(255) not null,

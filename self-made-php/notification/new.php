@@ -36,11 +36,11 @@
                     $_SESSION['register_notification'] = '';
                     try {
                     //桁数の確認
-                        if( strlen($inputTitle) > 32 || strlen($inputBody) > 1024){
-                            $_SESSION['register_notification']=strlen($inputBody)."入力文字数を超えています";
-                            echo '<script type="text/javascript">window.location.href = window.location.hreg = "";</script>';
-                            exit();
-                        }
+                        // if( strlen($inputTitle) > 32 || strlen($inputBody) > 1024){
+                        //     $_SESSION['register_notification']=strlen($inputBody)."入力文字数を超えています";
+                        //     echo '<script type="text/javascript">window.location.href = window.location.hreg = "";</script>';
+                        //     exit();
+                        // }
 
                         $_SESSION['register_notification']="登録完了";
 
