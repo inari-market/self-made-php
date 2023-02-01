@@ -1,7 +1,7 @@
 <?php
 
 function edit_exhibition($content) {
- if( is_page( 'exhibitions/delete' ))
+ if( is_page( 'exhibitions/edit' ))
  {
 
 ?>
@@ -61,7 +61,7 @@ function edit_exhibition($content) {
             session_start();
             $_SESSION['edit_exhibition']="更新完了";
             unset($_GET['id']);
-            echo '<script type="text/javascript">window.location.href = window.location.hreg = "http://52.54.93.120/exhibitions/delete";</script>';
+            echo '<script type="text/javascript">window.location.href = window.location.hreg = "http://52.54.93.120/exhibitions/edit";</script>';
             exit();
 
         }catch( PDOException $e ){
