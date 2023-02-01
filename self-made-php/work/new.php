@@ -40,17 +40,17 @@
                         $stmt->execute();
                         $id = $stmt->fetch( PDO::FETCH_ASSOC ); // SQLの実行結果
 
-                        // $image = $id['id'] . '.png';// 画像の名前をid.pngにする
+                        $image = $id['id'] . '.png';// 画像の名前をid.pngにする
 
-                        //画像を保存
-                        // move_uploaded_file($_FILES['image']['tmp_name'], '/var/www/html/img/work/' . $image);
+                        画像を保存
+                        move_uploaded_file($_FILES['image']['tmp_name'], '/var/www/html/img/work/' . $image);
 
-                        // 画像の名前をDBに保存
-                    //     $sql = 'update work set image = :image where id = :id';
-                    //     $stmt = $dbh->prepare( $sql ); // SQL文を実行する準備をします。
+                        画像の名前をDBに保存
+                        $sql = 'update work set image = :image where id = :id';
+                        $stmt = $dbh->prepare( $sql ); // SQL文を実行する準備をします。
 
-                    //     $stmt->bindValue( ':image', $image,     PDO::PARAM_STR );
-                    //     $stmt->bindValue( ':id',    $id['id'],  PDO::PARAM_STR );
+                        $stmt->bindValue( ':image', $image,     PDO::PARAM_STR );
+                        $stmt->bindValue( ':id',    $id['id'],  PDO::PARAM_STR );
                     //     $stmt->execute();
                     }
                     
