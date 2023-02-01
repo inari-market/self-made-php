@@ -40,7 +40,7 @@
                 $sql = 'select * from workshop where workshop_id = :id'; // 該当するカラムを抜く
                 $stmt = $dbh->prepare( $sql ); // SQL文を実行する準備をします。
 
-                $stmt->bindValue( ':id', $_GET['id'], PDO::PARAM_STR );
+                $stmt->bindValue( ':id', $_POST['id'], PDO::PARAM_STR );
                 $stmt->execute(); // SQL文を実行します。
 
                 $result = $stmt->fetch(); // 結果を読み出します。             
