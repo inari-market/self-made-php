@@ -22,3 +22,4 @@ theme.json
 !/self-made-php/workshop/*
 !/self-made-php/work/*
 !/self-made-php/line/*
+!/self-made-php/line/keyword/*
