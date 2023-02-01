@@ -32,6 +32,7 @@
                     $image = $_POST['photo_name'] . '.png'; // 画像の名前をid.pngにする
 
                     if(move_uploaded_file($_FILES['image']['tmp_name'], '/var/www/html/exhibition/' . $image)) {
+                        unlink('/var/www/html/exhibition/' . $_POST['photo_name'] . '.png');
                         echo 'success';
                     } else {
                         echo '画像の保存に失敗しました．編集ページから再度登録してください';
@@ -71,7 +72,12 @@
                         <textarea  name="introduction" rows="4" cols="40" maxlength="160" placeholder="企画展の概要を入力" value="<?php echo $result['introduction']; ?>"></textarea><br>
                     <p>写真の名前</p>
                         <input type="text" name="photo_name" placeholder="写真の名前を入力" maxlength="256" value="<?php echo $result['photo_name']; ?>"> <br>
-                    <p>企画展イメージ</p>
+                    <p>写真</p>
+                        <?php
+                            $img_url = "http://52.54.93.120/exhibition/";
+                            echo '<figure class="wp-block-image size-full is-resized"><img decoding="async" src="' . $img_url . $result['photo_name'] .".png" . '" alt="画像が読み込めませんでした" width="60" height="60"></figure>';
+                        ?>
+                    <p>写真の変更</p>
                         <input type="file" name="photo_img" accept="image/png, image/jpeg" > <br>
                 </form>  
                 </html>
