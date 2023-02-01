@@ -25,9 +25,7 @@ function delete_work($content) {
                 $dbh = DbUtil::Connect();
                 $sql = 'SELECT * FROM work'; 
                 $stmt = $dbh->prepare( $sql );
-                echo 'hoge2';
                 $stmt->execute();
-                echo 'hoge1';
             ?>
 
             <?php while ($row = $stmt->fetch(PDO::FETCH_ASSOC)) { ?>
