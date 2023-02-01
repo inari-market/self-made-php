@@ -27,6 +27,7 @@
                     $stmt->bindValue( ':start',         $_POST[start],         PDO::PARAM_STR );
                     $stmt->bindValue( ':end',           $_POST[end],           PDO::PARAM_STR );
                     $stmt->bindValue( ':deadline',      $_POST[deadline],      PDO::PARAM_STR );
+
                     echo 'id:' . $_POST[id];
                     echo 'id:' . $_POST[workshop_name];
                     echo 'id:' . $_POST[introduction];
@@ -45,7 +46,9 @@
                     echo '<script type="text/javascript">window.location.href = window.location.hreg = "";</script>';
                     exit();
                 }
-                $_SESSION['edit_workshop'] = '更新成功';
+                $_SESSION['edit_workshop'] = 'id:' . $_POST[workshop_name]. 'intoro:' . $_POST[introduction] . 
+                                             'capa:' . $_POST[capacity] . 'id:' . $_POST[organizer] .
+                                             'cost:' . $_POST[cost] . 'start:' . $_POST[start] .'end:' . $_POST[end] .'dead:' . $_POST[deadline];
                 echo '<script type="text/javascript">window.location.href = window.location.hreg = "";</script>';
                 exit();
             }
