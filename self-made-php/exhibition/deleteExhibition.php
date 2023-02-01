@@ -19,6 +19,8 @@ function delete_exhibition($content) {
             <th>主催者名</th>
             <th>概要</th>
             <th>写真</th>
+            <th>削除</th>
+            <th>編集</th>
             </tr>
 
             <?php
@@ -44,6 +46,8 @@ function delete_exhibition($content) {
                         ?>
                     </td>
                     <td><a href="<?php echo str_replace( '%7E', '~', $_SERVER['REQUEST_URI']); ?>?id=<?php echo $row['exhibition_id']; ?>">削除</a></td>
+                    <td><a href="<?php echo "http://52.54.93.120/exhibitions/edit/"; ?>?id=<?php echo $row['exhibition_id']; ?>">削除</a></td>
+                
                 </tr>
             <?php } ?>
 
