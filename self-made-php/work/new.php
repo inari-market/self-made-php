@@ -13,11 +13,11 @@
                     $stmt = $dbh->prepare( $sql ); // SQL文を実行する準備をします。
         
                     // ポストのパラメータを変数へと代入．個人的に読みやすいから．
-                    $name         = $_POST['work_name'];
-                    $author     = $_POST['work_author'];
-                    $year     = $_POST['work_year'];    // とりあえずポストされた値を代入
+                    $name   = $_POST['work_name'];
+                    $author = $_POST['work_author'];
+                    $year   = $_POST['work_year'];    // とりあえずポストされた値を代入
                     // if(empty($birthday)) $birthday = NULL; // 空文字ならNULLにする
-                    $image = $_POST['work_image'];
+                    $image = $_POST['image'];
 
                     // プレースホルダに実際の値をバインドします。
                     $stmt->bindValue( ':name',         $name,         PDO::PARAM_STR );
@@ -42,16 +42,16 @@
 
                         $image = $id['id'] . '.png';// 画像の名前をid.pngにする
 
-                        画像を保存
+                        // 画像を保存
                         move_uploaded_file($_FILES['image']['tmp_name'], '/var/www/html/img/work/' . $image);
 
-                        画像の名前をDBに保存
+                        // 画像の名前をDBに保存
                         $sql = 'update work set image = :image where id = :id';
                         $stmt = $dbh->prepare( $sql ); // SQL文を実行する準備をします。
 
                         $stmt->bindValue( ':image', $image,     PDO::PARAM_STR );
                         $stmt->bindValue( ':id',    $id['id'],  PDO::PARAM_STR );
-                    //     $stmt->execute();
+                        $stmt->execute();
                     }
                     
                     echo '<p>登録完了しました</p>';
@@ -82,7 +82,7 @@
     <input type="text" name="work_year"     size="8" value="">
 
     <h4>画像</h4>
-    <input type="file" name="work_image" accept="image/*"><br>
+    <input type="file" name="image" accept="image/*"><br>
     ※ファイルサイズは2M以下        
     <h4>確認後に登録ボタンを押してください</h4>
     <input type="submit" name="button" value="create">
