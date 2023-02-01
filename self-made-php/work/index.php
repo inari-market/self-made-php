@@ -22,7 +22,7 @@
                     echo '<div class="is-layout-flex wp-container-4 wp-block-columns">'; 
                     $j = 0;
                     while($j < 3) {
-                        echo '<div class="is-layout-flow wp-block-column">';\
+                        echo '<div class="is-layout-flow wp-block-column">';
                         if (($i+1) == $row && $j >= $col) {
                             // なにもしない
                         } else {
