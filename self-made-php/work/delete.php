@@ -23,7 +23,7 @@ function delete_work($content) {
             
                 include_once dirname( __FILE__ ).'/../../db.php';
                 $dbh = DbUtil::Connect();
-                $sql = 'SELECT * FROM work order by start asc';
+                $sql = 'SELECT * FROM work'; 
                 $stmt = $dbh->prepare( $sql );
                 echo 'hoge2';
                 $stmt->execute();
