@@ -19,7 +19,7 @@
                     $stmt->bindValue( ':start', $_POST[start], PDO::PARAM_STR );
                     $stmt->bindValue( ':end', $_POST[end], PDO::PARAM_STR );
                     $stmt->bindValue( ':deadline', $_POST[deadline], PDO::PARAM_STR );
-
+                    echo 'hoge';
                     $stmt->execute(); // sqlの実行
                     
                 } catch( PDOException $e ) {
