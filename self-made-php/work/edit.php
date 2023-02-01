@@ -77,14 +77,8 @@
                     <input type="text" name="posted_name"  size="8" value="<?php echo $name;?>">
                     <h4>作者</h4>
                     <input type="text" name="work_author"     size="8" value="<?php echo $author;?>">
-                    <h4>生年月日</h4>
-                    <input type="text" name="birthday"     size="8" value="<?php echo $birthday;?>">
-                    <h4>紹介文</h4>
-                    <textarea          name="introduction" rows="4" cols="40"><?php echo $introduction;?></textarea>
-                    <h4>出身地</h4>
-                    <input type="text" name="birthplace"   size="8" value="<?php echo $birthplace;?>">
-                    <h4>代表作</h4>
-                    <input type="text" name="work"         size="8" value="<?php echo $work;?>">
+                    <h4>制作年</h4>
+                    <input type="text" name="work_year"     size="8" value="<?php echo $birthday;?>">
                     <h4>画像</h4>
                     <input type="file" name="image" accept="image/*"><br>
                     ※ファイルサイズは2M以下
