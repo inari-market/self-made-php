@@ -12,10 +12,10 @@
                     $stmt = $dbh->prepare( $sql ); // SQL文を実行する準備をします。
                     
                     // プレースホルダに実際の値をバインドします。
-                    $stmt->bindValue( ':id',           $_POST[id],           PDO::PARAM_STR );
-                    $stmt->bindValue( ':name',         $_POST[posted_name],         PDO::PARAM_STR );
-                    $stmt->bindValue( ':author',     $_POST[work_author],     PDO::PARAM_STR );
-                    $stmt->bindValue( ':year',     $_POST[work_year],     PDO::PARAM_STR );
+                    $stmt->bindValue( ':id',     $_POST[id],          PDO::PARAM_STR );
+                    $stmt->bindValue( ':name',   $_POST[posted_name], PDO::PARAM_STR );
+                    $stmt->bindValue( ':author', $_POST[work_author], PDO::PARAM_STR );
+                    $stmt->bindValue( ':year',   $_POST[work_year],   PDO::PARAM_STR );
 
                     $stmt->execute(); // sqlの実行
                     
