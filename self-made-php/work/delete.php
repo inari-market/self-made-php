@@ -20,12 +20,13 @@ function delete_work($content) {
             </tr>
 
             <?php
+            echo 'hoge';
                 include_once dirname( __FILE__ ).'/../../db.php';
                 $dbh = DbUtil::Connect();
                 $sql = 'SELECT * FROM work order by start asc';
                 $stmt = $dbh->prepare( $sql );
                 $stmt->execute();
-                echo 'hoge';
+                
             ?>
 
             <?php while ($row = $stmt->fetch(PDO::FETCH_ASSOC)) { ?>
