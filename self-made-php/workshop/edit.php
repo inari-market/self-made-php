@@ -19,10 +19,10 @@
                     $stmt->bindValue( ':start', $_POST[start], PDO::PARAM_STR );
                     $stmt->bindValue( ':end', $_POST[end], PDO::PARAM_STR );
                     $stmt->bindValue( ':deadline', $_POST[deadline], PDO::PARAM_STR );
-                    echo 'hoge';
                     $stmt->execute(); // sqlの実行
-                    
+                    echo 'hoge1';
                 } catch( PDOException $e ) {
+                    echo 'hogeerror';
                     $_SESSION['edit_workshop'] = '接続失敗: ' . $e->getMessage() . '<br>';
                     echo '<script type="text/javascript">window.location.href = window.location.hreg = "";</script>';
                     exit();
