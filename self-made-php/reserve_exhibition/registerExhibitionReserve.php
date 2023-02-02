@@ -1,9 +1,7 @@
 <?php
 
 function register_exhibition_reserve($content) {
-  if( is_page( 'exhibition_reserves/new' ))  //固定ページ「sample_cal」の時だけ処理させる
-  {
-
+  if( is_page( 'exhibition-new' )) {
 
 ?>
 

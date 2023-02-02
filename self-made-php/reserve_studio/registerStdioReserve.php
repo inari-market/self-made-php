@@ -1,8 +1,6 @@
 <?php
-//実装時はコメント解除
-//いったん放置
 function register_stdio_reserve($content) {
-  if( is_page( 'stdio_reserves/new' ))  //固定ページ「sample_cal」の時だけ処理させる
+  if( is_page( 'studio-new' ))  
   {
 
 
